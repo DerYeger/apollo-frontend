@@ -44,6 +44,7 @@ export class GraphComponent implements AfterViewInit {
 
   private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
   private draggableLinkSourceNode?: Node;
+  private draggableLinkEnd?: [number, number];
 
   @HostListener('window:resize', ['$event'])
   onResize(_: any): void {
@@ -183,6 +184,11 @@ export class GraphComponent implements AfterViewInit {
         return directPath(d.source, d.target);
       }
     });
+
+    if (this.draggableLinkEnd !== undefined && this.draggableLinkSourceNode !== undefined) {
+      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
+      this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
+    }
   }
 
   private restart(): void {
@@ -216,8 +222,8 @@ export class GraphComponent implements AfterViewInit {
           return;
         }
         terminate(event);
-        console.log('Node down.');
         const coordinates: [number, number] = [d.x!, d.y!];
+        this.draggableLinkEnd = coordinates;
         this.draggableLinkSourceNode = d;
         this.draggableLink!
           .style('marker-end', 'url(#link-arrow')
@@ -230,11 +236,9 @@ export class GraphComponent implements AfterViewInit {
           return;
         }
         terminate(event);
-        console.log('Node up.');
         this.draggableLink!
           .classed('hidden', true)
           .style('marker-end', '');
-
         const source = this.draggableLinkSourceNode;
         const target = d;
         this.resetDraggableLink();
@@ -253,18 +257,22 @@ export class GraphComponent implements AfterViewInit {
 
   private resetDraggableLink(): void {
     this.draggableLinkSourceNode = undefined;
+    this.draggableLinkEnd = undefined;
   }
 
   private clean(): void {
     this.simulation!.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
+    this.canShowTooltip = true;
     this.zoom = undefined;
     this.xOffset = 0;
     this.yOffset = 0;
     this.canvas = undefined;
+    this.draggableLink = undefined;
     this.link = undefined;
     this.node = undefined;
     this.simulation = undefined;
+    this.canShowTooltip = true;
     this.resetDraggableLink();
   }
 
@@ -283,18 +291,13 @@ export class GraphComponent implements AfterViewInit {
     if (this.draggableLinkSourceNode !== undefined) {
       const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
       const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
+      this.draggableLinkEnd = to;
       this.draggableLink!.attr('d', linePath(from, to));
     }
   }
 
   private pointerRaised(): void {
-    console.log('Pointer raised.');
-    if (this.draggableLinkSourceNode !== undefined) {
-      this.draggableLink!
-        .classed('hidden', true)
-        .style('marker-end', '');
-    }
-
+    this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.resetDraggableLink();
   }
 
