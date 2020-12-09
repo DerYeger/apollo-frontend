@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+h1.title {
+  margin-left: 0.5rem;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  min-width: 12.5rem;
+}
