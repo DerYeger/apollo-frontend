@@ -6,6 +6,7 @@ import Graph from 'src/app/model/d3/graph';
 import { Link } from 'src/app/model/d3/link';
 import { Node } from 'src/app/model/d3/node';
 import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
+import { terminate } from 'src/app/utils/event.utils';
 
 @Component({
   selector: 'gramofo-graph',
@@ -94,7 +95,7 @@ export class GraphComponent implements AfterViewInit {
       .append('svg')
       .on('mousemove', (event: PointerEvent) => this.pointerMoved(event))
       .on('mouseup', () => this.pointerRaised())
-      .on('contextmenu', (event: MouseEvent) => event.preventDefault())
+      .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
       .on('dblclick', (event) => this.addNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
@@ -149,7 +150,7 @@ export class GraphComponent implements AfterViewInit {
     this.drag = d3.drag<SVGGElement, Node, Node>()
       .filter((event) => event.button === 1)
       .on('start', (event: D3DragEvent<SVGCircleElement, Node, Node>, d: Node) => {
-        event.sourceEvent.stopPropagation();
+        terminate(event.sourceEvent);
         this.canShowTooltip = false;
         this.hideTooltip();
         if (event.active === 0) {
@@ -189,8 +190,7 @@ export class GraphComponent implements AfterViewInit {
       .join('path')
       .classed('link', true)
       .on('contextmenu', (event: MouseEvent, d) => {
-        event.stopPropagation();
-        event.preventDefault();
+        terminate(event);
         this.removeLink(d);
       })
       .on('mouseover', (event, d: Link) => this.showTooltip(event, d.symbols.join(', ')))
@@ -201,8 +201,7 @@ export class GraphComponent implements AfterViewInit {
       .join('g')
       .call(this.drag!)
       .on('contextmenu', (event: MouseEvent, d) => {
-        event.stopPropagation();
-        event.preventDefault();
+        terminate(event);
         this.removeNode(d);
       });
 
@@ -216,7 +215,7 @@ export class GraphComponent implements AfterViewInit {
         if (event.button !== 0) {
           return;
         }
-        event.stopPropagation();
+        terminate(event);
         console.log('Node down.');
         const coordinates: [number, number] = [d.x!, d.y!];
         this.draggableLinkSourceNode = d;
@@ -230,7 +229,7 @@ export class GraphComponent implements AfterViewInit {
         if (this.draggableLinkSourceNode === undefined) {
           return;
         }
-        event.stopPropagation();
+        terminate(event);
         console.log('Node up.');
         this.draggableLink!
           .classed('hidden', true)
