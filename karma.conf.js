@@ -36,9 +36,15 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    autoWatch: false,
+    browsers: ['ChromeForAutomation'],
+    customLaunchers: {
+      ChromeForAutomation: {
+        base: 'ChromeHeadless',
+        flags: ['--disable-translate', '--disable-extensions', '--no-sandbox', '--disable-gpu']
+      }
+    },
+    singleRun: true,
+    restartOnFileChange: false
   });
 };
