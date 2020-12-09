@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { MaterialModule } from './material.module';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardPage
+    DashboardPage,
+    GraphComponent
   ],
   imports: [
     BrowserModule,

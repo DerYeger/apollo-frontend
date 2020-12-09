@@ -19,7 +19,7 @@ const matModules = [
   MatListModule,
   MatSidenavModule,
   MatToolbarModule
-]
+];
 
 @NgModule({
   imports: [...matModules],
