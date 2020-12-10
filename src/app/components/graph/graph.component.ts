@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
 import { graphConfiguration as gc } from 'src/app/configurations/graph.configuration';
@@ -14,9 +14,10 @@ import { terminate } from 'src/app/utils/event.utils';
   styleUrls: ['./graph.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class GraphComponent implements AfterViewInit {
+export class GraphComponent implements AfterViewInit, OnChanges {
 
   @Input() readonly graph = new Graph();
+  @Input() readonly isEditMode = true;
 
   private lastNodeId = 0;
 
@@ -48,8 +49,11 @@ export class GraphComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(_: any): void {
-    this.clean();
-    this.initGraph();
+    this.cleanInitGraph();
+  }
+
+  ngOnChanges(_: SimpleChanges): void {
+    this.cleanInitGraph();
   }
 
   ngAfterViewInit(): void {
@@ -71,13 +75,20 @@ export class GraphComponent implements AfterViewInit {
     this.onResize(null);
   }
 
+  private cleanInitGraph(): void {
+    this.clean();
+    this.initGraph();
+  }
+
   private initGraph(): void {
     this.width = this.graphHost.nativeElement.clientWidth;
     this.height = this.graphHost.nativeElement.clientHeight;
     this.initZoom();
     this.initCanvas();
     this.initMarkers();
-    this.initDraggableLink();
+    if (this.isEditMode) {
+      this.initDraggableLink();
+    }
     this.initLink();
     this.initNode();
     this.initSimulation();
@@ -217,33 +228,8 @@ export class GraphComponent implements AfterViewInit {
       .style('stroke-width', `${gc.nodeBorder}`)
       .on('mouseover', (event, d: Node) => this.showTooltip(event, d.symbols.join(', ')))
       .on('mouseout', () => this.hideTooltip())
-      .on('mousedown', (event: MouseEvent, d) => {
-        if (event.button !== 0) {
-          return;
-        }
-        terminate(event);
-        const coordinates: [number, number] = [d.x!, d.y!];
-        this.draggableLinkEnd = coordinates;
-        this.draggableLinkSourceNode = d;
-        this.draggableLink!
-          .style('marker-end', 'url(#link-arrow')
-          .classed('hidden', false)
-          .attr('d', linePath(coordinates, coordinates));
-        this.restart();
-      })
-      .on('mouseup', (event: MouseEvent, d) => {
-        if (this.draggableLinkSourceNode === undefined) {
-          return;
-        }
-        terminate(event);
-        this.draggableLink!
-          .classed('hidden', true)
-          .style('marker-end', '');
-        const source = this.draggableLinkSourceNode;
-        const target = d;
-        this.resetDraggableLink();
-        this.addLink(source, target);
-      });
+      .on('mousedown', (event: MouseEvent, d) => this.onMouseDown(event, d))
+      .on('mouseup', (event: MouseEvent, d) => this.onMouseUp(event, d));
 
     this.node.append('text')
       .text(d => d.id)
@@ -253,6 +239,34 @@ export class GraphComponent implements AfterViewInit {
 
     this.simulation!.nodes(this.graph.nodes);
     this.simulation!.alpha(0.3).restart();
+  }
+
+  private onMouseDown(event: MouseEvent, node: Node): void {
+    if (!this.isEditMode || event.button !== 0) {
+      return;
+    }
+    terminate(event);
+    const coordinates: [number, number] = [node.x!, node.y!];
+    this.draggableLinkEnd = coordinates;
+    this.draggableLinkSourceNode = node;
+    this.draggableLink!
+      .style('marker-end', 'url(#link-arrow')
+      .classed('hidden', false)
+      .attr('d', linePath(coordinates, coordinates));
+    this.restart();
+  }
+
+  private onMouseUp(event: MouseEvent, node: Node): void {
+    if (!this.isEditMode || this.draggableLinkSourceNode === undefined) {
+      return;
+    }
+    terminate(event);
+    this.draggableLink!
+      .classed('hidden', true)
+      .style('marker-end', '');
+    const source = this.draggableLinkSourceNode;
+    this.resetDraggableLink();
+    this.addLink(source, node);
   }
 
   private resetDraggableLink(): void {
@@ -305,27 +319,36 @@ export class GraphComponent implements AfterViewInit {
     if (!this.canShowTooltip) {
       return;
     }
-    d3.select(this.tooltip.nativeElement).transition()
+    d3.select(this.tooltip.nativeElement)
+      .transition()
       .duration(gc.tooltipFadeInTame)
       .style('opacity', gc.tooltipOpacity);
-    d3.select(this.tooltip.nativeElement).html(text)
+    d3.select(this.tooltip.nativeElement)
+      .html(text)
       .style('left', (event.pageX) + 'px')
       .style('top', (event.pageY - 28) + 'px');
   }
 
   private hideTooltip(): void {
-    d3.select(this.tooltip.nativeElement).transition()
+    d3.select(this.tooltip.nativeElement)
+      .transition()
       .duration(gc.tooltipFadeOutTime)
       .style('opacity', 0);
   }
 
   private addNode(x?: number, y?: number): void {
+    if (!this.isEditMode) {
+      return;
+    }
     this.graph
       .createNode(`${this.lastNodeId++}`, undefined, x, y)
       .then(() => this.restart());
   }
 
   private removeNode(node: Node): void {
+    if (!this.isEditMode) {
+      return;
+    }
     this.hideTooltip();
     this.graph
       .removeNode(node)
@@ -333,12 +356,18 @@ export class GraphComponent implements AfterViewInit {
   }
 
   private addLink(source: Node, target: Node): void {
+    if (!this.isEditMode) {
+      return;
+    }
     this.graph
       .createLink(source, target)
       .then(() => this.restart());
   }
 
   private removeLink(link: Link): void {
+    if (!this.isEditMode) {
+      return;
+    }
     this.hideTooltip();
     this.graph
       .removeLink(link)
