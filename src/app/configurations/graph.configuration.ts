@@ -22,7 +22,7 @@ export interface GraphConfiguration {
   markerPath: string;
 }
 
-export const graphConfiguration: GraphConfiguration = {
+export const defaultGraphConfiguration: GraphConfiguration = {
   nodeBorder,
   nodeRadius,
 

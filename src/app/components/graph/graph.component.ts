@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { graphConfiguration as gc } from 'src/app/configurations/graph.configuration';
+import { GraphConfiguration, defaultGraphConfiguration } from 'src/app/configurations/graph.configuration';
 import Graph from 'src/app/model/d3/graph';
 import { Link } from 'src/app/model/d3/link';
 import { Node } from 'src/app/model/d3/node';
@@ -18,6 +18,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
 
   @Input() readonly graph = new Graph();
   @Input() readonly isEditMode = true;
+  @Input() readonly config: GraphConfiguration = defaultGraphConfiguration;
 
   private lastNodeId = 0;
 
@@ -99,35 +100,35 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   private initZoom(): void {
     this.zoom = d3.zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 1])
+      .filter(event => event.button === 0)
       .on('zoom', (event) => this.zoomed(event));
   }
 
   private initCanvas(): void {
     this.canvas = d3.select(this.graphHost.nativeElement)
       .append('svg')
-      .on('mousemove', (event: PointerEvent) => this.pointerMoved(event))
-      .on('mouseup', () => this.pointerRaised())
+      .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
+      .on('pointerup', () => this.pointerRaised())
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
       .on('dblclick', (event) => this.addNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
       .call(this.zoom!)
-      .on('dblclick.zoom', null)
       .append('g');
   }
 
   private initMarkers(): void {
     this.canvas!.append('defs').append('marker')
       .attr('id', 'link-arrow')
-      .attr('viewBox', gc.markerPath)
-      .attr('refX', gc.markerRef)
-      .attr('refY', gc.markerRef)
-      .attr('markerWidth', gc.markerBoxSize)
-      .attr('markerHeight', gc.markerBoxSize)
+      .attr('viewBox', this.config.markerPath)
+      .attr('refX', this.config.markerRef)
+      .attr('refY', this.config.markerRef)
+      .attr('markerWidth', this.config.markerBoxSize)
+      .attr('markerHeight', this.config.markerBoxSize)
       .attr('orient', 'auto')
       .classed('arrow', true)
       .append('path')
-      .attr('d', `${d3.line()(gc.arrowPoints)}`);
+      .attr('d', `${d3.line()(this.config.arrowPoints)}`);
   }
 
   private initDraggableLink(): void {
@@ -152,7 +153,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     this.simulation = d3.forceSimulation<Node, Link>(this.graph.nodes)
       .force('charge', d3.forceManyBody<Node>().strength(-500))
       .force('collision', d3.forceCollide<Node>().radius(20))
-      .force('link', d3.forceLink<Node, Link>().links(this.graph.links).id((d: Node) => d.id).distance(gc.nodeRadius * 10))
+      .force('link', d3.forceLink<Node, Link>().links(this.graph.links).id((d: Node) => d.id).distance(this.config.nodeRadius * 10))
       .force('x', d3.forceX<Node>(this.width / 2))
       .force('y', d3.forceY<Node>(this.height / 2))
       .on('tick', () => this.tick());
@@ -188,11 +189,11 @@ export class GraphComponent implements AfterViewInit, OnChanges {
 
     this.link!.attr('d', d => {
       if (d.source.id === d.target.id) {
-        return reflexivePath(d.source);
+        return reflexivePath(d.source, this.config);
       } else if (this.isBidirectional(d)) {
-        return arcPath(d.source, d.target);
+        return arcPath(d.source, d.target,  this.config);
       } else {
-        return directPath(d.source, d.target);
+        return directPath(d.source, d.target,  this.config);
       }
     });
 
@@ -210,8 +211,8 @@ export class GraphComponent implements AfterViewInit, OnChanges {
         terminate(event);
         this.removeLink(d);
       })
-      .on('mouseover', (event, d: Link) => this.showTooltip(event, d.symbols.join(', ')))
-      .on('mouseout', () => this.hideTooltip())
+      .on('pointerenter', (event, d: Link) => this.showTooltip(event, d.symbols.join(', ')))
+      .on('pointerout', () => this.hideTooltip())
       .style('marker-end', 'url(#link-arrow');
 
     this.node = this.node!.data(this.graph.nodes, d => d.id)
@@ -224,12 +225,12 @@ export class GraphComponent implements AfterViewInit, OnChanges {
 
     this.node.append('circle')
       .classed('node', true)
-      .attr('r', gc.nodeRadius)
-      .style('stroke-width', `${gc.nodeBorder}`)
-      .on('mouseover', (event, d: Node) => this.showTooltip(event, d.symbols.join(', ')))
-      .on('mouseout', () => this.hideTooltip())
-      .on('mousedown', (event: MouseEvent, d) => this.onMouseDown(event, d))
-      .on('mouseup', (event: MouseEvent, d) => this.onMouseUp(event, d));
+      .attr('r', this.config.nodeRadius)
+      .style('stroke-width', `${this.config.nodeBorder}`)
+      .on('pointerenter', (event, d: Node) => this.showTooltip(event, d.symbols.join(', ')))
+      .on('pointerout', () => this.hideTooltip())
+      .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
+      .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
 
     this.node.append('text')
       .text(d => d.id)
@@ -241,7 +242,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     this.simulation!.alpha(0.3).restart();
   }
 
-  private onMouseDown(event: MouseEvent, node: Node): void {
+  private onPointerDown(event: PointerEvent, node: Node): void {
     if (!this.isEditMode || event.button !== 0) {
       return;
     }
@@ -256,7 +257,17 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     this.restart();
   }
 
-  private onMouseUp(event: MouseEvent, node: Node): void {
+  private pointerMoved(event: PointerEvent): void {
+    terminate(event);
+    if (this.draggableLinkSourceNode !== undefined) {
+      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
+      const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
+      this.draggableLinkEnd = to;
+      this.draggableLink!.attr('d', linePath(from, to));
+    }
+  }
+
+  private onPointerUp(event: PointerEvent, node: Node): void {
     if (!this.isEditMode || this.draggableLinkSourceNode === undefined) {
       return;
     }
@@ -301,28 +312,19 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       && this.graph.links.findIndex(l => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
   }
 
-  private pointerMoved(event: PointerEvent): void {
-    if (this.draggableLinkSourceNode !== undefined) {
-      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
-      const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
-      this.draggableLinkEnd = to;
-      this.draggableLink!.attr('d', linePath(from, to));
-    }
-  }
-
   private pointerRaised(): void {
     this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.resetDraggableLink();
   }
 
-  private showTooltip(event: MouseEvent, text: string): void {
+  private showTooltip(event: PointerEvent, text: string): void {
     if (!this.canShowTooltip) {
       return;
     }
     d3.select(this.tooltip.nativeElement)
       .transition()
-      .duration(gc.tooltipFadeInTame)
-      .style('opacity', gc.tooltipOpacity);
+      .duration(this.config.tooltipFadeInTame)
+      .style('opacity', this.config.tooltipOpacity);
     d3.select(this.tooltip.nativeElement)
       .html(text)
       .style('left', (event.pageX) + 'px')
@@ -332,7 +334,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   private hideTooltip(): void {
     d3.select(this.tooltip.nativeElement)
       .transition()
-      .duration(gc.tooltipFadeOutTime)
+      .duration(this.config.tooltipFadeOutTime)
       .style('opacity', 0);
   }
 
