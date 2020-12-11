@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop, feature/*]
+  pull_request:
+    branches: [master, develop, feature/*]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '12'
+    - name: Install dependencies
+      run: npm ci
+    - name: Lint
+      run: npm run lint
+    - name: Build
+      run: npm run build -- --prod
+    - name: Test
+      run: npm test
+    - name: E2E
+      run: npm run e2e
