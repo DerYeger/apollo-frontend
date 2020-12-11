@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', async () => {
+  it('should contain the dashboard', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual('gramofo-frontend app is running!');
+    expect(await page.getDashboardTitleText()).toEqual('gramoFO');
   });
 
   afterEach(async () => {
