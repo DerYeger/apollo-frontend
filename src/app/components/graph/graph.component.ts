@@ -98,6 +98,15 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
     this.nodeDeletionRequestsSubscription$?.unsubscribe();
   }
 
+  resetGraph(): void {
+    this.simulation!.stop();
+    this.graph.nodes.forEach((node) => {
+      node.fx = null;
+      node.fy = null;
+    });
+    this.cleanInitGraph();
+  }
+
   private cleanInitGraph(): void {
     this.clean();
     this.initGraph();

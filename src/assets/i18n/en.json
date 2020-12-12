@@ -8,6 +8,9 @@
   "home": {
     "title": "Home"
   },
+  "graph": {
+    "reset-graph": "Reset Graph"
+  },
   "editor": {
     "node": {
       "title": "Node",

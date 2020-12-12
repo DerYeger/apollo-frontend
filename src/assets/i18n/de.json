@@ -8,6 +8,9 @@
   "home": {
     "title": "Home"
   },
+  "graph": {
+    "reset-graph": "Graph zurücksetzen"
+  },
   "editor": {
     "node": {
       "title": "Knoten",
