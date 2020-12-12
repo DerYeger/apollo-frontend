@@ -7,6 +7,6 @@
 </div>
 <div class="form-container">
   <gramofo-node-form #nodeForm [node]="graph.nodeSelections$ | async" [nodeDeletions$]="graph.nodeDeletions$"></gramofo-node-form>
-  <div style="height: 1rem;"></div>
+  <mat-divider class="horizontal-divider"></mat-divider>
   <gramofo-link-form #linkForm [link]="graph.linkSelections$ | async" [linkDeletions$]="graph.linkDeletions$"></gramofo-link-form>
 </div>
