@@ -12,8 +12,7 @@ import { terminate } from 'src/app/utils/event.utils';
 @Component({
   selector: 'gramofo-graph',
   templateUrl: './graph.component.html',
-  styleUrls: ['./graph.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom,
+  styleUrls: ['./graph.component.scss']
 })
 export class GraphComponent implements AfterViewInit, OnDestroy {
   @Input() graph = new Graph();
