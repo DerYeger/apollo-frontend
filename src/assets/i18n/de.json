@@ -1,0 +1,11 @@
+{
+  "misc": {
+    "title": "gramoFO"
+  },
+  "model-checker": {
+    "name": "ModelChecker"
+  },
+  "home": {
+    "name": "Home"
+  }
+}
