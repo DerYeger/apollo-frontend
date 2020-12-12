@@ -1,7 +1,12 @@
 <div class="graph-container">
   <mat-card class="graph-card">
     <mat-card-content class="graph-card-content">
-      <gramofo-graph></gramofo-graph>
+      <gramofo-graph #graph [nodeDeletionRequests]="nodeForm.deletionRequests$" [linkDeletionRequests]="linkForm.deletionRequests$"></gramofo-graph>
     </mat-card-content>
   </mat-card>
+</div>
+<div class="form-container">
+  <gramofo-node-form #nodeForm [node]="graph.selectedNode$ | async"></gramofo-node-form>
+  <div style="height: 1rem;"></div>
+  <gramofo-link-form #linkForm [link]="graph.selectedLink$ | async"></gramofo-link-form>
 </div>

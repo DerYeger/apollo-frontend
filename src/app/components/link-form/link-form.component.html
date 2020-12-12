@@ -1,13 +1,13 @@
-<mat-card class="node-form-card">
-  <ng-container *ngIf="!node">
-    <mat-card-subtitle>{{'editor.node.none-selected' | translate}}</mat-card-subtitle>
+<mat-card class="link-form-card">
+  <ng-container *ngIf="!link">
+    <mat-card-subtitle>{{'editor.link.none-selected' | translate}}</mat-card-subtitle>
   </ng-container>
-  <ng-container *ngIf="!!node">
-    <mat-card-title>{{'editor.node.title' | translate}} {{node!.id}}</mat-card-title>
+  <ng-container *ngIf="!!link">
+    <mat-card-title>{{'editor.link.title' | translate}} {{link!.source.id}} -> {{link!.target.id}}</mat-card-title>
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
-          <mat-form-field class="node-input">
+          <mat-form-field class="link-input">
             <mat-label>{{'editor.symbols.title' | translate}}</mat-label>
             <input matInput type="text" formControlName="symbols" autocomplete="off">
           </mat-form-field>

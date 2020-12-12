@@ -4,28 +4,27 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 import { MaterialModule } from 'src/app/material.module';
 
-import { NodeFormComponent } from './node-form.component';
+import { LinkFormComponent } from './link-form.component';
 
-describe('NodeFormComponent', () => {
-  let component: NodeFormComponent;
-  let fixture: ComponentFixture<NodeFormComponent>;
+describe('LinkFormComponent', () => {
+  let component: LinkFormComponent;
+  let fixture: ComponentFixture<LinkFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NodeFormComponent ],
+      declarations: [LinkFormComponent],
       imports: [
         LoggerTestingModule,
         FormsModule,
         ReactiveFormsModule,
         TranslateModule.forRoot(),
         MaterialModule
-      ]
-    })
-    .compileComponents();
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NodeFormComponent);
+    fixture = TestBed.createComponent(LinkFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

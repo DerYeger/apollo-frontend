@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
+import { Observable, Subject } from 'rxjs';
 import { GraphConfiguration, defaultGraphConfiguration } from 'src/app/configurations/graph.configuration';
 import Graph from 'src/app/model/d3/graph';
 import { Link } from 'src/app/model/d3/link';
@@ -14,11 +15,17 @@ import { terminate } from 'src/app/utils/event.utils';
   styleUrls: ['./graph.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class GraphComponent implements AfterViewInit, OnChanges {
+export class GraphComponent implements AfterViewInit {
+  @Input() graph = new Graph();
+  @Input() isEditMode = true;
+  @Input() config: GraphConfiguration = defaultGraphConfiguration;
+  @Input() linkDeletionRequests?: Observable<Link>;
+  @Input() nodeDeletionRequests?: Observable<Node>;
 
-  @Input() readonly graph = new Graph();
-  @Input() readonly isEditMode = true;
-  @Input() readonly config: GraphConfiguration = defaultGraphConfiguration;
+  private readonly selectedLinkSubject$ = new Subject<Link>();
+  @Output() readonly selectedLink$ = this.selectedLinkSubject$.asObservable();
+  private readonly selectedNodeSubject$ = new Subject<Node>();
+  @Output() readonly selectedNode$ = this.selectedNodeSubject$.asObservable();
 
   private lastNodeId = 0;
 
@@ -53,10 +60,6 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     this.cleanInitGraph();
   }
 
-  ngOnChanges(_: SimpleChanges): void {
-    this.cleanInitGraph();
-  }
-
   ngAfterViewInit(): void {
     this.initGraph();
 
@@ -64,16 +67,19 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       { id: '0', attachments: ['a', 'd', 'f'] },
       { id: '1', attachments: ['b'] },
       { id: '2', attachments: ['c'] },
-      { id: '3', attachments: ['g'] }
-    ].forEach(n => this.graph.createNode(n.id, n.attachments));
+      { id: '3', attachments: ['g'] },
+    ].forEach((n) => this.graph.createNode(n.id, n.attachments));
     [
       { source: this.graph.nodes[0], target: this.graph.nodes[0], attachments: ['R'] },
       { source: this.graph.nodes[0], target: this.graph.nodes[1], attachments: ['A'] },
       { source: this.graph.nodes[1], target: this.graph.nodes[2], attachments: ['B'] },
-      { source: this.graph.nodes[2], target: this.graph.nodes[1], attachments: ['B'] }
-    ].forEach(l => this.graph.createLink(l.source, l.target, l.attachments));
+      { source: this.graph.nodes[2], target: this.graph.nodes[1], attachments: ['B'] },
+    ].forEach((l) => this.graph.createLink(l.source, l.target, l.attachments));
     this.lastNodeId = 4;
     this.onResize(null);
+
+    this.linkDeletionRequests?.subscribe((link) => this.removeLink(link));
+    this.nodeDeletionRequests?.subscribe((node) => this.removeNode(node));
   }
 
   private cleanInitGraph(): void {
@@ -98,27 +104,30 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   }
 
   private initZoom(): void {
-    this.zoom = d3.zoom<SVGSVGElement, unknown>()
+    this.zoom = d3
+      .zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 1])
-      .filter(event => event.button === 0)
+      .filter((event) => event.button === 0)
       .on('zoom', (event) => this.zoomed(event));
   }
 
   private initCanvas(): void {
-    this.canvas = d3.select(this.graphHost.nativeElement)
+    this.canvas = d3
+      .select(this.graphHost.nativeElement)
       .append('svg')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
       .on('pointerup', () => this.pointerRaised())
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
-      .on('dblclick', (event) => this.addNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
+      .on('dblclick', (event) => this.createNode(event))
       .call(this.zoom!)
       .append('g');
   }
 
   private initMarkers(): void {
-    this.canvas!.append('defs').append('marker')
+    this.canvas!.append('defs')
+      .append('marker')
       .attr('id', 'link-arrow')
       .attr('viewBox', this.config.markerPath)
       .attr('refX', this.config.markerRef)
@@ -132,35 +141,38 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   }
 
   private initDraggableLink(): void {
-    this.draggableLink = this.canvas!.append('path')
-      .classed('link draggable hidden', true)
-      .attr('d', 'M0,0L0,0');
+    this.draggableLink = this.canvas!.append('path').classed('link draggable hidden', true).attr('d', 'M0,0L0,0');
   }
 
   private initLink(): void {
-    this.link = this.canvas!.append('g')
-      .classed('links', true)
-      .selectAll('path');
+    this.link = this.canvas!.append('g').classed('links', true).selectAll('path');
   }
 
   private initNode(): void {
-    this.node = this.canvas!.append('g')
-      .classed('nodes', true)
-      .selectAll('circle');
+    this.node = this.canvas!.append('g').classed('nodes', true).selectAll('circle');
   }
 
   private initSimulation(): void {
-    this.simulation = d3.forceSimulation<Node, Link>(this.graph.nodes)
+    this.simulation = d3
+      .forceSimulation<Node, Link>(this.graph.nodes)
       .force('charge', d3.forceManyBody<Node>().strength(-500))
       .force('collision', d3.forceCollide<Node>().radius(20))
-      .force('link', d3.forceLink<Node, Link>().links(this.graph.links).id((d: Node) => d.id).distance(this.config.nodeRadius * 10))
+      .force(
+        'link',
+        d3
+          .forceLink<Node, Link>()
+          .links(this.graph.links)
+          .id((d: Node) => d.id)
+          .distance(this.config.nodeRadius * 10)
+      )
       .force('x', d3.forceX<Node>(this.width / 2))
       .force('y', d3.forceY<Node>(this.height / 2))
       .on('tick', () => this.tick());
   }
 
   private initDrag(): void {
-    this.drag = d3.drag<SVGGElement, Node, Node>()
+    this.drag = d3
+      .drag<SVGGElement, Node, Node>()
       .filter((event) => event.button === 1)
       .on('start', (event: D3DragEvent<SVGCircleElement, Node, Node>, d: Node) => {
         terminate(event.sourceEvent);
@@ -185,15 +197,15 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   }
 
   private tick(): void {
-    this.node!.attr('transform', d => `translate(${d.x},${d.y})`);
+    this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.attr('d', d => {
+    this.link!.attr('d', (d) => {
       if (d.source.id === d.target.id) {
         return reflexivePath(d.source, this.config);
       } else if (this.isBidirectional(d)) {
-        return arcPath(d.source, d.target,  this.config);
+        return arcPath(d.source, d.target, this.config);
       } else {
-        return directPath(d.source, d.target,  this.config);
+        return directPath(d.source, d.target, this.config);
       }
     });
 
@@ -209,21 +221,22 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       .classed('link', true)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.removeLink(d);
+        this.selectedLinkSubject$.next(d);
       })
       .on('pointerenter', (event, d: Link) => this.showTooltip(event, d.symbols.join(', ')))
       .on('pointerout', () => this.hideTooltip())
       .style('marker-end', 'url(#link-arrow');
 
-    this.node = this.node!.data(this.graph.nodes, d => d.id)
+    this.node = this.node!.data(this.graph.nodes, (d) => d.id)
       .join('g')
       .call(this.drag!)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.removeNode(d);
+        this.selectedNodeSubject$.next(d);
       });
 
-    this.node.append('circle')
+    this.node
+      .append('circle')
       .classed('node', true)
       .attr('r', this.config.nodeRadius)
       .style('stroke-width', `${this.config.nodeBorder}`)
@@ -232,8 +245,9 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
       .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
 
-    this.node.append('text')
-      .text(d => d.id)
+    this.node
+      .append('text')
+      .text((d) => d.id)
       .classed('label', true)
       .attr('text-anchor', 'middle')
       .attr('dy', `0.33em`);
@@ -250,10 +264,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     const coordinates: [number, number] = [node.x!, node.y!];
     this.draggableLinkEnd = coordinates;
     this.draggableLinkSourceNode = node;
-    this.draggableLink!
-      .style('marker-end', 'url(#link-arrow')
-      .classed('hidden', false)
-      .attr('d', linePath(coordinates, coordinates));
+    this.draggableLink!.style('marker-end', 'url(#link-arrow').classed('hidden', false).attr('d', linePath(coordinates, coordinates));
     this.restart();
   }
 
@@ -272,12 +283,10 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       return;
     }
     terminate(event);
-    this.draggableLink!
-      .classed('hidden', true)
-      .style('marker-end', '');
+    this.draggableLink!.classed('hidden', true).style('marker-end', '');
     const source = this.draggableLinkSourceNode;
     this.resetDraggableLink();
-    this.addLink(source, node);
+    this.createLink(source, node);
   }
 
   private resetDraggableLink(): void {
@@ -308,8 +317,7 @@ export class GraphComponent implements AfterViewInit, OnChanges {
   }
 
   private isBidirectional(link: Link): boolean {
-    return link.source.id !== link.target.id
-      && this.graph.links.findIndex(l => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
+    return link.source.id !== link.target.id && this.graph.links.findIndex((l) => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
   }
 
   private pointerRaised(): void {
@@ -321,30 +329,28 @@ export class GraphComponent implements AfterViewInit, OnChanges {
     if (!this.canShowTooltip) {
       return;
     }
-    d3.select(this.tooltip.nativeElement)
-      .transition()
-      .duration(this.config.tooltipFadeInTame)
-      .style('opacity', this.config.tooltipOpacity);
+    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
     d3.select(this.tooltip.nativeElement)
       .html(text)
-      .style('left', (event.pageX) + 'px')
-      .style('top', (event.pageY - 28) + 'px');
+      .style('left', event.pageX + 'px')
+      .style('top', event.pageY - 28 + 'px');
   }
 
   private hideTooltip(): void {
-    d3.select(this.tooltip.nativeElement)
-      .transition()
-      .duration(this.config.tooltipFadeOutTime)
-      .style('opacity', 0);
+    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
   }
 
-  private addNode(x?: number, y?: number): void {
+  private createLink(source: Node, target: Node): void {
+    this.addLink(source, target).then((link) => this.selectedLinkSubject$.next(link));
+  }
+
+  private async addNode(x?: number, y?: number): Promise<Node> {
     if (!this.isEditMode) {
-      return;
+      return Promise.reject('Graph is not in edit mode.');
     }
-    this.graph
-      .createNode(`${this.lastNodeId++}`, undefined, x, y)
-      .then(() => this.restart());
+    const node = await this.graph.createNode(`${this.lastNodeId++}`, undefined, x, y);
+    this.restart();
+    return node;
   }
 
   private removeNode(node: Node): void {
@@ -352,18 +358,22 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       return;
     }
     this.hideTooltip();
-    this.graph
-      .removeNode(node)
-      .then(() => this.restart());
+    this.graph.removeNode(node).then(() => this.restart());
   }
 
-  private addLink(source: Node, target: Node): void {
+  private createNode(event: any): void {
+    const x = d3.pointer(event, this.canvas!.node())[0];
+    const y = d3.pointer(event, this.canvas!.node())[1];
+    this.addNode(x, y).then((node) => this.selectedNodeSubject$.next(node));
+  }
+
+  private async addLink(source: Node, target: Node): Promise<Link> {
     if (!this.isEditMode) {
-      return;
+      return Promise.reject('Graph is not in edit mode.');
     }
-    this.graph
-      .createLink(source, target)
-      .then(() => this.restart());
+    const link = await this.graph.createLink(source, target);
+    this.restart();
+    return link;
   }
 
   private removeLink(link: Link): void {
@@ -371,8 +381,6 @@ export class GraphComponent implements AfterViewInit, OnChanges {
       return;
     }
     this.hideTooltip();
-    this.graph
-      .removeLink(link)
-      .then(() => this.restart());
+    this.graph.removeLink(link).then(() => this.restart());
   }
 }

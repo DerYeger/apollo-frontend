@@ -1,7 +1,8 @@
 .graph-container {
-  width: calc(100% - 2em);
-  height: calc(100% - 2em);
-  margin: 1em;
+  display: inline-block;
+  width: calc(75% - 2rem);
+  height: calc(100% - 2rem);
+  margin: 1rem
 }
 
 .graph-card {
@@ -11,4 +12,14 @@
 
 .graph-card-content {
   height: 100%;
+}
+
+.form-container {
+  vertical-align: top;
+  display: inline-block;
+  width: calc(25% - 1rem);
+  height: calc(100% - 2rem);
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }

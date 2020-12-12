@@ -1,11 +1,28 @@
 {
-  "misc": {
+  "app": {
     "title": "gramoFO"
   },
   "model-checker": {
-    "name": "ModelChecker"
+    "title": "ModelChecker"
   },
   "home": {
-    "name": "Home"
+    "title": "Home"
+  },
+  "editor": {
+    "node": {
+      "title": "Node",
+      "none-selected": "No Node selected."
+    },
+    "link": {
+      "title": "Edge",
+      "none-selected": "No Edge selected."
+    },
+    "symbols": {
+      "title": "Symbols"
+    }
+  },
+  "actions": {
+    "apply": "Apply",
+    "delete": "Delete"
   }
 }
