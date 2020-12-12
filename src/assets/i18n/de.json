@@ -10,11 +10,11 @@
   },
   "editor": {
     "node": {
-      "title": "Node",
+      "title": "Knoten",
       "none-selected": "Kein Knoten ausgewählt."
     },
     "link": {
-      "title": "Edge",
+      "title": "Kante",
       "none-selected": "Keine Kante ausgewählt."
     },
     "symbols": {
