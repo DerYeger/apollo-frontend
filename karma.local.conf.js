@@ -1,5 +1,3 @@
-const { unescapeLeadingUnderscores } = require("typescript")
-
 module.exports = function(config) {
   require('./karma.conf')(config)
 

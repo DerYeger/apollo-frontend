@@ -1,9 +1,9 @@
 <mat-card class="link-form-card">
   <ng-container *ngIf="!link">
-    <mat-card-subtitle>{{'editor.link.none-selected' | translate}}</mat-card-subtitle>
+    <mat-card-subtitle class="unselectable">{{'editor.link.none-selected' | translate}}</mat-card-subtitle>
   </ng-container>
   <ng-container *ngIf="!!link">
-    <mat-card-title>{{'editor.link.title' | translate}} {{link!.source.id}} -> {{link!.target.id}}</mat-card-title>
+    <mat-card-title class="unselectable">{{'editor.link.title' | translate}} {{link!.source.id}} -> {{link!.target.id}}</mat-card-title>
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
