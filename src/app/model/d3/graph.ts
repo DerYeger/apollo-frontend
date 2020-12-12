@@ -26,30 +26,29 @@ export default class Graph {
     return Promise.resolve(link);
   }
 
-  public removeNode(node: Node): Promise<void> {
+  public removeNode(node: Node): Promise<[Node, Link[]]> {
     const nodeIndex = this.nodes.findIndex(n => n.id === node.id);
     if (nodeIndex === -1) {
      return Promise.reject('Node is not part of this Graph.');
     }
 
     this.nodes.splice(nodeIndex, 1);
-    this.links
-      .filter(link => link.source.id === node.id || link.target.id === node.id)
-      .forEach(link => {
-          const linkIndex = this.links.indexOf(link, 0);
-          this.links.splice(linkIndex, 1);
-      });
+    const attachedLinks = this.links.filter(link => link.source.id === node.id || link.target.id === node.id);
+    attachedLinks.forEach((link) => {
+      const linkIndex = this.links.indexOf(link, 0);
+      this.links.splice(linkIndex, 1);
+    });
 
-    return Promise.resolve();
+    return Promise.resolve([node, attachedLinks]);
   }
 
-  public removeLink(link: Link): Promise<void> {
+  public removeLink(link: Link): Promise<Link> {
     const linkIndex = this.links.findIndex(l => l.source.id === link.source.id && l.target.id === link.target.id);
     if (linkIndex === -1) {
       return Promise.reject('Link is not part of this Graph.');
     }
 
     this.links.splice(linkIndex, 1);
-    return Promise.resolve();
+    return Promise.resolve(link);
   }
 }

@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NGXLogger } from 'ngx-logger';
-import { Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { Link } from 'src/app/model/d3/link';
 
 @Component({
@@ -9,11 +9,14 @@ import { Link } from 'src/app/model/d3/link';
   templateUrl: './link-form.component.html',
   styleUrls: ['./link-form.component.scss'],
 })
-export class LinkFormComponent implements OnChanges {
+export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
   @Input() link!: Link | null;
 
-  private readonly deletionRequestSubject$ = new Subject<Link>();
-  @Output() readonly deletionRequests$ = this.deletionRequestSubject$.asObservable();
+  private linkDeletionsSubscription$?: Subscription;
+  @Input() linkDeletions$?: Observable<Link>;
+
+  private readonly deletionRequestsSubject$ = new Subject<Link>();
+  @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
   readonly form: FormGroup;
 
@@ -23,12 +26,25 @@ export class LinkFormComponent implements OnChanges {
     });
   }
 
+  ngOnInit(): void {
+    this.linkDeletionsSubscription$ = this.linkDeletions$?.subscribe((deletedLink) => {
+      if (this.link !== null && this.link.source.id === deletedLink.source.id && this.link.target.id === deletedLink.target.id) {
+        this.log.debug(`Removing Link ${this.link.source.id}-${this.link.target.id}, because it has been deleted.`);
+        this.link = null;
+      }
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     const newLink = changes.link.currentValue;
     if (newLink !== null) {
       this.log.debug(`Loading Link ${newLink.source.id}-${newLink.target.id}`);
       this.form.get('symbols')?.setValue(newLink.symbols.join(', '));
     }
+  }
+
+  ngOnDestroy(): void {
+    this.linkDeletionsSubscription$?.unsubscribe();
   }
 
   onSubmit(): void {
@@ -44,7 +60,7 @@ export class LinkFormComponent implements OnChanges {
     if (this.link !== null) {
       const link = this.link;
       this.link = null;
-      this.deletionRequestSubject$.next(link);
+      this.deletionRequestsSubject$.next(link);
     }
   }
 }

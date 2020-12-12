@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { GraphConfiguration, defaultGraphConfiguration } from 'src/app/configurations/graph.configuration';
 import Graph from 'src/app/model/d3/graph';
 import { Link } from 'src/app/model/d3/link';
@@ -15,17 +15,28 @@ import { terminate } from 'src/app/utils/event.utils';
   styleUrls: ['./graph.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom,
 })
-export class GraphComponent implements AfterViewInit {
+export class GraphComponent implements AfterViewInit, OnDestroy {
   @Input() graph = new Graph();
   @Input() isEditMode = true;
   @Input() config: GraphConfiguration = defaultGraphConfiguration;
-  @Input() linkDeletionRequests?: Observable<Link>;
-  @Input() nodeDeletionRequests?: Observable<Node>;
 
-  private readonly selectedLinkSubject$ = new Subject<Link>();
-  @Output() readonly selectedLink$ = this.selectedLinkSubject$.asObservable();
-  private readonly selectedNodeSubject$ = new Subject<Node>();
-  @Output() readonly selectedNode$ = this.selectedNodeSubject$.asObservable();
+  private linkDeletionRequestsSubscription$?: Subscription;
+  @Input() linkDeletionRequests$?: Observable<Link>;
+
+  private nodeDeletionRequestsSubscription$?: Subscription;
+  @Input() nodeDeletionRequests$?: Observable<Node>;
+
+  private readonly linkSelectionsSubject$ = new Subject<Link>();
+  @Output() readonly linkSelections$ = this.linkSelectionsSubject$.asObservable();
+
+  private readonly nodeSelectionsSubject$ = new Subject<Node>();
+  @Output() readonly nodeSelections$ = this.nodeSelectionsSubject$.asObservable();
+
+  private readonly linkDeletionsSubject$ = new Subject<Link>();
+  @Output() readonly linkDeletions$ = this.linkDeletionsSubject$.asObservable();
+
+  private readonly nodeDeletionsSubject$ = new Subject<Node>();
+  @Output() readonly nodeDeletions$ = this.nodeDeletionsSubject$.asObservable();
 
   private lastNodeId = 0;
 
@@ -78,8 +89,13 @@ export class GraphComponent implements AfterViewInit {
     this.lastNodeId = 4;
     this.onResize(null);
 
-    this.linkDeletionRequests?.subscribe((link) => this.removeLink(link));
-    this.nodeDeletionRequests?.subscribe((node) => this.removeNode(node));
+    this.linkDeletionRequestsSubscription$ = this.linkDeletionRequests$?.subscribe((link) => this.removeLink(link));
+    this.nodeDeletionRequestsSubscription$ = this.nodeDeletionRequests$?.subscribe((node) => this.removeNode(node));
+  }
+
+  ngOnDestroy(): void {
+    this.linkDeletionRequestsSubscription$?.unsubscribe();
+    this.nodeDeletionRequestsSubscription$?.unsubscribe();
   }
 
   private cleanInitGraph(): void {
@@ -221,7 +237,7 @@ export class GraphComponent implements AfterViewInit {
       .classed('link', true)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.selectedLinkSubject$.next(d);
+        this.linkSelectionsSubject$.next(d);
       })
       .on('pointerenter', (event, d: Link) => this.showTooltip(event, d.symbols.join(', ')))
       .on('pointerout', () => this.hideTooltip())
@@ -232,7 +248,7 @@ export class GraphComponent implements AfterViewInit {
       .call(this.drag!)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.selectedNodeSubject$.next(d);
+        this.nodeSelectionsSubject$.next(d);
       });
 
     this.node
@@ -341,7 +357,7 @@ export class GraphComponent implements AfterViewInit {
   }
 
   private createLink(source: Node, target: Node): void {
-    this.addLink(source, target).then((link) => this.selectedLinkSubject$.next(link));
+    this.addLink(source, target).then((link) => this.linkSelectionsSubject$.next(link));
   }
 
   private async addNode(x?: number, y?: number): Promise<Node> {
@@ -358,13 +374,17 @@ export class GraphComponent implements AfterViewInit {
       return;
     }
     this.hideTooltip();
-    this.graph.removeNode(node).then(() => this.restart());
+    this.graph.removeNode(node).then(([deletedNode, deletedLinks]) => {
+      this.restart();
+      this.nodeDeletionsSubject$.next(deletedNode);
+      deletedLinks.forEach((deletedLink) => this.linkDeletionsSubject$.next(deletedLink));
+    });
   }
 
   private createNode(event: any): void {
     const x = d3.pointer(event, this.canvas!.node())[0];
     const y = d3.pointer(event, this.canvas!.node())[1];
-    this.addNode(x, y).then((node) => this.selectedNodeSubject$.next(node));
+    this.addNode(x, y).then((node) => this.nodeSelectionsSubject$.next(node));
   }
 
   private async addLink(source: Node, target: Node): Promise<Link> {
@@ -381,6 +401,9 @@ export class GraphComponent implements AfterViewInit {
       return;
     }
     this.hideTooltip();
-    this.graph.removeLink(link).then(() => this.restart());
+    this.graph.removeLink(link).then((deletedLink) => {
+      this.restart();
+      this.linkDeletionsSubject$.next(deletedLink);
+    });
   }
 }

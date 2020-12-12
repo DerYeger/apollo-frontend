@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NGXLogger } from 'ngx-logger';
-import { Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { Node } from 'src/app/model/d3/node';
 
 @Component({
@@ -9,11 +9,14 @@ import { Node } from 'src/app/model/d3/node';
   templateUrl: './node-form.component.html',
   styleUrls: ['./node-form.component.scss'],
 })
-export class NodeFormComponent implements OnChanges {
+export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
   @Input() node!: Node | null;
 
-  private readonly deletionRequestSubject$ = new Subject<Node>();
-  @Output() readonly deletionRequests$ = this.deletionRequestSubject$.asObservable();
+  private nodeDeletionsSubscription$?: Subscription;
+  @Input() nodeDeletions$?: Observable<Node>;
+
+  private readonly deletionRequestsSubject$ = new Subject<Node>();
+  @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
   readonly form: FormGroup;
 
@@ -23,12 +26,25 @@ export class NodeFormComponent implements OnChanges {
     });
   }
 
+  ngOnInit(): void {
+    this.nodeDeletionsSubscription$ = this.nodeDeletions$?.subscribe((deletedNode) => {
+      if (this.node !== null && this.node.id === deletedNode.id) {
+        this.log.debug(`Removing Node ${this.node.id}, because it has been deleted.`);
+        this.node = null;
+      }
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     const newNode = changes.node.currentValue;
     if (newNode !== null) {
       this.log.debug(`Loading Node ${newNode.id}`);
       this.form.get('symbols')?.setValue(newNode.symbols.join(', '));
     }
+  }
+
+  ngOnDestroy(): void {
+    this.nodeDeletionsSubscription$?.unsubscribe();
   }
 
   onSubmit(): void {
@@ -44,7 +60,7 @@ export class NodeFormComponent implements OnChanges {
     if (this.node !== null) {
       const node = this.node;
       this.node = null;
-      this.deletionRequestSubject$.next(node);
+      this.deletionRequestsSubject$.next(node);
     }
   }
 }
