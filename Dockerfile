@@ -10,6 +10,6 @@ COPY . .
 
 RUN npm run build --prod
 
-FROM nginx:1.15.8-alpine
+FROM nginx:1.19.5-alpine
 
 COPY --from=builder /usr/src/app/dist/gramofo-frontend/ /usr/share/nginx/html
