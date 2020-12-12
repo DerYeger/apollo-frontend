@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GraphComponent } from '../graph/graph.component';
 
 import { GraphEditorComponent } from './graph-editor.component';
 
@@ -8,7 +9,10 @@ describe('GraphEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraphEditorComponent ]
+      declarations: [
+        GraphEditorComponent,
+        GraphComponent
+      ]
     })
     .compileComponents();
   });
