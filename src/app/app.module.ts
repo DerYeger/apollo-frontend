@@ -13,9 +13,10 @@ import { MaterialModule } from './material.module';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
+import { NodeFormComponent } from './components/node-form/node-form.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage],
+  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
