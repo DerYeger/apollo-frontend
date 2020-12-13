@@ -13,10 +13,10 @@ import { MaterialModule } from './material.module';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
-import { NodeFormComponent } from './components/node-form/node-form.component';
+import { NodeFormComponent } from './components/graph-editor/node-form/node-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { LinkFormComponent } from './components/link-form/link-form.component';
+import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
 
 @NgModule({
   declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent],

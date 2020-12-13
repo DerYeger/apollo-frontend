@@ -4,8 +4,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 import { MaterialModule } from 'src/app/material.module';
 import { GraphComponent } from '../graph/graph.component';
-import { LinkFormComponent } from '../link-form/link-form.component';
-import { NodeFormComponent } from '../node-form/node-form.component';
+import { LinkFormComponent } from './link-form/link-form.component';
+import { NodeFormComponent } from './node-form/node-form.component';
 
 import { GraphEditorComponent } from './graph-editor.component';
 
