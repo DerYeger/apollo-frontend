@@ -10,7 +10,8 @@
   },
   "graph": {
     "reset-graph": "Reset Graph",
-    "create-node": "Create Node"
+    "create-node": "Create Node",
+    "show-labels": "Show Labels"
   },
   "editor": {
     "node": {

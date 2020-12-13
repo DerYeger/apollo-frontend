@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
@@ -23,6 +24,8 @@ export class GraphComponent implements AfterViewInit {
 
   @Output() readonly linkDeleted = new EventEmitter<FOLLink>();
   @Output() readonly nodeDeleted = new EventEmitter<FOLNode>();
+
+  private showLabels = false;
 
   private lastNodeId = 0;
 
@@ -85,6 +88,11 @@ export class GraphComponent implements AfterViewInit {
     this.cleanInitGraph();
   }
 
+  updateLabelVisiblity(event: MatCheckboxChange): void {
+    this.showLabels = event.checked;
+    this.restart();
+  }
+
   restart(): void {
     this.link = this.link!.data(this.graph.links, (d: FOLLink) => d.source + '-' + d.target)
       .join('path')
@@ -124,7 +132,10 @@ export class GraphComponent implements AfterViewInit {
       return nodeGroup;
     });
 
-    this.node.select('.node-details').text((d) => [...d.relations, ...d.constants].join(', '));
+    this.node
+    .select('.node-details')
+    .attr('opacity', this.showLabels ? 1 : 0)
+    .text((d) => [...d.relations, ...d.constants].join(', '));
 
     this.simulation!.nodes(this.graph.nodes);
     this.simulation!.alpha(0.3).restart();

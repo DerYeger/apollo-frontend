@@ -10,7 +10,8 @@
   },
   "graph": {
     "reset-graph": "Graph zurücksetzen",
-    "create-node": "Knoten erzeugen"
+    "create-node": "Knoten erzeugen",
+    "show-labels": "Labels anzeigen"
   },
   "editor": {
     "node": {
