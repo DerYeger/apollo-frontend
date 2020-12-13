@@ -8,8 +8,17 @@
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
           <mat-form-field class="node-input">
-            <mat-label>{{'editor.symbols.title' | translate}}</mat-label>
-            <input matInput type="text" formControlName="symbols" autocomplete="off">
+            <mat-label>Constants</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let constant of node!.constants" [selectable]="false"
+                      [removable]="true" (removed)="removeConstant(constant)">
+                {{constant}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="New Constant"
+                    [matChipInputFor]="chipList"
+                    (matChipInputTokenEnd)="addConstant($event)">
+            </mat-chip-list>
           </mat-form-field>
           <div class="form-button-container">
             <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">

@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges }
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { NGXLogger } from 'ngx-logger';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Link } from 'src/app/model/d3/link';
+import { FOLLink } from 'src/app/model/d3/link';
 
 @Component({
   selector: 'gramofo-link-form[link]',
@@ -10,12 +10,12 @@ import { Link } from 'src/app/model/d3/link';
   styleUrls: ['./link-form.component.scss'],
 })
 export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
-  @Input() link!: Link | null;
+  @Input() link!: FOLLink | null;
 
   private linkDeletionsSubscription$?: Subscription;
-  @Input() linkDeletions$?: Observable<Link>;
+  @Input() linkDeletions$?: Observable<FOLLink>;
 
-  private readonly deletionRequestsSubject$ = new Subject<Link>();
+  private readonly deletionRequestsSubject$ = new Subject<FOLLink>();
   @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
   readonly form: FormGroup;
@@ -39,7 +39,6 @@ export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
     const newLink = changes.link.currentValue;
     if (newLink !== null) {
       this.log.debug(`Loading Link ${newLink.source.id}-${newLink.target.id}`);
-      this.form.get('symbols')?.setValue(newLink.symbols.join(', '));
     }
   }
 
@@ -52,7 +51,6 @@ export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
       const input = (this.form.get('symbols')?.value ?? '') as string;
       const symbols = input.split(',').map((s) => s.trim());
       this.log.debug(`Link ${this.link.source.id}-${this.link.target.id}: Setting symbols: ${symbols}`);
-      this.link.symbols = symbols;
     }
   }
 

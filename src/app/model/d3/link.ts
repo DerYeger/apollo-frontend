@@ -1,8 +1,24 @@
 import { SimulationLinkDatum } from 'd3';
-import { Node } from './node';
+import { FOLNode } from './node';
 
-export interface Link extends SimulationLinkDatum<Node> {
-  source: Node;
-  target: Node;
-  symbols: string[];
+export interface FOLLink extends SimulationLinkDatum<FOLNode> {
+  source: FOLNode;
+  target: FOLNode;
+  relations: Set<string>;
+  functions: Set<string>;
+}
+
+export class GramoFOLink implements FOLLink {
+  readonly relations = new Set<string>();
+  readonly functions = new Set<string>();
+
+  constructor(
+    readonly source: FOLNode,
+    readonly target: FOLNode,
+    initialRelations?: string[],
+    initialFunctions?: string[]
+  ) {
+    initialRelations?.forEach((relation) => this.relations.add(relation));
+    initialFunctions?.forEach((functions) => this.functions.add(functions));
+  }
 }

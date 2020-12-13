@@ -1,8 +1,9 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { NGXLogger } from 'ngx-logger';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { Node } from 'src/app/model/d3/node';
+import { FOLNode } from 'src/app/model/d3/node';
 
 @Component({
   selector: 'gramofo-node-form[node]',
@@ -10,12 +11,12 @@ import { Node } from 'src/app/model/d3/node';
   styleUrls: ['./node-form.component.scss'],
 })
 export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
-  @Input() node!: Node | null;
+  @Input() node!: FOLNode | null;
 
   private nodeDeletionsSubscription$?: Subscription;
-  @Input() nodeDeletions$?: Observable<Node>;
+  @Input() nodeDeletions$?: Observable<FOLNode>;
 
-  private readonly deletionRequestsSubject$ = new Subject<Node>();
+  private readonly deletionRequestsSubject$ = new Subject<FOLNode>();
   @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
   readonly form: FormGroup;
@@ -39,7 +40,6 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
     const newNode = changes.node.currentValue;
     if (newNode !== null) {
       this.log.debug(`Loading Node ${newNode.id}`);
-      this.form.get('symbols')?.setValue(newNode.symbols.join(', '));
     }
   }
 
@@ -52,7 +52,6 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
       const input = (this.form.get('symbols')?.value ?? '') as string;
       const symbols = input.split(',').map((s) => s.trim());
       this.log.debug(`Node ${this.node.id}: Setting symbols: ${symbols}`);
-      this.node.symbols = symbols;
     }
   }
 
@@ -61,6 +60,34 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
       const node = this.node;
       this.node = null;
       this.deletionRequestsSubject$.next(node);
+    }
+  }
+
+  addRelation(relationAddedEvent: MatChipInputEvent): void {
+    const relation = relationAddedEvent.value.trim();
+    if (this.node !== null && relation.length > 1) {
+      relationAddedEvent.input.value = '';
+      this.node.relations.add(relation);
+    }
+  }
+
+  removeRelation(relation: string): void {
+    if (this.node !== null) {
+      this.node.relations.delete(relation);
+    }
+  }
+
+  addConstant(constantAddedEvent: MatChipInputEvent): void {
+    const constant = constantAddedEvent.value.trim();
+    if (this.node !== null && constant.length > 1) {
+      constantAddedEvent.input.value = '';
+      this.node.constants.add(constant);
+    }
+  }
+
+  removeConstant(constant: string): void {
+    if (this.node !== null) {
+      this.node.constants.delete(constant);
     }
   }
 }
