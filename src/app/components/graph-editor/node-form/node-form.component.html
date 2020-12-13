@@ -1,9 +1,9 @@
 <mat-card class="node-form-card">
   <ng-container *ngIf="!node">
-    <mat-card-subtitle class="unselectable">{{'editor.node.none-selected' | translate}}</mat-card-subtitle>
+    <mat-card-subtitle class="unselectable">{{ "editor.node.none-selected" | translate }}</mat-card-subtitle>
   </ng-container>
   <ng-container *ngIf="!!node">
-    <mat-card-title class="unselectable">{{'editor.node.title' | translate}} {{node!.id}}</mat-card-title>
+    <mat-card-title class="unselectable">{{ "editor.node.title" | translate }} {{ node!.id }}</mat-card-title>
     <mat-card-content>
       <div>
         <gramofo-symbol-editor [symbols]="node!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onNodeUpdated()"></gramofo-symbol-editor>
@@ -13,10 +13,10 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-     <div class="form-button-container">
-        <button type="button" mat-raised-button color="warn" (click)="onDelete()">
+      <div class="form-button-container">
+        <button type="button" mat-raised-button color="warn" (click)="requestNodeDeletion()">
           <mat-icon>delete</mat-icon>
-          {{'actions.delete' | translate}}
+          {{ "actions.delete" | translate }}
         </button>
       </div>
     </mat-card-actions>

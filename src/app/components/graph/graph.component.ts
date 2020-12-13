@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { Observable, Subject, Subscription } from 'rxjs';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import Graph from 'src/app/model/d3/graph';
 import { FOLLink } from 'src/app/model/d3/link';
@@ -14,28 +13,16 @@ import { terminate } from 'src/app/utils/event.utils';
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
-export class GraphComponent implements AfterViewInit, OnDestroy {
+export class GraphComponent implements AfterViewInit {
   @Input() graph = new Graph();
   @Input() isEditMode = true;
   @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
-  private linkDeletionRequestsSubscription$?: Subscription;
-  @Input() linkDeletionRequests$?: Observable<FOLLink>;
+  @Output() readonly linkSelected = new EventEmitter<FOLLink>();
+  @Output() readonly nodeSelected = new EventEmitter<FOLNode>();
 
-  private nodeDeletionRequestsSubscription$?: Subscription;
-  @Input() nodeDeletionRequests$?: Observable<FOLNode>;
-
-  private readonly linkSelectionsSubject$ = new Subject<FOLLink>();
-  @Output() readonly linkSelections$ = this.linkSelectionsSubject$.asObservable();
-
-  private readonly nodeSelectionsSubject$ = new Subject<FOLNode>();
-  @Output() readonly nodeSelections$ = this.nodeSelectionsSubject$.asObservable();
-
-  private readonly linkDeletionsSubject$ = new Subject<FOLLink>();
-  @Output() readonly linkDeletions$ = this.linkDeletionsSubject$.asObservable();
-
-  private readonly nodeDeletionsSubject$ = new Subject<FOLNode>();
-  @Output() readonly nodeDeletions$ = this.nodeDeletionsSubject$.asObservable();
+  @Output() readonly linkDeleted = new EventEmitter<FOLLink>();
+  @Output() readonly nodeDeleted = new EventEmitter<FOLNode>();
 
   private lastNodeId = 0;
 
@@ -87,14 +74,6 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
     ].forEach((l) => this.graph.createLink(l.source, l.target, l.relations));
     this.lastNodeId = 4;
     this.onResize(null);
-
-    this.linkDeletionRequestsSubscription$ = this.linkDeletionRequests$?.subscribe((link) => this.removeLink(link));
-    this.nodeDeletionRequestsSubscription$ = this.nodeDeletionRequests$?.subscribe((node) => this.removeNode(node));
-  }
-
-  ngOnDestroy(): void {
-    this.linkDeletionRequestsSubscription$?.unsubscribe();
-    this.nodeDeletionRequestsSubscription$?.unsubscribe();
   }
 
   resetGraph(): void {
@@ -112,7 +91,7 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
       .classed('link', true)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.linkSelectionsSubject$.next(d);
+        this.linkSelected.emit(d);
       })
       .on('pointerenter', (event, d: FOLLink) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
       .on('pointerout', () => this.hideTooltip())
@@ -123,7 +102,7 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
       .call(this.drag!)
       .on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
-        this.nodeSelectionsSubject$.next(d);
+        this.nodeSelected.emit(d);
       });
 
     this.node
@@ -365,7 +344,7 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
   }
 
   private createLink(source: FOLNode, target: FOLNode): void {
-    this.addLink(source, target).then((link) => this.linkSelectionsSubject$.next(link));
+    this.addLink(source, target).then((link) => this.linkSelected.emit(link));
   }
 
   private async addNode(x?: number, y?: number): Promise<FOLNode> {
@@ -377,22 +356,22 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
     return node;
   }
 
-  private removeNode(node: FOLNode): void {
+  removeNode(node: FOLNode): void {
     if (!this.isEditMode) {
       return;
     }
     this.hideTooltip();
     this.graph.removeNode(node).then(([deletedNode, deletedLinks]) => {
       this.restart();
-      this.nodeDeletionsSubject$.next(deletedNode);
-      deletedLinks.forEach((deletedLink) => this.linkDeletionsSubject$.next(deletedLink));
+      this.nodeDeleted.emit(deletedNode);
+      deletedLinks.forEach((deletedLink) => this.linkDeleted.emit(deletedLink));
     });
   }
 
   private createNode(event: any): void {
     const x = d3.pointer(event, this.canvas!.node())[0];
     const y = d3.pointer(event, this.canvas!.node())[1];
-    this.addNode(x, y).then((node) => this.nodeSelectionsSubject$.next(node));
+    this.addNode(x, y).then((node) => this.nodeSelected.emit(node));
   }
 
   private async addLink(source: FOLNode, target: FOLNode): Promise<FOLLink> {
@@ -404,14 +383,14 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
     return link;
   }
 
-  private removeLink(link: FOLLink): void {
+  removeLink(link: FOLLink): void {
     if (!this.isEditMode) {
       return;
     }
     this.hideTooltip();
     this.graph.removeLink(link).then((deletedLink) => {
       this.restart();
-      this.linkDeletionsSubject$.next(deletedLink);
+      this.linkDeleted.emit(deletedLink);
     });
   }
 }

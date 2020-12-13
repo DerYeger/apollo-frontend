@@ -1,14 +1,10 @@
- <mat-form-field class="symbol-chip-input">
-  <mat-label>{{config.title | translate}}</mat-label>
+<mat-form-field class="symbol-chip-input">
+  <mat-label>{{ config.title | translate }}</mat-label>
   <mat-chip-list #chipList>
-    <mat-chip *ngFor="let symbol of symbols" [selectable]="false"
-            [removable]="true" (removed)="removeSymbol(symbol)">
-      {{symbol}}
+    <mat-chip *ngFor="let symbol of symbols" [selectable]="false" [removable]="true" (removed)="removeSymbol(symbol)">
+      {{ symbol }}
       <mat-icon matChipRemove>cancel</mat-icon>
     </mat-chip>
-    <input placeholder="{{config.placeholder | translate}}"
-          [matChipInputFor]="chipList"
-          (matChipInputTokenEnd)="addSymbol($event)"
-          autocomplete="off">
+    <input placeholder="{{ config.placeholder | translate }}" [matChipInputFor]="chipList" (matChipInputTokenEnd)="addSymbol($event)" autocomplete="off" />
   </mat-chip-list>
 </mat-form-field>
