@@ -1,10 +1,10 @@
-module.exports = function(config) {
-  require('./karma.conf')(config)
+module.exports = function (config) {
+  require("./karma.conf")(config);
 
   config.set({
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
     singleRun: false,
     autoWatch: true,
-    restartOnFileChange: true
+    restartOnFileChange: true,
   });
-}
+};

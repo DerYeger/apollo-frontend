@@ -5,7 +5,7 @@ export interface SymbolEditorConfiguration {
 
 export const RELATION_SYMBOL_EDITOR_CONFIGURATION: SymbolEditorConfiguration = {
   title: 'fol.relation.plural',
-  placeholder: 'editor.symbols.new-relation'
+  placeholder: 'editor.symbols.new-relation',
 };
 
 export const FUNCTION_SYMBOL_EDITOR_CONFIGURATION: SymbolEditorConfiguration = {

@@ -12,11 +12,7 @@ describe('DashboardPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardPage],
-      imports: [
-        MaterialModule,
-        RouterTestingModule,
-        TranslateModule.forRoot()
-      ],
+      imports: [MaterialModule, RouterTestingModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

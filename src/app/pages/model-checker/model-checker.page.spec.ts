@@ -16,22 +16,9 @@ describe('ModelCheckerPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        ModelCheckerPage,
-        GraphEditorComponent,
-        GraphComponent,
-        LinkFormComponent,
-        NodeFormComponent
-      ],
-      imports: [
-        LoggerTestingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        TranslateModule.forRoot(),
-        MaterialModule
-      ]
-    })
-    .compileComponents();
+      declarations: [ModelCheckerPage, GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
+      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

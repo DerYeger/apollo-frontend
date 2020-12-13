@@ -33,6 +33,10 @@ export const DEFAULT_GRAPH_CONFIGURATION: GraphConfiguration = {
   markerBoxSize,
   markerPadding: nodeRadius + nodeBorder + markerBoxSize,
   markerRef: markerBoxSize / 2,
-  arrowPoints: [[0, 0], [0, markerBoxSize], [markerBoxSize, markerBoxSize / 2]],
-  markerPath:  [0, 0, markerBoxSize, markerBoxSize].join(','),
+  arrowPoints: [
+    [0, 0],
+    [0, markerBoxSize],
+    [markerBoxSize, markerBoxSize / 2],
+  ],
+  markerPath: [0, 0, markerBoxSize, markerBoxSize].join(','),
 };

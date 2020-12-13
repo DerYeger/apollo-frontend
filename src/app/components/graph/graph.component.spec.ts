@@ -10,13 +10,9 @@ describe('GraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GraphComponent ],
-      imports: [
-        MaterialModule,
-        TranslateModule.forRoot()
-      ]
-    })
-    .compileComponents();
+      declarations: [GraphComponent],
+      imports: [MaterialModule, TranslateModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -8,19 +8,15 @@ import { registerLocaleData } from '@angular/common';
 @Component({
   selector: 'gramofo-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
   private readonly languages = {
     en: localeEn,
-    de: localeDe
+    de: localeDe,
   };
 
-  constructor(
-    translate: TranslateService,
-    log: NGXLogger
-  ) {
+  constructor(translate: TranslateService, log: NGXLogger) {
     Object.entries(this.languages).forEach(([language, locale]) => {
       translate.setTranslation(language, require(`../assets/i18n/${language}.json`));
       registerLocaleData(locale);

@@ -12,14 +12,9 @@ describe('SymbolEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SymbolEditorComponent ],
-      imports: [
-        LoggerTestingModule,
-        TranslateModule.forRoot(),
-        MaterialModule
-      ]
-    })
-    .compileComponents();
+      declarations: [SymbolEditorComponent],
+      imports: [LoggerTestingModule, TranslateModule.forRoot(), MaterialModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

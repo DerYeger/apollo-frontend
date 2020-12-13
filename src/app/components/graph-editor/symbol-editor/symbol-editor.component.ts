@@ -6,16 +6,15 @@ import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.
 @Component({
   selector: 'gramofo-symbol-editor[symbols][config]',
   templateUrl: './symbol-editor.component.html',
-  styleUrls: ['./symbol-editor.component.scss']
+  styleUrls: ['./symbol-editor.component.scss'],
 })
 export class SymbolEditorComponent {
-
   @Input() symbols!: Set<string>;
   @Input() config!: SymbolEditorConfiguration;
 
   @Output() readonly symbolsUpdated = new EventEmitter();
 
-  constructor(private readonly log: NGXLogger) { }
+  constructor(private readonly log: NGXLogger) {}
 
   addSymbol(symbolAddedEvent: MatChipInputEvent): void {
     const symbol = symbolAddedEvent.value.trim();

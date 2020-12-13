@@ -1,9 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
-import {
-  CONSTANT_SYMBOL_EDITOR_CONFIGURATION,
-  RELATION_SYMBOL_EDITOR_CONFIGURATION,
-} from 'src/app/configurations/symbol-editor.configuration';
+import { CONSTANT_SYMBOL_EDITOR_CONFIGURATION, RELATION_SYMBOL_EDITOR_CONFIGURATION } from 'src/app/configurations/symbol-editor.configuration';
 import { FOLNode } from 'src/app/model/d3/node';
 
 @Component({

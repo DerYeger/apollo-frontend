@@ -11,18 +11,8 @@ import { DashboardPage } from './pages/dashboard/dashboard.page';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        DashboardPage,
-        GraphEditorComponent,
-        GraphComponent,
-      ],
-      imports: [
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        LoggerTestingModule,
-        MaterialModule
-      ]
+      declarations: [AppComponent, DashboardPage, GraphEditorComponent, GraphComponent],
+      imports: [RouterTestingModule, TranslateModule.forRoot(), LoggerTestingModule, MaterialModule],
     }).compileComponents();
   });
 

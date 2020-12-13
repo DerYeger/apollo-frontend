@@ -12,16 +12,9 @@ describe('NodeFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NodeFormComponent ],
-      imports: [
-        LoggerTestingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        TranslateModule.forRoot(),
-        MaterialModule
-      ]
-    })
-    .compileComponents();
+      declarations: [NodeFormComponent],
+      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

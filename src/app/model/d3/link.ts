@@ -12,12 +12,7 @@ export class GramoFOLink implements FOLLink {
   readonly relations = new Set<string>();
   readonly functions = new Set<string>();
 
-  constructor(
-    readonly source: FOLNode,
-    readonly target: FOLNode,
-    initialRelations?: string[],
-    initialFunctions?: string[]
-  ) {
+  constructor(readonly source: FOLNode, readonly target: FOLNode, initialRelations?: string[], initialFunctions?: string[]) {
     initialRelations?.forEach((relation) => this.relations.add(relation));
     initialFunctions?.forEach((functions) => this.functions.add(functions));
   }
