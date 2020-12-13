@@ -21,11 +21,24 @@
       "none-selected": "Keine Kante ausgewählt."
     },
     "symbols": {
-      "title": "Symbole"
+      "new-constant": "Neue Konstante",
+      "new-function": "Neue Funktion",
+      "new-relation": "Neue Relation"
     }
   },
   "actions": {
     "apply": "Anwenden",
     "delete": "Löschen"
+  },
+  "fol": {
+    "constant": {
+      "plural": "Konstanten"
+    },
+    "function": {
+      "plural": "Funktionen"
+    },
+    "relation": {
+      "plural": "Relationen"
+    }
   }
 }

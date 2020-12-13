@@ -5,33 +5,20 @@
   <ng-container *ngIf="!!node">
     <mat-card-title class="unselectable">{{'editor.node.title' | translate}} {{node!.id}}</mat-card-title>
     <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div>
-          <mat-form-field class="node-input">
-            <mat-label>Constants</mat-label>
-            <mat-chip-list #chipList aria-label="Fruit selection">
-              <mat-chip *ngFor="let constant of node!.constants" [selectable]="false"
-                      [removable]="true" (removed)="removeConstant(constant)">
-                {{constant}}
-                <mat-icon matChipRemove>cancel</mat-icon>
-              </mat-chip>
-              <input placeholder="New Constant"
-                    [matChipInputFor]="chipList"
-                    (matChipInputTokenEnd)="addConstant($event)">
-            </mat-chip-list>
-          </mat-form-field>
-          <div class="form-button-container">
-            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
-              <mat-icon>save_alt</mat-icon>
-              {{'actions.apply' | translate}}
-            </button>
-            <button type="button" mat-raised-button color="warn" (click)="onDelete()">
-              <mat-icon>delete</mat-icon>
-              {{'actions.delete' | translate}}
-            </button>
-          </div>
-        </div>
-      </form>
+      <div>
+        <gramofo-symbol-editor [symbols]="node!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onNodeUpdated()"></gramofo-symbol-editor>
+      </div>
+      <div>
+        <gramofo-symbol-editor [symbols]="node!.constants" [config]="constantEditorConfig" (symbolsUpdated)="onNodeUpdated()"></gramofo-symbol-editor>
+      </div>
     </mat-card-content>
+    <mat-card-actions>
+     <div class="form-button-container">
+        <button type="button" mat-raised-button color="warn" (click)="onDelete()">
+          <mat-icon>delete</mat-icon>
+          {{'actions.delete' | translate}}
+        </button>
+      </div>
+    </mat-card-actions>
   </ng-container>
 </mat-card>

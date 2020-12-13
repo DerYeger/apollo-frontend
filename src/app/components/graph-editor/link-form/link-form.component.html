@@ -6,25 +6,21 @@
     <mat-card-title class="unselectable">
       <span>{{'editor.link.title' | translate}} {{link!.source.id}}<mat-icon class="link-arrow-icon">arrow_right_alt</mat-icon>{{link!.target.id}}</span>
     </mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div>
-          <mat-form-field class="link-input">
-            <mat-label>{{'editor.symbols.title' | translate}}</mat-label>
-            <input matInput type="text" formControlName="symbols" autocomplete="off">
-          </mat-form-field>
-          <div class="form-button-container">
-            <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">
-              <mat-icon>save_alt</mat-icon>
-              {{'actions.apply' | translate}}
-            </button>
-            <button type="button" mat-raised-button color="warn" (click)="onDelete()">
-              <mat-icon>delete</mat-icon>
-              {{'actions.delete' | translate}}
-            </button>
-          </div>
-        </div>
-      </form>
+   <mat-card-content>
+      <div>
+        <gramofo-symbol-editor [symbols]="link!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onLinkUpdated()"></gramofo-symbol-editor>
+      </div>
+      <div>
+        <gramofo-symbol-editor [symbols]="link!.functions" [config]="functionEditorConfig" (symbolsUpdated)="onLinkUpdated()"></gramofo-symbol-editor>
+      </div>
     </mat-card-content>
+    <mat-card-actions>
+     <div class="form-button-container">
+        <button type="button" mat-raised-button color="warn" (click)="onDelete()">
+          <mat-icon>delete</mat-icon>
+          {{'actions.delete' | translate}}
+        </button>
+      </div>
+    </mat-card-actions>
   </ng-container>
 </mat-card>

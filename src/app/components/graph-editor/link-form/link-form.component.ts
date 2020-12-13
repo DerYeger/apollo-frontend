@@ -1,7 +1,10 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { Observable, Subject, Subscription } from 'rxjs';
+import {
+  FUNCTION_SYMBOL_EDITOR_CONFIGURATION,
+  RELATION_SYMBOL_EDITOR_CONFIGURATION,
+} from 'src/app/configurations/symbol-editor.configuration';
 import { FOLLink } from 'src/app/model/d3/link';
 
 @Component({
@@ -9,7 +12,7 @@ import { FOLLink } from 'src/app/model/d3/link';
   templateUrl: './link-form.component.html',
   styleUrls: ['./link-form.component.scss'],
 })
-export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
+export class LinkFormComponent implements OnDestroy, OnInit {
   @Input() link!: FOLLink | null;
 
   private linkDeletionsSubscription$?: Subscription;
@@ -18,12 +21,15 @@ export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
   private readonly deletionRequestsSubject$ = new Subject<FOLLink>();
   @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
-  readonly form: FormGroup;
+  @Output() readonly linkUpdated = new EventEmitter();
 
-  constructor(private readonly log: NGXLogger, formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      symbols: new FormControl(''),
-    });
+  readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  readonly functionEditorConfig = FUNCTION_SYMBOL_EDITOR_CONFIGURATION;
+
+  constructor(private readonly log: NGXLogger) {}
+
+  onLinkUpdated(): void {
+    this.linkUpdated.emit();
   }
 
   ngOnInit(): void {
@@ -35,23 +41,8 @@ export class LinkFormComponent implements OnChanges, OnDestroy, OnInit {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const newLink = changes.link.currentValue;
-    if (newLink !== null) {
-      this.log.debug(`Loading Link ${newLink.source.id}-${newLink.target.id}`);
-    }
-  }
-
   ngOnDestroy(): void {
     this.linkDeletionsSubscription$?.unsubscribe();
-  }
-
-  onSubmit(): void {
-    if (this.link !== null) {
-      const input = (this.form.get('symbols')?.value ?? '') as string;
-      const symbols = input.split(',').map((s) => s.trim());
-      this.log.debug(`Link ${this.link.source.id}-${this.link.target.id}: Setting symbols: ${symbols}`);
-    }
   }
 
   onDelete(): void {

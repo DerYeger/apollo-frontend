@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, Input, OnDestroy, O
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { GraphConfiguration, defaultGraphConfiguration } from 'src/app/configurations/graph.configuration';
+import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import Graph from 'src/app/model/d3/graph';
 import { FOLLink } from 'src/app/model/d3/link';
 import { FOLNode } from 'src/app/model/d3/node';
@@ -17,7 +17,7 @@ import { terminate } from 'src/app/utils/event.utils';
 export class GraphComponent implements AfterViewInit, OnDestroy {
   @Input() graph = new Graph();
   @Input() isEditMode = true;
-  @Input() config: GraphConfiguration = defaultGraphConfiguration;
+  @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
   private linkDeletionRequestsSubscription$?: Subscription;
   @Input() linkDeletionRequests$?: Observable<FOLLink>;
@@ -104,6 +104,47 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
       node.fy = undefined;
     });
     this.cleanInitGraph();
+  }
+
+  restart(): void {
+    this.link = this.link!.data(this.graph.links, (d: FOLLink) => d.source + '-' + d.target)
+      .join('path')
+      .classed('link', true)
+      .on('contextmenu', (event: MouseEvent, d) => {
+        terminate(event);
+        this.linkSelectionsSubject$.next(d);
+      })
+      .on('pointerenter', (event, d: FOLLink) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+      .on('pointerout', () => this.hideTooltip())
+      .style('marker-end', 'url(#link-arrow');
+
+    this.node = this.node!.data(this.graph.nodes, (d) => d.id)
+      .join('g')
+      .call(this.drag!)
+      .on('contextmenu', (event: MouseEvent, d) => {
+        terminate(event);
+        this.nodeSelectionsSubject$.next(d);
+      });
+
+    this.node
+      .append('circle')
+      .classed('node', true)
+      .attr('r', this.config.nodeRadius)
+      .style('stroke-width', `${this.config.nodeBorder}`)
+      .on('pointerenter', (event, d: FOLNode) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
+      .on('pointerout', () => this.hideTooltip())
+      .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
+      .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+
+    this.node
+      .append('text')
+      .text((d) => d.id)
+      .classed('label', true)
+      .attr('text-anchor', 'middle')
+      .attr('dy', `0.33em`);
+
+    this.simulation!.nodes(this.graph.nodes);
+    this.simulation!.alpha(0.3).restart();
   }
 
   private cleanInitGraph(): void {
@@ -237,47 +278,6 @@ export class GraphComponent implements AfterViewInit, OnDestroy {
       const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
       this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
     }
-  }
-
-  private restart(): void {
-    this.link = this.link!.data(this.graph.links, (d: FOLLink) => d.source + '-' + d.target)
-      .join('path')
-      .classed('link', true)
-      .on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.linkSelectionsSubject$.next(d);
-      })
-      .on('pointerenter', (event, d: FOLLink) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .style('marker-end', 'url(#link-arrow');
-
-    this.node = this.node!.data(this.graph.nodes, (d) => d.id)
-      .join('g')
-      .call(this.drag!)
-      .on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.nodeSelectionsSubject$.next(d);
-      });
-
-    this.node
-      .append('circle')
-      .classed('node', true)
-      .attr('r', this.config.nodeRadius)
-      .style('stroke-width', `${this.config.nodeBorder}`)
-      .on('pointerenter', (event, d: FOLNode) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
-      .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
-
-    this.node
-      .append('text')
-      .text((d) => d.id)
-      .classed('label', true)
-      .attr('text-anchor', 'middle')
-      .attr('dy', `0.33em`);
-
-    this.simulation!.nodes(this.graph.nodes);
-    this.simulation!.alpha(0.3).restart();
   }
 
   private onPointerDown(event: PointerEvent, node: FOLNode): void {

@@ -17,9 +17,10 @@ import { NodeFormComponent } from './components/graph-editor/node-form/node-form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
+import { SymbolEditorComponent } from './components/graph-editor/symbol-editor/symbol-editor.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent],
+  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent, SymbolEditorComponent],
   imports: [
     CommonModule,
     BrowserModule,

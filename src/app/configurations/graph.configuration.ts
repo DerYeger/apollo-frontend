@@ -1,12 +1,3 @@
-const nodeBorder = 2;
-const nodeRadius = 20;
-
-const tooltipOpacity = 0.9;
-const tooltipFadeInTame = 500;
-const tooltipFadeOutTime = 200;
-
-const markerBoxSize = 4;
-
 export interface GraphConfiguration {
   nodeBorder: number;
   nodeRadius: number;
@@ -22,7 +13,16 @@ export interface GraphConfiguration {
   markerPath: string;
 }
 
-export const defaultGraphConfiguration: GraphConfiguration = {
+const nodeBorder = 2;
+const nodeRadius = 20;
+
+const tooltipOpacity = 0.9;
+const tooltipFadeInTame = 500;
+const tooltipFadeOutTime = 200;
+
+const markerBoxSize = 4;
+
+export const DEFAULT_GRAPH_CONFIGURATION: GraphConfiguration = {
   nodeBorder,
   nodeRadius,
 

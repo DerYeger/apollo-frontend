@@ -1,8 +1,10 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { Observable, Subject, Subscription } from 'rxjs';
+import {
+  CONSTANT_SYMBOL_EDITOR_CONFIGURATION,
+  RELATION_SYMBOL_EDITOR_CONFIGURATION,
+} from 'src/app/configurations/symbol-editor.configuration';
 import { FOLNode } from 'src/app/model/d3/node';
 
 @Component({
@@ -10,7 +12,7 @@ import { FOLNode } from 'src/app/model/d3/node';
   templateUrl: './node-form.component.html',
   styleUrls: ['./node-form.component.scss'],
 })
-export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
+export class NodeFormComponent implements OnDestroy, OnInit {
   @Input() node!: FOLNode | null;
 
   private nodeDeletionsSubscription$?: Subscription;
@@ -19,12 +21,15 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
   private readonly deletionRequestsSubject$ = new Subject<FOLNode>();
   @Output() readonly deletionRequests$ = this.deletionRequestsSubject$.asObservable();
 
-  readonly form: FormGroup;
+  @Output() readonly nodeUpdated = new EventEmitter();
 
-  constructor(private readonly log: NGXLogger, formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      symbols: new FormControl(''),
-    });
+  readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  readonly constantEditorConfig = CONSTANT_SYMBOL_EDITOR_CONFIGURATION;
+
+  constructor(private readonly log: NGXLogger) { }
+
+  onNodeUpdated(): void {
+    this.nodeUpdated.emit();
   }
 
   ngOnInit(): void {
@@ -36,23 +41,8 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const newNode = changes.node.currentValue;
-    if (newNode !== null) {
-      this.log.debug(`Loading Node ${newNode.id}`);
-    }
-  }
-
   ngOnDestroy(): void {
     this.nodeDeletionsSubscription$?.unsubscribe();
-  }
-
-  onSubmit(): void {
-    if (this.node !== null) {
-      const input = (this.form.get('symbols')?.value ?? '') as string;
-      const symbols = input.split(',').map((s) => s.trim());
-      this.log.debug(`Node ${this.node.id}: Setting symbols: ${symbols}`);
-    }
   }
 
   onDelete(): void {
@@ -60,34 +50,6 @@ export class NodeFormComponent implements OnChanges, OnDestroy, OnInit {
       const node = this.node;
       this.node = null;
       this.deletionRequestsSubject$.next(node);
-    }
-  }
-
-  addRelation(relationAddedEvent: MatChipInputEvent): void {
-    const relation = relationAddedEvent.value.trim();
-    if (this.node !== null && relation.length > 1) {
-      relationAddedEvent.input.value = '';
-      this.node.relations.add(relation);
-    }
-  }
-
-  removeRelation(relation: string): void {
-    if (this.node !== null) {
-      this.node.relations.delete(relation);
-    }
-  }
-
-  addConstant(constantAddedEvent: MatChipInputEvent): void {
-    const constant = constantAddedEvent.value.trim();
-    if (this.node !== null && constant.length > 1) {
-      constantAddedEvent.input.value = '';
-      this.node.constants.add(constant);
-    }
-  }
-
-  removeConstant(constant: string): void {
-    if (this.node !== null) {
-      this.node.constants.delete(constant);
     }
   }
 }
