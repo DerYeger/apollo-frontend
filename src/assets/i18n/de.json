@@ -9,7 +9,8 @@
     "title": "Home"
   },
   "graph": {
-    "reset-graph": "Graph zurücksetzen"
+    "reset-graph": "Graph zurücksetzen",
+    "create-node": "Knoten erzeugen"
   },
   "editor": {
     "node": {

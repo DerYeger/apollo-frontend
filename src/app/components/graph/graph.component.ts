@@ -168,7 +168,7 @@ export class GraphComponent implements AfterViewInit {
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
-      .on('dblclick', (event) => this.createNode(event))
+      .on('dblclick', (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
       .call(this.zoom!)
       .append('g');
   }
@@ -347,17 +347,13 @@ export class GraphComponent implements AfterViewInit {
     d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
   }
 
-  private createLink(source: FOLNode, target: FOLNode): void {
-    this.addLink(source, target).then((link) => this.linkSelected.emit(link));
-  }
-
-  private async addNode(x?: number, y?: number): Promise<FOLNode> {
+  async createNode(x: number = this.width / 2, y: number = this.height / 2): Promise<void> {
     if (!this.isEditMode) {
       return Promise.reject('Graph is not in edit mode.');
     }
     const node = await this.graph.createNode(`${this.lastNodeId++}`, undefined, undefined, x, y);
     this.restart();
-    return node;
+    this.nodeSelected.emit(node);
   }
 
   removeNode(node: FOLNode): void {
@@ -372,19 +368,13 @@ export class GraphComponent implements AfterViewInit {
     });
   }
 
-  private createNode(event: any): void {
-    const x = d3.pointer(event, this.canvas!.node())[0];
-    const y = d3.pointer(event, this.canvas!.node())[1];
-    this.addNode(x, y).then((node) => this.nodeSelected.emit(node));
-  }
-
-  private async addLink(source: FOLNode, target: FOLNode): Promise<FOLLink> {
+  private async createLink(source: FOLNode, target: FOLNode): Promise<void> {
     if (!this.isEditMode) {
       return Promise.reject('Graph is not in edit mode.');
     }
     const link = await this.graph.createLink(source, target);
     this.restart();
-    return link;
+    this.linkSelected.emit(link);
   }
 
   removeLink(link: FOLLink): void {

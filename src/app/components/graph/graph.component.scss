@@ -17,10 +17,11 @@
   pointer-events: none;
 }
 
-.reset-button {
+.graph-button-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  text-align: right;
 }
 
 ::ng-deep {
