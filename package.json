@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
+    "test:local": "ng test -- --karma-config=karma.local.conf.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc",
+    "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\""
   },
   "private": true,
   "dependencies": {
@@ -44,6 +46,7 @@
     "karma-coverage": "2.0.3",
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.5.4",
+    "prettier": "^2.2.1",
     "protractor": "7.0.0",
     "ts-node": "9.1.1",
     "tslint": "6.1.3",

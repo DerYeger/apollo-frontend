@@ -11,16 +11,13 @@ export interface GramofoRoute extends Route {
 export declare type GramofoRoutes = GramofoRoute[];
 
 export const routes: GramofoRoutes = [
-  { path: 'home', name: 'home.name', component: HomePage },
-  { path: 'modelchecker', name: 'model-checker.name', component: ModelCheckerPage },
-  { path: '**', name: '', redirectTo: 'modelchecker', pathMatch: 'full'}
+  { path: 'home', name: 'home.title', component: HomePage },
+  { path: 'modelchecker', name: 'model-checker.title', component: ModelCheckerPage },
+  { path: '**', name: '', redirectTo: 'modelchecker', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes),
-    TranslateModule
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), TranslateModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

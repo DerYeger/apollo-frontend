@@ -1,11 +1,44 @@
 {
-  "misc": {
+  "app": {
     "title": "gramoFO"
   },
   "model-checker": {
-    "name": "ModelChecker"
+    "title": "ModelChecker"
   },
   "home": {
-    "name": "Home"
+    "title": "Home"
+  },
+  "graph": {
+    "reset-graph": "Reset Graph"
+  },
+  "editor": {
+    "node": {
+      "title": "Node",
+      "none-selected": "No Node selected."
+    },
+    "link": {
+      "title": "Edge",
+      "none-selected": "No Edge selected."
+    },
+    "symbols": {
+      "new-relation": "New Relation",
+      "new-function": "New Function",
+      "new-constant": "New Constant"
+    }
+  },
+  "actions": {
+    "apply": "Apply",
+    "delete": "Delete"
+  },
+  "fol": {
+    "relation": {
+      "plural": "Relations"
+    },
+    "function": {
+      "plural": "Functions"
+    },
+    "constant": {
+      "plural": "Constants"
+    }
   }
 }

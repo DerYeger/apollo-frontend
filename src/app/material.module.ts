@@ -1,6 +1,8 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule, MAT_CHIPS_DEFAULT_OPTIONS } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -12,17 +14,26 @@ import { NgModule } from '@angular/core';
 const matModules = [
   BrowserAnimationsModule,
   MatCardModule,
+  MatChipsModule,
   MatButtonModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
 ];
 
 @NgModule({
   imports: [...matModules],
-  exports: [...matModules]
+  exports: [...matModules],
+  providers: [
+    {
+      provide: MAT_CHIPS_DEFAULT_OPTIONS,
+      useValue: {
+        separatorKeyCodes: [ENTER, COMMA],
+      },
+    },
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

@@ -1,0 +1,32 @@
+.graph-container {
+  display: inline-block;
+  width: calc(75% - 2rem);
+  height: calc(100% - 2rem);
+  margin: 1rem;
+}
+
+.graph-card {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.graph-card-content {
+  height: 100%;
+  overflow: hidden;
+}
+
+.form-container {
+  vertical-align: top;
+  display: inline-block;
+  width: calc(25% - 1rem);
+  height: calc(100% - 4rem);
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.horizontal-divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

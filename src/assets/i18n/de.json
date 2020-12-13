@@ -1,11 +1,44 @@
 {
-  "misc": {
+  "app": {
     "title": "gramoFO"
   },
   "model-checker": {
-    "name": "ModelChecker"
+    "title": "ModelChecker"
   },
   "home": {
-    "name": "Home"
+    "title": "Home"
+  },
+  "graph": {
+    "reset-graph": "Graph zurücksetzen"
+  },
+  "editor": {
+    "node": {
+      "title": "Knoten",
+      "none-selected": "Kein Knoten ausgewählt."
+    },
+    "link": {
+      "title": "Kante",
+      "none-selected": "Keine Kante ausgewählt."
+    },
+    "symbols": {
+      "new-constant": "Neue Konstante",
+      "new-function": "Neue Funktion",
+      "new-relation": "Neue Relation"
+    }
+  },
+  "actions": {
+    "apply": "Anwenden",
+    "delete": "Löschen"
+  },
+  "fol": {
+    "constant": {
+      "plural": "Konstanten"
+    },
+    "function": {
+      "plural": "Funktionen"
+    },
+    "relation": {
+      "plural": "Relationen"
+    }
   }
 }

@@ -1,1 +1,12 @@
-<gramofo-graph></gramofo-graph>
+<div class="graph-container">
+  <mat-card class="graph-card">
+    <mat-card-content class="graph-card-content">
+      <gramofo-graph #graph (nodeDeleted)="nodeForm.onNodeDeleted($event)" (linkDeleted)="linkForm.onLinkDeleted($event)"></gramofo-graph>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="form-container">
+  <gramofo-node-form #nodeForm [node]="graph.nodeSelected | async" (nodeUpdated)="graph.restart()" (nodeDeletionRequested)="graph.removeNode($event)"></gramofo-node-form>
+  <mat-divider class="horizontal-divider"></mat-divider>
+  <gramofo-link-form #linkForm [link]="graph.linkSelected | async" (linkUpdated)="graph.restart()" (linkDeletionRequested)="graph.removeLink($event)"></gramofo-link-form>
+</div>

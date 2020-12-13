@@ -3,51 +3,61 @@
   height: 100%;
 }
 
-.link {
-  stroke: #242424;
-  stroke-width: 3px;
-  fill: none;
-}
-
-.link.hidden {
-  stroke-width: 0;
-}
-
-.link.draggable {
-  pointer-events: none;
-}
-
-.arrow {
-  fill: #000000;
-}
-
-.node {
-  fill: #bbbbbb;
-  stroke: #242424;
-}
-
-.label {
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.label::selection {
-  background: none;
-}
-
 .tooltip {
   opacity: 0;
   display: flex;
   position: absolute;
   justify-content: center;
   align-items: center;
-  padding: 1em;
+  padding: 1rem;
   background: #cccccc;
   border: 1px;
   border-color: #242424;
   border-radius: 8px;
   pointer-events: none;
+}
+
+.reset-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+::ng-deep {
+  .link {
+    stroke: #242424;
+    stroke-width: 3px;
+    fill: none;
+  }
+
+  .link.hidden {
+    stroke-width: 0;
+  }
+
+  .link.draggable {
+    pointer-events: none;
+  }
+
+  .arrow {
+    fill: #000000;
+  }
+
+  .node {
+    fill: #bbbbbb;
+    stroke: #242424;
+  }
+
+  .label {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .label::selection {
+    background: none;
+  }
 }

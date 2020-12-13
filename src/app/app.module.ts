@@ -13,21 +13,29 @@ import { MaterialModule } from './material.module';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
+import { NodeFormComponent } from './components/graph-editor/node-form/node-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
+import { SymbolEditorComponent } from './components/graph-editor/symbol-editor/symbol-editor.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage],
+  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent, SymbolEditorComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({}),
     LoggerModule.forRoot({
       level: environment.production ? NgxLoggerLevel.INFO : NgxLoggerLevel.DEBUG,
       serverLogLevel: NgxLoggerLevel.OFF,
       serverLoggingUrl: undefined,
       disableConsoleLogging: false,
-      enableSourceMaps: false,
+      enableSourceMaps: !environment.production,
       timestampFormat: undefined,
       colorScheme: DEFAULT_COLOR_SCHEME,
       httpResponseType: 'json',
