@@ -97,30 +97,34 @@ export class GraphComponent implements AfterViewInit {
       .on('pointerout', () => this.hideTooltip())
       .style('marker-end', 'url(#link-arrow');
 
-    this.node = this.node!.data(this.graph.nodes, (d) => d.id)
-      .join('g')
-      .call(this.drag!)
-      .on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.nodeSelected.emit(d);
-      });
+    this.node = this.node!.data(this.graph.nodes, (d) => d.id).join((enter) => {
+      const nodeGroup = enter
+        .append('g')
+        .call(this.drag!)
+        .on('contextmenu', (event: MouseEvent, d) => {
+          terminate(event);
+          this.nodeSelected.emit(d);
+        });
+      nodeGroup
+        .append('circle')
+        .classed('node', true)
+        .attr('r', this.config.nodeRadius)
+        .style('stroke-width', `${this.config.nodeBorder}`)
+        .on('pointerenter', (event, d: FOLNode) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
+        .on('pointerout', () => this.hideTooltip())
+        .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
+        .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+      nodeGroup
+        .append('text')
+        .text((d) => d.id)
+        .classed('label node-id', true)
+        .attr('text-anchor', 'middle')
+        .attr('dy', `0.33em`);
+      nodeGroup.append('text').classed('label node-details', true).attr('text-anchor', 'middle').attr('dy', `-2rem`);
+      return nodeGroup;
+    });
 
-    this.node
-      .append('circle')
-      .classed('node', true)
-      .attr('r', this.config.nodeRadius)
-      .style('stroke-width', `${this.config.nodeBorder}`)
-      .on('pointerenter', (event, d: FOLNode) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
-      .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
-
-    this.node
-      .append('text')
-      .text((d) => d.id)
-      .classed('label', true)
-      .attr('text-anchor', 'middle')
-      .attr('dy', `0.33em`);
+    this.node.select('.node-details').text((d) => [...d.relations, ...d.constants].join(', '));
 
     this.simulation!.nodes(this.graph.nodes);
     this.simulation!.alpha(0.3).restart();
