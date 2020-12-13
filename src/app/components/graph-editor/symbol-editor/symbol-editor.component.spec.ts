@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 import { RELATION_SYMBOL_EDITOR_CONFIGURATION } from 'src/app/configurations/symbol-editor.configuration';
+import { MaterialModule } from 'src/app/material.module';
 
 import { SymbolEditorComponent } from './symbol-editor.component';
 
@@ -14,7 +15,8 @@ describe('SymbolEditorComponent', () => {
       declarations: [ SymbolEditorComponent ],
       imports: [
         LoggerTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        MaterialModule
       ]
     })
     .compileComponents();
