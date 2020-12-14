@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/theming';
+@import './assets/styles/theme.scss';
+
+@include angular-material-theme($gramofoTheme);
+
 html,
 body {
   height: 100%;
