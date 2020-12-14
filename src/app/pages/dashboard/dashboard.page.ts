@@ -7,5 +7,5 @@ import { routes } from 'src/app/app-routing.module';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage {
-  public readonly routes = routes;
+  public readonly routes = routes.filter(route => route.name !== undefined);
 }
