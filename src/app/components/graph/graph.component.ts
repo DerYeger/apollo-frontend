@@ -133,9 +133,9 @@ export class GraphComponent implements AfterViewInit {
     });
 
     this.node
-    .select('.node-details')
-    .attr('opacity', this.showLabels ? 1 : 0)
-    .text((d) => [...d.relations, ...d.constants].join(', '));
+      .select('.node-details')
+      .attr('opacity', this.showLabels ? 1 : 0)
+      .text((d) => [...d.relations, ...d.constants].join(', '));
 
     this.simulation!.nodes(this.graph.nodes);
     this.simulation!.alpha(0.3).restart();
@@ -383,12 +383,13 @@ export class GraphComponent implements AfterViewInit {
     if (!this.isEditMode) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    return this.graph.createLink(source, target)
-    .then((newLink) => {
-      this.restart();
-      this.linkSelected.emit(newLink);
-    })
-    .catch((existingLink: FOLLink) => this.linkSelected.emit(existingLink));
+    return this.graph
+      .createLink(source, target)
+      .then((newLink) => {
+        this.restart();
+        this.linkSelected.emit(newLink);
+      })
+      .catch((existingLink: FOLLink) => this.linkSelected.emit(existingLink));
   }
 
   removeLink(link: FOLLink): void {

@@ -6,14 +6,14 @@ import { Settings, State } from './state';
 export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
     { language: undefined },
-    on(setLanguage, (state, { language }) => ({...state, language}))
-  )
+    on(setLanguage, (state, { language }) => ({ ...state, language }))
+  ),
 };
 
 export const metaReducers: MetaReducer<State>[] = [
   localStorageSync({
     keys: Object.keys(reducers),
     rehydrate: true,
-    removeOnUndefined: true
-  })
+    removeOnUndefined: true,
+  }),
 ];

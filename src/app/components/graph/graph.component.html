@@ -5,7 +5,7 @@
   <button *ngIf="isEditMode" mat-flat-button color="primary" (click)="createNode()">{{ "graph.create-node" | translate }}</button>
   <div class="divider"></div>
   <div>
-    <mat-checkbox color="accent" (change)="updateLabelVisiblity($event)">{{ 'graph.show-labels' | translate }}</mat-checkbox>
+    <mat-checkbox color="accent" (change)="updateLabelVisiblity($event)">{{ "graph.show-labels" | translate }}</mat-checkbox>
   </div>
 </div>
 <div #graphHost class="graph"></div>
