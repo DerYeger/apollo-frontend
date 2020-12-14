@@ -42,5 +42,12 @@
     "relation": {
       "plural": "Relationen"
     }
+  },
+  "lang": {
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
+  "dashboard": {
+    "github-repository": "GitHub Repository"
   }
 }

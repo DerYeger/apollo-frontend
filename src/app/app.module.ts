@@ -1,6 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { DEFAULT_COLOR_SCHEME, LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { environment } from 'src/environments/environment';
@@ -8,16 +11,15 @@ import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphEditorComponent } from './components/graph-editor/graph-editor.component';
+import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
+import { NodeFormComponent } from './components/graph-editor/node-form/node-form.component';
+import { SymbolEditorComponent } from './components/graph-editor/symbol-editor/symbol-editor.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { MaterialModule } from './material.module';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
-import { NodeFormComponent } from './components/graph-editor/node-form/node-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
-import { SymbolEditorComponent } from './components/graph-editor/symbol-editor/symbol-editor.component';
+import { metaReducers, reducers } from './store/reducers';
 
 @NgModule({
   declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent, SymbolEditorComponent],
@@ -29,6 +31,7 @@ import { SymbolEditorComponent } from './components/graph-editor/symbol-editor/s
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
     TranslateModule.forRoot({}),
     LoggerModule.forRoot({
       level: environment.production ? NgxLoggerLevel.INFO : NgxLoggerLevel.DEBUG,
