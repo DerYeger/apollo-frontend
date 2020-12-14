@@ -1,0 +1,8 @@
+@import "~@angular/material/theming";
+
+$primaryPalette: mat-palette($mat-indigo);
+$accentPalette: mat-palette($mat-pink, A200, A100, A400);
+
+$warnPalette: mat-palette($mat-red);
+
+$gramofoTheme: mat-light-theme($primaryPalette, $accentPalette, $warnPalette);

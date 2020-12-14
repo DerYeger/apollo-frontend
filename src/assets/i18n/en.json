@@ -40,5 +40,12 @@
     "constant": {
       "plural": "Constants"
     }
+  },
+  "lang": {
+    "en": "English",
+    "de": "German"
+  },
+  "dashboard": {
+    "github-repository": "GitHub Repository"
   }
 }

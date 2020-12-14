@@ -5,7 +5,7 @@ import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 
 export interface GramofoRoute extends Route {
-  name: string;
+  name?: string;
 }
 
 export declare type GramofoRoutes = GramofoRoute[];
@@ -13,7 +13,7 @@ export declare type GramofoRoutes = GramofoRoute[];
 export const routes: GramofoRoutes = [
   { path: 'home', name: 'home.title', component: HomePage },
   { path: 'modelchecker', name: 'model-checker.title', component: ModelCheckerPage },
-  { path: '**', name: '', redirectTo: 'modelchecker', pathMatch: 'full' },
+  { path: '**', redirectTo: 'modelchecker', pathMatch: 'full' },
 ];
 
 @NgModule({
