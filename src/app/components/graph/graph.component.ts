@@ -379,13 +379,16 @@ export class GraphComponent implements AfterViewInit {
     });
   }
 
-  private async createLink(source: FOLNode, target: FOLNode): Promise<void> {
+  private createLink(source: FOLNode, target: FOLNode): Promise<void> {
     if (!this.isEditMode) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    const link = await this.graph.createLink(source, target);
-    this.restart();
-    this.linkSelected.emit(link);
+    return this.graph.createLink(source, target)
+    .then((newLink) => {
+      this.restart();
+      this.linkSelected.emit(newLink);
+    })
+    .catch((existingLink: FOLLink) => this.linkSelected.emit(existingLink));
   }
 
   removeLink(link: FOLLink): void {

@@ -16,8 +16,9 @@ export default class Graph {
   }
 
   public createLink(source: FOLNode, target: FOLNode, relations?: string[], functions?: string[]): Promise<FOLLink> {
-    if (this.links.some((l) => l.source.id === source.id && l.target.id === target.id)) {
-      return Promise.reject('Link already exists.');
+    const existingIndex = this.links.findIndex((l) => l.source.id === source.id && l.target.id === target.id);
+    if (existingIndex !== -1) {
+      return Promise.reject(this.links[existingIndex]);
     }
 
     const link = new GramoFOLink(source, target, relations, functions);
