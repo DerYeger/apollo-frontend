@@ -1,4 +1,4 @@
-@import '/src/styles.scss';
+@import '/src/assets/styles/variables';
 
 .container {
   display: flex;
@@ -22,11 +22,6 @@ h1.title {
   min-width: 12.5rem;
 }
 
-.horizontal-divider {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
 mat-nav-list {
   padding: 0;
 }
@@ -36,8 +31,7 @@ mat-nav-list {
   color: mat-color($primaryPalette);
   display: flex;
   justify-content: left;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin: 1rem;
   text-decoration: none;
 }
 
