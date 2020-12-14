@@ -40,5 +40,9 @@
     "relation": {
       "plural": "Relationen"
     }
+  },
+  "lang": {
+    "de": "Deutsch",
+    "en": "Englisch"
   }
 }

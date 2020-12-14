@@ -8,6 +8,10 @@
       <mat-nav-list>
         <a mat-list-item routerLink="{{route.path}}" *ngFor="let route of routes">{{route.name! | translate}}</a>
       </mat-nav-list>
+      <mat-button-toggle-group name="language" class="language-button-group" (change)="setLanguage($event)">
+        <mat-button-toggle value="en" class="language-button">{{'lang.en' | translate}}</mat-button-toggle>
+        <mat-button-toggle value="de" class="language-button">{{'lang.de' | translate}}</mat-button-toggle>
+      </mat-button-toggle-group>
       <mat-divider class="horizontal-divider"></mat-divider>
       <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link">
         <svg class="github-logo" xmlns="http://www.w3.org/2000/svg">

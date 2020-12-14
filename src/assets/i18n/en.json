@@ -40,5 +40,9 @@
     "constant": {
       "plural": "Constants"
     }
+  },
+  "lang": {
+    "en": "English",
+    "de": "German"
   }
 }
