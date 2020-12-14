@@ -1,3 +1,5 @@
+@import '/src/styles.scss';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -18,4 +20,29 @@ h1.title {
 
 .sidenav {
   min-width: 12.5rem;
+}
+
+.horizontal-divider {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.repository-link {
+  align-items: center;
+  color: mat-color($primaryPalette);
+  display: flex;
+  justify-content: left;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-decoration: none;
+}
+
+.repository-link:visited {
+  color: mat-color($primaryPalette);
+  text-decoration: none;
+}
+
+.github-logo {
+  width: 2rem;
+  height: 2rem;
 }
