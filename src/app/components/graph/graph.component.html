@@ -1,11 +1,16 @@
 <div #tooltip class="tooltip label"></div>
-<div class="graph-button-container">
-  <button mat-flat-button color="primary" (click)="resetGraph()">{{ "graph.reset-graph" | translate }}</button>
-  <div *ngIf="isEditMode" class="divider"></div>
-  <button *ngIf="isEditMode" mat-flat-button color="primary" (click)="createNode()">{{ "graph.create-node" | translate }}</button>
-  <div class="divider"></div>
-  <div>
-    <mat-checkbox color="accent" (change)="updateLabelVisiblity($event)">{{ "graph.show-labels" | translate }}</mat-checkbox>
+<div class="graph-tool-container">
+  <div class="graph-tool">
+    <button mat-flat-button color="primary" (click)="resetGraph()">{{ "graph.reset-graph" | translate }}</button>
+  </div>
+  <div class="graph-tool">
+    <button *ngIf="allowEditing" mat-flat-button color="primary" (click)="createNode()">{{ "graph.create-node" | translate }}</button>
+  </div>
+  <div class="graph-tool">
+    <mat-checkbox color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">{{ "graph.simulation" | translate }}</mat-checkbox>
+  </div>
+  <div class="graph-tool">
+    <mat-checkbox color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">{{ "graph.labels" | translate }}</mat-checkbox>
   </div>
 </div>
 <div #graphHost class="graph"></div>

@@ -11,7 +11,8 @@
   "graph": {
     "reset-graph": "Graph zurücksetzen",
     "create-node": "Knoten erzeugen",
-    "show-labels": "Labels anzeigen"
+    "labels": "Labels",
+    "simulation": "Simulation"
   },
   "editor": {
     "node": {

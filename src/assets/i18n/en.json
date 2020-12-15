@@ -11,7 +11,8 @@
   "graph": {
     "reset-graph": "Reset Graph",
     "create-node": "Create Node",
-    "show-labels": "Show Labels"
+    "labels": "Labels",
+    "simulation": "Simulation"
   },
   "editor": {
     "node": {

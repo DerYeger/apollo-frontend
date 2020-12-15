@@ -17,14 +17,18 @@
   pointer-events: none;
 }
 
-.graph-button-container {
+.graph-tool-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
   text-align: right;
 
-  .divider {
-    height: 1rem;
+  .graph-tool {
+    margin-bottom: 1rem;
+  }
+
+  mat-checkbox {
+    margin-right: 1rem;
   }
 }
 

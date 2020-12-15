@@ -1,7 +1,7 @@
 <div class="graph-container">
   <mat-card class="graph-card">
     <mat-card-content class="graph-card-content">
-      <gramofo-graph #graph (nodeDeleted)="nodeForm.onNodeDeleted($event)" (linkDeleted)="linkForm.onLinkDeleted($event)"></gramofo-graph>
+      <gramofo-graph #graph [graph]="demoDomainGraph | async" (nodeDeleted)="nodeForm.onNodeDeleted($event)" (linkDeleted)="linkForm.onLinkDeleted($event)"></gramofo-graph>
     </mat-card-content>
   </mat-card>
 </div>
