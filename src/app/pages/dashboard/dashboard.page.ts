@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { routes } from 'src/app/app-routing.module';
+import { GramofoRoute, routes } from 'src/app/app-routing.module';
 import { setLanguage } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
@@ -13,9 +15,21 @@ import { State } from 'src/app/store/state';
 export class DashboardPage {
   public readonly routes = routes.filter((route) => route.name !== undefined);
 
-  constructor(private readonly store: Store<State>) {}
+  @ViewChild('sidenav')
+  private readonly sidenav!: MatSidenav;
+
+  constructor(
+    private readonly store: Store<State>,
+    private readonly router: Router
+  ) {}
 
   setLanguage(event: MatButtonToggleChange): void {
     this.store.dispatch(setLanguage({ language: event.value }));
+  }
+
+  activateRoute(route: GramofoRoute): void {
+    this.router
+      .navigateByUrl(route.path ?? '')
+      .then(() => this.sidenav.toggle());
   }
 }
