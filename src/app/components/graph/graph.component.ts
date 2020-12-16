@@ -8,6 +8,7 @@ import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configu
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
 import { D3Node } from 'src/app/model/d3/d3.node';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
 import { GraphSettings, State } from 'src/app/store/state';
 import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
@@ -15,7 +16,7 @@ import { terminate } from 'src/app/utils/event.utils';
 import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
 
 @Component({
-  selector: 'gramofo-graph',
+  selector: 'gramofo-graph[graph]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
@@ -30,6 +31,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   @Output() readonly linkDeleted = new EventEmitter<D3Link>();
   @Output() readonly nodeDeleted = new EventEmitter<D3Node>();
+
+  @Output() readonly saveRequested = new EventEmitter<FOLGraph>();
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -113,9 +116,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   saveGraph(): void {
-    this.dialog.open(SaveGraphDialog, {
-      data: this.graph!.toDomainGraph(),
-    });
+    this.dialog
+      .open(SaveGraphDialog, {
+        data: this.graph!.toDomainGraph(),
+      })
+      .afterClosed()
+      .toPromise()
+      .then((domainGraph) => this.saveRequested.emit(domainGraph));
   }
 
   toggleLabels(): void {

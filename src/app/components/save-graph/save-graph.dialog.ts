@@ -18,6 +18,10 @@ export class SaveGraphDialog {
     this.graphName = new FormControl(graph.name, Validators.required);
   }
 
+  updatedGraph(): FOLGraph {
+    return { ...this.graph, name: this.graphName.value };
+  }
+
   saveGraph(): void {
     this.store.dispatch(storeGraph({ ...this.graph, name: this.graphName.value }));
     this.dialogRef.close();

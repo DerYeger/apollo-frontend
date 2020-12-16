@@ -1,26 +1,25 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
   <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'misc.name' | translate }} </th>
-    <td mat-cell *matCellDef="let graphDefinition"> {{graphDefinition.graph.name}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.name" | translate }}</th>
+    <td mat-cell *matCellDef="let graphDefinition">{{ graphDefinition.graph.name }}</td>
   </ng-container>
 
   <!-- Timestamp Column -->
   <ng-container matColumnDef="timestamp">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ 'misc.last-edit' | translate }} </th>
-    <td mat-cell *matCellDef="let graphDefinition"> {{graphDefinition.timestamp | date}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.last-edit" | translate }}</th>
+    <td mat-cell *matCellDef="let graphDefinition">{{ graphDefinition.timestamp | date:'dd.MM.yyyy hh:mm' }}</td>
   </ng-container>
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
     <td mat-cell *matCellDef="let graphDefinition">
-      <button mat-flat-button (click)="graphDefinitionSelected.emit(graphDefinition)" color="primary" style="margin-right: 1rem;">{{ 'actions.load' | translate }}</button>
-      <button mat-flat-button (click)="graphDefinitionDeletionRequested.emit(graphDefinition)" color="warn">{{ 'actions.delete' | translate }}</button>
+      <button mat-flat-button (click)="graphDefinitionSelected.emit(graphDefinition)" color="primary" style="margin-right: 1rem">{{ "actions.load" | translate }}</button>
+      <button mat-flat-button (click)="graphDefinitionDeletionRequested.emit(graphDefinition)" color="warn">{{ "actions.delete" | translate }}</button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columns"></tr>
-  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns"></tr>
 </table>

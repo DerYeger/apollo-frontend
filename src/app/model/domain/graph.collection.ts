@@ -10,7 +10,7 @@ export interface GraphCollection {
 
 export function setGraph(state: GraphCollection, graph: FOLGraph): GraphCollection {
   const newState = copy(state);
-  newState[graph.name] = { graph, timestamp: Date.now() };
+  newState[graph.name] = { graph, lastEdit: Date.now() };
   return newState;
 }
 
