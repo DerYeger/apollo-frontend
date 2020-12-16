@@ -5,7 +5,8 @@ import { map } from 'rxjs/operators';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
-import { cacheGraph } from 'src/app/store/actions';
+import { GraphDefinition } from 'src/app/model/domain/graph.definition';
+import { cacheGraph, removeGraphFromStore } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -32,7 +33,7 @@ export class HomePage {
 
   constructor(private readonly store: Store<State>, private readonly router: Router) {}
 
-  public readonly storedGraphNames = this.store.select('graphStore').pipe(map((graphs) => Object.keys(graphs)));
+  public readonly storedGraphDefinitions = this.store.select('graphStore').pipe(map((graphs) => Object.values(graphs)));
 
   public loadDemoData(): void {
     // TODO add validation method
@@ -42,7 +43,11 @@ export class HomePage {
       .catch((error) => window.alert(error));
   }
 
-  public onGraphSelected(graphName: string): void {
-    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graphName) });
+  public onGraphDefinitionSelected(graphDefinition: GraphDefinition): void {
+    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graphDefinition.graph.name) });
+  }
+
+  public onGraphDefinitionDeletionRequested(graphDefinition: GraphDefinition): void {
+    this.store.dispatch(removeGraphFromStore({ key: graphDefinition.graph.name }));
   }
 }

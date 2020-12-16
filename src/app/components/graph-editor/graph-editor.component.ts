@@ -19,9 +19,9 @@ export class GraphEditorComponent {
     mergeMap(([source, key]) =>
       this.store.select(source).pipe(
         map((graphs: GraphCollection) => graphs[key]),
-        filter((graph) => graph !== undefined),
-        mergeMap((graph) =>
-          D3Graph.fromDomainGraph(graph).catch((error) => {
+        filter((graphDefinition) => graphDefinition !== undefined),
+        mergeMap((graphDefinition) =>
+          D3Graph.fromDomainGraph(graphDefinition.graph).catch((error) => {
             window.alert(error);
             return new D3Graph();
           })

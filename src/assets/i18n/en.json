@@ -34,7 +34,8 @@
     "apply": "Apply",
     "delete": "Delete",
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "load": "Load"
   },
   "fol": {
     "relation": {
@@ -55,6 +56,7 @@
     "github-repository": "GitHub Repository"
   },
   "misc": {
-    "name": "Name"
+    "name": "Name",
+    "last-edit": "Last Edit"
   }
 }

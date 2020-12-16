@@ -2,14 +2,15 @@ import { Params } from '@angular/router';
 import copy from 'fast-copy';
 
 import { FOLGraph } from './fol.graph';
+import { GraphDefinition } from './graph.definition';
 
 export interface GraphCollection {
-  [key: string]: FOLGraph;
+  [key: string]: GraphDefinition;
 }
 
 export function setGraph(state: GraphCollection, graph: FOLGraph): GraphCollection {
   const newState = copy(state);
-  newState[graph.name] = graph;
+  newState[graph.name] = { graph, timestamp: Date.now() };
   return newState;
 }
 

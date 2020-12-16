@@ -1,6 +1,6 @@
-<div>
-  <button mat-raised-button (click)="loadDemoData()" color="primary">Demo</button>
+<div style="width: 100%">
+  <gramofo-graph-list [graphDefinitions]="storedGraphDefinitions | async" (graphDefinitionSelected)="onGraphDefinitionSelected($event)" (graphDefinitionDeletionRequested)="onGraphDefinitionDeletionRequested($event)"></gramofo-graph-list>
 </div>
-<div>
-  <gramofo-graph-list [graphNames]="storedGraphNames | async" (graphSelected)="onGraphSelected($event)"></gramofo-graph-list>
+<div style="display: flex; justify-content: center;">
+  <button mat-raised-button (click)="loadDemoData()" color="primary">Load Demo</button>
 </div>

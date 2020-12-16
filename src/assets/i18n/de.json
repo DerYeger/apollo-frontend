@@ -34,7 +34,8 @@
     "apply": "Anwenden",
     "delete": "Löschen",
     "cancel": "Abbrechen",
-    "save": "Speichern"
+    "save": "Speichern",
+    "load": "Laden"
   },
   "fol": {
     "constant": {
@@ -55,6 +56,7 @@
     "github-repository": "GitHub Repository"
   },
   "misc": {
-    "name": "Name"
+    "name": "Name",
+    "last-edit": "Letzte Editierung"
   }
 }
