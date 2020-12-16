@@ -1,4 +1,4 @@
-@import '/src/assets/styles/variables';
+@import "/src/assets/styles/variables";
 
 .container {
   display: flex;
@@ -47,6 +47,9 @@ mat-nav-list {
 
 .language-button-group {
   width: 100%;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
 }
 
 .language-button {

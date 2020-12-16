@@ -9,7 +9,10 @@
     "title": "Home"
   },
   "graph": {
-    "reset-graph": "Reset Graph"
+    "reset-graph": "Reset Graph",
+    "create-node": "Create Node",
+    "labels": "Labels",
+    "simulation": "Simulation"
   },
   "editor": {
     "node": {

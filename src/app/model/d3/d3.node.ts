@@ -1,6 +1,6 @@
 import { SimulationNodeDatum } from 'd3';
 
-export interface FOLNode extends SimulationNodeDatum {
+export interface D3Node extends SimulationNodeDatum {
   id: string;
   relations: Set<string>;
   constants: Set<string>;
@@ -10,7 +10,7 @@ export interface FOLNode extends SimulationNodeDatum {
   fy?: number;
 }
 
-export class GramoFONode implements FOLNode {
+export class GramoFONode implements D3Node {
   readonly relations = new Set<string>();
   readonly constants = new Set<string>();
 

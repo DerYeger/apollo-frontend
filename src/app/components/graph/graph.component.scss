@@ -17,10 +17,19 @@
   pointer-events: none;
 }
 
-.reset-button {
+.graph-tool-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  text-align: right;
+
+  .graph-tool {
+    margin-bottom: 1rem;
+  }
+
+  mat-checkbox {
+    margin-right: 1rem;
+  }
 }
 
 ::ng-deep {

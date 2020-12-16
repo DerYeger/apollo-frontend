@@ -8,6 +8,8 @@ import { LinkFormComponent } from './link-form/link-form.component';
 import { NodeFormComponent } from './node-form/node-form.component';
 
 import { GraphEditorComponent } from './graph-editor.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/store/reducers';
 
 describe('GraphEditorComponent', () => {
   let component: GraphEditorComponent;
@@ -16,7 +18,7 @@ describe('GraphEditorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), MaterialModule],
     }).compileComponents();
   });
 

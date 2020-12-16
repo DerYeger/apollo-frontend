@@ -9,6 +9,8 @@ import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/nod
 import { MaterialModule } from 'src/app/material.module';
 
 import { ModelCheckerPage } from './model-checker.page';
+import { reducers } from 'src/app/store/reducers';
+import { StoreModule } from '@ngrx/store';
 
 describe('ModelCheckerPage', () => {
   let component: ModelCheckerPage;
@@ -17,7 +19,7 @@ describe('ModelCheckerPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ModelCheckerPage, GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), MaterialModule],
     }).compileComponents();
   });
 

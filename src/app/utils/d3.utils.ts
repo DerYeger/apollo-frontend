@@ -1,7 +1,7 @@
 import { GraphConfiguration } from '../configurations/graph.configuration';
-import { FOLNode } from '../model/d3/node';
+import { D3Node } from '../model/d3/d3.node';
 
-export function directPath(source: FOLNode, target: FOLNode, graphConfiguration: GraphConfiguration): string {
+export function directPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = target.x! - source.x!;
   const deltaY = target.y! - source.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -15,7 +15,7 @@ export function directPath(source: FOLNode, target: FOLNode, graphConfiguration:
           L${targetX},${targetY}`;
 }
 
-export function arcPath(source: FOLNode, target: FOLNode, graphConfiguration: GraphConfiguration): string {
+export function arcPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = target.x! - source.x!;
   const deltaY = target.y! - source.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -27,7 +27,7 @@ export function arcPath(source: FOLNode, target: FOLNode, graphConfiguration: Gr
           A${dist},${dist},0,0,1,${targetX},${targetY}`;
 }
 
-export function reflexivePath(node: FOLNode, graphConfiguration: GraphConfiguration): string {
+export function reflexivePath(node: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = 0;
   const deltaY = node.y! + graphConfiguration.nodeRadius - node.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);

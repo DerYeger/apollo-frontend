@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { FUNCTION_SYMBOL_EDITOR_CONFIGURATION, RELATION_SYMBOL_EDITOR_CONFIGURATION } from 'src/app/configurations/symbol-editor.configuration';
-import { FOLLink } from 'src/app/model/d3/link';
+import { D3Link } from 'src/app/model/d3/d3.link';
 
 @Component({
   selector: 'gramofo-link-form[link]',
@@ -9,9 +9,9 @@ import { FOLLink } from 'src/app/model/d3/link';
   styleUrls: ['./link-form.component.scss'],
 })
 export class LinkFormComponent {
-  @Input() link!: FOLLink | null;
+  @Input() link!: D3Link | null;
 
-  @Output() readonly linkDeletionRequested = new EventEmitter<FOLLink>();
+  @Output() readonly linkDeletionRequested = new EventEmitter<D3Link>();
   @Output() readonly linkUpdated = new EventEmitter();
 
   readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
@@ -31,7 +31,7 @@ export class LinkFormComponent {
     this.linkUpdated.emit();
   }
 
-  onLinkDeleted(deletedLink: FOLLink): void {
+  onLinkDeleted(deletedLink: D3Link): void {
     if (this.link !== null && this.link.source.id === deletedLink.source.id && this.link.target.id === deletedLink.target.id) {
       this.log.debug(`Removing Link ${this.link.source.id}-${this.link.target.id}, because it has been deleted.`);
       this.link = null;
