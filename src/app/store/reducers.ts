@@ -1,6 +1,19 @@
 import { ActionReducerMap, createReducer, MetaReducer, on } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
-import { enableSimulation, setLanguage, toggleLabels, toggleSimulation } from './actions';
+
+import { GraphCollection, setGraph, unsetGraph } from '../model/domain/graph.collection';
+import {
+  cacheGraph,
+  clearGraphCache,
+  clearGraphStore,
+  enableSimulation,
+  removeGraphFromCache,
+  removeGraphFromStore,
+  setLanguage,
+  storeGraph,
+  toggleLabels,
+  toggleSimulation,
+} from './actions';
 import { GraphSettings, Settings, State } from './state';
 
 export const reducers: ActionReducerMap<State> = {
@@ -17,11 +30,23 @@ export const reducers: ActionReducerMap<State> = {
     on(toggleSimulation, (state) => ({ ...state, enableSimulation: !state.enableSimulation })),
     on(toggleLabels, (state) => ({ ...state, showLabels: !state.showLabels }))
   ),
+  graphStore: createReducer<GraphCollection>(
+    {},
+    on(storeGraph, (state, { key, graph }) => setGraph(state, key, graph)),
+    on(removeGraphFromStore, (state, { key }) => unsetGraph(state, key)),
+    on(clearGraphStore, (_) => ({}))
+  ),
+  graphCache: createReducer<GraphCollection>(
+    {},
+    on(cacheGraph, (state, { key, graph }) => setGraph(state, key, graph)),
+    on(removeGraphFromCache, (state, { key }) => unsetGraph(state, key)),
+    on(clearGraphCache, (_) => ({}))
+  ),
 };
 
 export const metaReducers: MetaReducer<State>[] = [
   localStorageSync({
-    keys: Object.keys(reducers),
+    keys: Object.keys(reducers).filter((key) => !key.toLowerCase().includes('cache')),
     rehydrate: true,
     removeOnUndefined: true,
   }),

@@ -18,7 +18,7 @@ import { terminate } from 'src/app/utils/event.utils';
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() graph: D3Graph | null = new D3Graph();
+  @Input() graph: D3Graph | null | undefined = new D3Graph();
 
   @Input() allowEditing = true;
   @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
