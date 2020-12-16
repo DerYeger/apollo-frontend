@@ -121,6 +121,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   resetGraph(): void {
     this.graph!.unlockNodes();
     this.cleanInitGraph();
+    this.store.dispatch(enableSimulation());
   }
 
   restart(alpha: number = 0.5): void {
