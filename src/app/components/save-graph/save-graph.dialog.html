@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ 'graph.save-graph' | translate }}</h1>
+<div mat-dialog-content>
+  <mat-form-field class="name-input">
+    <mat-label>{{ 'misc.name' | translate }}</mat-label>
+    <input matInput [formControl]="graphName" placeholder="{{'misc.name' | translate}}" required />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="closeDialog()" color="warn">
+    <mat-icon>cancel</mat-icon>
+    {{ 'actions.cancel' | translate }}
+  </button>
+  <button mat-raised-button [mat-dialog-close]="updatedGraph()" [disabled]="graphName.invalid" color="primary">
+    <mat-icon>save</mat-icon>
+    {{ 'actions.save' | translate }}
+  </button>
+</div>

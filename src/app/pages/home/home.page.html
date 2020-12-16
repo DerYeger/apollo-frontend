@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div style="width: 100%">
+  <gramofo-graph-list
+    [graphDefinitions]="storedGraphDefinitions | async"
+    (graphDefinitionSelected)="onGraphDefinitionSelected($event)"
+    (graphDefinitionDeletionRequested)="onGraphDefinitionDeletionRequested($event)"
+  ></gramofo-graph-list>
+</div>
+<div style="display: flex; justify-content: center">
+  <button mat-raised-button (click)="loadDemoData()" color="primary">Load Demo</button>
+</div>
