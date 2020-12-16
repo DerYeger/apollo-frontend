@@ -12,7 +12,8 @@
     "reset-graph": "Graph zurücksetzen",
     "create-node": "Knoten erzeugen",
     "labels": "Labels",
-    "simulation": "Simulation"
+    "simulation": "Simulation",
+    "save-graph": "Graph speichern"
   },
   "editor": {
     "node": {
@@ -31,7 +32,9 @@
   },
   "actions": {
     "apply": "Anwenden",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "cancel": "Abbrechen",
+    "save": "Speichern"
   },
   "fol": {
     "constant": {
@@ -50,5 +53,8 @@
   },
   "dashboard": {
     "github-repository": "GitHub Repository"
+  },
+  "misc": {
+    "name": "Name"
   }
 }

@@ -7,9 +7,9 @@ export interface GraphCollection {
   [key: string]: FOLGraph;
 }
 
-export function setGraph(state: GraphCollection, key: string, graph: FOLGraph): GraphCollection {
+export function setGraph(state: GraphCollection, graph: FOLGraph): GraphCollection {
   const newState = copy(state);
-  newState[key] = graph;
+  newState[graph.name] = graph;
   return newState;
 }
 

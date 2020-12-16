@@ -12,7 +12,8 @@
     "reset-graph": "Reset Graph",
     "create-node": "Create Node",
     "labels": "Labels",
-    "simulation": "Simulation"
+    "simulation": "Simulation",
+    "save-graph": "Save Graph"
   },
   "editor": {
     "node": {
@@ -31,7 +32,9 @@
   },
   "actions": {
     "apply": "Apply",
-    "delete": "Delete"
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save"
   },
   "fol": {
     "relation": {
@@ -50,5 +53,8 @@
   },
   "dashboard": {
     "github-repository": "GitHub Repository"
+  },
+  "misc": {
+    "name": "Name"
   }
 }

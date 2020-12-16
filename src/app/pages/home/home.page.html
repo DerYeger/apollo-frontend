@@ -1,1 +1,6 @@
-<button mat-raised-button (click)="loadDemoData()" color="primary">Demo</button>
+<div>
+  <button mat-raised-button (click)="loadDemoData()" color="primary">Demo</button>
+</div>
+<div>
+  <gramofo-graph-list [graphNames]="storedGraphNames | async" (graphSelected)="onGraphSelected($event)"></gramofo-graph-list>
+</div>

@@ -1,0 +1,5 @@
+<ng-container *ngIf="graphNames !== null">
+  <div *ngFor="let graphName of graphNames" (click)="selectGraph(graphName)">
+    {{ graphName }}
+  </div>
+</ng-container>

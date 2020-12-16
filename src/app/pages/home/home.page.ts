@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
@@ -14,6 +15,7 @@ import { State } from 'src/app/store/state';
 })
 export class HomePage {
   private readonly demoData: FOLGraph = {
+    name: 'Demo',
     nodes: [
       { name: '0', relations: [], constants: ['a', 'd', 'f'] },
       { name: '1', relations: [], constants: ['b'] },
@@ -30,12 +32,17 @@ export class HomePage {
 
   constructor(private readonly store: Store<State>, private readonly router: Router) {}
 
+  public readonly storedGraphNames = this.store.select('graphStore').pipe(map((graphs) => Object.keys(graphs)));
+
   public loadDemoData(): void {
     // TODO add validation method
-    const key = 'modelchecker-demo-data';
     D3Graph.fromDomainGraph(this.demoData)
-      .then((_) => this.store.dispatch(cacheGraph({ key, graph: this.demoData })))
-      .then(() => this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphCache', key) }))
+      .then((_) => this.store.dispatch(cacheGraph(this.demoData)))
+      .then(() => this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphCache', this.demoData.name) }))
       .catch((error) => window.alert(error));
+  }
+
+  public onGraphSelected(graphName: string): void {
+    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graphName) });
   }
 }

@@ -32,13 +32,13 @@ export const reducers: ActionReducerMap<State> = {
   ),
   graphStore: createReducer<GraphCollection>(
     {},
-    on(storeGraph, (state, { key, graph }) => setGraph(state, key, graph)),
+    on(storeGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromStore, (state, { key }) => unsetGraph(state, key)),
     on(clearGraphStore, (_) => ({}))
   ),
   graphCache: createReducer<GraphCollection>(
     {},
-    on(cacheGraph, (state, { key, graph }) => setGraph(state, key, graph)),
+    on(cacheGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) => unsetGraph(state, key)),
     on(clearGraphCache, (_) => ({}))
   ),

@@ -18,18 +18,13 @@ export class DashboardPage {
   @ViewChild('sidenav')
   private readonly sidenav!: MatSidenav;
 
-  constructor(
-    private readonly store: Store<State>,
-    private readonly router: Router
-  ) {}
+  constructor(private readonly store: Store<State>, private readonly router: Router) {}
 
   setLanguage(event: MatButtonToggleChange): void {
     this.store.dispatch(setLanguage({ language: event.value }));
   }
 
   activateRoute(route: GramofoRoute): void {
-    this.router
-      .navigateByUrl(route.path ?? '')
-      .then(() => this.sidenav.toggle());
+    this.router.navigateByUrl(route.path ?? '').then(() => this.sidenav.toggle());
   }
 }

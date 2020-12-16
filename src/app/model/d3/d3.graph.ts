@@ -1,4 +1,6 @@
+import { FOLEdge } from '../domain/fol.edge';
 import { FOLGraph } from '../domain/fol.graph';
+import { FOLNode } from '../domain/fol.node';
 import { D3Link, GramoFOLink } from './d3.link';
 import { D3Node, GramoFONode } from './d3.node';
 
@@ -6,8 +8,10 @@ export default class D3Graph {
   public readonly nodes: D3Node[] = [];
   public readonly links: D3Link[] = [];
 
+  constructor(public readonly name = '') {}
+
   static async fromDomainGraph(domainGraph: FOLGraph): Promise<D3Graph> {
-    const graph = new D3Graph();
+    const graph = new D3Graph(domainGraph.name);
     await Promise.all(domainGraph.nodes.map((node) => graph.createNode(node.name, node.relations, node.constants)));
     await Promise.all(
       domainGraph.edges.map((edge) => {
@@ -20,6 +24,14 @@ export default class D3Graph {
       })
     );
     return Promise.resolve(graph);
+  }
+
+  public toDomainGraph(): FOLGraph {
+    return {
+      name: this.name,
+      nodes: this.nodes.map<FOLNode>((node) => ({ name: node.id, relations: [...node.relations], constants: [...node.constants] })),
+      edges: this.links.map<FOLEdge>((link) => ({ source: link.source.id, target: link.target.id, relations: [...link.relations], functions: [...link.functions] })),
+    };
   }
 
   public unlockNodes(): void {

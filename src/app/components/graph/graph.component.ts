@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
@@ -11,6 +12,7 @@ import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/
 import { GraphSettings, State } from 'src/app/store/state';
 import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
+import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
 
 @Component({
   selector: 'gramofo-graph',
@@ -61,7 +63,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private draggableLinkSourceNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
-  constructor(private readonly store: Store<State>) {}
+  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(_: any): void {
@@ -108,6 +110,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     this.graphSettingsSubscription?.unsubscribe();
+  }
+
+  saveGraph(): void {
+    this.dialog.open(SaveGraphDialog, {
+      data: this.graph!.toDomainGraph(),
+    });
   }
 
   toggleLabels(): void {

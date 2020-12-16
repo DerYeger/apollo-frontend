@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { merge, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import D3Graph from 'src/app/model/d3/d3.graph';
-import { GraphCollection, GRAPH_KEY, GRAPH_SOURCE } from 'src/app/model/domain/graph.collection';
+import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection } from 'src/app/model/domain/graph.collection';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -13,7 +13,6 @@ import { State } from 'src/app/store/state';
   styleUrls: ['./graph-editor.component.scss'],
 })
 export class GraphEditorComponent {
-
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
     map((params) => [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
     filter(([source, key]) => source !== undefined && key !== undefined),

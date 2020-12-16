@@ -20,9 +20,23 @@ import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
+import { GraphListComponent } from './components/graph-list/graph-list.component';
+import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent, SymbolEditorComponent],
+  declarations: [
+    AppComponent,
+    DashboardPage,
+    GraphComponent,
+    GraphEditorComponent,
+    ModelCheckerPage,
+    HomePage,
+    NodeFormComponent,
+    LinkFormComponent,
+    SymbolEditorComponent,
+    GraphListComponent,
+    SaveGraphDialog,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
