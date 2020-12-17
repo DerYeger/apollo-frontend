@@ -35,7 +35,8 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "save": "Save",
-    "load": "Load"
+    "load": "Load",
+    "undo": "Undo"
   },
   "fol": {
     "relation": {
