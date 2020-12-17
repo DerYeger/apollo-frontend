@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
-import { GraphDefinition } from 'src/app/model/domain/graph.definition';
 import { cacheGraph, removeGraphFromStore } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
@@ -17,6 +16,8 @@ import { State } from 'src/app/store/state';
 export class HomePage {
   private readonly demoData: FOLGraph = {
     name: 'Demo',
+    description: 'A simple graph.',
+    lastEdit: Date.now(),
     nodes: [
       { name: '0', relations: [], constants: ['a', 'd', 'f'] },
       { name: '1', relations: [], constants: ['b'] },
@@ -33,7 +34,7 @@ export class HomePage {
 
   constructor(private readonly store: Store<State>, private readonly router: Router) {}
 
-  public readonly storedGraphDefinitions = this.store.select('graphStore').pipe(map((graphs) => Object.values(graphs)));
+  public readonly storedGraphs = this.store.select('graphStore').pipe(map((graphs) => Object.values(graphs)));
 
   public loadDemoData(): void {
     // TODO add validation method
@@ -43,11 +44,11 @@ export class HomePage {
       .catch((error) => window.alert(error));
   }
 
-  public onGraphDefinitionSelected(graphDefinition: GraphDefinition): void {
-    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graphDefinition.graph.name) });
+  public onGraphSelected(graph: FOLGraph): void {
+    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graph.name) });
   }
 
-  public onGraphDefinitionDeletionRequested(graphDefinition: GraphDefinition): void {
-    this.store.dispatch(removeGraphFromStore({ key: graphDefinition.graph.name }));
+  public onGraphDeletionRequested(graph: FOLGraph): void {
+    this.store.dispatch(removeGraphFromStore({ key: graph.name }));
   }
 }

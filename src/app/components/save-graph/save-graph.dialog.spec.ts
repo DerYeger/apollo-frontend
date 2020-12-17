@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { StoreModule } from '@ngrx/store';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/material.module';
-import { reducers } from 'src/app/store/reducers';
 
 import { SaveGraphDialog } from './save-graph.dialog';
 
@@ -15,7 +13,7 @@ describe('SaveGraphDialog', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SaveGraphDialog],
-      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), FormsModule, ReactiveFormsModule, TranslateModule.forRoot()],
+      imports: [MaterialModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot()],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },

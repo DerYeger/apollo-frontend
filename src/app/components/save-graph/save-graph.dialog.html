@@ -1,8 +1,12 @@
-<h1 mat-dialog-title>{{ 'graph.save-graph' | translate }}</h1>
+<!-- <h1 mat-dialog-title>{{ 'graph.save-graph' | translate }}</h1> -->
 <div mat-dialog-content>
-  <mat-form-field class="name-input">
+  <mat-form-field>
     <mat-label>{{ 'misc.name' | translate }}</mat-label>
     <input matInput [formControl]="graphName" placeholder="{{'misc.name' | translate}}" required />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{ 'misc.description' | translate }}</mat-label>
+    <input matInput [formControl]="graphDescription" placeholder="{{'misc.description' | translate}}" />
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

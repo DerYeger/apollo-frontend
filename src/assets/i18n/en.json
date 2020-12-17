@@ -57,6 +57,7 @@
   },
   "misc": {
     "name": "Name",
-    "last-edit": "Last Edit"
+    "last-edit": "Last Edit",
+    "description": "Description"
   }
 }
