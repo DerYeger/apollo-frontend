@@ -57,6 +57,10 @@
   },
   "misc": {
     "name": "Name",
-    "last-edit": "Letzte Änderung"
+    "last-edit": "Letzte Änderung",
+    "description": "Beschreibung"
+  },
+  "snackbar": {
+    "graph-deleted": "Graph {{name}} wurde gelöscht."
   }
 }
