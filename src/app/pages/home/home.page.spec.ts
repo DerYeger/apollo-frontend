@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { GraphListComponent } from 'src/app/components/graph-list/graph-list.component';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
 
@@ -12,8 +14,8 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage],
-      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), AppRoutingModule],
+      declarations: [HomePage, GraphListComponent],
+      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), AppRoutingModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

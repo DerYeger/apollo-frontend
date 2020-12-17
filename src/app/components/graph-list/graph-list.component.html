@@ -1,23 +1,28 @@
 <table mat-table [dataSource]="dataSource" matSort class="unselectable mat-elevation-z8">
-
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.name" | translate }}</th>
-    <td mat-cell *matCellDef="let graphDefinition">{{ graphDefinition.graph.name }}</td>
+    <td mat-cell *matCellDef="let graph">{{ graph.name }}</td>
+  </ng-container>
+
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.description" | translate }}</th>
+    <td mat-cell *matCellDef="let graph">{{ graph.description }}</td>
   </ng-container>
 
   <!-- LastEdit Column -->
   <ng-container matColumnDef="lastEdit">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.last-edit" | translate }}</th>
-    <td mat-cell *matCellDef="let graphDefinition">{{ graphDefinition.lastEdit | date: "dd.MM.yyyy hh:mm" }}</td>
+    <td mat-cell *matCellDef="let graph">{{ graph.lastEdit | date: "dd.MM.yyyy hh:mm" }}</td>
   </ng-container>
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let graphDefinition">
-      <button mat-flat-button (click)="graphDefinitionSelected.emit(graphDefinition)" color="primary" class="action-button">{{ "actions.load" | translate }}</button>
-      <button mat-flat-button (click)="graphDefinitionDeletionRequested.emit(graphDefinition)" color="warn" class="action-button"><mat-icon>delete</mat-icon></button>
+    <td mat-cell *matCellDef="let graph">
+      <button mat-flat-button (click)="graphSelected.emit(graph)" color="primary" class="action-button">{{ "actions.load" | translate }}</button>
+      <button mat-flat-button (click)="graphDeletionRequested.emit(graph)" color="warn" class="action-button"><mat-icon>delete</mat-icon></button>
     </td>
   </ng-container>
 
