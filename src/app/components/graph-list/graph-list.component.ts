@@ -9,7 +9,7 @@ import { GraphDefinition } from 'src/app/model/domain/graph.definition';
   styleUrls: ['./graph-list.component.scss'],
 })
 export class GraphListComponent implements OnChanges, AfterViewInit {
-  public readonly columns: string[] = ['name', 'timestamp', 'actions'];
+  public readonly columns: string[] = ['name', 'lastEdit', 'actions'];
 
   @Input() public graphDefinitions!: GraphDefinition[] | null;
 

@@ -3,7 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
-import { storeGraph } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -18,13 +17,11 @@ export class SaveGraphDialog {
     this.graphName = new FormControl(graph.name, Validators.required);
   }
 
-  updatedGraph(): FOLGraph {
+  updatedGraph(): FOLGraph | undefined {
+    if (this.graphName.invalid) {
+      return undefined;
+    }
     return { ...this.graph, name: this.graphName.value };
-  }
-
-  saveGraph(): void {
-    this.store.dispatch(storeGraph({ ...this.graph, name: this.graphName.value }));
-    this.dialogRef.close();
   }
 
   closeDialog(): void {

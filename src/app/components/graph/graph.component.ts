@@ -122,7 +122,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
       })
       .afterClosed()
       .toPromise()
-      .then((domainGraph) => this.saveRequested.emit(domainGraph));
+      .then((domainGraph) => {
+        if (domainGraph !== undefined) {
+          this.saveRequested.emit(domainGraph);
+        }
+      });
   }
 
   toggleLabels(): void {

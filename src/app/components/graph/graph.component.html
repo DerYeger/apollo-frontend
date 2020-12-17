@@ -12,10 +12,10 @@
   <div class="graph-tool">
     <button *ngIf="allowEditing" mat-flat-button color="primary" (click)="createNode()">{{ "graph.create-node" | translate }}</button>
   </div>
-  <div class="graph-tool">
+  <div class="graph-tool unselectable">
     <mat-checkbox color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">{{ "graph.simulation" | translate }}</mat-checkbox>
   </div>
-  <div class="graph-tool">
+  <div class="graph-tool unselectable">
     <mat-checkbox color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">{{ "graph.labels" | translate }}</mat-checkbox>
   </div>
 </div>
