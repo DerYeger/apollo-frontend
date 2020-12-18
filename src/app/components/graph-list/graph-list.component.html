@@ -22,6 +22,7 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let graph">
       <button mat-flat-button (click)="graphSelected.emit(graph)" color="primary" class="action-button">{{ "actions.load" | translate }}</button>
+      <button mat-flat-button (click)="exportGraph(graph)" color="primary" class="action-button">{{ "actions.export" | translate }}</button>
       <button mat-flat-button (click)="graphDeletionRequested.emit(graph)" color="warn" class="action-button"><mat-icon>delete</mat-icon></button>
     </td>
   </ng-container>

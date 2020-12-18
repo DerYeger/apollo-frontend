@@ -1,5 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { NgModule } from '@angular/core';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const matModules = [
   BrowserAnimationsModule,
+  MatBottomSheetModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,

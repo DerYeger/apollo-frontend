@@ -36,7 +36,8 @@
     "cancel": "Abbrechen",
     "save": "Speichern",
     "load": "Laden",
-    "undo": "Rückgängig machen"
+    "undo": "Rückgängig machen",
+    "export": "Exportieren"
   },
   "fol": {
     "constant": {
@@ -63,5 +64,13 @@
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."
+  },
+  "export": {
+    "yaml": "YAML",
+    "json": "JSON",
+    "copy": "Graph in die Zwischenablage kopieren",
+    "download": "Graph als Datei herunterladen",
+    "copy-success": "Graph wurde in die Zwischenablage kopiert.",
+    "copy-failure": "Graph konnte nicht in die Zwischenablage kopiert werden."
   }
 }

@@ -8,7 +8,7 @@ export default class D3Graph {
   public readonly nodes: D3Node[] = [];
   public readonly links: D3Link[] = [];
 
-  constructor(public readonly name = '', public readonly description = '') {}
+  constructor(public readonly name = `graph_${Date.now().toString()}`, public readonly description = '') {}
 
   static async fromDomainGraph(domainGraph: FOLGraph): Promise<D3Graph> {
     const graph = new D3Graph(domainGraph.name, domainGraph.description);

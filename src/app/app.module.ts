@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
 import { GraphListComponent } from './components/graph-list/graph-list.component';
 import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
+import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/export-graph.bottom-sheet';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,14 @@ import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
     SymbolEditorComponent,
     GraphListComponent,
     SaveGraphDialog,
+    ExportGraphBottomSheet,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    ClipboardModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -36,7 +36,8 @@
     "cancel": "Cancel",
     "save": "Save",
     "load": "Load",
-    "undo": "Undo"
+    "undo": "Undo",
+    "export": "Export"
   },
   "fol": {
     "relation": {
@@ -63,5 +64,13 @@
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" has been deleted."
+  },
+  "export": {
+    "json": "JSON",
+    "yaml": "YAML",
+    "copy": "Copy Graph to clipboard",
+    "download": "Download Graph as file",
+    "copy-failure": "Could not copy Graph to clipboard.",
+    "copy-success": "Graph has been copied to the clipboard."
   }
 }
