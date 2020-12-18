@@ -62,6 +62,6 @@
     "description": "Description"
   },
   "snackbar": {
-    "graph-deleted": "Graph {{name}} has been deleted."
+    "graph-deleted": "Graph \"{{name}}\" has been deleted."
   }
 }
