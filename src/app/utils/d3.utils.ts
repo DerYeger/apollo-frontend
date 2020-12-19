@@ -1,7 +1,7 @@
 import { GraphConfiguration } from '../configurations/graph.configuration';
 import { D3Node } from '../model/d3/d3.node';
 
-export function directPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
+export function paddedLinePath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = target.x! - source.x!;
   const deltaY = target.y! - source.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -27,6 +27,7 @@ export function arcPath(source: D3Node, target: D3Node, graphConfiguration: Grap
           A${dist},${dist},0,0,1,${targetX},${targetY}`;
 }
 
+// TODO Implement proper reflexive links.
 export function reflexivePath(node: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = 0;
   const deltaY = node.y! + graphConfiguration.nodeRadius - node.y!;
@@ -42,4 +43,22 @@ export function reflexivePath(node: D3Node, graphConfiguration: GraphConfigurati
 export function linePath(from: [number, number], to: [number, number]): string {
   return `M${from[0]},${from[1]}
           L${to[0]},${to[1]}`;
+}
+
+export function directLinkTextTransform(source: D3Node, target: D3Node): string {
+  const xOffset = (source.x! + target.x!) / 2;
+  const yOffset = (source.y! + target.y!) / 2;
+  return `translate(${xOffset},${yOffset})`;
+}
+
+export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node): string {
+  const angle = Math.atan2(target.y! - source.y!, target.x! - source.x!);
+  const xOffset = 35 * Math.cos(angle) + source.x!;
+  const yOffset = 35 * Math.sin(angle) + source.y!;
+  return `translate(${xOffset},${yOffset})`;
+}
+
+// TODO Implement proper reflexive links.
+export function reflexiveLinkTextTransform(source: D3Node, target: D3Node): string {
+  return bidirectionalLinkTextTransform(source, target);
 }

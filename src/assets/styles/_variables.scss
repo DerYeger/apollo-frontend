@@ -5,4 +5,5 @@ $accentPalette: mat-palette($mat-pink, A200, A100, A400);
 
 $warnPalette: mat-palette($mat-red);
 
-$gramofoTheme: mat-light-theme($primaryPalette, $accentPalette, $warnPalette);
+$lightTheme: mat-light-theme($primaryPalette, $accentPalette, $warnPalette);
+$darkTheme: mat-dark-theme($primaryPalette, $accentPalette, $warnPalette);

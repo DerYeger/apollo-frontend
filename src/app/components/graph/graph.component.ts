@@ -12,7 +12,7 @@ import { D3Node } from 'src/app/model/d3/d3.node';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
 import { GraphSettings, State } from 'src/app/store/state';
-import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
+import { arcPath, directLinkTextTransform, paddedLinePath, linePath, reflexiveLinkTextTransform, reflexivePath, bidirectionalLinkTextTransform } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
@@ -58,7 +58,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private simulation?: d3.Simulation<D3Node, D3Link>;
 
   private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
-  private link?: d3.Selection<SVGPathElement, D3Link, SVGGElement, unknown>;
+  private link?: d3.Selection<SVGGElement, D3Link, SVGGElement, unknown>;
   private node?: d3.Selection<SVGGElement, D3Node, SVGGElement, unknown>;
 
   private zoom?: d3.ZoomBehavior<SVGSVGElement, unknown>;
@@ -152,16 +152,25 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   restart(alpha: number = 0.5): void {
-    this.link = this.link!.data(this.graph!.links, (d: D3Link) => d.source + '-' + d.target)
-      .join('path')
-      .classed('link', true)
-      .on('contextmenu', (event: MouseEvent, d) => {
+    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
+      const linkGroup = enter.append('g').on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
         this.linkSelected.emit(d);
-      })
-      .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .style('marker-end', 'url(#link-arrow');
+      });
+      linkGroup
+        .append('path')
+        .classed('link', true)
+        .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+        .on('pointerout', () => this.hideTooltip())
+        .style('marker-end', 'url(#link-arrow');
+      linkGroup.append('text').classed('label link-details', true).attr('text-anchor', 'middle');
+      return linkGroup;
+    });
+
+    this.link
+      .select('.link-details')
+      .attr('opacity', this.showLabels ? 1 : 0)
+      .text((d) => [...d.relations, ...d.functions].join(', '));
 
     this.node = this.node!.data(this.graph!.nodes, (d) => d.id).join((enter) => {
       const nodeGroup = enter
@@ -317,13 +326,23 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.attr('d', (d) => {
+    this.link!.select('.link').attr('d', (d) => {
       if (d.source.id === d.target.id) {
         return reflexivePath(d.source, this.config);
       } else if (this.isBidirectional(d)) {
         return arcPath(d.source, d.target, this.config);
       } else {
-        return directPath(d.source, d.target, this.config);
+        return paddedLinePath(d.source, d.target, this.config);
+      }
+    });
+
+    this.link!.select('.link-details').attr('transform', (d: D3Link) => {
+      if (d.source.id === d.target.id) {
+        return reflexiveLinkTextTransform(d.source, d.target);
+      } else if (this.isBidirectional(d)) {
+        return bidirectionalLinkTextTransform(d.source, d.target);
+      } else {
+        return directLinkTextTransform(d.source, d.target);
       }
     });
 

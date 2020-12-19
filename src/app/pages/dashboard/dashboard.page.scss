@@ -12,6 +12,8 @@
 
 .toolbar {
   z-index: 2;
+  // The following line equalizes dark and light themes.
+  height: 4rem;
 }
 
 h1.title {
@@ -30,25 +32,6 @@ mat-nav-list {
   padding: 0;
 }
 
-.repository-link {
-  align-items: center;
-  color: mat-color($primaryPalette);
-  display: flex;
-  justify-content: left;
-  margin: 1rem;
-  text-decoration: none;
-}
-
-.repository-link:visited {
-  color: mat-color($primaryPalette);
-  text-decoration: none;
-}
-
-.github-logo {
-  width: 2rem;
-  height: 2rem;
-}
-
 .language-button-group {
   width: 100%;
   border-radius: 0;
@@ -58,4 +41,44 @@ mat-nav-list {
 
 .language-button {
   width: 50%;
+  // The following lines equalize dark and light themes.
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
+@mixin repository-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foregound: map-get($theme, foreground);
+  $text-color: mat-color($foregound, text);
+
+  .github-logo {
+    width: 2rem;
+    height: 2rem;
+    fill: $text-color;
+  }
+
+  .repository-link {
+    align-items: center;
+    color: $text-color;
+    display: flex;
+    justify-content: left;
+    margin: 1rem;
+    text-decoration: none;
+
+    span {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    mat-icon {
+      transform: scale(0.75);
+    }
+  }
+
+  .repository-link:visited {
+    color: $text-color;
+    text-decoration: none;
+  }
 }

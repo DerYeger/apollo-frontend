@@ -1,4 +1,20 @@
 @import "~@angular/material/theming";
 @import "variables";
+@import "src/app/components/graph/graph.component";
+@import "src/app/pages/dashboard/dashboard.page";
 @include mat-core();
-@include angular-material-theme($gramofoTheme);
+
+@mixin components-theme($theme) {
+  @include graph-theme($theme);
+  @include repository-theme($theme);
+}
+
+@media (prefers-color-scheme: light) {
+  @include angular-material-theme($lightTheme);
+  @include components-theme($lightTheme);
+}
+
+@media (prefers-color-scheme: dark) {
+  @include angular-material-theme($darkTheme);
+  @include components-theme($darkTheme);
+}

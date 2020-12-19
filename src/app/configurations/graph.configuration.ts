@@ -13,8 +13,8 @@ export interface GraphConfiguration {
   markerPath: string;
 }
 
-const nodeBorder = 2;
-const nodeRadius = 20;
+const nodeBorder = 0;
+const nodeRadius = 24;
 
 const tooltipOpacity = 1;
 const tooltipFadeInTame = 500;
