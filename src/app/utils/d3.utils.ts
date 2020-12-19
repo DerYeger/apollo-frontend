@@ -15,20 +15,21 @@ export function paddedLinePath(source: D3Node, target: D3Node, graphConfiguratio
           L${targetX},${targetY}`;
 }
 
-export function arcPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
+export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = target.x! - source.x!;
   const deltaY = target.y! - source.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
   const normX = deltaX / dist;
   const normY = deltaY / dist;
-  const targetX = target.x! - graphConfiguration.markerPadding * normX;
-  const targetY = target.y! - graphConfiguration.markerPadding * normY;
+  const targetX = target.x! - (graphConfiguration.markerPadding - 1) * normX;
+  const targetY = target.y! - (graphConfiguration.markerPadding - 1) * normY;
+  console.log(graphConfiguration.markerPadding);
   return `M${source.x},${source.y}
           A${dist},${dist},0,0,1,${targetX},${targetY}`;
 }
 
 // TODO Implement proper reflexive links.
-export function reflexivePath(node: D3Node, graphConfiguration: GraphConfiguration): string {
+export function paddedReflexivePath(node: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = 0;
   const deltaY = node.y! + graphConfiguration.nodeRadius - node.y!;
   const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -52,9 +53,9 @@ export function directLinkTextTransform(source: D3Node, target: D3Node): string 
 }
 
 export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node): string {
-  const angle = Math.atan2(target.y! - source.y!, target.x! - source.x!);
-  const xOffset = 35 * Math.cos(angle) + source.x!;
-  const yOffset = 35 * Math.sin(angle) + source.y!;
+  const angle = Math.atan2(source.y! - target.y!, source.x! - target.x!);
+  const xOffset = 35 * Math.cos(angle) + target.x!;
+  const yOffset = 35 * Math.sin(angle) + target.y!;
   return `translate(${xOffset},${yOffset})`;
 }
 

@@ -36,13 +36,9 @@
     }
   }
 
-  .label {
-    pointer-events: none;
-  }
-
   .link {
     stroke: mat-color($accent, darker);
-    stroke-width: 3px;
+    stroke-width: 4px;
     fill: none;
 
     &.hidden {
@@ -60,14 +56,18 @@
 
   .node {
     fill: mat-color($primary);
+    stroke: none;
   }
 
   .link-details,
   .node-details {
     fill: mat-color($foregound, text);
+    text-anchor: middle;
   }
 
   .node-id {
+    pointer-events: none;
     fill: mat-color($accent, darker-contrast);
+    text-anchor: middle;
   }
 }
