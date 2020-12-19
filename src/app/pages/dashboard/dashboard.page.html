@@ -1,18 +1,18 @@
 <div class="container">
-  <mat-toolbar color="primary" class="toolbar">
-    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-    <h1 class="title unselectable">{{'app.title' | translate}}</h1>
+  <mat-toolbar color="primary" class="toolbar mat-elevation-z8">
+    <button mat-icon-button (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>
+    <h1 class="title">{{'app.title' | translate}}</h1>
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav class="sidenav" mode="push">
+    <mat-sidenav class="sidenav mat-elevation-z6" mode="side" [opened]="sidebar$ | async">
       <mat-nav-list>
-        <a mat-list-item *ngFor="let route of routes" (click)="activateRoute(route)">{{route.name! | translate}}</a>
+        <a mat-list-item *ngFor="let route of routes" [routerLink]="route.path">{{route.name! | translate}}</a>
       </mat-nav-list>
       <mat-button-toggle-group name="language" class="language-button-group" (change)="setLanguage($event)">
         <mat-button-toggle value="en" class="language-button">{{'lang.en' | translate}}</mat-button-toggle>
         <mat-button-toggle value="de" class="language-button">{{'lang.de' | translate}}</mat-button-toggle>
       </mat-button-toggle-group>
-      <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link">
+      <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link" target="_blank" rel="noopener noreferrer">
         <svg class="github-logo" xmlns="http://www.w3.org/2000/svg">
           <path
             transform="scale(2)"

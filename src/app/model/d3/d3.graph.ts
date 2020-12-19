@@ -52,7 +52,7 @@ export default class D3Graph {
 
   public createNode(id: string, relations?: string[], constants?: string[], x?: number, y?: number): Promise<D3Node> {
     if (this.nodes.some((n) => n.id === id)) {
-      return Promise.reject({ key: 'validation.node.duplicate', params: { id } });
+      return Promise.reject({ key: 'validation.node.duplicate', params: { node: id } });
     } else if (!D3Graph.relationsAreValid(relations)) {
       return Promise.reject({ key: 'validation.node.invalid-relations', params: { node: id } });
     } else if (!D3Graph.functionsAreValid(constants)) {
@@ -110,7 +110,7 @@ export default class D3Graph {
   public removeLink(link: D3Link): Promise<D3Link> {
     const linkIndex = this.links.findIndex((l) => l.source.id === link.source.id && l.target.id === link.target.id);
     if (linkIndex === -1) {
-      return Promise.reject('validation.link.missing');
+      return Promise.reject('validation.edge.missing');
     }
 
     this.links.splice(linkIndex, 1);

@@ -64,7 +64,6 @@ import { GraphImportComponent } from './components/graph-import/graph-import.com
       httpResponseType: 'json',
     }),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

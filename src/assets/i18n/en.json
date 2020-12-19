@@ -83,9 +83,9 @@
       "invalid-constants": "Invalid Graph: Node \"{{node}}\" has invalid constant(s) (Constants must begin with a lowercase letter)."
     },
     "edge": {
-      "missing": "Invalid Graph: Edge \"{{edge}}\" is missing from the Graph.",
-      "invalid-relations": "Invalid Graph: Edge \"{{edge}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
-      "invalid-functions": "Invalid Graph: Edge \"{{edge}}\" has invalid function(s) (Functions must begin with a lowercase letter)."
+      "missing": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" is missing from the Graph.",
+      "invalid-relations": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
+      "invalid-functions": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid function(s) (Functions must begin with a lowercase letter)."
     },
     "parse-error": "Input does not match the Graph schema."
   },

@@ -12,14 +12,16 @@ import {
   setLanguage,
   storeGraph,
   toggleLabels,
+  toggleSidebar,
   toggleSimulation,
 } from './actions';
 import { GraphSettings, Settings, State } from './state';
 
 export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
-    { language: undefined },
-    on(setLanguage, (state, { language }) => ({ ...state, language }))
+    { language: undefined, sidebar: true },
+    on(setLanguage, (state, { language }) => ({ ...state, language })),
+    on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar }))
   ),
   graphSettings: createReducer<GraphSettings>(
     {

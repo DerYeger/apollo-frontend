@@ -19,7 +19,7 @@ export interface TranslationDTO {
 export class SnackBarService {
   constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store<State>, private readonly log: NGXLogger) {}
 
-  public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined = 2000): Promise<MatSnackBarRef<TextOnlySnackBar>> {
+  public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined = 5000): Promise<MatSnackBarRef<TextOnlySnackBar>> {
     const message$: Observable<string> = this.translate.get(messageDTO.key, messageDTO.params);
     const action$: Observable<string | undefined> = actionDTO ? this.translate.get(actionDTO.key, actionDTO.params) : of(undefined);
     const [message, action] = await forkJoin([message$, action$]).toPromise();

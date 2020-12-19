@@ -83,9 +83,9 @@
       "invalid-constants": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Konstante(n) (Konstanten müssen mit einem Kleinbuchstaben beginnen)."
     },
     "edge": {
-      "missing": "Ungültiger Graph: Kante \"{{edge}}\" fehlt im Graphen.",
-      "invalid-relations": "Ungültiger Graph: Kante \"{{edge}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
-      "invalid-functions": "Ungültiger Graph: Kante \"{{edge}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen)."
+      "missing": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" fehlt im Graphen.",
+      "invalid-relations": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
+      "invalid-functions": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen)."
     },
     "parse-error": "Eingabe entspricht nicht dem Graph-Schema."
   },

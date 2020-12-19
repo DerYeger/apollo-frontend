@@ -49,10 +49,11 @@ export class GraphImportComponent implements AfterViewInit {
   public onFileInput(): void {
     const files: FileList | null = this.fileInput.nativeElement.files;
     if (files === null || files.length < 1) {
-      this.snackBarService.openSnackBar({ key: 'import.file-error' });
+      this.snackBarService.openSnackBar({ key: 'import.file-error' }, undefined, 10000);
     } else {
       files[0].text().then((fileContent) => this.handleTextInput(fileContent));
     }
+    this.fileInput.nativeElement.value = '';
   }
 
   public handleTextInput(textInput: string = this.textInputFormControl.value): void {
@@ -65,11 +66,11 @@ export class GraphImportComponent implements AfterViewInit {
           if (error.key !== undefined) {
             this.snackBarService.openSnackBar(error, undefined);
           } else {
-            this.snackBarService.openSnackBar({ key: 'validation.parse-error' });
+            this.snackBarService.openSnackBar({ key: 'validation.parse-error' }, undefined, 10000);
           }
         });
     } catch (error) {
-      this.snackBarService.openSnackBar({ key: 'validation.parse-error' });
+      this.snackBarService.openSnackBar({ key: 'validation.parse-error' }, undefined, 10000);
     }
   }
   public loadDemoGraph(): void {

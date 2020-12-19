@@ -5,6 +5,7 @@ h1 {
 div {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 mat-form-field {

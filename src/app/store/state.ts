@@ -9,6 +9,7 @@ export interface State {
 
 export interface Settings {
   language?: string;
+  sidebar: boolean;
 }
 
 export interface GraphSettings {
