@@ -4,6 +4,7 @@ import { FOLGraph } from '../model/domain/fol.graph';
 
 export const setLanguage = createAction('[settings.language] set', props<{ language: string }>());
 export const toggleSidebar = createAction('[settings.sidebar] toggle');
+export const toggleTheme = createAction('[settings.theme] toggle');
 
 export const enableSimulation = createAction('[graph.simulation] enable');
 export const toggleSimulation = createAction('[graph.simulation] toggle');

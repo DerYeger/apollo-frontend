@@ -12,6 +12,9 @@
         <mat-button-toggle value="en" class="language-button">{{'lang.en' | translate}}</mat-button-toggle>
         <mat-button-toggle value="de" class="language-button">{{'lang.de' | translate}}</mat-button-toggle>
       </mat-button-toggle-group>
+      <div class="theme-button-container">
+        <button mat-icon-button (click)="toggleTheme()"><mat-icon>{{themeButtonIcon$ | async}}</mat-icon></button>
+      </div>
       <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link" target="_blank" rel="noopener noreferrer">
         <svg class="github-logo" xmlns="http://www.w3.org/2000/svg">
           <path

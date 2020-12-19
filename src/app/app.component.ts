@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import localeDe from '@angular/common/locales/en';
 import localeEn from '@angular/common/locales/en';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,6 +8,8 @@ import { State } from './store/state';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { setLanguage } from './store/actions';
+import { map } from 'rxjs/operators';
+import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'gramofo-root',
@@ -20,7 +22,10 @@ export class AppComponent implements OnDestroy, OnInit {
     de: localeDe,
   };
 
-  private settingsSubscription?: Subscription;
+  private languageSubscription?: Subscription;
+  private themeSubscription?: Subscription;
+
+  @HostBinding('class') public themeClass!: string;
 
   constructor(private readonly store: Store<State>, private readonly translate: TranslateService, private readonly log: NGXLogger) {
     Object.entries(this.languages).forEach(([language, locale]) => {
@@ -31,14 +36,22 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    this.settingsSubscription = this.store.select('settings').subscribe((settings) => {
+    this.languageSubscription = this.store.select('settings').subscribe((settings) => {
       const language = settings.language ?? this.translate.getBrowserLang();
       this.log.info(`Set ${language} as current language.`);
       this.translate.use(language);
     });
+
+    this.themeSubscription = this.store
+      .select('settings')
+      .pipe(map((settings) => settings.theme))
+      .subscribe((theme) => {
+        this.themeClass = theme;
+      });
   }
 
   ngOnDestroy(): void {
-    this.settingsSubscription?.unsubscribe();
+    this.languageSubscription?.unsubscribe();
+    this.themeSubscription?.unsubscribe();
   }
 }

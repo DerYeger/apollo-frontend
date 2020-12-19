@@ -4,17 +4,17 @@
 @import "src/app/pages/dashboard/dashboard.page";
 @include mat-core();
 
-@mixin components-theme($theme) {
+@mixin component-themes($theme) {
   @include graph-theme($theme);
   @include repository-theme($theme);
 }
 
-@media (prefers-color-scheme: light) {
-  @include angular-material-theme($lightTheme);
-  @include components-theme($lightTheme);
+.light-theme {
+  @include angular-material-theme($light-theme);
+  @include component-themes($light-theme);
 }
 
-@media (prefers-color-scheme: dark) {
-  @include angular-material-theme($darkTheme);
-  @include components-theme($darkTheme);
+.dark-theme {
+  @include angular-material-theme($dark-theme);
+  @include component-themes($dark-theme);
 }

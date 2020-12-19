@@ -14,14 +14,16 @@ import {
   toggleLabels,
   toggleSidebar,
   toggleSimulation,
+  toggleTheme,
 } from './actions';
 import { GraphSettings, Settings, State } from './state';
 
 export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
-    { language: undefined, sidebar: true },
+    { language: undefined, sidebar: true, theme: 'dark-theme' },
     on(setLanguage, (state, { language }) => ({ ...state, language })),
-    on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar }))
+    on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar })),
+    on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' }))
   ),
   graphSettings: createReducer<GraphSettings>(
     {
