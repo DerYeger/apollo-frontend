@@ -23,18 +23,18 @@ import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() graph: D3Graph | null | undefined = new D3Graph();
+  @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
-  @Input() allowEditing = true;
-  @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
+  @Input() public allowEditing = true;
+  @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
-  @Output() readonly linkSelected = new EventEmitter<D3Link>();
-  @Output() readonly nodeSelected = new EventEmitter<D3Node>();
+  @Output() public readonly linkSelected = new EventEmitter<D3Link>();
+  @Output() public readonly nodeSelected = new EventEmitter<D3Node>();
 
-  @Output() readonly linkDeleted = new EventEmitter<D3Link>();
-  @Output() readonly nodeDeleted = new EventEmitter<D3Node>();
+  @Output() public readonly linkDeleted = new EventEmitter<D3Link>();
+  @Output() public readonly nodeDeleted = new EventEmitter<D3Node>();
 
-  @Output() readonly saveRequested = new EventEmitter<FOLGraph>();
+  @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -49,10 +49,10 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private yOffset = 0;
 
   @ViewChild('graphHost')
-  readonly graphHost!: ElementRef<any>;
+  private readonly graphHost!: ElementRef<HTMLDivElement>;
 
   @ViewChild('tooltip')
-  readonly tooltip!: ElementRef<any>;
+  private readonly tooltip!: ElementRef<HTMLDivElement>;
   private canShowTooltip = true;
 
   private simulation?: d3.Simulation<D3Node, D3Link>;
@@ -406,11 +406,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.canShowTooltip) {
       return;
     }
-    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
-    d3.select(this.tooltip.nativeElement)
+    const tooltipSelection = d3.select(this.tooltip.nativeElement);
+    tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
+    tooltipSelection
       .html(text)
-      .style('left', event.pageX + 'px')
-      .style('top', event.pageY - 28 + 'px');
+      .style('left', `calc(${event.offsetX}px + ${2 * (this.config.nodeRadius + this.config.nodeBorder)}px)`)
+      .style('top', `calc(${event.offsetY}px`);
   }
 
   private hideTooltip(): void {

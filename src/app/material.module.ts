@@ -16,6 +16,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const matModules = [
@@ -36,6 +37,7 @@ const matModules = [
   MatSortModule,
   MatTableModule,
   MatToolbarModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

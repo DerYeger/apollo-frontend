@@ -9,11 +9,11 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  background: #cccccc;
+  padding: 0.5rem;
+  background: #bbbbbb;
   border: 1px;
-  border-color: #242424;
-  border-radius: 8px;
+  border-color: #222222;
+  border-radius: 0.25rem;
   pointer-events: none;
 }
 
@@ -58,15 +58,5 @@
 
   .label {
     pointer-events: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  .label::selection {
-    background: none;
   }
 }

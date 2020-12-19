@@ -16,7 +16,7 @@ export interface GraphConfiguration {
 const nodeBorder = 2;
 const nodeRadius = 20;
 
-const tooltipOpacity = 0.9;
+const tooltipOpacity = 1;
 const tooltipFadeInTame = 500;
 const tooltipFadeOutTime = 200;
 
