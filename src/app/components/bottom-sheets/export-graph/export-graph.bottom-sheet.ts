@@ -24,18 +24,18 @@ export class ExportGraphBottomSheet {
   downloadGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
-    const cleansedGraph = this.cleanseGraph(this.graph);
+    const sanitizedGraph = this.sanitizeGraph(this.graph);
 
     let fileContent = '';
     if (fileType === 'json') {
-      fileContent = JSON.stringify(cleansedGraph, null, 2);
+      fileContent = JSON.stringify(sanitizedGraph, null, 2);
     } else if (fileType === 'yml') {
-      fileContent = YAML.stringify(cleansedGraph);
+      fileContent = YAML.stringify(sanitizedGraph);
     }
 
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/json;charset=UTF-8,' + encodeURIComponent(fileContent));
-    element.setAttribute('download', `${cleansedGraph.name}.${fileType}`);
+    element.setAttribute('href', `data:text/${fileType};charset=UTF-8,` + encodeURIComponent(fileContent));
+    element.setAttribute('download', `${sanitizedGraph.name}.${fileType}`);
     element.style.display = 'none';
     document.body.appendChild(element);
     element.click();
@@ -45,23 +45,23 @@ export class ExportGraphBottomSheet {
   copyGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
-    const cleansedGraph = this.cleanseGraph(this.graph);
+    const sanitizedGraph = this.sanitizeGraph(this.graph);
 
     let exportContent = '';
     if (fileType === 'json') {
-      exportContent = JSON.stringify(cleansedGraph, null, 2);
+      exportContent = JSON.stringify(sanitizedGraph, null, 2);
     } else if (fileType === 'yml') {
-      exportContent = YAML.stringify(cleansedGraph);
+      exportContent = YAML.stringify(sanitizedGraph);
     }
 
     if (this.clipboard.copy(exportContent)) {
-      this.snackBarService.openSnackBar({ key: 'export.copy-success' }, undefined, 2000);
+      this.snackBarService.openSnackBar({ key: 'export.copy-success' });
     } else {
       this.snackBarService.openSnackBar({ key: 'export.copy-failure' }, undefined, 5000);
     }
   }
 
-  private cleanseGraph(graph: FOLGraph): any {
+  private sanitizeGraph(graph: FOLGraph): any {
     return {
       name: graph.name,
       description: graph.description,

@@ -1,6 +1,7 @@
-<div style="width: 100%">
+<h1 class="home-section">{{ 'home.saved-graphs' | translate }}</h1>
+<div class="home-section">
   <gramofo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></gramofo-graph-list>
 </div>
-<div style="display: flex; justify-content: center">
-  <button mat-raised-button (click)="loadDemoData()" color="primary">Load Demo</button>
+<div class="home-section">
+  <gramofo-graph-import (graphImport)="onGraphImport($event)"></gramofo-graph-import>
 </div>

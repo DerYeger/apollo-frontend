@@ -24,6 +24,7 @@ import { metaReducers, reducers } from './store/reducers';
 import { GraphListComponent } from './components/graph-list/graph-list.component';
 import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
 import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { GraphImportComponent } from './components/graph-import/graph-import.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/
     GraphListComponent,
     SaveGraphDialog,
     ExportGraphBottomSheet,
+    GraphImportComponent,
   ],
   imports: [
     CommonModule,

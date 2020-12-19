@@ -443,7 +443,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    return this.graph!.createLink(source, target)
+    return this.graph!.createLink(source.id, target.id)
       .then((newLink) => {
         this.restart();
         this.linkSelected.emit(newLink);
