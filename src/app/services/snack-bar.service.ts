@@ -28,11 +28,11 @@ export class SnackBarService {
   }
 
   public graphDeleted(graph: FOLGraph): void {
-    this.openSnackBar({ key: 'snackbar.graph-deleted', params: { name: graph.name } }, { key: 'actions.undo' }, 10000).then((snackBarRef) =>
-      snackBarRef
-        .onAction()
-        .toPromise()
-        .then(() => this.store.dispatch(storeGraph(graph)))
-    );
+    this.openSnackBar({ key: 'snackbar.graph-deleted', params: { name: graph.name } }, { key: 'actions.undo' }, 10000).then((snackBarRef) => {
+      const subscription = snackBarRef.onAction().subscribe(() => {
+        this.store.dispatch(storeGraph(graph));
+        subscription.unsubscribe();
+      });
+    });
   }
 }
