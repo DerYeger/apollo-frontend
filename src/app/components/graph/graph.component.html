@@ -1,5 +1,14 @@
-<div #tooltip class="tooltip label"></div>
+<div #tooltip class="tooltip"></div>
 <div class="graph-tool-container">
+  <div class="graph-tool">
+    <button mat-flat-button color="primary" (click)="saveGraph()">
+      <mat-icon>save</mat-icon>
+      {{ "actions.save" | translate }}
+    </button>
+  </div>
+  <div class="graph-tool">
+    <button mat-flat-button (click)="exportGraph()" color="primary" class="action-button">{{ "actions.export" | translate }}</button>
+  </div>
   <div class="graph-tool">
     <button mat-flat-button color="primary" (click)="resetGraph()">{{ "graph.reset-graph" | translate }}</button>
   </div>

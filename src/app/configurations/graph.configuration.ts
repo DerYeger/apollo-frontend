@@ -1,5 +1,4 @@
 export interface GraphConfiguration {
-  nodeBorder: number;
   nodeRadius: number;
 
   tooltipOpacity: number;
@@ -13,17 +12,15 @@ export interface GraphConfiguration {
   markerPath: string;
 }
 
-const nodeBorder = 2;
-const nodeRadius = 20;
+const nodeRadius = 24;
 
-const tooltipOpacity = 0.9;
+const tooltipOpacity = 1;
 const tooltipFadeInTame = 500;
 const tooltipFadeOutTime = 200;
 
 const markerBoxSize = 4;
 
 export const DEFAULT_GRAPH_CONFIGURATION: GraphConfiguration = {
-  nodeBorder,
   nodeRadius,
 
   tooltipOpacity,
@@ -31,7 +28,7 @@ export const DEFAULT_GRAPH_CONFIGURATION: GraphConfiguration = {
   tooltipFadeOutTime,
 
   markerBoxSize,
-  markerPadding: nodeRadius + nodeBorder + markerBoxSize,
+  markerPadding: nodeRadius + 2 * markerBoxSize,
   markerRef: markerBoxSize / 2,
   arrowPoints: [
     [0, 0],

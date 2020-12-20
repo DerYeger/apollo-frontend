@@ -6,13 +6,15 @@
     "title": "ModelChecker"
   },
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "saved-graphs": "Saved Graphs"
   },
   "graph": {
     "reset-graph": "Reset Graph",
     "create-node": "Create Node",
     "labels": "Labels",
-    "simulation": "Simulation"
+    "simulation": "Simulation",
+    "save-graph": "Save Graph"
   },
   "editor": {
     "node": {
@@ -31,7 +33,12 @@
   },
   "actions": {
     "apply": "Apply",
-    "delete": "Delete"
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "load": "Load",
+    "undo": "Undo",
+    "export": "Export"
   },
   "fol": {
     "relation": {
@@ -50,5 +57,44 @@
   },
   "dashboard": {
     "github-repository": "GitHub Repository"
+  },
+  "misc": {
+    "name": "Name",
+    "last-edit": "Last Edit",
+    "description": "Description",
+    "or": "or"
+  },
+  "snackbar": {
+    "graph-deleted": "Graph \"{{name}}\" has been deleted."
+  },
+  "export": {
+    "json": "JSON",
+    "yaml": "YAML",
+    "copy": "Copy Graph to clipboard",
+    "download": "Download Graph as file",
+    "copy-failure": "Could not copy Graph to clipboard.",
+    "copy-success": "Graph has been copied to the clipboard."
+  },
+  "validation": {
+    "node": {
+      "missing": "Invalid Graph: Node \"{{node}}\" is missing from the Graph.",
+      "duplicate": "Invalid Graph: Duplicate Node \"{{node}}\".",
+      "invalid-relations": "Invalid Graph: Node \"{{node}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
+      "invalid-constants": "Invalid Graph: Node \"{{node}}\" has invalid constant(s) (Constants must begin with a lowercase letter)."
+    },
+    "edge": {
+      "missing": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" is missing from the Graph.",
+      "invalid-relations": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
+      "invalid-functions": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid function(s) (Functions must begin with a lowercase letter)."
+    },
+    "parse-error": "Input does not match the Graph schema."
+  },
+  "import": {
+    "format-hint": "JSON or YAML",
+    "title": "Import Graph",
+    "file": "Import File",
+    "file-error": "Could not import File.",
+    "load-demo": "Load Demo Graph",
+    "text": "Paste or edit Graph"
   }
 }

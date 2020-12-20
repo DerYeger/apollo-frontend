@@ -13,7 +13,7 @@ export declare type GramofoRoutes = GramofoRoute[];
 export const routes: GramofoRoutes = [
   { path: 'home', name: 'home.title', component: HomePage },
   { path: 'modelchecker', name: 'model-checker.title', component: ModelCheckerPage },
-  { path: '**', redirectTo: 'modelchecker', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

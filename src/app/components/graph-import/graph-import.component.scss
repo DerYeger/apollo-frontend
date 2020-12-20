@@ -1,0 +1,18 @@
+h1 {
+  margin: 0;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+mat-form-field {
+  flex: 1;
+}
+
+span {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
