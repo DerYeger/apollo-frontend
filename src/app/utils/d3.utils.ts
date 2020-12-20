@@ -32,17 +32,16 @@ export function paddedReflexivePath(node: D3Node, center: [number, number], grap
   const n = new Matrix([[node.x!, node.y!]]);
   const c = new Matrix([center]);
   if (n.get(0, 0) === c.get(0, 0) && n.get(0, 1) === c.get(0, 1)) {
-    c.add([[0, 1]]); // Nodes at the exact center of the Graph should simply have their reflexive edge above them.
+    c.add([[0, 1]]); // Nodes at the exact center of the Graph should have their reflexive edge above them.
   }
-  const v = Matrix.subtract(n, c);
-  const norm = Matrix.divide(v, v.norm('frobenius'));
-  const start = rotate(norm, 40 * (Math.PI / 180))
+  const diff = Matrix.subtract(n, c);
+  const norm = diff.divide(diff.norm('frobenius'));
+  const rotation = 40 * (Math.PI / 180);
+  const start = rotate(norm, rotation).multiply(graphConfiguration.nodeRadius).add(n);
+  const end = rotate(norm, -rotation)
     .multiply(graphConfiguration.nodeRadius)
-    .add(n);
-  const endRotated = rotate(norm, -40 * (Math.PI / 180));
-  const end = Matrix.multiply(endRotated, graphConfiguration.nodeRadius)
     .add(n)
-    .add(Matrix.multiply(endRotated, 2 * graphConfiguration.markerBoxSize));
+    .add(rotate(norm, -rotation).multiply(2 * graphConfiguration.markerBoxSize));
   return `M${start.get(0, 0)},${start.get(0, 1)}
           A${graphConfiguration.nodeRadius},${graphConfiguration.nodeRadius},0,1,0,${end.get(0, 0)},${end.get(0, 1)}`;
 }
@@ -75,11 +74,12 @@ export function reflexiveLinkTextTransform(node: D3Node, center: [number, number
   const n = new Matrix([[node.x!, node.y!]]);
   const c = new Matrix([center]);
   if (n.get(0, 0) === c.get(0, 0) && n.get(0, 1) === c.get(0, 1)) {
-    c.add([[0, 1]]); // Nodes at the exact center of the Graph should simply have their reflexive edge above them.
+    c.add([[0, 1]]); // Nodes at the exact center of the Graph should have their reflexive edge above them.
   }
-  const v = Matrix.subtract(n, c);
-  const norm = Matrix.divide(v, v.norm('frobenius'))
+  const diff = Matrix.subtract(n, c);
+  const offset = diff
+    .divide(diff.norm('frobenius'))
     .multiply(3 * graphConfiguration.nodeRadius + 8)
     .add(n);
-  return `translate(${norm.get(0, 0)},${norm.get(0, 1)})`;
+  return `translate(${offset.get(0, 0)},${offset.get(0, 1)})`;
 }

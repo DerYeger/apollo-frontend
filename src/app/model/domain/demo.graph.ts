@@ -2,7 +2,7 @@ import { FOLGraph } from './fol.graph';
 
 export const DEMO_GRAPH: FOLGraph = {
   name: 'Demo Graph',
-  description: 'A simple demoonstration Graph.',
+  description: 'A simple demonstration Graph.',
   lastEdit: Date.now(),
   nodes: [
     { name: '0', relations: [], constants: ['a', 'b'] },
