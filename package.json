@@ -29,7 +29,7 @@
     "@types/d3": "6.2.0",
     "d3": "6.3.1",
     "fast-copy": "2.1.0",
-    "ml-matrix": "^6.5.3",
+    "ml-matrix": "6.5.3",
     "ngrx-store-localstorage": "10.1.1",
     "ngx-logger": "4.1.9",
     "rxjs": "6.6.3",
