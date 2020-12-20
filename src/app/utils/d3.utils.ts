@@ -1,4 +1,5 @@
 import { Matrix } from 'ml-matrix';
+
 import { GraphConfiguration } from '../configurations/graph.configuration';
 import { D3Node } from '../model/d3/d3.node';
 
