@@ -336,9 +336,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
-        return reflexiveLinkTextTransform(d.source, d.target);
+        return reflexiveLinkTextTransform(d.source, d.target, this.config);
       } else if (this.isBidirectional(d)) {
-        return bidirectionalLinkTextTransform(d.source, d.target);
+        return bidirectionalLinkTextTransform(d.source, d.target, this.config);
       } else {
         return directLinkTextTransform(d.source, d.target);
       }

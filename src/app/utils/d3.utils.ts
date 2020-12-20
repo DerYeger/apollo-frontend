@@ -23,7 +23,6 @@ export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration
   const normY = deltaY / dist;
   const targetX = target.x! - (graphConfiguration.markerPadding - 1) * normX;
   const targetY = target.y! - (graphConfiguration.markerPadding - 1) * normY;
-  console.log(graphConfiguration.markerPadding);
   return `M${source.x},${source.y}
           A${dist},${dist},0,0,1,${targetX},${targetY}`;
 }
@@ -49,17 +48,17 @@ export function linePath(from: [number, number], to: [number, number]): string {
 export function directLinkTextTransform(source: D3Node, target: D3Node): string {
   const xOffset = (source.x! + target.x!) / 2;
   const yOffset = (source.y! + target.y!) / 2;
-  return `translate(${xOffset},${yOffset})`;
+  return `translate(${xOffset},${yOffset - 8})`;
 }
 
-export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node): string {
+export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const angle = Math.atan2(source.y! - target.y!, source.x! - target.x!);
-  const xOffset = 35 * Math.cos(angle) + target.x!;
-  const yOffset = 35 * Math.sin(angle) + target.y!;
+  const xOffset = 2 * graphConfiguration.nodeRadius * Math.cos(angle) + target.x!;
+  const yOffset = 2 * graphConfiguration.nodeRadius * Math.sin(angle) + target.y!;
   return `translate(${xOffset},${yOffset})`;
 }
 
 // TODO Implement proper reflexive links.
-export function reflexiveLinkTextTransform(source: D3Node, target: D3Node): string {
-  return bidirectionalLinkTextTransform(source, target);
+export function reflexiveLinkTextTransform(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
+  return bidirectionalLinkTextTransform(source, target, graphConfiguration);
 }
