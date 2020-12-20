@@ -196,7 +196,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
         .text((d) => d.id)
         .classed('node-id', true)
         .attr('dy', `0.33em`);
-      nodeGroup.append('text').classed('node-details', true).attr('dy', `-2rem`);
+      nodeGroup.append('text').classed('node-details', true).attr('dy', `-2em`);
       return nodeGroup;
     });
 
