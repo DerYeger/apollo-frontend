@@ -1,10 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
-import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { GramofoRoute, routes } from 'src/app/app-routing.module';
-import { setLanguage } from 'src/app/store/actions';
+import { map } from 'rxjs/operators';
+import { routes } from 'src/app/app-routing.module';
+import { setLanguage, toggleSidebar, toggleTheme } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -15,16 +14,21 @@ import { State } from 'src/app/store/state';
 export class DashboardPage {
   public readonly routes = routes.filter((route) => route.name !== undefined);
 
-  @ViewChild('sidenav')
-  private readonly sidenav!: MatSidenav;
+  public readonly sidebar$ = this.store.select('settings').pipe(map((settings) => settings.sidebar));
 
-  constructor(private readonly store: Store<State>, private readonly router: Router) {}
+  public readonly themeButtonIcon$ = this.store.select('settings').pipe(map((settings) => (settings.theme === 'dark-theme' ? 'light_mode' : 'dark_mode')));
 
-  setLanguage(event: MatButtonToggleChange): void {
+  constructor(private readonly store: Store<State>) {}
+
+  public toggleSidebar(): void {
+    this.store.dispatch(toggleSidebar());
+  }
+
+  public setLanguage(event: MatButtonToggleChange): void {
     this.store.dispatch(setLanguage({ language: event.value }));
   }
 
-  activateRoute(route: GramofoRoute): void {
-    this.router.navigateByUrl(route.path ?? '').then(() => this.sidenav.toggle());
+  public toggleTheme(): void {
+    this.store.dispatch(toggleTheme());
   }
 }

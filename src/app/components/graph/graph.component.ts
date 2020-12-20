@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import * as d3 from 'd3';
@@ -11,8 +12,9 @@ import { D3Node } from 'src/app/model/d3/d3.node';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
 import { GraphSettings, State } from 'src/app/store/state';
-import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
+import { paddedArcPath, directLinkTextTransform, paddedLinePath, linePath, reflexiveLinkTextTransform, paddedReflexivePath, bidirectionalLinkTextTransform } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
+import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
 
 @Component({
@@ -21,18 +23,18 @@ import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() graph: D3Graph | null | undefined = new D3Graph();
+  @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
-  @Input() allowEditing = true;
-  @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
+  @Input() public allowEditing = true;
+  @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
-  @Output() readonly linkSelected = new EventEmitter<D3Link>();
-  @Output() readonly nodeSelected = new EventEmitter<D3Node>();
+  @Output() public readonly linkSelected = new EventEmitter<D3Link>();
+  @Output() public readonly nodeSelected = new EventEmitter<D3Node>();
 
-  @Output() readonly linkDeleted = new EventEmitter<D3Link>();
-  @Output() readonly nodeDeleted = new EventEmitter<D3Node>();
+  @Output() public readonly linkDeleted = new EventEmitter<D3Link>();
+  @Output() public readonly nodeDeleted = new EventEmitter<D3Node>();
 
-  @Output() readonly saveRequested = new EventEmitter<FOLGraph>();
+  @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -47,16 +49,16 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private yOffset = 0;
 
   @ViewChild('graphHost')
-  readonly graphHost!: ElementRef<any>;
+  private readonly graphHost!: ElementRef<HTMLDivElement>;
 
   @ViewChild('tooltip')
-  readonly tooltip!: ElementRef<any>;
+  private readonly tooltip!: ElementRef<HTMLDivElement>;
   private canShowTooltip = true;
 
   private simulation?: d3.Simulation<D3Node, D3Link>;
 
   private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
-  private link?: d3.Selection<SVGPathElement, D3Link, SVGGElement, unknown>;
+  private link?: d3.Selection<SVGGElement, D3Link, SVGGElement, unknown>;
   private node?: d3.Selection<SVGGElement, D3Node, SVGGElement, unknown>;
 
   private zoom?: d3.ZoomBehavior<SVGSVGElement, unknown>;
@@ -66,7 +68,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private draggableLinkSourceNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
-  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog) {}
+  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(_: any): void {
@@ -129,6 +131,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
   }
 
+  exportGraph(): void {
+    this.bottomSheet.open(ExportGraphBottomSheet, {
+      data: this.graph!.toDomainGraph(),
+    });
+  }
+
   toggleLabels(): void {
     this.store.dispatch(toggleLabels());
   }
@@ -144,16 +152,20 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   restart(alpha: number = 0.5): void {
-    this.link = this.link!.data(this.graph!.links, (d: D3Link) => d.source + '-' + d.target)
-      .join('path')
-      .classed('link', true)
-      .on('contextmenu', (event: MouseEvent, d) => {
+    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
+      const linkGroup = enter.append('g').on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
         this.linkSelected.emit(d);
-      })
-      .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .style('marker-end', 'url(#link-arrow');
+      });
+      linkGroup
+        .append('path')
+        .classed('link', true)
+        .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+        .on('pointerout', () => this.hideTooltip())
+        .style('marker-end', 'url(#link-arrow');
+      linkGroup.append('text').classed('link-details', true);
+      return linkGroup;
+    });
 
     this.node = this.node!.data(this.graph!.nodes, (d) => d.id).join((enter) => {
       const nodeGroup = enter
@@ -167,7 +179,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .style('stroke-width', `${this.config.nodeBorder}`)
         .on('pointerenter', (event, d: D3Node) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
         .on('pointerout', () => this.hideTooltip())
         .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
@@ -175,12 +186,16 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
       nodeGroup
         .append('text')
         .text((d) => d.id)
-        .classed('label node-id', true)
-        .attr('text-anchor', 'middle')
+        .classed('node-id', true)
         .attr('dy', `0.33em`);
-      nodeGroup.append('text').classed('label node-details', true).attr('text-anchor', 'middle').attr('dy', `-2rem`);
+      nodeGroup.append('text').classed('node-details', true).attr('dy', `-2rem`);
       return nodeGroup;
     });
+
+    this.link
+      .select('.link-details')
+      .attr('opacity', this.showLabels ? 1 : 0)
+      .text((d) => [...d.relations, ...d.functions].join(', '));
 
     this.node
       .select('.node-details')
@@ -266,7 +281,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (this.enableSimulation) {
       this.simulation
         .force('charge', d3.forceManyBody<D3Node>().strength(-500))
-        .force('collision', d3.forceCollide<D3Node>().radius(this.config.nodeRadius + this.config.nodeBorder))
+        .force('collision', d3.forceCollide<D3Node>().radius(this.config.nodeRadius))
         .force(
           'link',
           d3
@@ -309,13 +324,23 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.attr('d', (d) => {
+    this.link!.select('.link').attr('d', (d) => {
       if (d.source.id === d.target.id) {
-        return reflexivePath(d.source, this.config);
+        return paddedReflexivePath(d.source, this.config);
       } else if (this.isBidirectional(d)) {
-        return arcPath(d.source, d.target, this.config);
+        return paddedArcPath(d.source, d.target, this.config);
       } else {
-        return directPath(d.source, d.target, this.config);
+        return paddedLinePath(d.source, d.target, this.config);
+      }
+    });
+
+    this.link!.select('.link-details').attr('transform', (d: D3Link) => {
+      if (d.source.id === d.target.id) {
+        return reflexiveLinkTextTransform(d.source, d.target, this.config);
+      } else if (this.isBidirectional(d)) {
+        return bidirectionalLinkTextTransform(d.source, d.target, this.config);
+      } else {
+        return directLinkTextTransform(d.source, d.target);
       }
     });
 
@@ -382,7 +407,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   private zoomed(event: D3ZoomEvent<any, any>): void {
     this.xOffset = event.transform.x;
     this.yOffset = event.transform.y;
-    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})scale(${event.transform.k})`);
+    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})`);
   }
 
   private isBidirectional(link: D3Link): boolean {
@@ -398,11 +423,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.canShowTooltip) {
       return;
     }
-    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
-    d3.select(this.tooltip.nativeElement)
+    const tooltipSelection = d3.select(this.tooltip.nativeElement);
+    tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
+    tooltipSelection
       .html(text)
-      .style('left', event.pageX + 'px')
-      .style('top', event.pageY - 28 + 'px');
+      .style('left', `calc(${event.offsetX}px + ${2 * this.config.nodeRadius}px)`)
+      .style('top', `calc(${event.offsetY}px`);
   }
 
   private hideTooltip(): void {
@@ -435,7 +461,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    return this.graph!.createLink(source, target)
+    return this.graph!.createLink(source.id, target.id)
       .then((newLink) => {
         this.restart();
         this.linkSelected.emit(newLink);

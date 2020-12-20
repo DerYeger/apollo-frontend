@@ -1,5 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { NgModule } from '@angular/core';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -11,13 +12,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const matModules = [
   BrowserAnimationsModule,
+  MatBottomSheetModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatCardModule,
@@ -29,9 +33,11 @@ const matModules = [
   MatInputModule,
   MatListModule,
   MatSidenavModule,
+  MatSnackBarModule,
   MatSortModule,
   MatTableModule,
   MatToolbarModule,
+  MatTooltipModule,
 ];
 
 @NgModule({
@@ -44,6 +50,7 @@ const matModules = [
         separatorKeyCodes: [ENTER, COMMA],
       },
     },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
   ],
 })
 export class MaterialModule {}

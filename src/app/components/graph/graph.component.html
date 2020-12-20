@@ -1,4 +1,4 @@
-<div #tooltip class="tooltip label"></div>
+<div #tooltip class="tooltip"></div>
 <div class="graph-tool-container">
   <div class="graph-tool">
     <button mat-flat-button color="primary" (click)="saveGraph()">
@@ -7,15 +7,18 @@
     </button>
   </div>
   <div class="graph-tool">
+    <button mat-flat-button (click)="exportGraph()" color="primary" class="action-button">{{ "actions.export" | translate }}</button>
+  </div>
+  <div class="graph-tool">
     <button mat-flat-button color="primary" (click)="resetGraph()">{{ "graph.reset-graph" | translate }}</button>
   </div>
   <div class="graph-tool">
     <button *ngIf="allowEditing" mat-flat-button color="primary" (click)="createNode()">{{ "graph.create-node" | translate }}</button>
   </div>
-  <div class="graph-tool unselectable">
+  <div class="graph-tool">
     <mat-checkbox color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">{{ "graph.simulation" | translate }}</mat-checkbox>
   </div>
-  <div class="graph-tool unselectable">
+  <div class="graph-tool">
     <mat-checkbox color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">{{ "graph.labels" | translate }}</mat-checkbox>
   </div>
 </div>

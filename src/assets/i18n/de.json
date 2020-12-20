@@ -6,7 +6,8 @@
     "title": "ModelChecker"
   },
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "saved-graphs": "Gespeicherte Graphen"
   },
   "graph": {
     "reset-graph": "Graph zurücksetzen",
@@ -35,7 +36,9 @@
     "delete": "Löschen",
     "cancel": "Abbrechen",
     "save": "Speichern",
-    "load": "Laden"
+    "load": "Laden",
+    "undo": "Rückgängig machen",
+    "export": "Exportieren"
   },
   "fol": {
     "constant": {
@@ -57,6 +60,41 @@
   },
   "misc": {
     "name": "Name",
-    "last-edit": "Letzte Änderung"
+    "last-edit": "Letzte Änderung",
+    "description": "Beschreibung",
+    "or": "oder"
+  },
+  "snackbar": {
+    "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."
+  },
+  "export": {
+    "yaml": "YAML",
+    "json": "JSON",
+    "copy": "Graph in die Zwischenablage kopieren",
+    "download": "Graph als Datei herunterladen",
+    "copy-success": "Graph wurde in die Zwischenablage kopiert.",
+    "copy-failure": "Graph konnte nicht in die Zwischenablage kopiert werden."
+  },
+  "validation": {
+    "node": {
+      "missing": "Ungültiger Graph: Knoten \"{{node}}\" fehlt im Graphen.",
+      "duplicate": "Ungültiger Graph: Doppelter Knoten \"{{node}}\".",
+      "invalid-relations": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
+      "invalid-constants": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Konstante(n) (Konstanten müssen mit einem Kleinbuchstaben beginnen)."
+    },
+    "edge": {
+      "missing": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" fehlt im Graphen.",
+      "invalid-relations": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
+      "invalid-functions": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen)."
+    },
+    "parse-error": "Eingabe entspricht nicht dem Graph-Schema."
+  },
+  "import": {
+    "file": "Datei importieren",
+    "file-error": "Datei konnte nicht importiert werden.",
+    "format-hint": "JSON oder YAML",
+    "load-demo": "Demo Graph laden",
+    "title": "Graph importieren",
+    "text": "Graph einfügen oder bearbeiten"
   }
 }

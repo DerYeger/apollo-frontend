@@ -7,8 +7,12 @@ export interface State {
   graphCache: GraphCollection;
 }
 
+export declare type Theme = 'dark-theme' | 'light-theme';
+
 export interface Settings {
   language?: string;
+  sidebar: boolean;
+  theme: Theme;
 }
 
 export interface GraphSettings {

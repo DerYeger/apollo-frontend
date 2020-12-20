@@ -8,22 +8,21 @@ export default class D3Graph {
   public readonly nodes: D3Node[] = [];
   public readonly links: D3Link[] = [];
 
-  constructor(public readonly name = '', public readonly description = '') {}
+  constructor(public readonly name = `graph_${Date.now().toString()}`, public readonly description = '') {}
 
   static async fromDomainGraph(domainGraph: FOLGraph): Promise<D3Graph> {
     const graph = new D3Graph(domainGraph.name, domainGraph.description);
     await Promise.all(domainGraph.nodes.map((node) => graph.createNode(node.name, node.relations, node.constants)));
-    await Promise.all(
-      domainGraph.edges.map((edge) => {
-        const source = graph.nodes.find((node) => node.id === edge.source);
-        const target = graph.nodes.find((node) => node.id === edge.target);
-        if (source === undefined || target === undefined) {
-          return Promise.reject('graph.node-not-defined');
-        }
-        return graph.createLink(source, target, edge.relations, edge.functions);
-      })
-    );
+    await Promise.all(domainGraph.edges.map((edge) => graph.createLink(edge.source, edge.target, edge.relations, edge.functions)));
     return Promise.resolve(graph);
+  }
+
+  private static relationsAreValid(relations?: string[]): boolean {
+    return relations?.every((rel) => rel.charAt(0) === rel.charAt(0).toUpperCase()) ?? true;
+  }
+
+  private static functionsAreValid(functions?: string[]): boolean {
+    return functions?.every((fun) => fun.charAt(0) === fun.charAt(0).toLowerCase()) ?? true;
   }
 
   public toDomainGraph(): FOLGraph {
@@ -53,7 +52,11 @@ export default class D3Graph {
 
   public createNode(id: string, relations?: string[], constants?: string[], x?: number, y?: number): Promise<D3Node> {
     if (this.nodes.some((n) => n.id === id)) {
-      return Promise.reject('graph.duplicate-id');
+      return Promise.reject({ key: 'validation.node.duplicate', params: { node: id } });
+    } else if (!D3Graph.relationsAreValid(relations)) {
+      return Promise.reject({ key: 'validation.node.invalid-relations', params: { node: id } });
+    } else if (!D3Graph.functionsAreValid(constants)) {
+      return Promise.reject({ key: 'validation.node.invalid-constants', params: { node: id } });
     }
 
     const node = new GramoFONode(id, relations, constants, x, y);
@@ -61,10 +64,26 @@ export default class D3Graph {
     return Promise.resolve(node);
   }
 
-  public createLink(source: D3Node, target: D3Node, relations?: string[], functions?: string[]): Promise<D3Link> {
-    const existingIndex = this.links.findIndex((l) => l.source.id === source.id && l.target.id === target.id);
-    if (existingIndex !== -1) {
-      return Promise.reject(this.links[existingIndex]);
+  public createLink(sourceId: string, targetId: string, relations?: string[], functions?: string[]): Promise<D3Link> {
+    const existingLink = this.links.find((l) => l.source.id === sourceId && l.target.id === targetId);
+    if (existingLink !== undefined) {
+      return Promise.reject(existingLink);
+    }
+
+    const source = this.nodes.find((node) => node.id === sourceId);
+    if (source === undefined) {
+      return Promise.reject({ key: 'validation.node.missing', params: { node: sourceId } });
+    }
+
+    const target = this.nodes.find((node) => node.id === targetId);
+    if (target === undefined) {
+      return Promise.reject({ key: 'validation.node.missing', params: { node: targetId } });
+    }
+
+    if (!D3Graph.relationsAreValid(relations)) {
+      return Promise.reject({ key: 'validation.edge.invalid-relations', params: { source: sourceId, target: targetId } });
+    } else if (!D3Graph.functionsAreValid(functions)) {
+      return Promise.reject({ key: 'validation.edge.invalid-functions', params: { source: sourceId, target: targetId } });
     }
 
     const link = new GramoFOLink(source, target, relations, functions);
@@ -75,7 +94,7 @@ export default class D3Graph {
   public removeNode(node: D3Node): Promise<[D3Node, D3Link[]]> {
     const nodeIndex = this.nodes.findIndex((n) => n.id === node.id);
     if (nodeIndex === -1) {
-      return Promise.reject('graph.node-does-not-exist');
+      return Promise.reject('validation.node.missing');
     }
 
     this.nodes.splice(nodeIndex, 1);
@@ -91,7 +110,7 @@ export default class D3Graph {
   public removeLink(link: D3Link): Promise<D3Link> {
     const linkIndex = this.links.findIndex((l) => l.source.id === link.source.id && l.target.id === link.target.id);
     if (linkIndex === -1) {
-      return Promise.reject('graph.link-does-not-exist');
+      return Promise.reject('validation.edge.missing');
     }
 
     this.links.splice(linkIndex, 1);
