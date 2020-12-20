@@ -12,7 +12,15 @@ import { D3Node } from 'src/app/model/d3/d3.node';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
 import { GraphSettings, State } from 'src/app/store/state';
-import { paddedArcPath, directLinkTextTransform, paddedLinePath, linePath, reflexiveLinkTextTransform, paddedReflexivePath, bidirectionalLinkTextTransform } from 'src/app/utils/d3.utils';
+import {
+  paddedArcPath,
+  directLinkTextTransform,
+  paddedLinePath,
+  linePath,
+  reflexiveLinkTextTransform,
+  paddedReflexivePath,
+  bidirectionalLinkTextTransform,
+} from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
@@ -326,7 +334,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     this.link!.select('.link').attr('d', (d) => {
       if (d.source.id === d.target.id) {
-        return paddedReflexivePath(d.source, this.config);
+        return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d)) {
         return paddedArcPath(d.source, d.target, this.config);
       } else {
@@ -336,7 +344,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
-        return reflexiveLinkTextTransform(d.source, d.target, this.config);
+        return reflexiveLinkTextTransform(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d)) {
         return bidirectionalLinkTextTransform(d.source, d.target, this.config);
       } else {

@@ -1,3 +1,4 @@
+import { Matrix } from 'ml-matrix';
 import { GraphConfiguration } from '../configurations/graph.configuration';
 import { D3Node } from '../model/d3/d3.node';
 
@@ -27,17 +28,29 @@ export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration
           A${dist},${dist},0,0,1,${targetX},${targetY}`;
 }
 
-// TODO Implement proper reflexive links.
-export function paddedReflexivePath(node: D3Node, graphConfiguration: GraphConfiguration): string {
-  const deltaX = 0;
-  const deltaY = node.y! + graphConfiguration.nodeRadius - node.y!;
-  const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-  const normX = deltaX / dist;
-  const normY = deltaY / dist;
-  const targetX = node.x! - graphConfiguration.markerPadding * normX;
-  const targetY = node.y! - graphConfiguration.markerPadding * normY;
-  return `M${node.x},${node.y}
-          A${graphConfiguration.nodeRadius},${graphConfiguration.nodeRadius},0,1,0,${node.x},${targetY}`;
+export function paddedReflexivePath(node: D3Node, center: [number, number], graphConfiguration: GraphConfiguration): string {
+  const n = new Matrix([[node.x!, node.y!]]);
+  const c = new Matrix([center]);
+  if (n.get(0, 0) === c.get(0, 0) && n.get(0, 1) === c.get(0, 1)) {
+    c.add([[0, 1]]); // Nodes at the exact center of the Graph should simply have their reflexive edge above them.
+  }
+  const v = Matrix.subtract(n, c);
+  const norm = Matrix.divide(v, v.norm('frobenius'));
+  const start = rotate(norm, 40 * (Math.PI / 180))
+    .multiply(graphConfiguration.nodeRadius)
+    .add(n);
+  const endRotated = rotate(norm, -40 * (Math.PI / 180));
+  const end = Matrix.multiply(endRotated, graphConfiguration.nodeRadius)
+    .add(n)
+    .add(Matrix.multiply(endRotated, 2 * graphConfiguration.markerBoxSize));
+  return `M${start.get(0, 0)},${start.get(0, 1)}
+          A${graphConfiguration.nodeRadius},${graphConfiguration.nodeRadius},0,1,0,${end.get(0, 0)},${end.get(0, 1)}`;
+}
+
+function rotate(vector: Matrix, radians: number): Matrix {
+  const x = vector.get(0, 0);
+  const y = vector.get(0, 1);
+  return new Matrix([[x * Math.cos(radians) - y * Math.sin(radians), x * Math.sin(radians) + y * Math.cos(radians)]]);
 }
 
 export function linePath(from: [number, number], to: [number, number]): string {
@@ -58,7 +71,15 @@ export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node, g
   return `translate(${xOffset},${yOffset})`;
 }
 
-// TODO Implement proper reflexive links.
-export function reflexiveLinkTextTransform(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
-  return bidirectionalLinkTextTransform(source, target, graphConfiguration);
+export function reflexiveLinkTextTransform(node: D3Node, center: [number, number], graphConfiguration: GraphConfiguration): string {
+  const n = new Matrix([[node.x!, node.y!]]);
+  const c = new Matrix([center]);
+  if (n.get(0, 0) === c.get(0, 0) && n.get(0, 1) === c.get(0, 1)) {
+    c.add([[0, 1]]); // Nodes at the exact center of the Graph should simply have their reflexive edge above them.
+  }
+  const v = Matrix.subtract(n, c);
+  const norm = Matrix.divide(v, v.norm('frobenius'))
+    .multiply(3 * graphConfiguration.nodeRadius + 8)
+    .add(n);
+  return `translate(${norm.get(0, 0)},${norm.get(0, 1)})`;
 }
