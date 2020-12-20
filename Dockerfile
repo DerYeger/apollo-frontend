@@ -1,4 +1,4 @@
-FROM node:14.5.1-alpine As builder
+FROM node:14.15.3-alpine As builder
 
 WORKDIR /usr/src/app
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build --prod
 
-FROM nginx:1.19.5-alpine
+FROM nginx:1.19.6-alpine
 
 COPY --from=builder /usr/src/app/dist/gramofo-frontend/ /usr/share/nginx/html
 

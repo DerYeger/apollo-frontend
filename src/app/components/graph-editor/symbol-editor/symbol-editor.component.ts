@@ -17,13 +17,17 @@ export class SymbolEditorComponent {
   constructor(private readonly log: NGXLogger) {}
 
   addSymbol(symbolAddedEvent: MatChipInputEvent): void {
-    const symbol = symbolAddedEvent.value.trim();
-    if (symbol.length >= 1) {
-      this.log.debug(`Adding symbol ${symbol}.`);
-      symbolAddedEvent.input.value = '';
-      this.symbols.add(symbol);
-      this.symbolsUpdated.emit();
-    }
+    symbolAddedEvent.value
+      .split(',')
+      .map((symbol) => symbol.trim())
+      .forEach((symbol) => {
+        if (symbol.length >= 1) {
+          this.log.debug(`Adding symbol ${symbol}.`);
+          symbolAddedEvent.input.value = '';
+          this.symbols.add(symbol);
+          this.symbolsUpdated.emit();
+        }
+      });
   }
 
   removeSymbol(symbol: string): void {

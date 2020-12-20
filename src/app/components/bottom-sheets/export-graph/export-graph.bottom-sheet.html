@@ -1,0 +1,23 @@
+<mat-nav-list>
+  <h1 class="title">{{ 'export.json' | translate }}</h1>
+  <a mat-list-item (click)="downloadGraph($event, 'json')">
+    <mat-icon>get_app</mat-icon>
+    <span mat-line>{{ 'export.download' | translate }}</span>
+  </a>
+  <a mat-list-item (click)="copyGraph($event, 'json')">
+    <mat-icon>content_copy</mat-icon>
+    <span mat-line>{{ 'export.copy' | translate }}</span>
+  </a>
+</mat-nav-list>
+
+<mat-nav-list>
+  <h1 class="title">{{ 'export.yaml' | translate }}</h1>
+  <a mat-list-item (click)="downloadGraph($event, 'yml')">
+    <mat-icon>get_app</mat-icon>
+    <span mat-line>{{ 'export.download' | translate }}</span>
+  </a>
+  <a mat-list-item (click)="copyGraph($event, 'yml')">
+    <mat-icon>content_copy</mat-icon>
+    <span mat-line>{{ 'export.copy' | translate }}</span>
+  </a>
+</mat-nav-list>

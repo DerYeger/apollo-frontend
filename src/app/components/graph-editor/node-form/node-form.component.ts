@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { CONSTANT_SYMBOL_EDITOR_CONFIGURATION, RELATION_SYMBOL_EDITOR_CONFIGURATION } from 'src/app/configurations/symbol-editor.configuration';
-import { FOLNode } from 'src/app/model/d3/node';
+import { D3Node } from 'src/app/model/d3/d3.node';
 
 @Component({
   selector: 'gramofo-node-form[node]',
@@ -9,9 +9,9 @@ import { FOLNode } from 'src/app/model/d3/node';
   styleUrls: ['./node-form.component.scss'],
 })
 export class NodeFormComponent {
-  @Input() node!: FOLNode | null;
+  @Input() node!: D3Node | null;
 
-  @Output() readonly nodeDeletionRequested = new EventEmitter<FOLNode>();
+  @Output() readonly nodeDeletionRequested = new EventEmitter<D3Node>();
   @Output() readonly nodeUpdated = new EventEmitter();
 
   readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
@@ -31,7 +31,7 @@ export class NodeFormComponent {
     this.nodeUpdated.emit();
   }
 
-  onNodeDeleted(deletedNode: FOLNode): void {
+  onNodeDeleted(deletedNode: D3Node): void {
     if (this.node !== null && this.node.id === deletedNode.id) {
       this.log.debug(`Removing Node ${this.node.id}, because it has been deleted.`);
       this.node = null;

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,14 +21,33 @@ import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
+import { GraphListComponent } from './components/graph-list/graph-list.component';
+import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
+import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { GraphImportComponent } from './components/graph-import/graph-import.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent, ModelCheckerPage, HomePage, NodeFormComponent, LinkFormComponent, SymbolEditorComponent],
+  declarations: [
+    AppComponent,
+    DashboardPage,
+    GraphComponent,
+    GraphEditorComponent,
+    ModelCheckerPage,
+    HomePage,
+    NodeFormComponent,
+    LinkFormComponent,
+    SymbolEditorComponent,
+    GraphListComponent,
+    SaveGraphDialog,
+    ExportGraphBottomSheet,
+    GraphImportComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    ClipboardModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -44,7 +64,6 @@ import { metaReducers, reducers } from './store/reducers';
       httpResponseType: 'json',
     }),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

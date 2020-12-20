@@ -1,30 +1,46 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatDialog } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
+import { Subscription } from 'rxjs';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
-import Graph from 'src/app/model/d3/graph';
-import { FOLLink } from 'src/app/model/d3/link';
-import { FOLNode } from 'src/app/model/d3/node';
-import { arcPath, directPath, linePath, reflexivePath } from 'src/app/utils/d3.utils';
+import D3Graph from 'src/app/model/d3/d3.graph';
+import { D3Link } from 'src/app/model/d3/d3.link';
+import { D3Node } from 'src/app/model/d3/d3.node';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
+import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
+import { GraphSettings, State } from 'src/app/store/state';
+import { paddedArcPath, directLinkTextTransform, paddedLinePath, linePath, reflexiveLinkTextTransform, paddedReflexivePath, bidirectionalLinkTextTransform } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
+import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
 
 @Component({
-  selector: 'gramofo-graph',
+  selector: 'gramofo-graph[graph]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
-export class GraphComponent implements AfterViewInit {
-  @Input() graph = new Graph();
-  @Input() isEditMode = true;
-  @Input() config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
+export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
+  @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
-  @Output() readonly linkSelected = new EventEmitter<FOLLink>();
-  @Output() readonly nodeSelected = new EventEmitter<FOLNode>();
+  @Input() public allowEditing = true;
+  @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
-  @Output() readonly linkDeleted = new EventEmitter<FOLLink>();
-  @Output() readonly nodeDeleted = new EventEmitter<FOLNode>();
+  @Output() public readonly linkSelected = new EventEmitter<D3Link>();
+  @Output() public readonly nodeSelected = new EventEmitter<D3Node>();
 
-  private lastNodeId = 0;
+  @Output() public readonly linkDeleted = new EventEmitter<D3Link>();
+  @Output() public readonly nodeDeleted = new EventEmitter<D3Node>();
+
+  @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
+
+  public readonly graphSettings = this.store.select('graphSettings');
+  private graphSettingsSubscription?: Subscription;
+
+  private enableSimulation = true;
+  private showLabels = true;
 
   private width = 0;
   private height = 0;
@@ -33,100 +49,164 @@ export class GraphComponent implements AfterViewInit {
   private yOffset = 0;
 
   @ViewChild('graphHost')
-  readonly graphHost!: ElementRef<any>;
+  private readonly graphHost!: ElementRef<HTMLDivElement>;
 
   @ViewChild('tooltip')
-  readonly tooltip!: ElementRef<any>;
+  private readonly tooltip!: ElementRef<HTMLDivElement>;
   private canShowTooltip = true;
 
-  private simulation?: d3.Simulation<FOLNode, FOLLink>;
+  private simulation?: d3.Simulation<D3Node, D3Link>;
 
   private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
-  private link?: d3.Selection<SVGPathElement, FOLLink, SVGGElement, unknown>;
-  private node?: d3.Selection<SVGGElement, FOLNode, SVGGElement, unknown>;
+  private link?: d3.Selection<SVGGElement, D3Link, SVGGElement, unknown>;
+  private node?: d3.Selection<SVGGElement, D3Node, SVGGElement, unknown>;
 
   private zoom?: d3.ZoomBehavior<SVGSVGElement, unknown>;
-  private drag?: d3.DragBehavior<SVGGElement, FOLNode, FOLNode>;
+  private drag?: d3.DragBehavior<SVGGElement, D3Node, D3Node>;
 
   private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
-  private draggableLinkSourceNode?: FOLNode;
+  private draggableLinkSourceNode?: D3Node;
   private draggableLinkEnd?: [number, number];
+
+  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(_: any): void {
     this.cleanInitGraph();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.graph.currentValue) {
+      // Perform clean init of the Graph. Enable the simulation for proper layouting.
+      this.cleanInitGraph();
+      if (!this.enableSimulation) {
+        // This will trigger a restart, so immediate restarting is not neccessary.
+        this.store.dispatch(enableSimulation());
+      } else {
+        this.restart(1);
+      }
+    } else {
+      // Graph input not provided or not yet present (async). Use fallback.
+      this.graph = new D3Graph();
+    }
+  }
+
   ngAfterViewInit(): void {
     this.initGraph();
+    this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
+  }
 
-    [
-      { id: '0', constants: ['a', 'd', 'f'] },
-      { id: '1', constants: ['b'] },
-      { id: '2', constants: ['c'] },
-      { id: '3', constants: ['g'] },
-    ].forEach((n) => this.graph.createNode(n.id, undefined, n.constants));
-    [
-      { source: this.graph.nodes[0], target: this.graph.nodes[0], relations: ['R'] },
-      { source: this.graph.nodes[0], target: this.graph.nodes[1], relations: ['A'] },
-      { source: this.graph.nodes[1], target: this.graph.nodes[2], relations: ['B'] },
-      { source: this.graph.nodes[2], target: this.graph.nodes[1], relations: ['B'] },
-    ].forEach((l) => this.graph.createLink(l.source, l.target, l.relations));
-    this.lastNodeId = 4;
-    this.onResize(null);
+  private onSettingsChanged(settings: GraphSettings): void {
+    const simulationChanged = this.enableSimulation !== settings.enableSimulation;
+    const labelsChanged = this.showLabels !== settings.showLabels;
+    this.enableSimulation = settings.enableSimulation;
+    this.showLabels = settings.showLabels;
+    if (simulationChanged) {
+      this.simulation?.stop();
+      if (this.enableSimulation) {
+        this.graph!.unlockNodes();
+      }
+      this.initSimulation();
+    }
+    if (simulationChanged || labelsChanged) {
+      this.restart(1);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.graphSettingsSubscription?.unsubscribe();
+  }
+
+  saveGraph(): void {
+    this.dialog
+      .open(SaveGraphDialog, {
+        data: this.graph!.toDomainGraph(),
+      })
+      .afterClosed()
+      .toPromise()
+      .then((domainGraph) => {
+        if (domainGraph !== undefined) {
+          this.saveRequested.emit(domainGraph);
+        }
+      });
+  }
+
+  exportGraph(): void {
+    this.bottomSheet.open(ExportGraphBottomSheet, {
+      data: this.graph!.toDomainGraph(),
+    });
+  }
+
+  toggleLabels(): void {
+    this.store.dispatch(toggleLabels());
+  }
+
+  toggleSimulation(): void {
+    this.store.dispatch(toggleSimulation());
   }
 
   resetGraph(): void {
-    this.simulation!.stop();
-    this.graph.nodes.forEach((node) => {
-      node.fx = undefined;
-      node.fy = undefined;
-    });
+    this.graph!.unlockNodes();
     this.cleanInitGraph();
+    this.store.dispatch(enableSimulation());
   }
 
-  restart(): void {
-    this.link = this.link!.data(this.graph.links, (d: FOLLink) => d.source + '-' + d.target)
-      .join('path')
-      .classed('link', true)
-      .on('contextmenu', (event: MouseEvent, d) => {
+  restart(alpha: number = 0.5): void {
+    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
+      const linkGroup = enter.append('g').on('contextmenu', (event: MouseEvent, d) => {
         terminate(event);
         this.linkSelected.emit(d);
-      })
-      .on('pointerenter', (event, d: FOLLink) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .style('marker-end', 'url(#link-arrow');
-
-    this.node = this.node!.data(this.graph.nodes, (d) => d.id)
-      .join('g')
-      .call(this.drag!)
-      .on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.nodeSelected.emit(d);
       });
+      linkGroup
+        .append('path')
+        .classed('link', true)
+        .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+        .on('pointerout', () => this.hideTooltip())
+        .style('marker-end', 'url(#link-arrow');
+      linkGroup.append('text').classed('link-details', true);
+      return linkGroup;
+    });
+
+    this.node = this.node!.data(this.graph!.nodes, (d) => d.id).join((enter) => {
+      const nodeGroup = enter
+        .append('g')
+        .call(this.drag!)
+        .on('contextmenu', (event: MouseEvent, d) => {
+          terminate(event);
+          this.nodeSelected.emit(d);
+        });
+      nodeGroup
+        .append('circle')
+        .classed('node', true)
+        .attr('r', this.config.nodeRadius)
+        .on('pointerenter', (event, d: D3Node) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
+        .on('pointerout', () => this.hideTooltip())
+        .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
+        .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+      nodeGroup
+        .append('text')
+        .text((d) => d.id)
+        .classed('node-id', true)
+        .attr('dy', `0.33em`);
+      nodeGroup.append('text').classed('node-details', true).attr('dy', `-2rem`);
+      return nodeGroup;
+    });
+
+    this.link
+      .select('.link-details')
+      .attr('opacity', this.showLabels ? 1 : 0)
+      .text((d) => [...d.relations, ...d.functions].join(', '));
 
     this.node
-      .append('circle')
-      .classed('node', true)
-      .attr('r', this.config.nodeRadius)
-      .style('stroke-width', `${this.config.nodeBorder}`)
-      .on('pointerenter', (event, d: FOLNode) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
-      .on('pointerout', () => this.hideTooltip())
-      .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
-      .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+      .select('.node-details')
+      .attr('opacity', this.showLabels ? 1 : 0)
+      .text((d) => [...d.relations, ...d.constants].join(', '));
 
-    this.node
-      .append('text')
-      .text((d) => d.id)
-      .classed('label', true)
-      .attr('text-anchor', 'middle')
-      .attr('dy', `0.33em`);
-
-    this.simulation!.nodes(this.graph.nodes);
-    this.simulation!.alpha(0.3).restart();
+    this.simulation!.nodes(this.graph!.nodes);
+    this.simulation!.alpha(alpha).restart();
   }
 
-  private cleanInitGraph(): void {
+  cleanInitGraph(): void {
     this.clean();
     this.initGraph();
   }
@@ -137,7 +217,7 @@ export class GraphComponent implements AfterViewInit {
     this.initZoom();
     this.initCanvas();
     this.initMarkers();
-    if (this.isEditMode) {
+    if (this.allowEditing) {
       this.initDraggableLink();
     }
     this.initLink();
@@ -164,7 +244,7 @@ export class GraphComponent implements AfterViewInit {
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
-      .on('dblclick', (event) => this.createNode(event))
+      .on('dblclick', (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
       .call(this.zoom!)
       .append('g');
   }
@@ -197,42 +277,43 @@ export class GraphComponent implements AfterViewInit {
   }
 
   private initSimulation(): void {
-    this.simulation = d3
-      .forceSimulation<FOLNode, FOLLink>(this.graph.nodes)
-      .force('charge', d3.forceManyBody<FOLNode>().strength(-500))
-      .force('collision', d3.forceCollide<FOLNode>().radius(20))
-      .force(
-        'link',
-        d3
-          .forceLink<FOLNode, FOLLink>()
-          .links(this.graph.links)
-          .id((d: FOLNode) => d.id)
-          .distance(this.config.nodeRadius * 10)
-      )
-      .force('x', d3.forceX<FOLNode>(this.width / 2))
-      .force('y', d3.forceY<FOLNode>(this.height / 2))
-      .on('tick', () => this.tick());
+    this.simulation = d3.forceSimulation<D3Node, D3Link>(this.graph!.nodes).on('tick', () => this.tick());
+    if (this.enableSimulation) {
+      this.simulation
+        .force('charge', d3.forceManyBody<D3Node>().strength(-500))
+        .force('collision', d3.forceCollide<D3Node>().radius(this.config.nodeRadius))
+        .force(
+          'link',
+          d3
+            .forceLink<D3Node, D3Link>()
+            .links(this.graph!.links)
+            .id((d: D3Node) => d.id)
+            .distance(this.config.nodeRadius * 10)
+        )
+        .force('x', d3.forceX<D3Node>(this.width / 2).strength(0.05))
+        .force('y', d3.forceY<D3Node>(this.height / 2).strength(0.05));
+    }
   }
 
   private initDrag(): void {
     this.drag = d3
-      .drag<SVGGElement, FOLNode, FOLNode>()
+      .drag<SVGGElement, D3Node, D3Node>()
       .filter((event) => event.button === 1)
-      .on('start', (event: D3DragEvent<SVGCircleElement, FOLNode, FOLNode>, d: FOLNode) => {
+      .on('start', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
         terminate(event.sourceEvent);
         this.canShowTooltip = false;
         this.hideTooltip();
         if (event.active === 0) {
-          this.simulation!.alphaTarget(0.3).restart();
+          this.simulation!.alphaTarget(0.5).restart();
         }
         d.fx = d.x;
         d.fy = d.y;
       })
-      .on('drag', (event: D3DragEvent<SVGCircleElement, FOLNode, FOLNode>, d: FOLNode) => {
+      .on('drag', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
         d.fx = event.x;
         d.fy = event.y;
       })
-      .on('end', (event: D3DragEvent<SVGCircleElement, FOLNode, FOLNode>) => {
+      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
         this.canShowTooltip = true;
         if (event.active === 0) {
           this.simulation!.alphaTarget(0);
@@ -243,13 +324,23 @@ export class GraphComponent implements AfterViewInit {
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.attr('d', (d) => {
+    this.link!.select('.link').attr('d', (d) => {
       if (d.source.id === d.target.id) {
-        return reflexivePath(d.source, this.config);
+        return paddedReflexivePath(d.source, this.config);
       } else if (this.isBidirectional(d)) {
-        return arcPath(d.source, d.target, this.config);
+        return paddedArcPath(d.source, d.target, this.config);
       } else {
-        return directPath(d.source, d.target, this.config);
+        return paddedLinePath(d.source, d.target, this.config);
+      }
+    });
+
+    this.link!.select('.link-details').attr('transform', (d: D3Link) => {
+      if (d.source.id === d.target.id) {
+        return reflexiveLinkTextTransform(d.source, d.target, this.config);
+      } else if (this.isBidirectional(d)) {
+        return bidirectionalLinkTextTransform(d.source, d.target, this.config);
+      } else {
+        return directLinkTextTransform(d.source, d.target);
       }
     });
 
@@ -259,8 +350,8 @@ export class GraphComponent implements AfterViewInit {
     }
   }
 
-  private onPointerDown(event: PointerEvent, node: FOLNode): void {
-    if (!this.isEditMode || event.button !== 0) {
+  private onPointerDown(event: PointerEvent, node: D3Node): void {
+    if (!this.allowEditing || event.button !== 0) {
       return;
     }
     terminate(event);
@@ -281,18 +372,18 @@ export class GraphComponent implements AfterViewInit {
     }
   }
 
-  private onPointerUp(event: PointerEvent, node: FOLNode): void {
-    if (!this.isEditMode || this.draggableLinkSourceNode === undefined) {
+  private onPointerUp(event: PointerEvent, node: D3Node): void {
+    if (!this.allowEditing || this.draggableLinkSourceNode === undefined) {
       return;
     }
     terminate(event);
-    this.draggableLink!.classed('hidden', true).style('marker-end', '');
     const source = this.draggableLinkSourceNode;
     this.resetDraggableLink();
     this.createLink(source, node);
   }
 
   private resetDraggableLink(): void {
+    this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.draggableLinkSourceNode = undefined;
     this.draggableLinkEnd = undefined;
   }
@@ -316,11 +407,11 @@ export class GraphComponent implements AfterViewInit {
   private zoomed(event: D3ZoomEvent<any, any>): void {
     this.xOffset = event.transform.x;
     this.yOffset = event.transform.y;
-    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})scale(${event.transform.k})`);
+    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})`);
   }
 
-  private isBidirectional(link: FOLLink): boolean {
-    return link.source.id !== link.target.id && this.graph.links.findIndex((l) => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
+  private isBidirectional(link: D3Link): boolean {
+    return link.source.id !== link.target.id && this.graph!.links.findIndex((l) => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
   }
 
   private pointerRaised(): void {
@@ -332,63 +423,58 @@ export class GraphComponent implements AfterViewInit {
     if (!this.canShowTooltip) {
       return;
     }
-    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
-    d3.select(this.tooltip.nativeElement)
+    const tooltipSelection = d3.select(this.tooltip.nativeElement);
+    tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
+    tooltipSelection
       .html(text)
-      .style('left', event.pageX + 'px')
-      .style('top', event.pageY - 28 + 'px');
+      .style('left', `calc(${event.offsetX}px + ${2 * this.config.nodeRadius}px)`)
+      .style('top', `calc(${event.offsetY}px`);
   }
 
   private hideTooltip(): void {
     d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
   }
 
-  private createLink(source: FOLNode, target: FOLNode): void {
-    this.addLink(source, target).then((link) => this.linkSelected.emit(link));
-  }
-
-  private async addNode(x?: number, y?: number): Promise<FOLNode> {
-    if (!this.isEditMode) {
+  async createNode(x: number = this.width / 2, y: number = this.height / 2): Promise<void> {
+    if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    const node = await this.graph.createNode(`${this.lastNodeId++}`, undefined, undefined, x, y);
+    const node = await this.graph!.createNodeWithGeneratedId(x, y);
     this.restart();
-    return node;
+    this.nodeSelected.emit(node);
   }
 
-  removeNode(node: FOLNode): void {
-    if (!this.isEditMode) {
+  removeNode(node: D3Node): void {
+    if (!this.allowEditing) {
       return;
     }
     this.hideTooltip();
-    this.graph.removeNode(node).then(([deletedNode, deletedLinks]) => {
+    this.resetDraggableLink();
+    this.graph!.removeNode(node).then(([deletedNode, deletedLinks]) => {
       this.restart();
       this.nodeDeleted.emit(deletedNode);
       deletedLinks.forEach((deletedLink) => this.linkDeleted.emit(deletedLink));
     });
   }
 
-  private createNode(event: any): void {
-    const x = d3.pointer(event, this.canvas!.node())[0];
-    const y = d3.pointer(event, this.canvas!.node())[1];
-    this.addNode(x, y).then((node) => this.nodeSelected.emit(node));
-  }
-
-  private async addLink(source: FOLNode, target: FOLNode): Promise<FOLLink> {
-    if (!this.isEditMode) {
+  private createLink(source: D3Node, target: D3Node): Promise<void> {
+    if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
-    const link = await this.graph.createLink(source, target);
-    this.restart();
-    return link;
+    return this.graph!.createLink(source.id, target.id)
+      .then((newLink) => {
+        this.restart();
+        this.linkSelected.emit(newLink);
+      })
+      .catch((existingLink: D3Link) => this.linkSelected.emit(existingLink));
   }
 
-  removeLink(link: FOLLink): void {
-    if (!this.isEditMode) {
+  removeLink(link: D3Link): void {
+    if (!this.allowEditing) {
       return;
     }
     this.hideTooltip();
-    this.graph.removeLink(link).then((deletedLink) => {
+    this.graph!.removeLink(link).then((deletedLink) => {
       this.restart();
       this.linkDeleted.emit(deletedLink);
     });
