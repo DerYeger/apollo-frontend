@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import * as d3 from 'd3';
 import { NGXLogger } from 'ngx-logger';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { State } from './store/state';
 
@@ -34,11 +34,17 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    this.languageSubscription = this.store.select('settings').subscribe((settings) => {
-      const language = settings.language ?? this.translate.getBrowserLang();
-      this.log.info(`Set ${language} as current language.`);
-      this.translate.use(language);
-    });
+    this.languageSubscription = this.store
+      .select('settings')
+      .pipe(
+        map((settings) => settings.language),
+        distinctUntilChanged()
+      )
+      .subscribe((language) => {
+        const newLanguage = language ?? this.translate.getBrowserLang();
+        this.log.info(`Set ${newLanguage} as current language.`);
+        this.translate.use(newLanguage);
+      });
 
     this.themeSubscription = this.store
       .select('settings')

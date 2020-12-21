@@ -10,9 +10,9 @@
     "saved-graphs": "Gespeicherte Graphen"
   },
   "graph": {
-    "reset-graph": "Graph zurücksetzen",
+    "reset-graph": "Layout zurücksetzen",
     "create-node": "Knoten erzeugen",
-    "labels": "Labels",
+    "labels": "Beschriftungen",
     "simulation": "Simulation",
     "save-graph": "Graph speichern"
   },
@@ -36,9 +36,10 @@
     "delete": "Löschen",
     "cancel": "Abbrechen",
     "save": "Speichern",
-    "load": "Laden",
     "undo": "Rückgängig machen",
-    "export": "Exportieren"
+    "export": "Exportieren",
+    "title": "Aktionen",
+    "open": "Öffnen"
   },
   "fol": {
     "constant": {

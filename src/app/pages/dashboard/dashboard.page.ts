@@ -14,6 +14,7 @@ import { State } from 'src/app/store/state';
 export class DashboardPage {
   public readonly routes = routes.filter((route) => route.name !== undefined);
 
+  public readonly language$ = this.store.select('settings').pipe(map((settings) => settings.language));
   public readonly sidebar$ = this.store.select('settings').pipe(map((settings) => settings.sidebar));
 
   public readonly themeButtonIcon$ = this.store.select('settings').pipe(map((settings) => (settings.theme === 'dark-theme' ? 'light_mode' : 'dark_mode')));

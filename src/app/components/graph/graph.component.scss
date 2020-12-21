@@ -23,21 +23,29 @@
 
   .graph-tool-container {
     position: absolute;
+    left: 1rem;
     top: 1rem;
     right: 1rem;
     text-align: right;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 
-    .graph-tool {
-      margin-bottom: 1rem;
-    }
-
-    mat-checkbox {
-      margin-right: 1rem;
+    > mat-slide-toggle {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
     }
   }
 
+  .create-node-button {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
   .link {
-    stroke: mat-color($accent, darker);
+    stroke: mat-color($accent);
     stroke-width: 4px;
     fill: none;
 
@@ -51,7 +59,7 @@
   }
 
   .arrow {
-    fill: mat-color($accent, darker);
+    fill: mat-color($accent);
   }
 
   .node {
@@ -67,7 +75,7 @@
 
   .node-id {
     pointer-events: none;
-    fill: mat-color($accent, darker-contrast);
+    fill: mat-color($primary, default-contrast);
     text-anchor: middle;
   }
 }

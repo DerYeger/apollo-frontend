@@ -6,6 +6,7 @@ import { filter, map, mergeMap } from 'rxjs/operators';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GraphCollection, graphCollectionQueryParams, GRAPH_KEY, GRAPH_SOURCE } from 'src/app/model/domain/graph.collection';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { storeGraph } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
@@ -15,7 +16,7 @@ import { State } from 'src/app/store/state';
   styleUrls: ['./model-checker.page.scss'],
 })
 export class ModelCheckerPage {
-  constructor(private readonly store: Store<State>, private readonly router: Router, private readonly route: ActivatedRoute) {}
+  constructor(private readonly store: Store<State>, private readonly router: Router, private readonly route: ActivatedRoute, private readonly snackBarService: SnackBarService) {}
 
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
     map((params) => [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
@@ -26,7 +27,7 @@ export class ModelCheckerPage {
         filter((graph) => graph !== undefined), // TODO add toast
         mergeMap((graph) =>
           D3Graph.fromDomainGraph(graph).catch((error) => {
-            window.alert(error);
+            this.snackBarService.openSnackBar(error);
             return new D3Graph();
           })
         )
