@@ -38,7 +38,8 @@
     "save": "Save",
     "load": "Load",
     "undo": "Undo",
-    "export": "Export"
+    "export": "Export",
+    "title": "Actions"
   },
   "fol": {
     "relation": {

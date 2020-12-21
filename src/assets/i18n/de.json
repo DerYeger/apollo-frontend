@@ -38,7 +38,8 @@
     "save": "Speichern",
     "load": "Laden",
     "undo": "Rückgängig machen",
-    "export": "Exportieren"
+    "export": "Exportieren",
+    "title": "Aktionen"
   },
   "fol": {
     "constant": {
