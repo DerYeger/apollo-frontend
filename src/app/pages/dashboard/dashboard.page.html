@@ -9,8 +9,8 @@
         <a mat-list-item *ngFor="let route of routes" [routerLink]="route.path">{{route.name! | translate}}</a>
       </mat-nav-list>
       <mat-button-toggle-group name="language" class="language-button-group" (change)="setLanguage($event)">
-        <mat-button-toggle value="en" class="language-button">{{'lang.en' | translate}}</mat-button-toggle>
-        <mat-button-toggle value="de" class="language-button">{{'lang.de' | translate}}</mat-button-toggle>
+        <mat-button-toggle value="en" class="language-button" [checked]="(language$ | async) === 'en'">{{'lang.en' | translate}}</mat-button-toggle>
+        <mat-button-toggle value="de" class="language-button" [checked]="(language$ | async) === 'de'">{{'lang.de' | translate}}</mat-button-toggle>
       </mat-button-toggle-group>
       <div class="theme-button-container">
         <button mat-icon-button (click)="toggleTheme()"><mat-icon>{{themeButtonIcon$ | async}}</mat-icon></button>
