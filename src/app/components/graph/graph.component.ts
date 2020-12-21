@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
@@ -30,7 +30,7 @@ import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
-export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, AfterViewChecked {
   @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
   @Input() public allowEditing = true;
@@ -78,11 +78,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
 
-  @HostListener('window:resize', ['$event'])
-  onResize(_: any): void {
-    this.cleanInitGraph();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.graph.currentValue) {
       // Perform clean init of the Graph. Enable the simulation for proper layouting.
@@ -102,6 +97,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
   ngAfterViewInit(): void {
     this.initGraph();
     this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
+  }
+
+  ngAfterViewChecked(): void {
+    if (this.width !== this.graphHost.nativeElement.clientWidth || this.height !== this.graphHost.nativeElement.clientHeight) {
+      this.cleanInitGraph();
+    }
   }
 
   private onSettingsChanged(settings: GraphSettings): void {
@@ -247,6 +248,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.canvas = d3
       .select(this.graphHost.nativeElement)
       .append('svg')
+      .attr('width', '100%')
+      .attr('height', '100%')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
       .on('pointerup', () => this.pointerRaised())
       .on('contextmenu', (event: MouseEvent) => terminate(event))

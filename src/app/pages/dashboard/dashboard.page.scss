@@ -26,6 +26,10 @@ h1.title {
   min-width: 12.5rem;
 }
 
+.mat-drawer-transition .mat-drawer-content {
+  transition-duration: 0s !important;
+}
+
 mat-nav-list {
   padding: 0;
 }
