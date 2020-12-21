@@ -99,6 +99,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
   }
 
+  @HostListener('window:resize', ['$event'])
   ngAfterViewChecked(): void {
     if (this.width !== this.graphHost.nativeElement.clientWidth || this.height !== this.graphHost.nativeElement.clientHeight) {
       this.cleanInitGraph();
