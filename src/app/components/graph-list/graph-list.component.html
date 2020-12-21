@@ -19,7 +19,7 @@
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>{{ 'actions.title' | translate }}</th>
+    <th mat-header-cell *matHeaderCellDef>{{ "actions.title" | translate }}</th>
     <td mat-cell *matCellDef="let graph">
       <button mat-icon-button (click)="graphSelected.emit(graph)" color="primary" class="action-button" mat-tooltip="Open">
         <mat-icon>launch</mat-icon>
