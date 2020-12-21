@@ -10,7 +10,7 @@
     "saved-graphs": "Saved Graphs"
   },
   "graph": {
-    "reset-graph": "Reset Graph",
+    "reset-graph": "Reset Layout",
     "create-node": "Create Node",
     "labels": "Labels",
     "simulation": "Simulation",
@@ -36,10 +36,10 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "save": "Save",
-    "load": "Load",
     "undo": "Undo",
     "export": "Export",
-    "title": "Actions"
+    "title": "Actions",
+    "open": "Open"
   },
   "fol": {
     "relation": {

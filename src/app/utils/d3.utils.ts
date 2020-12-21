@@ -24,7 +24,9 @@ export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration
   const dist = diff.norm('frobenius');
   const norm = diff.divide(dist);
   const rotation = degreesToRadians(10);
-  const start = rotate(norm, -rotation).multiply(graphConfiguration.nodeRadius - 1).add(s);
+  const start = rotate(norm, -rotation)
+    .multiply(graphConfiguration.nodeRadius - 1)
+    .add(s);
   const endNorm = Matrix.multiply(norm, -1);
   const end = rotate(endNorm, rotation)
     .multiply(graphConfiguration.nodeRadius)
@@ -44,7 +46,9 @@ export function paddedReflexivePath(node: D3Node, center: [number, number], grap
   const diff = Matrix.subtract(n, c);
   const norm = diff.divide(diff.norm('frobenius'));
   const rotation = degreesToRadians(40);
-  const start = rotate(norm, rotation).multiply(graphConfiguration.nodeRadius - 1).add(n);
+  const start = rotate(norm, rotation)
+    .multiply(graphConfiguration.nodeRadius - 1)
+    .add(n);
   const end = rotate(norm, -rotation)
     .multiply(graphConfiguration.nodeRadius)
     .add(n)

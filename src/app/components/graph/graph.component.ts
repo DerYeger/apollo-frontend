@@ -434,7 +434,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy {
     const tooltipSelection = d3.select(this.tooltip.nativeElement);
     tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
     tooltipSelection
-      .html(text)
+      .html(text.length > 0 ? text : '-')
       .style('left', `calc(${event.offsetX}px + ${2 * this.config.nodeRadius}px)`)
       .style('top', `calc(${event.offsetY}px`);
   }
