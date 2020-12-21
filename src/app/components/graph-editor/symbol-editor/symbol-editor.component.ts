@@ -10,7 +10,7 @@ import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.
   styleUrls: ['./symbol-editor.component.scss'],
 })
 export class SymbolEditorComponent implements OnChanges {
-  public formControl!: FormControl;
+  public formControl: FormControl = new FormControl('');
   @Input() public symbols!: Set<string>;
   @Input() public config!: SymbolEditorConfiguration;
 
