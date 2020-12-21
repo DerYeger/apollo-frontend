@@ -39,7 +39,8 @@
     "undo": "Rückgängig machen",
     "export": "Exportieren",
     "title": "Aktionen",
-    "open": "Öffnen"
+    "open": "Öffnen",
+    "check": "Überprüfen"
   },
   "fol": {
     "constant": {
@@ -50,7 +51,8 @@
     },
     "relation": {
       "plural": "Relationen"
-    }
+    },
+    "formula": "Formel"
   },
   "lang": {
     "de": "Deutsch",

@@ -4,9 +4,11 @@
       <gramofo-graph
         #graphComponent
         [graph]="graph | async"
+        [graphExportRequests]="graphExportRequests"
         (nodeDeleted)="nodeForm.onNodeDeleted($event)"
         (linkDeleted)="linkForm.onLinkDeleted($event)"
         (saveRequested)="saveRequested.emit($event)"
+        (graphExported)="graphExported.emit($event)"
       ></gramofo-graph>
     </mat-card-content>
   </mat-card>

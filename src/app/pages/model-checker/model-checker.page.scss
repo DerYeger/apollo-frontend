@@ -1,0 +1,25 @@
+.modelchecker-container {
+  // margin: 1rem;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    flex: 1;
+    margin-right: 1rem;
+  }
+}
+
+.graph-section {
+  // Workaround for flex-grow not respecting the parent margins
+  // flex-grow: 1;
+  height: calc(100% - 56.56px);
+}
