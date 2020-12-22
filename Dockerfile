@@ -6,7 +6,7 @@ COPY . .
 
 ARG BACKEND_URL=http://localhost:8080
 
-RUN sed -i "s|BACKEND_URL|$BACKEND_URL |g" src/environments/environment.prod.ts &&\
+RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.ts &&\
     npm install &&\
     npm run build --prod
 

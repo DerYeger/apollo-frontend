@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { ModelCheckerRequest } from '../model/api/api.model-checker-request';
 import { ModelCheckerResponse } from '../model/api/api.model-checker-response';
 import { FOLGraph } from '../model/domain/fol.graph';
-import { Language } from '../store/state';
 
 const host = environment.backendUrl;
 
