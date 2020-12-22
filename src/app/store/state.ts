@@ -7,10 +7,11 @@ export interface State {
   graphCache: GraphCollection;
 }
 
+export declare type Language = 'en' | 'de';
 export declare type Theme = 'dark-theme' | 'light-theme';
 
 export interface Settings {
-  language?: string;
+  language?: Language;
   sidebar: boolean;
   theme: Theme;
 }

@@ -36,7 +36,7 @@ export class ModelCheckerPage {
     mergeMap(([source, key]) =>
       this.store.select(source).pipe(
         map((graphs: GraphCollection) => graphs[key]),
-        filter((graph) => graph !== undefined), // TODO add toast
+        filter((graph) => graph !== undefined),
         mergeMap((graph) =>
           D3Graph.fromDomainGraph(graph).catch((error) => {
             this.snackBarService.openSnackBar(error);
@@ -53,6 +53,6 @@ export class ModelCheckerPage {
   }
 
   public checkModel(graph: FOLGraph): void {
-    this.backendService.checkModel(graph, this.formula.value).then((response) => window.alert(response));
+    this.backendService.checkModel(graph, this.formula.value).then((response) => window.alert(response.error ?? true));
   }
 }

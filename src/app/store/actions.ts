@@ -1,8 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 
 import { FOLGraph } from '../model/domain/fol.graph';
+import { Language } from './state';
 
-export const setLanguage = createAction('[settings.language] set', props<{ language: string }>());
+export const setLanguage = createAction('[settings.language] set', props<{ language: Language }>());
 export const toggleSidebar = createAction('[settings.sidebar] toggle');
 export const toggleTheme = createAction('[settings.theme] toggle');
 
