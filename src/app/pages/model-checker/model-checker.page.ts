@@ -53,6 +53,12 @@ export class ModelCheckerPage {
   }
 
   public checkModel(graph: FOLGraph): void {
-    this.backendService.checkModel(graph, this.formula.value).then((response) => window.alert(response.error ?? true));
+    this.backendService.checkModel(graph, this.formula.value).then((response) => {
+      console.table(response);
+      window.alert(response.error ?? true);
+    }).catch((error) => {
+      console.table(error);
+      window.alert(error);
+    });
   }
 }
