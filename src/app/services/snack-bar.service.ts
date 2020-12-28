@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { NGXLogger } from 'ngx-logger';
 import { forkJoin, Observable, of } from 'rxjs';
+
 import { FOLGraph } from '../model/domain/fol.graph';
 import { TranslationDTO } from '../model/dto/translation.dto';
 import { storeGraph } from '../store/actions';
