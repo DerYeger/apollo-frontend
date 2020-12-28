@@ -101,6 +101,8 @@
     "text": "Paste or edit Graph"
   },
   "api": {
+    "valid": "The graph is a model of the formula ",
+    "invalid": "The graph is not a model of the formula ",
     "forall": {
       "valid": "Subformula holds for all nodes.",
       "invalid": "Subformula does not hold for some node(s)."
@@ -116,8 +118,8 @@
     "and": {
       "both": "Both conjuncts hold.",
       "neither": "Neither conjunct holds.",
-      "left": "First conjunct holds.",
-      "right": "Second conjunct holds."
+      "left": "First conjunct does not hold.",
+      "right": "Second conjunct does not hold."
     },
     "or": {
       "both": "Both disjuncts hold.",

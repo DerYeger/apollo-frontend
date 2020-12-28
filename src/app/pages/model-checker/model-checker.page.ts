@@ -1,9 +1,11 @@
 import { Component, EventEmitter } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { ResultTreeDialog } from 'src/app/components/result-tree/result-tree.dialog';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GraphCollection, graphCollectionQueryParams, GRAPH_KEY, GRAPH_SOURCE } from 'src/app/model/domain/graph.collection';
@@ -27,7 +29,8 @@ export class ModelCheckerPage {
     private readonly router: Router,
     private readonly route: ActivatedRoute,
     private readonly snackBarService: SnackBarService,
-    private readonly backendService: BackendService
+    private readonly backendService: BackendService,
+    public readonly dialog: MatDialog
   ) {}
 
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
@@ -53,12 +56,20 @@ export class ModelCheckerPage {
   }
 
   public checkModel(graph: FOLGraph): void {
-    this.backendService.checkModel(graph, this.formula.value).then((response) => {
-      console.table(response);
-      window.alert(response.error ?? true);
-    }).catch((error) => {
-      console.table(error);
-      window.alert(error);
-    });
+    this.backendService
+      .checkModel(graph, this.formula.value)
+      .then((response) => {
+        this.dialog.open(ResultTreeDialog, {
+          width: '90%',
+          height: '90%',
+          data: response,
+          autoFocus: false,
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 }
+
+// forall x. forall y. R(x,y) && R(y,x) -> x=y

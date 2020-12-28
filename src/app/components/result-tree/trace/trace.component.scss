@@ -1,0 +1,7 @@
+@import "src/assets/styles/variables";
+
+.trace {
+  &.is-not-model {
+    color: mat-color($warn-palette);
+  }
+}
