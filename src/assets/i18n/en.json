@@ -139,7 +139,7 @@
     "relation": {
       "unary": {
         "valid": "Unary relation \"{{relation}}\" contains \"{{node}}\".",
-        "invalid":  "Unary relation \"{{relation}}\" does not contain \"{{node}}\"."
+        "invalid": "Unary relation \"{{relation}}\" does not contain \"{{node}}\"."
       },
       "equality": {
         "valid": "Terms \"{{first}}\" and \"{{second}}\" are equal.",

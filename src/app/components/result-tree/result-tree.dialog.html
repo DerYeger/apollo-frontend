@@ -13,11 +13,8 @@
     <mat-nested-tree-node *matTreeNodeDef="let trace; when: hasChild">
       <li>
         <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle
-                  [attr.aria-label]="'Toggle ' + trace.name">
-            <mat-icon class="mat-icon-rtl-mirror">
-              {{treeControl.isExpanded(trace) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
+          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + trace.name">
+            <mat-icon class="mat-icon-rtl-mirror"> {{treeControl.isExpanded(trace) ? 'expand_more' : 'chevron_right'}} </mat-icon>
           </button>
           <gramofo-trace [trace]="trace"></gramofo-trace>
         </div>

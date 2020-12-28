@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { TraceComponent } from './trace.component';
 
@@ -8,14 +9,22 @@ describe('TraceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TraceComponent ]
-    })
-    .compileComponents();
+      declarations: [TraceComponent],
+      imports: [TranslateModule.forRoot()],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TraceComponent);
     component = fixture.componentInstance;
+    component.trace = {
+      formula: '',
+      description: {
+        key: '',
+      },
+      isModel: false,
+      children: [],
+    };
     fixture.detectChanges();
   });
 

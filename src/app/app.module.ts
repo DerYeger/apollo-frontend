@@ -25,7 +25,7 @@ import { GraphListComponent } from './components/graph-list/graph-list.component
 import { SaveGraphDialog } from './components/save-graph/save-graph.dialog';
 import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { GraphImportComponent } from './components/graph-import/graph-import.component';
-import { ResultTreeComponent } from './components/result-tree/result-tree.dialog';
+import { ResultTreeDialog } from './components/result-tree/result-tree.dialog';
 import { TraceComponent } from './components/result-tree/trace/trace.component';
 
 @NgModule({
