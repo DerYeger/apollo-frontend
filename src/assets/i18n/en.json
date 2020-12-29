@@ -43,7 +43,7 @@
     "check": "Check",
     "expand": "Expand",
     "collapse": "Collapse",
-    "find-causes": "Find Causes"
+    "show-causes": "Show Causes"
   },
   "fol": {
     "relation": {

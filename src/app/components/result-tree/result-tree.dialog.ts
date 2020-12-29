@@ -29,6 +29,6 @@ export class ResultTreeDialog {
       return false;
     }
     this.treeControl.expand(trace);
-    return trace.children.some((child) => this.expandInvalidTraces(child));
+    return trace.children.map((child) => this.expandInvalidTraces(child)).some(didExpand => didExpand);
   }
 }
