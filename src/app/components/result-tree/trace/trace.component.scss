@@ -1,6 +1,15 @@
 @import "src/assets/styles/variables";
 
+:host {
+  width: 100%;
+}
+
 .trace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
   &.is-not-model {
     color: mat-color($warn-palette);
   }

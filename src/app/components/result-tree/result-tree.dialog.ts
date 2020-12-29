@@ -14,7 +14,21 @@ export class ResultTreeDialog {
 
   constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly root: ModelCheckerTrace) {
     this.dataSource.data = [root];
+    this.treeControl.dataNodes = [root];
   }
 
   hasChild = (_: number, trace: ModelCheckerTrace) => !!trace.children && trace.children.length > 0;
+
+  expandInvalid(): void {
+    this.treeControl.collapseAll();
+    this.expandInvalidTraces(this.root);
+  }
+
+  private expandInvalidTraces(trace: ModelCheckerTrace): boolean {
+    if (trace.isModel) {
+      return false;
+    }
+    this.treeControl.expand(trace);
+    return trace.children.some((child) => this.expandInvalidTraces(child));
+  }
 }

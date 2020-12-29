@@ -60,6 +60,7 @@ export class ModelCheckerPage {
       .checkModel(graph, this.formula.value)
       .then((response) => {
         this.dialog.open(ResultTreeDialog, {
+          role: 'dialog',
           width: '90%',
           height: '90%',
           data: response,
@@ -69,7 +70,7 @@ export class ModelCheckerPage {
       .catch((error) => {
         const message = error?.error?.message ?? error.message;
         if (typeof message === 'string') {
-            this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
+          this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
         } else {
           this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
         }

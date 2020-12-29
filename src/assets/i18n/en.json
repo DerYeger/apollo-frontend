@@ -40,7 +40,10 @@
     "export": "Export",
     "title": "Actions",
     "open": "Open",
-    "check": "Check"
+    "check": "Check",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "find-causes": "Find Causes"
   },
   "fol": {
     "relation": {
@@ -101,58 +104,58 @@
     "text": "Paste or edit Graph"
   },
   "api": {
-    "valid": "The graph is a model of the formula ",
-    "invalid": "The graph is not a model of the formula ",
+    "valid": "The graph is a model of the formula: {{formula}}",
+    "invalid": "The graph is not a model of the formula: {{formula}}",
     "forall": {
-      "valid": "Subformula holds for all variable assignments.",
-      "invalid": "Subformula does not hold for some variable assignments."
+      "valid": "Subformula holds for all variable assignments",
+      "invalid": "Subformula does not hold for some variable assignments"
     },
     "exists": {
-      "valid": "Subformula holds for some variable assignments.",
-      "invalid": "Subformula holds for no variable assignments."
+      "valid": "Subformula holds for some variable assignments",
+      "invalid": "Subformula holds for no variable assignments"
     },
     "not": {
-      "valid": "Proposition does not hold.",
-      "invalid": "Proposition holds."
+      "valid": "Proposition does not hold",
+      "invalid": "Proposition holds"
     },
     "and": {
-      "both": "Both conjuncts hold.",
-      "neither": "Neither conjunct holds.",
-      "left": "First conjunct does not hold.",
-      "right": "Second conjunct does not hold."
+      "both": "Both conjuncts hold",
+      "neither": "Neither conjunct holds",
+      "left": "First conjunct does not hold",
+      "right": "Second conjunct does not hold"
     },
     "or": {
-      "both": "Both disjuncts hold.",
-      "neither": "Neither disjunct holds.",
-      "left": "First disjunct holds.",
-      "right": "Second disjunct holds."
+      "both": "Both disjuncts hold",
+      "neither": "Neither disjunct holds",
+      "left": "First disjunct holds",
+      "right": "Second disjunct holds"
     },
     "implication": {
-      "right": "Consequent holds.",
-      "left": "Antecedent does not hold.",
-      "invalid": "Antecedent holds but consequent does not."
+      "right": "Consequent holds",
+      "left": "Antecedent does not hold",
+      "invalid": "Antecedent holds but consequent does not"
     },
     "bi-implication": {
-      "valid": "Antecedent holds if and only if consequent holds.",
-      "invalid": "Antecedent does not hold if and only if consequent holds."
+      "valid": "Antecedent holds if and only if consequent holds",
+      "invalid": "Antecedent does not hold if and only if consequent holds"
     },
     "relation": {
       "unary": {
-        "valid": "Unary relation \"{{relation}}\" contains \"{{node}}\".",
-        "invalid": "Unary relation \"{{relation}}\" does not contain \"{{node}}\"."
+        "valid": "Unary relation \"{{relation}}\" contains \"{{node}}\"",
+        "invalid": "Unary relation \"{{relation}}\" does not contain \"{{node}}\""
       },
       "equality": {
-        "valid": "Terms \"{{first}}\" and \"{{second}}\" are equal.",
-        "invalid": "Terms \"{{first}}\" and \"{{second}}\" are not equal."
+        "valid": "{{firstTerm}} = {{firstResult}} = {{secondTerm}}",
+        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}}= {{secondTerm}}"
       },
       "binary": {
-        "valid": "Terms \"{{first}}\" and \"{{second}}\" are part of relation \"{{relation}}\".",
-        "invalid": "Terms \"{{first}}\" and \"{{second}}\" are not part of relation \"{{relation}}\"."
+        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}",
+        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}"
       }
     },
     "constant": {
-      "true": "Constant is true.",
-      "false": "Constant is false."
+      "true": "Constant is true",
+      "false": "Constant is false"
     }
   }
 }

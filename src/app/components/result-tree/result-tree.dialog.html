@@ -1,5 +1,5 @@
-<h2 mat-dialog-title>{{ (root.isModel ? 'api.valid' : 'api.invalid') | translate }}: {{ root.formula }}</h2>
-<mat-dialog-content>
+<h2 mat-dialog-title>{{ (root.isModel ? 'api.valid' : 'api.invalid') | translate:{ formula: root.formula } }}</h2>
+<mat-dialog-content class="tree-container">
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="result-tree">
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let trace" matTreeNodeToggle>
@@ -13,8 +13,10 @@
     <mat-nested-tree-node *matTreeNodeDef="let trace; when: hasChild">
       <li>
         <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + trace.name">
-            <mat-icon class="mat-icon-rtl-mirror"> {{treeControl.isExpanded(trace) ? 'expand_more' : 'chevron_right'}} </mat-icon>
+          <button mat-icon-button matTreeNodeToggle>
+            <mat-icon class="mat-icon-rtl-mirror" [ngClass]="trace.isModel ? 'is-model' : 'is-not-model'">
+              {{treeControl.isExpanded(trace) ? 'expand_more' : 'chevron_right'}}
+            </mat-icon>
           </button>
           <gramofo-trace [trace]="trace"></gramofo-trace>
         </div>
@@ -25,3 +27,8 @@
     </mat-nested-tree-node>
   </mat-tree>
 </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="treeControl.expandAll()" color="primary">{{ 'actions.expand' | translate }}</button>
+  <button mat-raised-button (click)="treeControl.collapseAll()" color="primary">{{ 'actions.collapse' | translate }}</button>
+  <button mat-raised-button (click)="expandInvalid()" color="accent" *ngIf="!root.isModel">{{ 'actions.find-causes' | translate }}</button>
+</mat-dialog-actions>
