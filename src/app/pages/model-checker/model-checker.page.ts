@@ -9,7 +9,6 @@ import { ResultTreeDialog } from 'src/app/components/result-tree/result-tree.dia
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
-import { instanceOfTranslationDTO } from 'src/app/model/dto/translation.dto';
 import { BackendService } from 'src/app/services/backend.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { storeGraph } from 'src/app/store/actions';
@@ -68,16 +67,12 @@ export class ModelCheckerPage {
         });
       })
       .catch((error) => {
-
         const message = error?.error?.message ?? error.message;
         if (typeof message === 'string') {
             this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
-
         } else {
           this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
         }
       });
   }
 }
-
-// forall x. forall y. R(x,y) && R(y,x) -> x=y
