@@ -5,6 +5,13 @@
       {{ symbol }}
       <mat-icon matChipRemove>cancel</mat-icon>
     </mat-chip>
-    <input placeholder="{{ config.placeholder | translate }}" [matChipInputFor]="chipList" (matChipInputTokenEnd)="addSymbol($event)" autocomplete="off" />
+    <input
+      placeholder="{{ config.placeholder | translate }}"
+      [matChipInputFor]="chipList"
+      (matChipInputTokenEnd)="addSymbol($event)"
+      autocomplete="off"
+      [formControl]="formControl"
+    />
+    <mat-error *ngIf="formControl.invalid">{{ config.patternError | translate }}</mat-error>
   </mat-chip-list>
 </mat-form-field>

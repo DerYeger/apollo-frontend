@@ -88,7 +88,10 @@
       "invalid-relations": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
       "invalid-functions": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen)."
     },
-    "parse-error": "Eingabe entspricht nicht dem Graph-Schema."
+    "parse-error": "Eingabe entspricht nicht dem Graph-Schema.",
+    "constant-pattern-error": "Konstantennamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
+    "function-pattern-error": "Funktionsnamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
+    "relation-pattern-error": "Relationsnamen müssen mit einem Großbuchstaben beginnen und dürfen keine Sonderzeichen enthalten."
   },
   "import": {
     "file": "Datei importieren",

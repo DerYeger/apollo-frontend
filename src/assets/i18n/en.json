@@ -88,7 +88,10 @@
       "invalid-relations": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
       "invalid-functions": "Invalid Graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid function(s) (Functions must begin with a lowercase letter)."
     },
-    "parse-error": "Input does not match the Graph schema."
+    "parse-error": "Input does not match the Graph schema.",
+    "constant-pattern-error": "Names of constants must start with a lowercase letter and cannot contain special characters.",
+    "function-pattern-error": "Names of functions must start with a lowercase letter and cannot contain special characters.",
+    "relation-pattern-error": "Names of relations must start with an uppercase letter and cannot contain special characters."
   },
   "import": {
     "format-hint": "JSON or YAML",
