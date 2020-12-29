@@ -1,18 +1,18 @@
-FROM node:14.15.3-alpine As builder
+FROM node:14.15.3-alpine AS BUILDER
 
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 COPY . .
 
 ARG BACKEND_URL=http://localhost:8080
 
-RUN sed -i "s|BACKEND_URL|$BACKEND_URL |g" src/environments/environment.prod.ts &&\
+RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.ts &&\
     npm install &&\
     npm run build --prod
 
 FROM nginx:1.19.6-alpine
 
-COPY --from=builder /usr/src/app/dist/gramofo-frontend/ /usr/share/nginx/html
+COPY --from=BUILDER /usr/app/dist/gramofo-frontend/ /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 

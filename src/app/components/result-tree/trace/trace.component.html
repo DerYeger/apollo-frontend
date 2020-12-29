@@ -1,0 +1,4 @@
+<div class="trace" [ngClass]="trace.isModel ? 'is-model' : 'is-not-model'">
+  <span class="formula">{{ trace.formula }}</span>
+  <span class="descriprion">{{ trace.description.key | translate: trace.description.params }}</span>
+</div>

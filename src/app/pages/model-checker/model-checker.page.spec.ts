@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
@@ -20,7 +21,16 @@ describe('ModelCheckerPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ModelCheckerPage, GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), MaterialModule, AppRoutingModule],
+      imports: [
+        LoggerTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TranslateModule.forRoot(),
+        StoreModule.forRoot(reducers, undefined),
+        MaterialModule,
+        AppRoutingModule,
+        HttpClientTestingModule,
+      ],
     }).compileComponents();
   });
 

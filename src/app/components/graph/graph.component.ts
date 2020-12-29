@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
@@ -36,6 +36,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @Input() public allowEditing = true;
   @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
+  @Input() public graphExportRequests?: Observable<void>;
+  private graphExportRequestsSubscription?: Subscription;
+
   @Output() public readonly linkSelected = new EventEmitter<D3Link>();
   @Output() public readonly nodeSelected = new EventEmitter<D3Node>();
 
@@ -43,6 +46,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @Output() public readonly nodeDeleted = new EventEmitter<D3Node>();
 
   @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
+  @Output() public readonly graphExported = new EventEmitter<FOLGraph>();
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -92,6 +96,10 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       // Graph input not provided or not yet present (async). Use fallback.
       this.graph = new D3Graph();
     }
+    if (changes.graphExportRequests) {
+      this.graphExportRequestsSubscription?.unsubscribe();
+      this.graphExportRequestsSubscription = this.graphExportRequests?.subscribe(() => this.graphExported.emit(this.graph!.toDomainGraph()));
+    }
   }
 
   ngAfterViewInit(): void {
@@ -101,7 +109,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   @HostListener('window:resize', ['$event'])
   ngAfterViewChecked(): void {
-    if (this.width !== this.graphHost.nativeElement.clientWidth || this.height !== this.graphHost.nativeElement.clientHeight) {
+    if (this.width.toFixed(2) !== this.graphHost.nativeElement.clientWidth.toFixed(2) || this.height.toFixed(2) !== this.graphHost.nativeElement.clientHeight.toFixed(2)) {
       this.cleanInitGraph();
     }
   }
@@ -125,6 +133,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   ngOnDestroy(): void {
     this.graphSettingsSubscription?.unsubscribe();
+    this.graphExportRequestsSubscription?.unsubscribe();
   }
 
   saveGraph(): void {

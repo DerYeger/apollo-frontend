@@ -1,0 +1,32 @@
+@import "src/assets/styles/variables";
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tree-container {
+  flex-grow: 1;
+  max-height: unset;
+
+  .result-tree-invisible {
+    display: none;
+  }
+
+  .result-tree {
+    flex-grow: 1;
+  }
+
+  .result-tree ul,
+  .result-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+
+  .is-not-model {
+    color: mat-color($warn-palette);
+  }
+}

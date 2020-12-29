@@ -4,7 +4,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
 @Component({
-  selector: 'gramofo-save-graph',
   templateUrl: './save-graph.dialog.html',
   styleUrls: ['./save-graph.dialog.scss'],
 })

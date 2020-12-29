@@ -10,5 +10,7 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
 })
 export class GraphEditorComponent {
   @Input() public graph!: Observable<D3Graph>;
+  @Input() public graphExportRequests?: Observable<void>;
   @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
+  @Output() public readonly graphExported = new EventEmitter<FOLGraph>();
 }
