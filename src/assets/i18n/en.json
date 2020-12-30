@@ -156,6 +156,14 @@
     "constant": {
       "true": "Constant is true",
       "false": "Constant is false"
+    },
+    "error": {
+      "unknown": "An unknown error occured.",
+      "duplicate-constant": "The constant \"{{constant}}\" can only be assigned to one Node.",
+      "different-arities": "The symbol \"{{symbol}}\" is defined with different arities within the graph.",
+      "different-function-values": "The unary function \"{{function}}\" has two function values for at least one Node. A function must be right-unique.",
+      "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
+      "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but in the graph it is a function symbol."
     }
   }
 }
