@@ -159,11 +159,13 @@
     },
     "error": {
       "unknown": "An unknown error occured.",
-      "duplicate-constant": "The constant \"{{constant}}\" can only be assigned to one Node.",
+      "duplicate-constant": "The constant \"{{constant}}\" can only be assigned to one node.",
       "different-arities": "The symbol \"{{symbol}}\" is defined with different arities within the graph.",
-      "different-function-values": "The unary function \"{{function}}\" has two function values for at least one Node. A function must be right-unique.",
+      "different-function-values": "The unary function \"{{function}}\" has two function values for at least one node. A function must be right-unique.",
       "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
-      "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but in the graph it is a function symbol."
+      "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but used as a function symbol in the graph.",
+      "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but not defined in the graph.",
+      "function-totality": "The unary function \"{{function}}\" must be total."
     }
   }
 }
