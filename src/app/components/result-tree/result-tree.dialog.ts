@@ -24,11 +24,11 @@ export class ResultTreeDialog {
     this.expandInvalidTraces(this.root);
   }
 
-  private expandInvalidTraces(trace: ModelCheckerTrace): boolean {
-    if (trace.isModel) {
-      return false;
+  private expandInvalidTraces(trace: ModelCheckerTrace, invert: boolean = false): void {
+    if (trace.isModel !== invert) {
+      return;
     }
     this.treeControl.expand(trace);
-    return trace.children.map((child) => this.expandInvalidTraces(child)).some(didExpand => didExpand);
+    trace.children.forEach((child) => this.expandInvalidTraces(child, trace.description.key.startsWith('api.not.') ? !invert : invert));
   }
 }

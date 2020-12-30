@@ -141,12 +141,12 @@
     },
     "relation": {
       "unary": {
-        "valid": "Unary relation \"{{relation}}\" contains \"{{node}}\"",
-        "invalid": "Unary relation \"{{relation}}\" does not contain \"{{node}}\""
+        "valid": "{{node}} ∈ {{relation}}",
+        "invalid": "{{node}} ∉ {{relation}}"
       },
       "equality": {
         "valid": "{{firstTerm}} = {{firstResult}} = {{secondTerm}}",
-        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}}= {{secondTerm}}"
+        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}} = {{secondTerm}}"
       },
       "binary": {
         "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}",
