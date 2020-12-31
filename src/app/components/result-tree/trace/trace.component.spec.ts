@@ -23,6 +23,7 @@ describe('TraceComponent', () => {
         key: '',
       },
       isModel: false,
+      shouldBeModel: false,
       children: [],
     };
     fixture.detectChanges();
