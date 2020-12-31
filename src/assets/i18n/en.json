@@ -137,7 +137,15 @@
     },
     "bi-implication": {
       "valid": "Antecedent holds if and only if consequent holds",
-      "invalid": "Antecedent does not hold if and only if consequent holds"
+      "invalid": "Antecedent does not hold if and only if consequent holds",
+      "positive": {
+        "valid": "Antecedent holds if and only if consequent holds",
+        "invalid": "Antecedent does not hold if and only if consequent holds"
+      },
+      "negative": {
+        "valid": "Antecedent does not hold if and only if consequent does not hold",
+        "invalid": "Antecedent holds if and only if consequent does not hold"
+      }
     },
     "relation": {
       "unary": {
