@@ -55,6 +55,14 @@ export class ModelCheckerPage {
     this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', domainGraph.name) });
   }
 
+
+  public requestGraphExport(): void {
+    if (this.formula.invalid) {
+      return;
+    }
+    this.graphExportRequests.emit();
+  }
+
   public checkModel(graph: FOLGraph): void {
     this.backendService
       .checkModel(graph, this.formula.value)
