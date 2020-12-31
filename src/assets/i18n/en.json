@@ -165,7 +165,12 @@
       "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
       "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but used as a function symbol in the graph.",
       "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but not defined in the graph.",
-      "function-totality": "The unary function \"{{function}}\" must be total."
+      "function-totality": "The unary function \"{{function}}\" must be total.",
+      "empty-graph": "The graph must contain at least one node.",
+      "missing-node": "The node \"{{node}}\" is missing from the graph.",
+      "invalid-relation": "The relation \"{{relation}}\" is invalid. Relation symbols cannot be empty and must start with an uppercase letter.",
+      "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
+      "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter."
     }
   }
 }
