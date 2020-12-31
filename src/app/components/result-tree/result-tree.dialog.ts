@@ -19,16 +19,28 @@ export class ResultTreeDialog {
 
   hasChild = (_: number, trace: ModelCheckerTrace) => !!trace.children && trace.children.length > 0;
 
-  expandInvalid(): void {
+  showCauses(): void {
     this.treeControl.collapseAll();
-    this.expandInvalidTraces(this.root);
+    if (this.root.isModel) {
+      this.expandValidTraces(this.root);
+    } else {
+      this.expandInvalidTraces(this.root);
+    }
   }
 
-  private expandInvalidTraces(trace: ModelCheckerTrace, invert: boolean = false): void {
-    if (trace.isModel !== invert) {
+  private expandValidTraces(trace: ModelCheckerTrace): void {
+    if (trace.isModel !== trace.shouldBeModel) {
       return;
     }
     this.treeControl.expand(trace);
-    trace.children.forEach((child) => this.expandInvalidTraces(child, trace.description.key.startsWith('api.not.') ? !invert : invert));
+    trace.children.forEach((child) => this.expandValidTraces(child));
+  }
+
+  private expandInvalidTraces(trace: ModelCheckerTrace): void {
+    if (trace.isModel === trace.shouldBeModel) {
+      return;
+    }
+    this.treeControl.expand(trace);
+    trace.children.forEach((child) => this.expandInvalidTraces(child));
   }
 }
