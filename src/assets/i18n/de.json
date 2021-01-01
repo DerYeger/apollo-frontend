@@ -40,7 +40,10 @@
     "export": "Exportieren",
     "title": "Aktionen",
     "open": "Öffnen",
-    "check": "Überprüfen"
+    "check": "Überprüfen",
+    "collapse": "Einklappen",
+    "expand": "Erweitern",
+    "show-causes": "Ursachen anzeigen"
   },
   "fol": {
     "constant": {
@@ -102,5 +105,83 @@
     "load-demo": "Demo Graph laden",
     "title": "Graph importieren",
     "text": "Graph einfügen oder bearbeiten"
+  },
+  "api": {
+    "and": {
+      "both": "Beide Konjunkte gelten",
+      "left": "Erstes Konjunkt gilt nicht",
+      "neither": "Kein Konjunkt gilt",
+      "right": "Zweites Konjunkt gilt nicht"
+    },
+    "bi-implication": {
+      "invalid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
+      "negative": {
+        "invalid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
+        "valid": "Antezedens gilt genau dann nicht, wenn Konsequenz nicht gilt"
+      },
+      "positive": {
+        "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz gilt",
+        "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt"
+      },
+      "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt"
+    },
+    "constant": {
+      "false": "Konstante ist falsch",
+      "true": "Konstante ist wahr"
+    },
+    "error": {
+      "bound-variable-reuse": "In der Formel wird das Symbol \"{{symbol}}\" als gebundene Variable definiert, im Graphen jedoch als Funktionssymbol verwendet.",
+      "different-arities": "Das Symbol \"{{symbol}}\" wird innerhalb des Graphens mit verschiedenen Aritäten definiert.",
+      "different-function-values": "Die unäre Funktion \"{{function}}\" hat zwei Funktionswerte für mindestens einen Knoten. Eine Funktion muss rechtseindeutig sein.",
+      "different-arities-formula": "Die Arität des Symbols \"{{symbol}}\" unterscheidet sich zwischen Graph und Formel.",
+      "duplicate-constant": "Die Konstante \"{{constant}}\" kann nur einem Knoten zugewiesen werden.",
+      "empty-graph": "Der Graph muss mindestens einen Knoten enthalten.",
+      "function-totality": "Die unäre Funktion \"{{function}}\" muss total sein.",
+      "invalid-constant": "Die Konstante \"{{constant}}\" ist ungültig. Konstantensymbole dürfen nicht leer sein und müssen mit einem Kleinbuchstaben beginnen.",
+      "invalid-function": "Die Funktion \"{{function}}\" ist ungültig. Funktionssymbole dürfen nicht leer sein und müssen mit einem Kleinbuchstaben beginnen.",
+      "invalid-relation": "Die Relation \"{{relation}}\" ist ungültig. Relationssymbole dürfen nicht leer sein und müssen mit einem Großbuchstaben beginnen.",
+      "missing-node": "Der Knoten \"{{node}}\" fehlt im Graphen.",
+      "undefined-constant": "Die Konstante \"{{constant}}\" wird in der Formel verwendet, ist jedoch im Graphen nicht definiert.",
+      "unknown": "Ein unbekannter Fehler ist aufgetreten."
+    },
+    "exists": {
+      "invalid": "Unterformel gilt für keine Variablenzuweisungen",
+      "valid": "Unterformel gilt für mindestens eine Variablenzuweisung"
+    },
+    "forall": {
+      "invalid": "Unterformel gilt für keine Variablenzuweisungen",
+      "valid": "Unterformel gilt für alle Variablenzuweisungen"
+    },
+    "implication": {
+      "invalid": "Antezedens gilt, aber Konsequenz gilt nicht",
+      "left": "Antezedens gilt nicht",
+      "right": "Konsequenz gilt"
+    },
+    "invalid": "Der Graph ist kein Modell der Formel: {{formula}}",
+    "not": {
+      "invalid": "Unterformel gilt",
+      "valid": "Unterformel gilt nicht"
+    },
+    "or": {
+      "both": "Beide Disjunkte gelten",
+      "neither": "Kein Disjunkt gilt",
+      "left": "Erstes Disjunkt gilt",
+      "right": "Zweites Disjunkt gilt"
+    },
+    "relation": {
+      "binary": {
+        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}",
+        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}"
+      },
+      "equality": {
+        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}} = {{secondTerm}}",
+        "valid": "{{firstTerm}} = {{firstResult}} = {{secondTerm}}"
+      },
+      "unary": {
+        "invalid": "{{node}} ∉ {{relation}}",
+        "valid": "{{node}} ∈ {{relation}}"
+      }
+    },
+    "valid": "Der Graph ist ein Modell der Formel: {{formula}}"
   }
 }

@@ -118,8 +118,8 @@
       "invalid": "Subformula holds for no variable assignments"
     },
     "not": {
-      "valid": "Proposition does not hold",
-      "invalid": "Proposition holds"
+      "valid": "Subformula does not hold",
+      "invalid": "Subformula holds"
     },
     "and": {
       "both": "Both conjuncts hold",
