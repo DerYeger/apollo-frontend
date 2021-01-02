@@ -456,7 +456,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
   }
 
-  async createNode(x: number = this.width / 2, y: number = this.height / 2): Promise<void> {
+  async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
