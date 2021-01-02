@@ -13,7 +13,7 @@
     "reset-graph": "Reset Layout",
     "create-node": "Create Node",
     "labels": "Labels",
-    "simulation": "Simulation",
+    "simulation": "Automatic Layout",
     "save-graph": "Save Graph"
   },
   "editor": {

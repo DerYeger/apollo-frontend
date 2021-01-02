@@ -10,10 +10,10 @@
     "saved-graphs": "Gespeicherte Graphen"
   },
   "graph": {
-    "reset-graph": "Layout zurücksetzen",
+    "reset-graph": "Anordnung zurücksetzen",
     "create-node": "Knoten erzeugen",
     "labels": "Beschriftungen",
-    "simulation": "Simulation",
+    "simulation": "Automatische Anordnung",
     "save-graph": "Graph speichern"
   },
   "editor": {
