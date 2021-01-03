@@ -109,8 +109,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   @HostListener('window:resize', ['$event'])
   ngAfterViewChecked(): void {
-    if (this.width.toFixed(2) !== this.graphHost.nativeElement.clientWidth.toFixed(2) || this.height.toFixed(2) !== this.graphHost.nativeElement.clientHeight.toFixed(2)) {
-      this.cleanInitGraph();
+    const newWidth = this.graphHost.nativeElement.offsetWidth;
+    const newHeight = this.graphHost.nativeElement.offsetHeight;
+    const widthDiffers = this.width.toFixed(2) !== newWidth.toFixed(2);
+    const heightDiffers = this.height.toFixed(2) !== newHeight.toFixed(2);
+    if (widthDiffers || heightDiffers) {
+      this.cleanInitGraph(newWidth, newHeight);
     }
   }
 
@@ -225,14 +229,14 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.simulation!.alpha(alpha).restart();
   }
 
-  cleanInitGraph(): void {
+  cleanInitGraph(width?: number, height?: number): void {
     this.clean();
-    this.initGraph();
+    this.initGraph(width, height);
   }
 
-  private initGraph(): void {
-    this.width = this.graphHost.nativeElement.clientWidth;
-    this.height = this.graphHost.nativeElement.clientHeight;
+  private initGraph(width: number = this.graphHost.nativeElement.clientWidth, height: number = this.graphHost.nativeElement.clientHeight): void {
+    this.width = width;
+    this.height = height;
     this.initZoom();
     this.initCanvas();
     this.initMarkers();
