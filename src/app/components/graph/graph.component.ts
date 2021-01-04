@@ -79,6 +79,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
   private draggableLinkSourceNode?: D3Node;
   private draggableLinkEnd?: [number, number];
+  private draggableLinkLeftSourceNode = false;
 
   constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
 
@@ -394,11 +395,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
       this.draggableLinkEnd = to;
       this.draggableLink!.attr('d', linePath(from, to));
+      const distance = Math.sqrt(Math.pow(to[0] - from[0], 2) + Math.pow(to[1] - from[1], 2));
+      this.draggableLinkLeftSourceNode = this.draggableLinkLeftSourceNode || distance > this.config.nodeRadius;
     }
   }
 
   private onPointerUp(event: PointerEvent, node: D3Node): void {
-    if (!this.allowEditing || this.draggableLinkSourceNode === undefined) {
+    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || !this.draggableLinkLeftSourceNode) {
       return;
     }
     terminate(event);
@@ -411,6 +414,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.draggableLinkSourceNode = undefined;
     this.draggableLinkEnd = undefined;
+    this.draggableLinkLeftSourceNode = false;
   }
 
   private clean(): void {
