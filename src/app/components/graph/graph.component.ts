@@ -358,7 +358,15 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => this.linkPath(d.source, d.target));
+    this.link!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => {
+      if (d.source.id === d.target.id) {
+        return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
+      } else if (this.isBidirectional(d.source, d.target)) {
+        return paddedArcPath(d.source, d.target, this.config);
+      } else {
+        return paddedLinePath(d.source, d.target, this.config);
+      }
+    });
 
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
@@ -374,25 +382,23 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private updateDraggableLinkPath(): void {
-    const draggableLinkSource = this.draggableLinkSourceNode;
-    if (draggableLinkSource !== undefined) {
-      const draggableLinkTarget = this.draggableLinkTargetNode;
-      if (draggableLinkTarget !== undefined) {
-        this.draggableLink!.attr('d', this.linkPath(draggableLinkSource, draggableLinkTarget));
+    const source = this.draggableLinkSourceNode;
+    if (source !== undefined) {
+      const target = this.draggableLinkTargetNode;
+      if (target !== undefined) {
+        this.draggableLink!.attr('d', () => {
+          if (source.id === target.id) {
+            return paddedReflexivePath(source, [this.width / 2, this.height / 2], this.config);
+          } else if (this.isBidirectional(source, target)) {
+            return paddedLinePath(source, target, this.config);
+          } else {
+            return paddedArcPath(source, target, this.config);
+          }
+        });
       } else if (this.draggableLinkEnd !== undefined) {
-        const from: [number, number] = [draggableLinkSource.x!, draggableLinkSource.y!];
+        const from: [number, number] = [source.x!, source.y!];
         this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
       }
-    }
-  }
-
-  private linkPath(source: D3Node, target: D3Node): string {
-    if (source.id === target.id) {
-      return paddedReflexivePath(source, [this.width / 2, this.height / 2], this.config);
-    } else if (this.isBidirectional(source, target)) {
-      return paddedArcPath(source, target, this.config);
-    } else {
-      return paddedLinePath(source, target, this.config);
     }
   }
 
@@ -465,7 +471,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private isBidirectional(source: D3Node, target: D3Node): boolean {
-    return source.id !== target.id && this.graph!.links.some((l) => l.target.id === source.id && l.source.id === target.id);
+    return (
+      source.id !== target.id &&
+      this.graph!.links.some((l) => l.target.id === source.id && l.source.id === target.id) &&
+      this.graph!.links.some((l) => l.target.id === target.id && l.source.id === source.id)
+    );
   }
 
   private pointerRaised(): void {
