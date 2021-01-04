@@ -56,6 +56,7 @@
 
     &.draggable {
       pointer-events: none;
+      stroke-dasharray: 8px 2px;
     }
   }
 
