@@ -177,16 +177,17 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   restart(alpha: number = 0.5): void {
     this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
-      const linkGroup = enter.append('g').on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.linkSelected.emit(d);
-      });
+      const linkGroup = enter.append('g');
+      linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
       linkGroup
         .append('path')
-        .classed('link', true)
+        .classed('clickbox', true)
+        .on('contextmenu', (event: MouseEvent, d) => {
+          terminate(event);
+          this.linkSelected.emit(d);
+        })
         .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-        .on('pointerout', () => this.hideTooltip())
-        .style('marker-end', 'url(#link-arrow');
+        .on('pointerout', () => this.hideTooltip());
       linkGroup.append('text').classed('link-details', true);
       return linkGroup;
     });
@@ -356,7 +357,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.select('.link').attr('d', (d) => this.linkPath(d.source, d.target));
+    this.link!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => this.linkPath(d.source, d.target));
 
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
