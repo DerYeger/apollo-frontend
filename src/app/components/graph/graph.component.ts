@@ -78,8 +78,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
   private draggableLinkSourceNode?: D3Node;
+  private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
-  private draggableLinkLeftSourceNode = false;
 
   constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
 
@@ -203,10 +203,16 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .on('pointerenter', (event, d: D3Node) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
-        .on('pointerout', () => this.hideTooltip())
+        .on('pointerenter', (event, d: D3Node) => {
+          this.showTooltip(event, [...d.relations, ...d.constants].join(', '));
+          this.draggableLinkTargetNode = d;
+        })
+        .on('pointerout', () => {
+          this.hideTooltip();
+          this.draggableLinkTargetNode = undefined;
+        })
         .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
-        .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+        .on('pointerup', (event: PointerEvent) => this.onPointerUp(event));
       nodeGroup
         .append('text')
         .text((d) => d.id)
@@ -350,29 +356,41 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.select('.link').attr('d', (d) => {
-      if (d.source.id === d.target.id) {
-        return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
-      } else if (this.isBidirectional(d)) {
-        return paddedArcPath(d.source, d.target, this.config);
-      } else {
-        return paddedLinePath(d.source, d.target, this.config);
-      }
-    });
+    this.link!.select('.link').attr('d', (d) => this.linkPath(d.source, d.target));
 
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
         return reflexiveLinkTextTransform(d.source, [this.width / 2, this.height / 2], this.config);
-      } else if (this.isBidirectional(d)) {
+      } else if (this.isBidirectional(d.source, d.target)) {
         return bidirectionalLinkTextTransform(d.source, d.target, this.config);
       } else {
         return directLinkTextTransform(d.source, d.target);
       }
     });
 
-    if (this.draggableLinkEnd !== undefined && this.draggableLinkSourceNode !== undefined) {
-      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
-      this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
+    this.updateDraggableLinkPath();
+  }
+
+  private updateDraggableLinkPath(): void {
+    const draggableLinkSource = this.draggableLinkSourceNode;
+    if (draggableLinkSource !== undefined) {
+      const draggableLinkTarget = this.draggableLinkTargetNode;
+      if (draggableLinkTarget !== undefined) {
+        this.draggableLink!.attr('d', this.linkPath(draggableLinkSource, draggableLinkTarget));
+      } else if (this.draggableLinkEnd !== undefined) {
+        const from: [number, number] = [draggableLinkSource.x!, draggableLinkSource.y!];
+        this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
+      }
+    }
+  }
+
+  private linkPath(source: D3Node, target: D3Node): string {
+    if (source.id === target.id) {
+      return paddedReflexivePath(source, [this.width / 2, this.height / 2], this.config);
+    } else if (this.isBidirectional(source, target)) {
+      return paddedArcPath(source, target, this.config);
+    } else {
+      return paddedLinePath(source, target, this.config);
     }
   }
 
@@ -391,30 +409,27 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private pointerMoved(event: PointerEvent): void {
     terminate(event);
     if (this.draggableLinkSourceNode !== undefined) {
-      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
-      const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
-      this.draggableLinkEnd = to;
-      this.draggableLink!.attr('d', linePath(from, to));
-      const distance = Math.sqrt(Math.pow(to[0] - from[0], 2) + Math.pow(to[1] - from[1], 2));
-      this.draggableLinkLeftSourceNode = this.draggableLinkLeftSourceNode || distance > this.config.nodeRadius;
+      this.draggableLinkEnd = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
+      this.updateDraggableLinkPath();
     }
   }
 
-  private onPointerUp(event: PointerEvent, node: D3Node): void {
-    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || !this.draggableLinkLeftSourceNode) {
+  private onPointerUp(event: PointerEvent): void {
+    const target = this.draggableLinkTargetNode;
+    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || target === undefined) {
       return;
     }
     terminate(event);
     const source = this.draggableLinkSourceNode;
     this.resetDraggableLink();
-    this.createLink(source, node);
+    this.createLink(source, target);
   }
 
   private resetDraggableLink(): void {
     this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.draggableLinkSourceNode = undefined;
+    this.draggableLinkTargetNode = undefined;
     this.draggableLinkEnd = undefined;
-    this.draggableLinkLeftSourceNode = false;
   }
 
   private clean(): void {
@@ -439,8 +454,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})`);
   }
 
-  private isBidirectional(link: D3Link): boolean {
-    return link.source.id !== link.target.id && this.graph!.links.findIndex((l) => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
+  private isBidirectional(source: D3Node, target: D3Node): boolean {
+    return source.id !== target.id && this.graph!.links.some((l) => l.target.id === source.id && l.source.id === target.id);
   }
 
   private pointerRaised(): void {
