@@ -78,6 +78,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
   private draggableLinkSourceNode?: D3Node;
+  private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
   constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
@@ -109,8 +110,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   @HostListener('window:resize', ['$event'])
   ngAfterViewChecked(): void {
-    if (this.width.toFixed(2) !== this.graphHost.nativeElement.clientWidth.toFixed(2) || this.height.toFixed(2) !== this.graphHost.nativeElement.clientHeight.toFixed(2)) {
-      this.cleanInitGraph();
+    const newWidth = this.graphHost.nativeElement.offsetWidth;
+    const newHeight = this.graphHost.nativeElement.offsetHeight;
+    const widthDiffers = this.width.toFixed(2) !== newWidth.toFixed(2);
+    const heightDiffers = this.height.toFixed(2) !== newHeight.toFixed(2);
+    if (widthDiffers || heightDiffers) {
+      this.cleanInitGraph(newWidth, newHeight);
     }
   }
 
@@ -172,16 +177,17 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   restart(alpha: number = 0.5): void {
     this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
-      const linkGroup = enter.append('g').on('contextmenu', (event: MouseEvent, d) => {
-        terminate(event);
-        this.linkSelected.emit(d);
-      });
+      const linkGroup = enter.append('g');
+      linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
       linkGroup
         .append('path')
-        .classed('link', true)
-        .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-        .on('pointerout', () => this.hideTooltip())
-        .style('marker-end', 'url(#link-arrow');
+        .classed('clickbox', true)
+        .on('contextmenu', (event: MouseEvent, d) => {
+          terminate(event);
+          this.linkSelected.emit(d);
+        })
+        .on('mouseenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+        .on('mouseout', () => this.hideTooltip());
       linkGroup.append('text').classed('link-details', true);
       return linkGroup;
     });
@@ -198,10 +204,16 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .on('pointerenter', (event, d: D3Node) => this.showTooltip(event, [...d.relations, ...d.constants].join(', ')))
-        .on('pointerout', () => this.hideTooltip())
+        .on('mouseenter', (event, d: D3Node) => {
+          this.showTooltip(event, [...d.relations, ...d.constants].join(', '));
+          this.draggableLinkTargetNode = d;
+        })
+        .on('mouseout', () => {
+          this.hideTooltip();
+          this.draggableLinkTargetNode = undefined;
+        })
         .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
-        .on('pointerup', (event: PointerEvent, d) => this.onPointerUp(event, d));
+        .on('pointerup', (event: PointerEvent) => this.onPointerUp(event));
       nodeGroup
         .append('text')
         .text((d) => d.id)
@@ -225,14 +237,14 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.simulation!.alpha(alpha).restart();
   }
 
-  cleanInitGraph(): void {
+  cleanInitGraph(width?: number, height?: number): void {
     this.clean();
-    this.initGraph();
+    this.initGraph(width, height);
   }
 
-  private initGraph(): void {
-    this.width = this.graphHost.nativeElement.clientWidth;
-    this.height = this.graphHost.nativeElement.clientHeight;
+  private initGraph(width: number = this.graphHost.nativeElement.clientWidth, height: number = this.graphHost.nativeElement.clientHeight): void {
+    this.width = width;
+    this.height = height;
     this.initZoom();
     this.initCanvas();
     this.initMarkers();
@@ -261,6 +273,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .attr('width', '100%')
       .attr('height', '100%')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
+      // .on('touchmove', (event: TouchEvent) => this.pointerMoved(event))
       .on('pointerup', () => this.pointerRaised())
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
@@ -345,10 +358,10 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private tick(): void {
     this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-    this.link!.select('.link').attr('d', (d) => {
+    this.link!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => {
       if (d.source.id === d.target.id) {
         return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
-      } else if (this.isBidirectional(d)) {
+      } else if (this.isBidirectional(d.source, d.target)) {
         return paddedArcPath(d.source, d.target, this.config);
       } else {
         return paddedLinePath(d.source, d.target, this.config);
@@ -358,16 +371,34 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.link!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
         return reflexiveLinkTextTransform(d.source, [this.width / 2, this.height / 2], this.config);
-      } else if (this.isBidirectional(d)) {
+      } else if (this.isBidirectional(d.source, d.target)) {
         return bidirectionalLinkTextTransform(d.source, d.target, this.config);
       } else {
         return directLinkTextTransform(d.source, d.target);
       }
     });
 
-    if (this.draggableLinkEnd !== undefined && this.draggableLinkSourceNode !== undefined) {
-      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
-      this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
+    this.updateDraggableLinkPath();
+  }
+
+  private updateDraggableLinkPath(): void {
+    const source = this.draggableLinkSourceNode;
+    if (source !== undefined) {
+      const target = this.draggableLinkTargetNode;
+      if (target !== undefined) {
+        this.draggableLink!.attr('d', () => {
+          if (source.id === target.id) {
+            return paddedReflexivePath(source, [this.width / 2, this.height / 2], this.config);
+          } else if (this.isBidirectional(source, target)) {
+            return paddedLinePath(source, target, this.config);
+          } else {
+            return paddedArcPath(source, target, this.config);
+          }
+        });
+      } else if (this.draggableLinkEnd !== undefined) {
+        const from: [number, number] = [source.x!, source.y!];
+        this.draggableLink!.attr('d', linePath(from, this.draggableLinkEnd));
+      }
     }
   }
 
@@ -386,26 +417,34 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private pointerMoved(event: PointerEvent): void {
     terminate(event);
     if (this.draggableLinkSourceNode !== undefined) {
-      const from: [number, number] = [this.draggableLinkSourceNode!.x!, this.draggableLinkSourceNode!.y!];
-      const to: [number, number] = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
-      this.draggableLinkEnd = to;
-      this.draggableLink!.attr('d', linePath(from, to));
+      const pointer = d3.pointers(event, this.graphHost.nativeElement)[0];
+      const point: [number, number] = [pointer[0] - this.xOffset, pointer[1] - this.yOffset];
+      if (event.pointerType === 'touch') {
+        point[1] = point[1] - 4 * this.config.nodeRadius;
+        // PointerEvents are not firing correctly for touch input.
+        // So for TouchEvents, we have to manually detect Nodes within range and set them as the current target node.
+        this.draggableLinkTargetNode = this.graph!.nodes.find((node) => Math.sqrt(Math.pow(node.x! - point[0], 2) + Math.pow(node.y! - point[1], 2)) < this.config.nodeRadius);
+      }
+      this.draggableLinkEnd = point;
+      this.updateDraggableLinkPath();
     }
   }
 
-  private onPointerUp(event: PointerEvent, node: D3Node): void {
-    if (!this.allowEditing || this.draggableLinkSourceNode === undefined) {
+  private onPointerUp(event: PointerEvent): void {
+    const target = this.draggableLinkTargetNode;
+    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || target === undefined) {
       return;
     }
     terminate(event);
     const source = this.draggableLinkSourceNode;
     this.resetDraggableLink();
-    this.createLink(source, node);
+    this.createLink(source, target);
   }
 
   private resetDraggableLink(): void {
     this.draggableLink?.classed('hidden', true).style('marker-end', '');
     this.draggableLinkSourceNode = undefined;
+    this.draggableLinkTargetNode = undefined;
     this.draggableLinkEnd = undefined;
   }
 
@@ -431,8 +470,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})`);
   }
 
-  private isBidirectional(link: D3Link): boolean {
-    return link.source.id !== link.target.id && this.graph!.links.findIndex((l) => l.target.id === link.source.id && l.source.id === link.target.id) !== -1;
+  private isBidirectional(source: D3Node, target: D3Node): boolean {
+    return (
+      source.id !== target.id &&
+      this.graph!.links.some((l) => l.target.id === source.id && l.source.id === target.id) &&
+      this.graph!.links.some((l) => l.target.id === target.id && l.source.id === source.id)
+    );
   }
 
   private pointerRaised(): void {
@@ -456,7 +499,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
   }
 
-  async createNode(x: number = this.width / 2, y: number = this.height / 2): Promise<void> {
+  async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }

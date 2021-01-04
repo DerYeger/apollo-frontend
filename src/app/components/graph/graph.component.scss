@@ -6,6 +6,7 @@
   .graph {
     width: 100%;
     height: 100%;
+    touch-action: none;
   }
 
   .tooltip {
@@ -54,8 +55,17 @@
     }
 
     &.draggable {
+      stroke: mat-color($accent, darker);
+      stroke-dasharray: 8px 2px;
       pointer-events: none;
     }
+  }
+
+  .clickbox {
+    stroke: rgba($color: #000000, $alpha: 0);
+    stroke-width: 16px;
+    fill: none;
+    cursor: pointer;
   }
 
   .arrow {
@@ -65,6 +75,7 @@
   .node {
     fill: mat-color($primary);
     stroke: none;
+    cursor: pointer;
   }
 
   .link-details,

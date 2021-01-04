@@ -2,9 +2,9 @@
   <div class="formula-section">
     <mat-form-field>
       <mat-label>{{ 'fol.formula' | translate }}</mat-label>
-      <input matInput [formControl]="formula" placeholder="{{ 'fol.formula' | translate}}" autocomplete="off" />
+      <input matInput [formControl]="formula" placeholder="{{ 'fol.formula' | translate}}" autocomplete="off" (keyup.enter)="requestGraphExport()" />
     </mat-form-field>
-    <button mat-raised-button (click)="graphExportRequests.emit()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
+    <button mat-raised-button (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
   </div>
   <div class="graph-section">
     <gramofo-graph-editor
@@ -15,4 +15,3 @@
     ></gramofo-graph-editor>
   </div>
 </div>
-<!-- <gramofo-result-tree></gramofo-result-tree> -->
