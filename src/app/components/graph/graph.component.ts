@@ -186,8 +186,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
           terminate(event);
           this.linkSelected.emit(d);
         })
-        .on('pointerenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-        .on('pointerout', () => this.hideTooltip());
+        .on('mouseenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
+        .on('mouseout', () => this.hideTooltip());
       linkGroup.append('text').classed('link-details', true);
       return linkGroup;
     });
@@ -204,11 +204,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .on('pointerenter', (event, d: D3Node) => {
+        .on('mouseenter', (event, d: D3Node) => {
           this.showTooltip(event, [...d.relations, ...d.constants].join(', '));
           this.draggableLinkTargetNode = d;
         })
-        .on('pointerout', () => {
+        .on('mouseout', () => {
           this.hideTooltip();
           this.draggableLinkTargetNode = undefined;
         })
@@ -273,6 +273,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .attr('width', '100%')
       .attr('height', '100%')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
+      // .on('touchmove', (event: TouchEvent) => this.pointerMoved(event))
       .on('pointerup', () => this.pointerRaised())
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
@@ -410,7 +411,15 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private pointerMoved(event: PointerEvent): void {
     terminate(event);
     if (this.draggableLinkSourceNode !== undefined) {
-      this.draggableLinkEnd = [d3.pointer(event)[0] - this.xOffset, d3.pointer(event)[1] - this.yOffset];
+      const pointer = d3.pointers(event, this.graphHost.nativeElement)[0];
+      const point: [number, number] = [pointer[0] - this.xOffset, pointer[1] - this.yOffset];
+      if (event.pointerType === 'touch') {
+        point[1] = point[1] - 4 * this.config.nodeRadius;
+        // PointerEvents are not firing correctly for touch input.
+        // So for TouchEvents, we have to manually detect Nodes within range and set them as the current target node.
+        this.draggableLinkTargetNode = this.graph!.nodes.find((node) => Math.sqrt(Math.pow(node.x! - point[0], 2) + Math.pow(node.y! - point[1], 2)) < this.config.nodeRadius);
+      }
+      this.draggableLinkEnd = point;
       this.updateDraggableLinkPath();
     }
   }
