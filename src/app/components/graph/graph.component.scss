@@ -49,12 +49,14 @@
     stroke: mat-color($accent);
     stroke-width: 4px;
     fill: none;
+    cursor: pointer;
 
     &.hidden {
       stroke-width: 0;
     }
 
     &.draggable {
+      stroke: mat-color($accent, darker);
       pointer-events: none;
       stroke-dasharray: 8px 2px;
     }
@@ -67,6 +69,7 @@
   .node {
     fill: mat-color($primary);
     stroke: none;
+    cursor: pointer;
   }
 
   .link-details,
