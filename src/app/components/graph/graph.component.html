@@ -15,6 +15,7 @@
   <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">
     {{ "graph.labels" | translate }}
   </mat-slide-toggle>
+  <mat-icon matSuffix class="help-icon" [matTooltip]="(controlsTooltipText | async) || ''" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>
 </div>
 <button
   *ngIf="allowEditing"

@@ -14,7 +14,11 @@
     "create-node": "Create Node",
     "labels": "Labels",
     "simulation": "Automatic Layout",
-    "save-graph": "Save Graph"
+    "save-graph": "Save Graph",
+    "controls": {
+      "view": "View\n        Moving nodes - Middle mouse button\n        Move view - Left mouse button",
+      "graph": "Graph\n        Selecting - Right mouse button / Long touch\n        Creating nodes - Double-click / Plus-button\n        Creating edges - Click / Touch and drag"
+    }
   },
   "editor": {
     "node": {

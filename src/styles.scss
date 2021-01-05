@@ -17,3 +17,7 @@ body {
   -ms-user-select: none !important;
   user-select: none !important;
 }
+
+.multiline-tooltip {
+  white-space: pre;
+}

@@ -2,9 +2,11 @@ import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, H
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { Observable, Subscription } from 'rxjs';
+import { concat, forkJoin, Observable, of, Subscription } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
@@ -26,14 +28,14 @@ import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-gra
 import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
 
 @Component({
-  selector: 'gramofo-graph[graph]',
+  selector: 'gramofo-graph[graph][allowEditing]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, AfterViewChecked {
   @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
-  @Input() public allowEditing = true;
+  @Input() public allowEditing!: boolean;
   @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
   @Input() public graphExportRequests?: Observable<void>;
@@ -47,6 +49,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
   @Output() public readonly graphExported = new EventEmitter<FOLGraph>();
+
+  // TranslateService::stream and TranslateService::onLangChange do not properly emit upon first subscription.
+  // As a workaround, we emit a dummy value froma second observable to trigger the forkJoin and call TranslateService::get instead.
+  public readonly controlsTooltipText: Observable<string> = concat(of(true), this.translate.onLangChange).pipe(
+    mergeMap(() => forkJoin([this.translate.get('graph.controls.view'), this.translate.get('graph.controls.graph')])),
+    map(([view, controls]) => (this.allowEditing ? view + '\n' + controls : view))
+  );
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -81,7 +90,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
-  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
+  constructor(
+    private readonly store: Store<State>,
+    private readonly translate: TranslateService,
+    private readonly dialog: MatDialog,
+    private readonly bottomSheet: MatBottomSheet
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.graph.currentValue) {
