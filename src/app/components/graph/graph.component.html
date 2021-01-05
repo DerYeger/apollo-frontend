@@ -9,13 +9,13 @@
   <button mat-icon-button color="primary" (click)="resetGraph()" matTooltip="{{ 'graph.reset-graph' | translate }}">
     <mat-icon>location_searching</mat-icon>
   </button>
+   <mat-icon class="help-icon" color="primary" [matTooltip]="(controlsTooltipText | async) || ''" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>
   <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">
     {{ "graph.simulation" | translate }}
   </mat-slide-toggle>
   <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">
     {{ "graph.labels" | translate }}
   </mat-slide-toggle>
-  <mat-icon matSuffix class="help-icon" [matTooltip]="(controlsTooltipText | async) || ''" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>
 </div>
 <button
   *ngIf="allowEditing"
