@@ -190,7 +190,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   restart(alpha: number = 0.5): void {
-    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
+    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');
       linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
       linkGroup
