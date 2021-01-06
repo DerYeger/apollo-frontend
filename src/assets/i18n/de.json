@@ -17,7 +17,7 @@
     "save-graph": "Graph speichern",
     "controls": {
       "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste",
-      "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen  - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen"
+      "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen"
     }
   },
   "editor": {
@@ -72,7 +72,11 @@
     "name": "Name",
     "last-edit": "Letzte Änderung",
     "description": "Beschreibung",
-    "or": "oder"
+    "or": "oder",
+    "false": "Falsch",
+    "true": "Wahr",
+    "syntax": "Syntax",
+    "semantics": "Semantik"
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."

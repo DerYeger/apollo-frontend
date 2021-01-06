@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
+import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
 import { ResultTreeDialog } from 'src/app/components/result-tree/result-tree.dialog';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
@@ -30,7 +31,7 @@ export class ModelCheckerPage {
     private readonly route: ActivatedRoute,
     private readonly snackBarService: SnackBarService,
     private readonly backendService: BackendService,
-    public readonly dialog: MatDialog
+    private readonly dialog: MatDialog
   ) {}
 
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
@@ -82,5 +83,12 @@ export class ModelCheckerPage {
           this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
         }
       });
+  }
+
+  public showFormulaSyntaxDialog(): void {
+    this.dialog.open(FormulaSyntaxDialog, {
+      minWidth: '50%',
+      panelClass: 'unpadded-dialog',
+    });
   }
 }

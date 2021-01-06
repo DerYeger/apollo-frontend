@@ -27,6 +27,7 @@ import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/
 import { GraphImportComponent } from './components/graph-import/graph-import.component';
 import { ResultTreeDialog } from './components/result-tree/result-tree.dialog';
 import { TraceComponent } from './components/result-tree/trace/trace.component';
+import { FormulaSyntaxDialog } from './components/dialogs/formula-syntax/formula-syntax.dialog';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TraceComponent } from './components/result-tree/trace/trace.component';
     GraphImportComponent,
     ResultTreeDialog,
     TraceComponent,
+    FormulaSyntaxDialog,
   ],
   imports: [
     CommonModule,

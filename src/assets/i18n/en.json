@@ -72,7 +72,11 @@
     "name": "Name",
     "last-edit": "Last Edit",
     "description": "Description",
-    "or": "or"
+    "or": "or",
+    "semantics": "Semantics",
+    "syntax": "Syntax",
+    "true": "True",
+    "false": "False"
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" has been deleted."

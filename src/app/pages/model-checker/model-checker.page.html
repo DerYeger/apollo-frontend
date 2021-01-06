@@ -3,6 +3,9 @@
     <mat-form-field>
       <mat-label>{{ 'fol.formula' | translate }}</mat-label>
       <input matInput [formControl]="formula" placeholder="{{ 'fol.formula' | translate}}" autocomplete="off" (keyup.enter)="requestGraphExport()" />
+      <button mat-icon-button matSuffix color="primary" (click)="showFormulaSyntaxDialog()">
+        <mat-icon>help_outlined</mat-icon>
+      </button>
     </mat-form-field>
     <button mat-raised-button (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
   </div>

@@ -21,3 +21,7 @@ body {
 .multiline-tooltip {
   white-space: pre;
 }
+
+.unpadded-dialog .mat-dialog-container {
+  padding: 0;
+}
