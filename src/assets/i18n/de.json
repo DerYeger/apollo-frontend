@@ -47,7 +47,7 @@
     "check": "Überprüfen",
     "collapse": "Einklappen",
     "expand": "Erweitern",
-    "show-causes": "Ursachen anzeigen"
+    "filter-causes": "Ursachen filtern"
   },
   "fol": {
     "constant": {

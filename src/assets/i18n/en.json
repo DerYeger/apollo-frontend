@@ -47,7 +47,7 @@
     "check": "Check",
     "expand": "Expand",
     "collapse": "Collapse",
-    "show-causes": "Show Causes"
+    "filter-causes": "Filter Causes"
   },
   "fol": {
     "relation": {

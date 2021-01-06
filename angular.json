@@ -29,9 +29,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss", "src/assets/styles/theme.scss"],
             "scripts": [],
-              "allowedCommonJsDependencies": [
-                  "yaml"
-              ]
+            "allowedCommonJsDependencies": ["yaml"]
           },
           "configurations": {
             "production": {
