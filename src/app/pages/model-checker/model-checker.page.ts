@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
-import { ResultTreeDialog } from 'src/app/components/result-tree/result-tree.dialog';
+import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';

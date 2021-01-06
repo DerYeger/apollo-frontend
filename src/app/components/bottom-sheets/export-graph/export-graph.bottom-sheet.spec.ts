@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';

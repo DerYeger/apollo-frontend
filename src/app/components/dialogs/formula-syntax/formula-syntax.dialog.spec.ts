@@ -11,7 +11,7 @@ describe('FormulaSyntaxDialog', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FormulaSyntaxDialog],
-      imports: [MaterialModule, TranslateModule.forRoot()]
+      imports: [MaterialModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

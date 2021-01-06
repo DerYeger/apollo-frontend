@@ -25,7 +25,7 @@ import {
 } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
-import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
+import { SaveGraphDialog } from '../dialogs/save-graph/save-graph.dialog';
 
 @Component({
   selector: 'gramofo-graph[graph][allowEditing]',

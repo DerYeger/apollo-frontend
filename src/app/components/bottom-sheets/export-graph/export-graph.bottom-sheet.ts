@@ -1,6 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component, Inject } from '@angular/core';
-import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { terminate } from 'src/app/utils/event.utils';

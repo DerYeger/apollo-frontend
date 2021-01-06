@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { MaterialModule } from '../material.module';
 import { reducers } from '../store/reducers';
-
 import { SnackBarService } from './snack-bar.service';
 
 describe('SnackBarService', () => {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Route } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 
