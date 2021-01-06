@@ -33,7 +33,7 @@
     "ngrx-store-localstorage": "10.1.1",
     "ngx-logger": "4.1.9",
     "rxjs": "6.6.3",
-    "tslib": "2.0.3",
+    "tslib": "2.1.0",
     "yaml": "1.10.0",
     "zone.js": "0.11.3"
   },
