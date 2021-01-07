@@ -7,8 +7,8 @@ export interface State {
   graphCache: GraphCollection;
 }
 
-export declare type Language = 'en' | 'de';
-export declare type Theme = 'dark-theme' | 'light-theme';
+export type Language = 'en' | 'de';
+export type Theme = 'dark-theme' | 'light-theme';
 
 export interface Settings {
   language?: Language;

@@ -9,7 +9,7 @@ export interface GramofoRoute extends Route {
   name?: string;
 }
 
-export declare type GramofoRoutes = GramofoRoute[];
+export type GramofoRoutes = GramofoRoute[];
 
 export const routes: GramofoRoutes = [
   { path: 'home', name: 'home.title', component: HomePage },

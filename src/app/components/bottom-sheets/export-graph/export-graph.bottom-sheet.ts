@@ -6,7 +6,7 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { terminate } from 'src/app/utils/event.utils';
 import * as YAML from 'yaml';
 
-declare type FileType = 'json' | 'yml';
+type FileType = 'json' | 'yml';
 
 @Component({
   selector: 'gramofo-export-graph',
