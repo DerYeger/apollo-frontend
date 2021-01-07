@@ -287,8 +287,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .attr('width', '100%')
       .attr('height', '100%')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
-      // .on('touchmove', (event: TouchEvent) => this.pointerMoved(event))
-      .on('pointerup', () => this.pointerRaised())
+      .on('pointerup', (event: PointerEvent) => this.onPointerUp(event))
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
@@ -445,13 +444,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private onPointerUp(event: PointerEvent): void {
+    const source = this.draggableLinkSourceNode;
     const target = this.draggableLinkTargetNode;
-    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || target === undefined) {
+    this.resetDraggableLink();
+    if (!this.allowEditing || source === undefined || target === undefined) {
       return;
     }
     terminate(event);
-    const source = this.draggableLinkSourceNode;
-    this.resetDraggableLink();
     this.createLink(source, target);
   }
 
@@ -490,11 +489,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       this.graph!.links.some((l) => l.target.id === source.id && l.source.id === target.id) &&
       this.graph!.links.some((l) => l.target.id === target.id && l.source.id === source.id)
     );
-  }
-
-  private pointerRaised(): void {
-    this.draggableLink?.classed('hidden', true).style('marker-end', '');
-    this.resetDraggableLink();
   }
 
   private showTooltip(event: PointerEvent, text: string): void {
