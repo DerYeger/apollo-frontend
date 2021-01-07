@@ -1,13 +1,14 @@
-import { NestedTreeControl } from '@angular/cdk/tree';
+import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 
-interface TraceNode {
+interface FlatTraceNode {
   trace: ModelCheckerTrace;
-  children: TraceNode[];
+  expandable: boolean;
   visible: boolean;
+  level: number;
 }
 
 @Component({
@@ -15,51 +16,60 @@ interface TraceNode {
   styleUrls: ['./result-tree.dialog.scss'],
 })
 export class ResultTreeDialog {
-  public readonly treeControl = new NestedTreeControl<TraceNode>((node) => node.children);
-  public readonly dataSource = new MatTreeNestedDataSource<TraceNode>();
+  public readonly treeControl = new FlatTreeControl<FlatTraceNode>(
+    (node) => node.level,
+    (node) => node.expandable
+  );
 
-  public readonly rootNode: TraceNode;
+  private readonly treeFlattener = new MatTreeFlattener(
+    traceToFlatNode,
+    (node) => node.level,
+    (node) => node.expandable,
+    (node) => node.children
+  );
+
+  public readonly dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly rootTrace: ModelCheckerTrace) {
-    this.rootNode = traceToNode(rootTrace);
-    const data = [this.rootNode];
-    this.dataSource.data = data;
-    this.treeControl.dataNodes = data;
+    this.dataSource.data = [rootTrace];
     this.treeControl.expandAll();
   }
 
-  public hasChild = (_: number, node: TraceNode) => !!node.children && node.children.length > 0;
+  public hasChild(_: number, node: FlatTraceNode): boolean {
+    return node.expandable;
+  }
 
   public updateFilter(filter: boolean): void {
     if (!filter) {
-      clearFilter(this.rootNode);
+      // Set all nodes to visible.
+      this.treeControl.dataNodes.forEach((node) => (node.visible = true));
     } else {
-      filterCauses(this.rootNode, this.rootNode.trace.isModel);
+      // Recursively, set irrelevant nodes to invisible.
+      this.filterCauses(this.treeControl.dataNodes[0], this.rootTrace.isModel, true);
     }
   }
-}
 
-function clearFilter(node: TraceNode): void {
-  node.visible = true;
-  node.children.forEach((child) => clearFilter(child));
-}
-
-function filterCauses(node: TraceNode, expected: boolean): void {
-  // Check if trace behaved as required.
-  const actual = node.trace.isModel === node.trace.shouldBeModel;
-  // Check if filtering is for positive or negative causes
-  if (actual === expected) {
-    node.visible = true;
-    node.children.forEach((child) => filterCauses(child, expected));
-  } else {
-    node.visible = false;
+  private filterCauses(node: FlatTraceNode, expected: boolean, parentIsVisible: boolean): void {
+    // Check if trace behaved as required.
+    const actual = node.trace.isModel === node.trace.shouldBeModel;
+    // Check if filtering is for positive or negative causes
+    const visible = parentIsVisible && actual === expected;
+    node.visible = visible;
+    // Currently, there's no method to retrieve immediate children for the FlatTreeControl.
+    // As a workaround, we get all descendants and filter them by their level.
+    this.treeControl.getDescendants(node).forEach((child) => {
+      if (child.level === node.level + 1) {
+        this.filterCauses(child, expected, visible);
+      }
+    });
   }
 }
 
-function traceToNode(trace: ModelCheckerTrace): TraceNode {
+function traceToFlatNode(trace: ModelCheckerTrace, level: number): FlatTraceNode {
   return {
     trace,
-    children: trace.children.map((child) => traceToNode(child)),
+    expandable: !!trace.children && trace.children.length > 0,
     visible: true,
+    level,
   };
 }

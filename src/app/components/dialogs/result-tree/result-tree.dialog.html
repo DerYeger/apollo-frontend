@@ -1,30 +1,21 @@
-<h2 mat-dialog-title>{{ (rootNode.trace.isModel ? 'api.valid' : 'api.invalid') | translate:{ formula: rootNode.trace.formula } }}</h2>
+<h2 mat-dialog-title>{{ (rootTrace.isModel ? 'api.valid' : 'api.invalid') | translate:{ formula: rootTrace.formula } }}</h2>
 <mat-dialog-content class="tree-container">
-  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="result-tree">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node *matTreeNodeDef="let node;" matTreeNodeToggle [style.display]="node.visible ? 'block' : 'none'">
-      <li class="mat-tree-node">
-        <!-- use a disabled button to provide padding for tree leaf -->
-        <button mat-icon-button disabled></button>
-        <gramofo-trace [trace]="node.trace"></gramofo-trace>
-      </li>
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <button mat-icon-button disabled></button>
+      <gramofo-trace [trace]="node.trace"></gramofo-trace>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
-    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild" [style.display]="node.visible ? 'block' : 'none'">
-      <li>
-        <div class="mat-tree-node">
-          <button mat-icon-button matTreeNodeToggle>
-            <mat-icon class="mat-icon-rtl-mirror" [ngClass]="node.isModel === node.shouldBeModel ? 'valid' : 'invalid'">
-              {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-            </mat-icon>
-          </button>
-          <gramofo-trace [trace]="node.trace"></gramofo-trace>
-        </div>
-        <ul [class.result-tree-invisible]="!treeControl.isExpanded(node)">
-          <ng-container matTreeNodeOutlet></ng-container>
-        </ul>
-      </li>
-    </mat-nested-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
+      <button mat-icon-button matTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror" [class.invalid]="node.trace.isModel !== node.trace.shouldBeModel">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <gramofo-trace [trace]="node.trace"></gramofo-trace>
+    </mat-tree-node>
   </mat-tree>
 </mat-dialog-content>
 <mat-dialog-actions>
