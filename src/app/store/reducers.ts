@@ -12,6 +12,7 @@ import {
   setLanguage,
   storeGraph,
   toggleLabels,
+  toggleMinimizeResult,
   toggleSidebar,
   toggleSimulation,
   toggleTheme,
@@ -20,10 +21,11 @@ import { GraphSettings, Settings, State } from './state';
 
 export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
-    { language: undefined, sidebar: true, theme: 'dark-theme' },
+    { language: undefined, sidebar: true, theme: 'dark-theme', minimizeResult: true },
     on(setLanguage, (state, { language }) => ({ ...state, language })),
     on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar })),
-    on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' }))
+    on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' })),
+    on(toggleMinimizeResult, (state) => ({ ...state, minimizeResult: !state.minimizeResult }))
   ),
   graphSettings: createReducer<GraphSettings>(
     {

@@ -2,6 +2,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 
 interface FlatTraceNode {
@@ -30,8 +31,8 @@ export class ResultTreeDialog {
 
   public readonly dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly rootTrace: ModelCheckerTrace) {
-    this.dataSource.data = [rootTrace];
+  constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse) {
+    this.dataSource.data = [result.rootTrace];
     this.treeControl.expandAll();
   }
 
@@ -45,7 +46,7 @@ export class ResultTreeDialog {
       this.treeControl.dataNodes.forEach((node) => (node.visible = true));
     } else {
       // Recursively, set irrelevant nodes to invisible.
-      this.filterCauses(this.treeControl.dataNodes[0], this.rootTrace.isModel, true);
+      this.filterCauses(this.treeControl.dataNodes[0], this.result.rootTrace.isModel, true);
     }
   }
 

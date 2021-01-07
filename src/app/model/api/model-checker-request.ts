@@ -6,4 +6,5 @@ export interface ModelCheckerRequest {
   formula: string;
   graph: FOLGraph;
   language: Language;
+  minimizeResult: boolean;
 }

@@ -7,14 +7,23 @@
         <mat-icon>help_outlined</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-raised-button (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
+    <button mat-raised-button class="check-button" (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
+    <mat-slide-toggle
+      #minimizeResultToggle
+      color="accent"
+      (toggleChange)="toggleMinimizeResult()"
+      [checked]="minimzeResult$ | async"
+      [matTooltip]="'model-checker.minimize-tooltip' | translate"
+    >
+      {{ 'model-checker.minimize-result' | translate }}
+    </mat-slide-toggle>
   </div>
   <div class="graph-section">
     <gramofo-graph-editor
       [graph]="graph"
       [graphExportRequests]="graphExportRequests"
       (saveRequested)="onSaveRequested($event)"
-      (graphExported)="checkModel($event)"
+      (graphExported)="checkModel($event, minimizeResultToggle.checked)"
     ></gramofo-graph-editor>
   </div>
 </div>

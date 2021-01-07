@@ -14,6 +14,7 @@ export interface Settings {
   language?: Language;
   sidebar: boolean;
   theme: Theme;
+  minimizeResult: boolean;
 }
 
 export interface GraphSettings {

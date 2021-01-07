@@ -3,7 +3,9 @@
     "title": "gramoFO"
   },
   "model-checker": {
-    "title": "ModelChecker"
+    "title": "ModelChecker",
+    "minimize-result": "Ergebnis minimieren",
+    "minimize-tooltip": "Bei Aktivierung werden nur notwendige Überprüfungen durchgeführt. Notwendig für umfangreiche Graphen und komplexe Formeln."
   },
   "home": {
     "title": "Home",

@@ -6,6 +6,7 @@ import { Language } from './state';
 export const setLanguage = createAction('[settings.language] set', props<{ language: Language }>());
 export const toggleSidebar = createAction('[settings.sidebar] toggle');
 export const toggleTheme = createAction('[settings.theme] toggle');
+export const toggleMinimizeResult = createAction('[settings.minimzeResult] toggle');
 
 export const enableSimulation = createAction('[graph.simulation] enable');
 export const toggleSimulation = createAction('[graph.simulation] toggle');

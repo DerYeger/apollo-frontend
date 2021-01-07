@@ -12,7 +12,7 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
 import { BackendService } from 'src/app/services/backend.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { storeGraph } from 'src/app/store/actions';
+import { storeGraph, toggleMinimizeResult } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -24,6 +24,8 @@ export class ModelCheckerPage {
   public readonly formula = new FormControl('', Validators.required);
 
   public readonly graphExportRequests = new EventEmitter<void>();
+
+  public readonly minimzeResult$ = this.store.select('settings').pipe(map((settings) => settings.minimizeResult));
 
   constructor(
     private readonly store: Store<State>,
@@ -63,9 +65,13 @@ export class ModelCheckerPage {
     this.graphExportRequests.emit();
   }
 
-  public checkModel(graph: FOLGraph): void {
+  public toggleMinimizeResult(): void {
+    this.store.dispatch(toggleMinimizeResult());
+  }
+
+  public checkModel(graph: FOLGraph, minimizeResult: boolean): void {
     this.backendService
-      .checkModel(graph, this.formula.value)
+      .checkModel(graph, this.formula.value, minimizeResult)
       .then((response) => {
         this.dialog.open(ResultTreeDialog, {
           role: 'dialog',

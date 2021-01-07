@@ -3,7 +3,9 @@
     "title": "gramoFO"
   },
   "model-checker": {
-    "title": "ModelChecker"
+    "title": "ModelChecker",
+    "minimize-result": "Minimize Result",
+    "minimize-tooltip": "When enabled, only necessary checks are evaluated. Required for big graphs and complex formulas."
   },
   "home": {
     "title": "Home",
