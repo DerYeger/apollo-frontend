@@ -72,10 +72,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @ViewChild('graphHost')
   private readonly graphHost!: ElementRef<HTMLDivElement>;
 
-  @ViewChild('tooltip')
-  private readonly tooltip!: ElementRef<HTMLDivElement>;
-  private canShowTooltip = true;
-
   private simulation?: d3.Simulation<D3Node, D3Link>;
 
   private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
@@ -199,9 +195,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .on('contextmenu', (event: MouseEvent, d) => {
           terminate(event);
           this.linkSelected.emit(d);
-        })
-        .on('mouseenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-        .on('mouseout', () => this.hideTooltip());
+        });
       linkGroup.append('text').classed('link-details', true);
       return linkGroup;
     });
@@ -218,14 +212,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .on('mouseenter', (event, d: D3Node) => {
-          this.showTooltip(event, [...d.relations, ...d.constants].join(', '));
-          this.draggableLinkTargetNode = d;
-        })
-        .on('mouseout', () => {
-          this.hideTooltip();
-          this.draggableLinkTargetNode = undefined;
-        })
+        .on('mouseenter', (_, d: D3Node) => (this.draggableLinkTargetNode = d))
+        .on('mouseout', () => (this.draggableLinkTargetNode = undefined))
         .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
         .on('pointerup', (event: PointerEvent) => this.onPointerUp(event));
       nodeGroup
@@ -348,8 +336,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .filter((event) => event.button === 1)
       .on('start', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
         terminate(event.sourceEvent);
-        this.canShowTooltip = false;
-        this.hideTooltip();
         if (event.active === 0) {
           this.simulation!.alphaTarget(0.5).restart();
         }
@@ -360,8 +346,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         d.fx = event.x;
         d.fy = event.y;
       })
-      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
-        this.canShowTooltip = true;
+      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>) => {
         if (event.active === 0) {
           this.simulation!.alphaTarget(0);
         }
@@ -464,7 +449,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private clean(): void {
     this.simulation!.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
-    this.canShowTooltip = true;
     this.zoom = undefined;
     this.xOffset = 0;
     this.yOffset = 0;
@@ -473,7 +457,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.link = undefined;
     this.node = undefined;
     this.simulation = undefined;
-    this.canShowTooltip = true;
     this.resetDraggableLink();
   }
 
@@ -491,22 +474,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     );
   }
 
-  private showTooltip(event: PointerEvent, text: string): void {
-    if (!this.canShowTooltip) {
-      return;
-    }
-    const tooltipSelection = d3.select(this.tooltip.nativeElement);
-    tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
-    tooltipSelection
-      .html(text.length > 0 ? text : '-')
-      .style('left', `calc(${event.offsetX}px + ${2 * this.config.nodeRadius}px)`)
-      .style('top', `calc(${event.offsetY}px`);
-  }
-
-  private hideTooltip(): void {
-    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
-  }
-
   async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
@@ -520,7 +487,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     if (!this.allowEditing) {
       return;
     }
-    this.hideTooltip();
     this.resetDraggableLink();
     this.graph!.removeNode(node).then(([deletedNode, deletedLinks]) => {
       this.restart();
@@ -545,7 +511,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     if (!this.allowEditing) {
       return;
     }
-    this.hideTooltip();
     this.graph!.removeLink(link).then((deletedLink) => {
       this.restart();
       this.linkDeleted.emit(deletedLink);
