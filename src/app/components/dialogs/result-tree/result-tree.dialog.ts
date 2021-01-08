@@ -1,5 +1,5 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
@@ -16,7 +16,7 @@ interface FlatTraceNode {
   templateUrl: './result-tree.dialog.html',
   styleUrls: ['./result-tree.dialog.scss'],
 })
-export class ResultTreeDialog {
+export class ResultTreeDialog implements OnInit {
   public readonly treeControl = new FlatTreeControl<FlatTraceNode>(
     (node) => node.level,
     (node) => node.expandable
@@ -31,9 +31,13 @@ export class ResultTreeDialog {
 
   public readonly dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse) {
-    this.dataSource.data = [result.rootTrace];
-    this.treeControl.expandAll();
+  constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse) {}
+
+  ngOnInit(): void {
+    this.dataSource.data = [this.result.rootTrace];
+    if (this.result.feedback === 'relevant') {
+      this.treeControl.expandAll();
+    }
   }
 
   public hasChild(_: number, node: FlatTraceNode): boolean {
