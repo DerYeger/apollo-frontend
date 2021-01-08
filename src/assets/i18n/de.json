@@ -197,11 +197,11 @@
   "feedback": {
     "full": {
       "name": "Vollständig",
-      "description": "Vollständige Evaluation, inklusive redundanter Überprüfungen."
+      "description": "Vollständige Evaluation, inklusive redundanter Überprüfungen. Funktioniert möglicherweise nicht bei großen Graphen und komplexen Formeln."
     },
     "relevant": {
       "name": "Relevant",
-      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen."
+      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Empfohlen."
     },
     "minimal": {
       "name": "Minimal",

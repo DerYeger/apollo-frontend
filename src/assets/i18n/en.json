@@ -197,11 +197,11 @@
   "feedback": {
     "full": {
       "name": "Full",
-      "description": "Full evaluation, including redundant checks."
+      "description": "Full evaluation, including redundant checks. May not work for large graphs and complex formulas."
     },
     "relevant": {
       "name": "Relevant",
-      "description": "Partial evaluation, excluding redundant checks."
+      "description": "Partial evaluation, excluding redundant checks. Recommended."
     },
     "minimal": {
       "name": "Minimal",
