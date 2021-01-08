@@ -20,7 +20,7 @@ describe('ResultTreeDialog', () => {
         {
           provide: MAT_DIALOG_DATA,
           useValue: {
-            isMinimized: false,
+            feedback: 'full',
             rootTrace: {
               formula: '',
               description: {

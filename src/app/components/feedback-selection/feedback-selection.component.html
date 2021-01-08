@@ -1,0 +1,15 @@
+<mat-form-field>
+  <mat-label>{{ "feedback.title" | translate }}</mat-label>
+  <mat-select #selectionInput (selectionChange)="onSelectionChange($event)" [value]="selectedFeedback$ | async">
+    <mat-option
+      *ngFor="let feedbackOption of feedbackOptions"
+      [value]="feedbackOption.feedback"
+      [matTooltip]="feedbackOption.description | translate"
+      matTooltipPosition="left"
+      matTooltipShowDelay="250"
+      matTooltipHideDelay="250"
+    >
+      {{ feedbackOption.name | translate }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

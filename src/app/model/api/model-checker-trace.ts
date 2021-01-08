@@ -5,5 +5,5 @@ export interface ModelCheckerTrace {
   description: TranslationDTO;
   isModel: boolean;
   shouldBeModel: boolean;
-  children: ModelCheckerTrace[];
+  children?: ModelCheckerTrace[];
 }

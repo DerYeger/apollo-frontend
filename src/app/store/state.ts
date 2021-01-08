@@ -1,3 +1,4 @@
+import { Feedback } from '../model/api/model-checker-request';
 import { GraphCollection } from '../model/domain/graph.collection';
 
 export interface State {
@@ -14,7 +15,7 @@ export interface Settings {
   language?: Language;
   sidebar: boolean;
   theme: Theme;
-  minimizeResult: boolean;
+  selectedFeedback: Feedback;
 }
 
 export interface GraphSettings {

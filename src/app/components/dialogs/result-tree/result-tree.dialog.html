@@ -1,5 +1,8 @@
-<h2 mat-dialog-title>{{ (result.rootTrace.isModel ? 'api.valid' : 'api.invalid') | translate:{ formula: result.rootTrace.formula } }}</h2>
-<mat-dialog-content class="tree-container">
+<h2 mat-dialog-title [class.no-margin]="result.feedback === 'minimal'">
+  <mat-icon [class]="result.rootTrace.isModel ? 'valid-trace' : 'invalid'">{{ result.rootTrace.isModel ? 'done' : 'close'}} </mat-icon>
+  {{ (result.rootTrace.isModel ? 'api.valid' : 'api.invalid') | translate:{ formula: result.rootTrace.formula } }}
+</h2>
+<mat-dialog-content class="tree-container" *ngIf="result.feedback !== 'minimal'">
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <!-- This is the tree node template for leaf nodes -->
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
@@ -18,8 +21,8 @@
     </mat-tree-node>
   </mat-tree>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions *ngIf="result.rootTrace.children">
   <button mat-raised-button (click)="treeControl.expandAll()" color="primary">{{ 'actions.expand' | translate }}</button>
   <button mat-raised-button (click)="treeControl.collapseAll()" color="primary">{{ 'actions.collapse' | translate }}</button>
-  <mat-slide-toggle *ngIf="!result.isMinimized" color="accent" (change)="updateFilter($event.checked)"> {{ 'actions.filter-causes' | translate }} </mat-slide-toggle>
+  <mat-slide-toggle *ngIf="result.feedback === 'full'" color="accent" (change)="updateFilter($event.checked)"> {{ 'actions.filter-causes' | translate }} </mat-slide-toggle>
 </mat-dialog-actions>

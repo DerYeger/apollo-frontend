@@ -7,12 +7,13 @@ import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
 import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
+import { Feedback } from 'src/app/model/api/model-checker-request';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
 import { BackendService } from 'src/app/services/backend.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { storeGraph, toggleMinimizeResult } from 'src/app/store/actions';
+import { storeGraph } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 @Component({
@@ -24,8 +25,6 @@ export class ModelCheckerPage {
   public readonly formula = new FormControl('', Validators.required);
 
   public readonly graphExportRequests = new EventEmitter<void>();
-
-  public readonly minimzeResult$ = this.store.select('settings').pipe(map((settings) => settings.minimizeResult));
 
   constructor(
     private readonly store: Store<State>,
@@ -65,19 +64,15 @@ export class ModelCheckerPage {
     this.graphExportRequests.emit();
   }
 
-  public toggleMinimizeResult(): void {
-    this.store.dispatch(toggleMinimizeResult());
-  }
-
-  public checkModel(graph: FOLGraph, minimizeResult: boolean): void {
+  public checkModel(graph: FOLGraph, feedback: Feedback): void {
     this.backendService
-      .checkModel(graph, this.formula.value, minimizeResult)
-      .then((response) => {
+      .checkModel(graph, this.formula.value, feedback)
+      .then((result) => {
         this.dialog.open(ResultTreeDialog, {
           role: 'dialog',
-          width: '90%',
-          height: '90%',
-          data: response,
+          width: result.rootTrace.children ? '90%' : undefined,
+          height: result.rootTrace.children ? '90%' : undefined,
+          data: result,
           autoFocus: false,
         });
       })

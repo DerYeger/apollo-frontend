@@ -28,6 +28,7 @@ import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
+import { FeedbackSelectionComponent } from './components/feedback-selection/feedback-selection.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { metaReducers, reducers } from './store/reducers';
     ResultTreeDialog,
     TraceComponent,
     FormulaSyntaxDialog,
+    FeedbackSelectionComponent,
   ],
   imports: [
     CommonModule,
