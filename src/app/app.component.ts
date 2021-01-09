@@ -9,7 +9,8 @@ import { NGXLogger } from 'ngx-logger';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
-import { State } from './store/state';
+import { setLanguage } from './store/actions';
+import { Language, State } from './store/state';
 
 @Component({
   selector: 'gramofo-root',
@@ -41,9 +42,12 @@ export class AppComponent implements OnDestroy, OnInit {
         distinctUntilChanged()
       )
       .subscribe((language) => {
-        const newLanguage = language ?? this.translate.getBrowserLang();
-        this.log.info(`Set ${newLanguage} as current language.`);
-        this.translate.use(newLanguage);
+        if (language === undefined) {
+          this.store.dispatch(setLanguage({ language: this.translate.getBrowserLang() as Language }));
+        } else {
+          this.log.info(`Set ${language} as current language.`);
+          this.translate.use(language);
+        }
       });
 
     this.themeSubscription = this.store
