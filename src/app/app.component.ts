@@ -43,7 +43,9 @@ export class AppComponent implements OnDestroy, OnInit {
       )
       .subscribe((language) => {
         if (language === undefined) {
-          this.store.dispatch(setLanguage({ language: this.translate.getBrowserLang() as Language }));
+          const browserLanguage = this.translate.getBrowserLang() as Language;
+          const initialLanguage = browserLanguage === 'en' || browserLanguage === 'de' ? browserLanguage : 'en';
+          this.store.dispatch(setLanguage({ language: initialLanguage }));
         } else {
           this.log.info(`Set ${language} as current language.`);
           this.translate.use(language);
