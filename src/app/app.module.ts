@@ -13,9 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExportGraphBottomSheet } from './components/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { FormulaSyntaxDialog } from './components/dialogs/formula-syntax/formula-syntax.dialog';
+import { HttpProgressDialog } from './components/dialogs/http-progress/http-progress.dialog';
 import { ResultTreeDialog } from './components/dialogs/result-tree/result-tree.dialog';
 import { TraceComponent } from './components/dialogs/result-tree/trace/trace.component';
 import { SaveGraphDialog } from './components/dialogs/save-graph/save-graph.dialog';
+import { FeedbackSelectionComponent } from './components/feedback-selection/feedback-selection.component';
 import { GraphEditorComponent } from './components/graph-editor/graph-editor.component';
 import { LinkFormComponent } from './components/graph-editor/link-form/link-form.component';
 import { NodeFormComponent } from './components/graph-editor/node-form/node-form.component';
@@ -28,7 +30,6 @@ import { DashboardPage } from './pages/dashboard/dashboard.page';
 import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
-import { FeedbackSelectionComponent } from './components/feedback-selection/feedback-selection.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { FeedbackSelectionComponent } from './components/feedback-selection/feed
     TraceComponent,
     FormulaSyntaxDialog,
     FeedbackSelectionComponent,
+    HttpProgressDialog,
   ],
   imports: [
     CommonModule,

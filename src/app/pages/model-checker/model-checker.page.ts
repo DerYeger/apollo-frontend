@@ -6,8 +6,10 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
+import { HttpProgressDialog } from 'src/app/components/dialogs/http-progress/http-progress.dialog';
 import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
 import { Feedback } from 'src/app/model/api/model-checker-request';
+import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
@@ -65,25 +67,23 @@ export class ModelCheckerPage {
   }
 
   public checkModel(graph: FOLGraph, feedback: Feedback): void {
-    this.backendService
-      .checkModel(graph, this.formula.value, feedback)
-      .then((result) => {
-        this.dialog.open(ResultTreeDialog, {
-          role: 'dialog',
-          width: result.rootTrace.children ? '90%' : undefined,
-          height: result.rootTrace.children ? '90%' : undefined,
-          data: result,
-          autoFocus: false,
-        });
+    const request = this.backendService.checkModel(graph, this.formula.value, feedback);
+    this.dialog
+      .open<HttpProgressDialog<ModelCheckerResponse>>(HttpProgressDialog, {
+        width: '90%',
+        data: request,
+        autoFocus: false,
       })
-      .catch((error) => {
-        const message = error?.error?.message ?? error.message;
-        if (typeof message === 'string') {
-          this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
-        } else {
-          this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
-        }
-      });
+      .afterClosed()
+      .pipe(filter((response) => response !== undefined))
+      .subscribe((response) =>
+        this.dialog.open(ResultTreeDialog, {
+          width: response.rootTrace.children ? '90%' : undefined,
+          height: response.rootTrace.children ? '90%' : undefined,
+          data: response,
+          autoFocus: false,
+        })
+      );
   }
 
   public showFormulaSyntaxDialog(): void {

@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 import { Feedback, ModelCheckerRequest } from '../model/api/model-checker-request';
@@ -15,13 +16,13 @@ const host = environment.backendUrl;
 export class BackendService {
   constructor(private readonly http: HttpClient, private translate: TranslateService) {}
 
-  public checkModel(graph: FOLGraph, formula: string, feedback: Feedback): Promise<ModelCheckerResponse> {
+  public checkModel(graph: FOLGraph, formula: string, feedback: Feedback): Observable<HttpEvent<ModelCheckerResponse>> {
     const request: ModelCheckerRequest = {
       formula,
       graph,
       language: this.translate.currentLang === 'de' ? 'de' : 'en',
       feedback,
     };
-    return this.http.post<ModelCheckerResponse>(host + '/modelchecker', request).toPromise();
+    return this.http.post(host + '/modelchecker', request, { reportProgress: true, observe: 'events' }) as Observable<HttpEvent<ModelCheckerResponse>>;
   }
 }
