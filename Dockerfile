@@ -16,4 +16,4 @@ COPY --from=BUILDER /usr/app/dist/gramofo-frontend/ /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 
-COPY config/nginx/gramofo.conf /etc/nginx/conf.d/
+COPY config/nginx /etc/nginx
