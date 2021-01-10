@@ -2,9 +2,11 @@ import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, H
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { Observable, Subscription } from 'rxjs';
+import { concat, forkJoin, Observable, of, Subscription } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
@@ -23,17 +25,17 @@ import {
 } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
-import { SaveGraphDialog } from '../save-graph/save-graph.dialog';
+import { SaveGraphDialog } from '../dialogs/save-graph/save-graph.dialog';
 
 @Component({
-  selector: 'gramofo-graph[graph]',
+  selector: 'gramofo-graph[graph][allowEditing]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, AfterViewChecked {
   @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
-  @Input() public allowEditing = true;
+  @Input() public allowEditing!: boolean;
   @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
   @Input() public graphExportRequests?: Observable<void>;
@@ -47,6 +49,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
   @Output() public readonly graphExported = new EventEmitter<FOLGraph>();
+
+  // TranslateService::stream and TranslateService::onLangChange do not properly emit upon first subscription.
+  // As a workaround, we emit a dummy value froma second observable to trigger the forkJoin and call TranslateService::get instead.
+  public readonly controlsTooltipText: Observable<string> = concat(of(true), this.translate.onLangChange).pipe(
+    mergeMap(() => forkJoin([this.translate.get('graph.controls.view'), this.translate.get('graph.controls.graph')])),
+    map(([view, controls]) => (this.allowEditing ? view + '\n' + controls : view))
+  );
 
   public readonly graphSettings = this.store.select('graphSettings');
   private graphSettingsSubscription?: Subscription;
@@ -63,10 +72,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @ViewChild('graphHost')
   private readonly graphHost!: ElementRef<HTMLDivElement>;
 
-  @ViewChild('tooltip')
-  private readonly tooltip!: ElementRef<HTMLDivElement>;
-  private canShowTooltip = true;
-
   private simulation?: d3.Simulation<D3Node, D3Link>;
 
   private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
@@ -81,7 +86,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
-  constructor(private readonly store: Store<State>, private readonly dialog: MatDialog, private readonly bottomSheet: MatBottomSheet) {}
+  constructor(
+    private readonly store: Store<State>,
+    private readonly translate: TranslateService,
+    private readonly dialog: MatDialog,
+    private readonly bottomSheet: MatBottomSheet
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.graph.currentValue) {
@@ -176,7 +186,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   restart(alpha: number = 0.5): void {
-    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source}-${d.target}`).join((enter) => {
+    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');
       linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
       linkGroup
@@ -185,9 +195,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .on('contextmenu', (event: MouseEvent, d) => {
           terminate(event);
           this.linkSelected.emit(d);
-        })
-        .on('mouseenter', (event, d: D3Link) => this.showTooltip(event, [...d.relations, ...d.functions].join(', ')))
-        .on('mouseout', () => this.hideTooltip());
+        });
       linkGroup.append('text').classed('link-details', true);
       return linkGroup;
     });
@@ -204,14 +212,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .append('circle')
         .classed('node', true)
         .attr('r', this.config.nodeRadius)
-        .on('mouseenter', (event, d: D3Node) => {
-          this.showTooltip(event, [...d.relations, ...d.constants].join(', '));
-          this.draggableLinkTargetNode = d;
-        })
-        .on('mouseout', () => {
-          this.hideTooltip();
-          this.draggableLinkTargetNode = undefined;
-        })
+        .on('mouseenter', (_, d: D3Node) => (this.draggableLinkTargetNode = d))
+        .on('mouseout', () => (this.draggableLinkTargetNode = undefined))
         .on('pointerdown', (event: PointerEvent, d) => this.onPointerDown(event, d))
         .on('pointerup', (event: PointerEvent) => this.onPointerUp(event));
       nodeGroup
@@ -273,8 +275,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .attr('width', '100%')
       .attr('height', '100%')
       .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
-      // .on('touchmove', (event: TouchEvent) => this.pointerMoved(event))
-      .on('pointerup', () => this.pointerRaised())
+      .on('pointerup', (event: PointerEvent) => this.onPointerUp(event))
       .on('contextmenu', (event: MouseEvent) => terminate(event))
       .attr('width', this.width)
       .attr('height', this.height)
@@ -335,8 +336,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .filter((event) => event.button === 1)
       .on('start', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
         terminate(event.sourceEvent);
-        this.canShowTooltip = false;
-        this.hideTooltip();
         if (event.active === 0) {
           this.simulation!.alphaTarget(0.5).restart();
         }
@@ -347,8 +346,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         d.fx = event.x;
         d.fy = event.y;
       })
-      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
-        this.canShowTooltip = true;
+      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>) => {
         if (event.active === 0) {
           this.simulation!.alphaTarget(0);
         }
@@ -431,13 +429,13 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private onPointerUp(event: PointerEvent): void {
+    const source = this.draggableLinkSourceNode;
     const target = this.draggableLinkTargetNode;
-    if (!this.allowEditing || this.draggableLinkSourceNode === undefined || target === undefined) {
+    this.resetDraggableLink();
+    if (!this.allowEditing || source === undefined || target === undefined) {
       return;
     }
     terminate(event);
-    const source = this.draggableLinkSourceNode;
-    this.resetDraggableLink();
     this.createLink(source, target);
   }
 
@@ -451,7 +449,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private clean(): void {
     this.simulation!.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
-    this.canShowTooltip = true;
     this.zoom = undefined;
     this.xOffset = 0;
     this.yOffset = 0;
@@ -460,7 +457,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.link = undefined;
     this.node = undefined;
     this.simulation = undefined;
-    this.canShowTooltip = true;
     this.resetDraggableLink();
   }
 
@@ -478,27 +474,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     );
   }
 
-  private pointerRaised(): void {
-    this.draggableLink?.classed('hidden', true).style('marker-end', '');
-    this.resetDraggableLink();
-  }
-
-  private showTooltip(event: PointerEvent, text: string): void {
-    if (!this.canShowTooltip) {
-      return;
-    }
-    const tooltipSelection = d3.select(this.tooltip.nativeElement);
-    tooltipSelection.transition().duration(this.config.tooltipFadeInTame).style('opacity', this.config.tooltipOpacity);
-    tooltipSelection
-      .html(text.length > 0 ? text : '-')
-      .style('left', `calc(${event.offsetX}px + ${2 * this.config.nodeRadius}px)`)
-      .style('top', `calc(${event.offsetY}px`);
-  }
-
-  private hideTooltip(): void {
-    d3.select(this.tooltip.nativeElement).transition().duration(this.config.tooltipFadeOutTime).style('opacity', 0);
-  }
-
   async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
@@ -512,7 +487,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     if (!this.allowEditing) {
       return;
     }
-    this.hideTooltip();
     this.resetDraggableLink();
     this.graph!.removeNode(node).then(([deletedNode, deletedLinks]) => {
       this.restart();
@@ -537,7 +511,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     if (!this.allowEditing) {
       return;
     }
-    this.hideTooltip();
     this.graph!.removeLink(link).then((deletedLink) => {
       this.restart();
       this.linkDeleted.emit(deletedLink);

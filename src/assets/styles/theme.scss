@@ -1,12 +1,14 @@
 @import "~@angular/material/theming";
 @import "variables";
 @import "src/app/components/graph/graph.component";
+@import "src/app/components/dialogs/result-tree/result-tree.dialog";
 @import "src/app/pages/dashboard/dashboard.page";
 @include mat-core();
 
 @mixin component-themes($theme) {
   @include graph-theme($theme);
   @include repository-theme($theme);
+  @include result-tree-theme($theme);
 }
 
 .light-theme {

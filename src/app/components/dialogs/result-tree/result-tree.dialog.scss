@@ -7,6 +7,31 @@
   justify-content: space-between;
 }
 
+@mixin result-tree-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  .valid-trace {
+    color: mat-color($primary);
+  }
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+
+  &.no-margin {
+    margin: 0;
+  }
+
+  .mat-icon {
+    margin-right: 8px;
+  }
+}
+
+.invalid {
+  color: mat-color($warn-palette);
+}
+
 .tree-container {
   flex-grow: 1;
   max-height: unset;
@@ -15,18 +40,14 @@
     display: none;
   }
 
-  .result-tree {
-    flex-grow: 1;
-  }
-
   .result-tree ul,
   .result-tree li {
     margin-top: 0;
     margin-bottom: 0;
     list-style-type: none;
   }
+}
 
-  .invalid {
-    color: mat-color($warn-palette);
-  }
+.mat-slide-toggle {
+  margin-left: 8px;
 }

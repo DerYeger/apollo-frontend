@@ -17,3 +17,11 @@ body {
   -ms-user-select: none !important;
   user-select: none !important;
 }
+
+.multiline-tooltip {
+  white-space: pre;
+}
+
+.unpadded-dialog .mat-dialog-container {
+  padding: 0;
+}

@@ -5,7 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
-import { ResultTreeDialog } from 'src/app/components/result-tree/result-tree.dialog';
+import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
+import { HttpProgressDialog } from 'src/app/components/dialogs/http-progress/http-progress.dialog';
+import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
+import { Feedback } from 'src/app/model/api/model-checker-request';
+import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
@@ -30,7 +34,7 @@ export class ModelCheckerPage {
     private readonly route: ActivatedRoute,
     private readonly snackBarService: SnackBarService,
     private readonly backendService: BackendService,
-    public readonly dialog: MatDialog
+    private readonly dialog: MatDialog
   ) {}
 
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
@@ -62,25 +66,30 @@ export class ModelCheckerPage {
     this.graphExportRequests.emit();
   }
 
-  public checkModel(graph: FOLGraph): void {
-    this.backendService
-      .checkModel(graph, this.formula.value)
-      .then((response) => {
+  public checkModel(graph: FOLGraph, feedback: Feedback): void {
+    const request = this.backendService.checkModel(graph, this.formula.value, feedback);
+    this.dialog
+      .open<HttpProgressDialog<ModelCheckerResponse>>(HttpProgressDialog, {
+        width: '90%',
+        data: request,
+        autoFocus: false,
+      })
+      .afterClosed()
+      .pipe(filter((response) => response !== undefined))
+      .subscribe((response) =>
         this.dialog.open(ResultTreeDialog, {
-          role: 'dialog',
-          width: '90%',
-          height: '90%',
+          width: response.rootTrace.children ? '90%' : undefined,
+          height: response.rootTrace.children ? '90%' : undefined,
           data: response,
           autoFocus: false,
-        });
-      })
-      .catch((error) => {
-        const message = error?.error?.message ?? error.message;
-        if (typeof message === 'string') {
-          this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
-        } else {
-          this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
-        }
-      });
+        })
+      );
+  }
+
+  public showFormulaSyntaxDialog(): void {
+    this.dialog.open(FormulaSyntaxDialog, {
+      minWidth: '50%',
+      panelClass: 'unpadded-dialog',
+    });
   }
 }

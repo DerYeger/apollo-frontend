@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { DEMO_GRAPH } from 'src/app/model/domain/demo.graph';

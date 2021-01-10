@@ -9,19 +9,6 @@
     touch-action: none;
   }
 
-  .tooltip {
-    opacity: 0;
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem;
-    background: mat-color($primary, lighter);
-    color: mat-color($primary, lighter-contrast);
-    border-radius: 0.25rem;
-    pointer-events: none;
-  }
-
   .graph-tool-container {
     position: absolute;
     left: 1rem;
@@ -36,6 +23,10 @@
     > mat-slide-toggle {
       margin-left: 0.5rem;
       margin-right: 0.5rem;
+    }
+
+    .help-icon {
+      padding: 8px;
     }
   }
 

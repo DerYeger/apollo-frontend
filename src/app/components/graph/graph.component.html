@@ -1,4 +1,3 @@
-<div #tooltip class="tooltip"></div>
 <div class="graph-tool-container">
   <button mat-icon-button color="primary" (click)="saveGraph()" matTooltip="{{ 'actions.save' | translate }}">
     <mat-icon>save</mat-icon>
@@ -9,6 +8,7 @@
   <button mat-icon-button color="primary" (click)="resetGraph()" matTooltip="{{ 'graph.reset-graph' | translate }}">
     <mat-icon>location_searching</mat-icon>
   </button>
+  <mat-icon class="help-icon" color="primary" [matTooltip]="(controlsTooltipText | async) || ''" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>
   <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">
     {{ "graph.simulation" | translate }}
   </mat-slide-toggle>

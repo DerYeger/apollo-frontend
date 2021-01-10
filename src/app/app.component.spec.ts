@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { AppComponent } from './app.component';
 import { GraphEditorComponent } from './components/graph-editor/graph-editor.component';
 import { GraphComponent } from './components/graph/graph.component';

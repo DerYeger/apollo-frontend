@@ -3,7 +3,9 @@
     "title": "gramoFO"
   },
   "model-checker": {
-    "title": "ModelChecker"
+    "title": "ModelChecker",
+    "minimize-result": "Ergebnis minimieren",
+    "minimize-tooltip": "Bei Aktivierung werden nur notwendige Überprüfungen durchgeführt. Notwendig für umfangreiche Graphen und komplexe Formeln."
   },
   "home": {
     "title": "Home",
@@ -14,7 +16,11 @@
     "create-node": "Knoten erzeugen",
     "labels": "Beschriftungen",
     "simulation": "Automatische Anordnung",
-    "save-graph": "Graph speichern"
+    "save-graph": "Graph speichern",
+    "controls": {
+      "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste",
+      "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen"
+    }
   },
   "editor": {
     "node": {
@@ -43,7 +49,7 @@
     "check": "Überprüfen",
     "collapse": "Einklappen",
     "expand": "Erweitern",
-    "show-causes": "Ursachen anzeigen"
+    "filter-causes": "Relevantes filtern"
   },
   "fol": {
     "constant": {
@@ -68,7 +74,11 @@
     "name": "Name",
     "last-edit": "Letzte Änderung",
     "description": "Beschreibung",
-    "or": "oder"
+    "or": "oder",
+    "false": "Falsch",
+    "true": "Wahr",
+    "syntax": "Syntax",
+    "semantics": "Semantik"
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."
@@ -142,7 +152,9 @@
       "invalid-relation": "Die Relation \"{{relation}}\" ist ungültig. Relationssymbole dürfen nicht leer sein und müssen mit einem Großbuchstaben beginnen.",
       "missing-node": "Der Knoten \"{{node}}\" fehlt im Graphen.",
       "undefined-constant": "Die Konstante \"{{constant}}\" wird in der Formel verwendet, ist jedoch im Graphen nicht definiert.",
-      "unknown": "Ein unbekannter Fehler ist aufgetreten."
+      "unknown": "Ein unbekannter Fehler ist aufgetreten.",
+      "request-too-big": "Die Berechnung ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung.",
+      "response-too-big": "Die Antwort ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung."
     },
     "exists": {
       "invalid": "Unterformel gilt für keine Variablenzuweisungen",
@@ -183,5 +195,20 @@
       }
     },
     "valid": "Der Graph ist ein Modell der Formel: {{formula}}"
+  },
+  "feedback": {
+    "full": {
+      "name": "Vollständig",
+      "description": "Vollständige Evaluation, inklusive redundanter Überprüfungen. Funktioniert möglicherweise nicht bei großen Graphen und komplexen Formeln."
+    },
+    "relevant": {
+      "name": "Relevant",
+      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Empfohlen."
+    },
+    "minimal": {
+      "name": "Minimal",
+      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Nur das Ergebnis."
+    },
+    "title": "Feedback"
   }
 }

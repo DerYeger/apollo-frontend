@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from 'src/app/material.module';
+import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
+import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 
 import { ResultTreeDialog } from './result-tree.dialog';
 import { TraceComponent } from './trace/trace.component';
@@ -18,13 +20,16 @@ describe('ResultTreeDialog', () => {
         {
           provide: MAT_DIALOG_DATA,
           useValue: {
-            formula: '',
-            description: {
-              key: '',
-            },
-            isModel: false,
-            children: [],
-          },
+            feedback: 'full',
+            rootTrace: {
+              formula: '',
+              description: {
+                key: '',
+              },
+              isModel: false,
+              children: [] as ModelCheckerTrace[],
+            } as ModelCheckerTrace,
+          } as ModelCheckerResponse,
         },
         { provide: MatDialogRef, useValue: {} },
       ],

@@ -3,7 +3,9 @@
     "title": "gramoFO"
   },
   "model-checker": {
-    "title": "ModelChecker"
+    "title": "ModelChecker",
+    "minimize-result": "Minimize Result",
+    "minimize-tooltip": "When enabled, only necessary checks are evaluated. Required for big graphs and complex formulas."
   },
   "home": {
     "title": "Home",
@@ -14,7 +16,11 @@
     "create-node": "Create Node",
     "labels": "Labels",
     "simulation": "Automatic Layout",
-    "save-graph": "Save Graph"
+    "save-graph": "Save Graph",
+    "controls": {
+      "view": "View\n        Moving nodes - Middle mouse button\n        Move view - Left mouse button",
+      "graph": "Graph\n        Selecting - Right mouse button / Long touch\n        Creating nodes - Double-click / Plus-button\n        Creating edges - Click / Touch and drag"
+    }
   },
   "editor": {
     "node": {
@@ -43,7 +49,7 @@
     "check": "Check",
     "expand": "Expand",
     "collapse": "Collapse",
-    "show-causes": "Show Causes"
+    "filter-causes": "Filter Relevant"
   },
   "fol": {
     "relation": {
@@ -68,7 +74,11 @@
     "name": "Name",
     "last-edit": "Last Edit",
     "description": "Description",
-    "or": "or"
+    "or": "or",
+    "semantics": "Semantics",
+    "syntax": "Syntax",
+    "true": "True",
+    "false": "False"
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" has been deleted."
@@ -181,7 +191,24 @@
       "missing-node": "The node \"{{node}}\" is missing from the graph.",
       "invalid-relation": "The relation \"{{relation}}\" is invalid. Relation symbols cannot be empty and must start with an uppercase letter.",
       "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
-      "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter."
+      "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter.",
+      "request-too-big": "The computation is too big for the server. Try a lower feedback setting.",
+      "response-too-big": "The result is too big for the server. Try a lower feedback settings."
     }
+  },
+  "feedback": {
+    "full": {
+      "name": "Full",
+      "description": "Full evaluation, including redundant checks. May not work for large graphs and complex formulas."
+    },
+    "relevant": {
+      "name": "Relevant",
+      "description": "Partial evaluation, excluding redundant checks. Recommended."
+    },
+    "minimal": {
+      "name": "Minimal",
+      "description": "Partial evaluation, excluding redundant checks. Only the result."
+    },
+    "title": "Feedback"
   }
 }

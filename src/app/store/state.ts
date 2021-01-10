@@ -1,3 +1,4 @@
+import { Feedback } from '../model/api/model-checker-request';
 import { GraphCollection } from '../model/domain/graph.collection';
 
 export interface State {
@@ -7,13 +8,14 @@ export interface State {
   graphCache: GraphCollection;
 }
 
-export declare type Language = 'en' | 'de';
-export declare type Theme = 'dark-theme' | 'light-theme';
+export type Language = 'en' | 'de';
+export type Theme = 'dark-theme' | 'light-theme';
 
 export interface Settings {
   language?: Language;
   sidebar: boolean;
   theme: Theme;
+  selectedFeedback: Feedback;
 }
 
 export interface GraphSettings {

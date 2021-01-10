@@ -3,15 +3,19 @@
     <mat-form-field>
       <mat-label>{{ 'fol.formula' | translate }}</mat-label>
       <input matInput [formControl]="formula" placeholder="{{ 'fol.formula' | translate}}" autocomplete="off" (keyup.enter)="requestGraphExport()" />
+      <button mat-icon-button matSuffix color="primary" (click)="showFormulaSyntaxDialog()">
+        <mat-icon>help_outlined</mat-icon>
+      </button>
     </mat-form-field>
-    <button mat-raised-button (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
+    <button mat-raised-button class="check-button" (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
+    <gramofo-feedback-selection #feedbackSelection></gramofo-feedback-selection>
   </div>
   <div class="graph-section">
     <gramofo-graph-editor
       [graph]="graph"
       [graphExportRequests]="graphExportRequests"
       (saveRequested)="onSaveRequested($event)"
-      (graphExported)="checkModel($event)"
+      (graphExported)="checkModel($event, feedbackSelection.selectedFeedback)"
     ></gramofo-graph-editor>
   </div>
 </div>

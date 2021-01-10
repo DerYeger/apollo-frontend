@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { FeedbackSelectionComponent } from 'src/app/components/feedback-selection/feedback-selection.component';
 import { GraphEditorComponent } from 'src/app/components/graph-editor/graph-editor.component';
 import { LinkFormComponent } from 'src/app/components/graph-editor/link-form/link-form.component';
 import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/node-form.component';
@@ -20,7 +21,7 @@ describe('ModelCheckerPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModelCheckerPage, GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
+      declarations: [ModelCheckerPage, GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent, FeedbackSelectionComponent],
       imports: [
         LoggerTestingModule,
         FormsModule,

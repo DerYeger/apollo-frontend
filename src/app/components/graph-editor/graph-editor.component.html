@@ -4,6 +4,7 @@
       <gramofo-graph
         #graphComponent
         [graph]="graph | async"
+        [allowEditing]="true"
         [graphExportRequests]="graphExportRequests"
         (nodeDeleted)="nodeForm.onNodeDeleted($event)"
         (linkDeleted)="linkForm.onLinkDeleted($event)"
