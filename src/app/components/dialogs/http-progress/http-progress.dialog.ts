@@ -23,7 +23,7 @@ export class HttpProgressDialog<T> implements OnDestroy {
         case 'sending':
           return 'buffer';
         case 'querying':
-          return 'buffer';
+          return 'query';
         default:
           return 'determinate';
       }
@@ -38,7 +38,6 @@ export class HttpProgressDialog<T> implements OnDestroy {
     private readonly snackBarService: SnackBarService
   ) {
     dialogRef.disableClose = true;
-    this.state.emit('sending');
     this.requestSubscription = this.request.pipe(catchError((error) => this.onError(error))).subscribe((event) => {
       switch (event.type) {
         case HttpEventType.Sent:
@@ -80,7 +79,12 @@ export class HttpProgressDialog<T> implements OnDestroy {
   }
 
   private onResponse(response: HttpResponse<T>): void {
-    this.dialogRef.close(response.body);
+    const body = response.body;
+    if (body === undefined || body === null) {
+      this.onError({ error: { message: 'api.error.unknown' } });
+    } else {
+      this.dialogRef.close(response.body);
+    }
   }
 
   private onError(error: any): Observable<HttpEvent<T>> {

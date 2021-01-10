@@ -1,2 +1,2 @@
-<mat-progress-bar [mode]="(progressMode$ | async) || 'query'" [value]="(progress$ | async) || 0"></mat-progress-bar>
+<mat-progress-bar [mode]="(progressMode$ | async) || 'buffer'" [value]="(progress$ | async) || 0"></mat-progress-bar>
 <button mat-icon-button color="warn" (click)="cancelRequest()"><mat-icon>cancel</mat-icon></button>
