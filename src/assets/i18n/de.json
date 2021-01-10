@@ -152,7 +152,9 @@
       "invalid-relation": "Die Relation \"{{relation}}\" ist ungültig. Relationssymbole dürfen nicht leer sein und müssen mit einem Großbuchstaben beginnen.",
       "missing-node": "Der Knoten \"{{node}}\" fehlt im Graphen.",
       "undefined-constant": "Die Konstante \"{{constant}}\" wird in der Formel verwendet, ist jedoch im Graphen nicht definiert.",
-      "unknown": "Ein unbekannter Fehler ist aufgetreten."
+      "unknown": "Ein unbekannter Fehler ist aufgetreten.",
+      "request-too-big": "Die Berechnung ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung.",
+      "response-too-big": "Die Antwort ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung."
     },
     "exists": {
       "invalid": "Unterformel gilt für keine Variablenzuweisungen",
