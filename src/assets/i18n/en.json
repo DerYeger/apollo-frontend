@@ -210,5 +210,8 @@
       "description": "Partial evaluation, excluding redundant checks. Only the result."
     },
     "title": "Feedback"
+  },
+  "result-tree": {
+    "expand-error": "Unable to expand tree completely, because the dataset is too big."
   }
 }

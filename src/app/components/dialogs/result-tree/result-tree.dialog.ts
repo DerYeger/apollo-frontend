@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 interface FlatTraceNode {
   trace: ModelCheckerTrace;
@@ -31,12 +32,16 @@ export class ResultTreeDialog implements OnInit {
 
   public readonly dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse) {}
+  constructor(
+    private readonly dialogRef: MatDialogRef<ResultTreeDialog>,
+    @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
+    private readonly snackBarService: SnackBarService
+  ) {}
 
   public ngOnInit(): void {
     this.dataSource.data = [this.result.rootTrace];
     if (this.result.feedback === 'relevant') {
-      this.treeControl.expandAll();
+      this.expandAll();
     }
   }
 
@@ -49,9 +54,12 @@ export class ResultTreeDialog implements OnInit {
   }
 
   public expandAll(): void {
-    const root = this.treeControl.dataNodes[0];
-    this.treeControl.expand(root);
-    this.treeControl.expandDescendants(root);
+    try {
+      this.treeControl.expandAll();
+    } catch (_) {
+      this.snackBarService.openSnackBar({ key: 'result-tree.expand-error' });
+      console.log('caught');
+    }
   }
 
   public updateFilter(filter: boolean): void {

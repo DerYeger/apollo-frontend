@@ -210,5 +210,8 @@
       "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Nur das Ergebnis."
     },
     "title": "Feedback"
+  },
+  "result-tree": {
+    "expand-error": "Baum konnte nicht vollständig erweiter werden, da der Datensatz zu groß ist."
   }
 }
