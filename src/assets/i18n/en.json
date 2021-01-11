@@ -193,7 +193,7 @@
       "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
       "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter.",
       "request-too-big": "The computation is too big for the server. Try a lower feedback setting.",
-      "response-too-big": "The result is too big for the server. Try a lower feedback settings."
+      "response-too-big": "The result is too big for the server. Try a lower feedback setting."
     }
   },
   "feedback": {
