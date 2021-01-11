@@ -117,8 +117,8 @@
     "text": "Paste or edit Graph"
   },
   "api": {
-    "valid": "The graph is a model of the formula: {{formula}}",
-    "invalid": "The graph is not a model of the formula: {{formula}}",
+    "valid": "The graph is a model of the formula",
+    "invalid": "The graph is not a model of the formula",
     "forall": {
       "valid": "Subformula holds for all variable assignments",
       "invalid": "Subformula does not hold for some variable assignments"

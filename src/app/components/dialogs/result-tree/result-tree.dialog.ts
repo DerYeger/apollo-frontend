@@ -33,15 +33,25 @@ export class ResultTreeDialog implements OnInit {
 
   constructor(public readonly dialogRef: MatDialogRef<ResultTreeDialog>, @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dataSource.data = [this.result.rootTrace];
     if (this.result.feedback === 'relevant') {
       this.treeControl.expandAll();
     }
   }
 
+  public closeDialog(): void {
+    this.dialogRef.close();
+  }
+
   public hasChild(_: number, node: FlatTraceNode): boolean {
     return node.expandable;
+  }
+
+  public expandAll(): void {
+    const root = this.treeControl.dataNodes[0];
+    this.treeControl.expand(root);
+    this.treeControl.expandDescendants(root);
   }
 
   public updateFilter(filter: boolean): void {

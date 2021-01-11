@@ -169,7 +169,7 @@
       "left": "Antezedens gilt nicht",
       "right": "Konsequenz gilt"
     },
-    "invalid": "Der Graph ist kein Modell der Formel: {{formula}}",
+    "invalid": "Der Graph ist kein Modell der Formel",
     "not": {
       "invalid": "Unterformel gilt",
       "valid": "Unterformel gilt nicht"
@@ -194,7 +194,7 @@
         "valid": "{{node}} ∈ {{relation}}"
       }
     },
-    "valid": "Der Graph ist ein Modell der Formel: {{formula}}"
+    "valid": "Der Graph ist ein Modell der Formel"
   },
   "feedback": {
     "full": {
