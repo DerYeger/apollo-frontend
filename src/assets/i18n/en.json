@@ -146,18 +146,22 @@
     "implication": {
       "right": "Consequent holds",
       "left": "Antecedent does not hold",
-      "invalid": "Antecedent holds but consequent does not"
+      "invalid": "Antecedent holds, but consequent does not hold"
     },
     "bi-implication": {
       "valid": "Antecedent holds if and only if consequent holds",
       "invalid": "Antecedent does not hold if and only if consequent holds",
       "positive": {
-        "valid": "Antecedent holds if and only if consequent holds",
-        "invalid": "Antecedent does not hold if and only if consequent holds"
+        "valid": "Antecedent and consequent hold",
+        "invalid": "Antecedent does not hold if and only if consequent does not hold",
+        "left": "Consequent holds, but antecedent does not hold",
+        "right": "Antecedent holds, but consequent does not hold"
       },
       "negative": {
-        "valid": "Antecedent does not hold if and only if consequent does not hold",
-        "invalid": "Antecedent holds if and only if consequent does not hold"
+        "valid": "Antecedent and consequent do not hold",
+        "invalid": "Antecedent holds if and only if consequent holds",
+        "left": "Consequent does not hold, but antecedent holds",
+        "right": "Antecedent does not hold, but consequent holds"
       }
     },
     "relation": {
