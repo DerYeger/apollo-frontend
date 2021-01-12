@@ -19,6 +19,7 @@
     },
     "max-classes-per-file": false,
     "max-line-length": [true, 180],
+    "member-access": [true, "check-accessor", "check-constructor", "check-parameter-property"],
     "member-ordering": [
       true,
       {

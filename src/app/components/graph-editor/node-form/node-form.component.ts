@@ -9,17 +9,17 @@ import { D3Node } from 'src/app/model/d3/d3.node';
   styleUrls: ['./node-form.component.scss'],
 })
 export class NodeFormComponent {
-  @Input() node!: D3Node | null;
+  @Input() public node!: D3Node | null;
 
-  @Output() readonly nodeDeletionRequested = new EventEmitter<D3Node>();
-  @Output() readonly nodeUpdated = new EventEmitter();
+  @Output() public readonly nodeDeletionRequested = new EventEmitter<D3Node>();
+  @Output() public readonly nodeUpdated = new EventEmitter();
 
-  readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
-  readonly constantEditorConfig = CONSTANT_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly constantEditorConfig = CONSTANT_SYMBOL_EDITOR_CONFIGURATION;
 
-  constructor(private readonly log: NGXLogger) {}
+  public constructor(private readonly log: NGXLogger) {}
 
-  requestNodeDeletion(): void {
+  public requestNodeDeletion(): void {
     if (this.node !== null) {
       const node = this.node;
       this.node = null;
@@ -27,11 +27,11 @@ export class NodeFormComponent {
     }
   }
 
-  onNodeUpdated(): void {
+  public onNodeUpdated(): void {
     this.nodeUpdated.emit();
   }
 
-  onNodeDeleted(deletedNode: D3Node): void {
+  public onNodeDeleted(deletedNode: D3Node): void {
     if (this.node !== null && this.node.id === deletedNode.id) {
       this.log.debug(`Removing Node ${this.node.id}, because it has been deleted.`);
       this.node = null;

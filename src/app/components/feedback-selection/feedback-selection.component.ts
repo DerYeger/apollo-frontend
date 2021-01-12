@@ -47,7 +47,7 @@ export class FeedbackSelectionComponent {
     return this.selectionInput.value;
   }
 
-  constructor(private readonly store: Store<State>) {}
+  public constructor(private readonly store: Store<State>) {}
 
   public onSelectionChange(change: MatSelectChange): void {
     this.store.dispatch(setSelectedFeedback({ feedback: change.value }));

@@ -14,7 +14,7 @@ import { State } from '../store/state';
   providedIn: 'root',
 })
 export class SnackBarService {
-  constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store<State>, private readonly log: NGXLogger) {}
+  public constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store<State>, private readonly log: NGXLogger) {}
 
   public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined = 5000): Promise<MatSnackBarRef<TextOnlySnackBar>> {
     const message$: Observable<string> = this.translate.get(messageDTO.key, messageDTO.params);

@@ -14,7 +14,7 @@ const host = environment.backendUrl;
   providedIn: 'root',
 })
 export class BackendService {
-  constructor(private readonly http: HttpClient, private translate: TranslateService) {}
+  public constructor(private readonly http: HttpClient, private translate: TranslateService) {}
 
   public checkModel(graph: FOLGraph, formula: string, feedback: Feedback): Observable<HttpEvent<ModelCheckerResponse>> {
     const request: ModelCheckerRequest = {

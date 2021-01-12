@@ -9,17 +9,17 @@ import { D3Link } from 'src/app/model/d3/d3.link';
   styleUrls: ['./link-form.component.scss'],
 })
 export class LinkFormComponent {
-  @Input() link!: D3Link | null;
+  @Input() public link!: D3Link | null;
 
-  @Output() readonly linkDeletionRequested = new EventEmitter<D3Link>();
-  @Output() readonly linkUpdated = new EventEmitter();
+  @Output() public readonly linkDeletionRequested = new EventEmitter<D3Link>();
+  @Output() public readonly linkUpdated = new EventEmitter();
 
-  readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
-  readonly functionEditorConfig = FUNCTION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly relationEditorConfig = RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly functionEditorConfig = FUNCTION_SYMBOL_EDITOR_CONFIGURATION;
 
-  constructor(private readonly log: NGXLogger) {}
+  public constructor(private readonly log: NGXLogger) {}
 
-  requestLinkDeletion(): void {
+  public requestLinkDeletion(): void {
     if (this.link !== null) {
       const link = this.link;
       this.link = null;
@@ -27,11 +27,11 @@ export class LinkFormComponent {
     }
   }
 
-  onLinkUpdated(): void {
+  public onLinkUpdated(): void {
     this.linkUpdated.emit();
   }
 
-  onLinkDeleted(deletedLink: D3Link): void {
+  public onLinkDeleted(deletedLink: D3Link): void {
     if (this.link !== null && this.link.source.id === deletedLink.source.id && this.link.target.id === deletedLink.target.id) {
       this.log.debug(`Removing Link ${this.link.source.id}-${this.link.target.id}, because it has been deleted.`);
       this.link = null;

@@ -23,9 +23,9 @@ export class GraphImportComponent implements AfterViewInit {
 
   @Output() public readonly graphImport = new EventEmitter<FOLGraph>();
 
-  constructor(private readonly snackBarService: SnackBarService) {}
+  public constructor(private readonly snackBarService: SnackBarService) {}
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.textInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
       const inputElement = this.textInput.nativeElement;
       if (event.key === 'Tab') {

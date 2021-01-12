@@ -23,19 +23,19 @@ export class GraphListComponent implements OnChanges, AfterViewInit {
   @Output() public readonly graphSelected = new EventEmitter<FOLGraph>();
   @Output() public readonly graphDeletionRequested = new EventEmitter<FOLGraph>();
 
-  constructor(private readonly bottomSheet: MatBottomSheet) {}
+  public constructor(private readonly bottomSheet: MatBottomSheet) {}
 
-  ngOnChanges(_: SimpleChanges): void {
+  public ngOnChanges(_: SimpleChanges): void {
     if (this.graphs !== null) {
       this.dataSource.data = this.graphs;
     }
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
 
-  exportGraph(graph: FOLGraph): void {
+  public exportGraph(graph: FOLGraph): void {
     this.bottomSheet.open(ExportGraphBottomSheet, {
       data: graph,
     });

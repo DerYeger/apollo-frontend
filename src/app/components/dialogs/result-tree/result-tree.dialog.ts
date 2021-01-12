@@ -32,7 +32,7 @@ export class ResultTreeDialog implements OnInit {
 
   public readonly dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor(
+  public constructor(
     private readonly dialogRef: MatDialogRef<ResultTreeDialog>,
     @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
     private readonly snackBarService: SnackBarService

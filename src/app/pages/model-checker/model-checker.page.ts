@@ -47,7 +47,7 @@ export class ModelCheckerPage implements OnDestroy {
 
   private activeResultDialog?: MatDialogRef<ResultTreeDialog>;
 
-  constructor(
+  public constructor(
     private readonly store: Store<State>,
     private readonly router: Router,
     private readonly route: ActivatedRoute,

@@ -32,7 +32,7 @@ export class HttpProgressDialog<T> implements OnDestroy {
 
   private requestSubscription?: Subscription;
 
-  constructor(
+  public constructor(
     private readonly dialogRef: MatDialogRef<HttpProgressDialog<T>>,
     @Inject(MAT_DIALOG_DATA) private readonly request: Observable<HttpEvent<T>>,
     private readonly snackBarService: SnackBarService

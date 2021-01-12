@@ -26,7 +26,7 @@ export class AppComponent implements OnDestroy, OnInit {
   private languageSubscription?: Subscription;
   private themeSubscription?: Subscription;
 
-  constructor(private readonly store: Store<State>, private readonly translate: TranslateService, private readonly log: NGXLogger) {
+  public constructor(private readonly store: Store<State>, private readonly translate: TranslateService, private readonly log: NGXLogger) {
     Object.entries(this.languages).forEach(([language, locale]) => {
       translate.setTranslation(language, require(`../assets/i18n/${language}.json`));
       registerLocaleData(locale);
@@ -34,7 +34,7 @@ export class AppComponent implements OnDestroy, OnInit {
     });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.languageSubscription = this.store
       .select('settings')
       .pipe(
@@ -63,7 +63,7 @@ export class AppComponent implements OnDestroy, OnInit {
       );
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.languageSubscription?.unsubscribe();
     this.themeSubscription?.unsubscribe();
   }

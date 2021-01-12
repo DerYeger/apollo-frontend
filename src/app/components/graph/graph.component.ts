@@ -86,14 +86,30 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
 
-  constructor(
+  public constructor(
     private readonly store: Store<State>,
     private readonly translate: TranslateService,
     private readonly dialog: MatDialog,
     private readonly bottomSheet: MatBottomSheet
   ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public ngAfterViewInit(): void {
+    this.initGraph();
+    this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
+  }
+
+  @HostListener('window:resize', ['$event'])
+  public ngAfterViewChecked(): void {
+    const newWidth = this.graphHost.nativeElement.offsetWidth;
+    const newHeight = this.graphHost.nativeElement.offsetHeight;
+    const widthDiffers = this.width.toFixed(2) !== newWidth.toFixed(2);
+    const heightDiffers = this.height.toFixed(2) !== newHeight.toFixed(2);
+    if (widthDiffers || heightDiffers) {
+      this.cleanInitGraph(newWidth, newHeight);
+    }
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes.graph.currentValue) {
       // Perform clean init of the Graph. Enable the simulation for proper layouting.
       this.cleanInitGraph();
@@ -113,20 +129,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     }
   }
 
-  ngAfterViewInit(): void {
-    this.initGraph();
-    this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
-  }
-
-  @HostListener('window:resize', ['$event'])
-  ngAfterViewChecked(): void {
-    const newWidth = this.graphHost.nativeElement.offsetWidth;
-    const newHeight = this.graphHost.nativeElement.offsetHeight;
-    const widthDiffers = this.width.toFixed(2) !== newWidth.toFixed(2);
-    const heightDiffers = this.height.toFixed(2) !== newHeight.toFixed(2);
-    if (widthDiffers || heightDiffers) {
-      this.cleanInitGraph(newWidth, newHeight);
-    }
+  public ngOnDestroy(): void {
+    this.graphSettingsSubscription?.unsubscribe();
+    this.graphExportRequestsSubscription?.unsubscribe();
   }
 
   private onSettingsChanged(settings: GraphSettings): void {
@@ -146,12 +151,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     }
   }
 
-  ngOnDestroy(): void {
-    this.graphSettingsSubscription?.unsubscribe();
-    this.graphExportRequestsSubscription?.unsubscribe();
-  }
-
-  saveGraph(): void {
+  public saveGraph(): void {
     this.dialog
       .open(SaveGraphDialog, {
         data: this.graph!.toDomainGraph(),
@@ -165,27 +165,27 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       });
   }
 
-  exportGraph(): void {
+  public exportGraph(): void {
     this.bottomSheet.open(ExportGraphBottomSheet, {
       data: this.graph!.toDomainGraph(),
     });
   }
 
-  toggleLabels(): void {
+  public toggleLabels(): void {
     this.store.dispatch(toggleLabels());
   }
 
-  toggleSimulation(): void {
+  public toggleSimulation(): void {
     this.store.dispatch(toggleSimulation());
   }
 
-  resetGraph(): void {
+  public resetGraph(): void {
     this.graph!.unlockNodes();
     this.cleanInitGraph();
     this.store.dispatch(enableSimulation());
   }
 
-  restart(alpha: number = 0.5): void {
+  public restart(alpha: number = 0.5): void {
     this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');
       linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
@@ -239,7 +239,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.simulation!.alpha(alpha).restart();
   }
 
-  cleanInitGraph(width?: number, height?: number): void {
+  public cleanInitGraph(width?: number, height?: number): void {
     this.clean();
     this.initGraph(width, height);
   }
@@ -474,7 +474,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     );
   }
 
-  async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
+  public async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
     if (!this.allowEditing) {
       return Promise.reject('Graph is not in edit mode.');
     }
@@ -483,7 +483,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.nodeSelected.emit(node);
   }
 
-  removeNode(node: D3Node): void {
+  public removeNode(node: D3Node): void {
     if (!this.allowEditing) {
       return;
     }
@@ -507,7 +507,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       .catch((existingLink: D3Link) => this.linkSelected.emit(existingLink));
   }
 
-  removeLink(link: D3Link): void {
+  public removeLink(link: D3Link): void {
     if (!this.allowEditing) {
       return;
     }

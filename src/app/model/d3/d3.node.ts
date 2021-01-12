@@ -11,10 +11,10 @@ export interface D3Node extends SimulationNodeDatum {
 }
 
 export class GramoFONode implements D3Node {
-  readonly relations = new Set<string>();
-  readonly constants = new Set<string>();
+  public readonly relations = new Set<string>();
+  public readonly constants = new Set<string>();
 
-  constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
+  public constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
     initialRelations?.forEach((relation) => this.relations.add(relation));
     initialConstants?.forEach((constant) => this.constants.add(constant));
   }

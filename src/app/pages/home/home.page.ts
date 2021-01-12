@@ -14,7 +14,7 @@ import { State } from 'src/app/store/state';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  constructor(private readonly store: Store<State>, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
+  public constructor(private readonly store: Store<State>, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
 
   public readonly storedGraphs = this.store.select('graphStore').pipe(map((graphs) => Object.values(graphs)));
 
