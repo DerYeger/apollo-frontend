@@ -13,4 +13,8 @@
   &.invalid {
     color: mat-color($warn-palette);
   }
+
+  .formula {
+    margin-right: 1rem;
+  }
 }

@@ -90,10 +90,11 @@ export class HttpProgressDialog<T> implements OnDestroy {
   private onError(error: any): Observable<HttpEvent<T>> {
     // Delay closing of dialog to prevent flickering.
     setTimeout(() => this.dialogRef.close(), 250);
-    const message = error?.error?.message ?? error.message;
+    const message = error?.error?.message ?? 'api.error.unknown';
     if (typeof message === 'string') {
       this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
     } else {
+      // Message is TranslationDTO.
       this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
     }
     return of();

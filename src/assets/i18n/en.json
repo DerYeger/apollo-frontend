@@ -117,8 +117,8 @@
     "text": "Paste or edit Graph"
   },
   "api": {
-    "valid": "The graph is a model of the formula: {{formula}}",
-    "invalid": "The graph is not a model of the formula: {{formula}}",
+    "valid": "The graph is a model of the formula",
+    "invalid": "The graph is not a model of the formula",
     "forall": {
       "valid": "Subformula holds for all variable assignments",
       "invalid": "Subformula does not hold for some variable assignments"
@@ -146,18 +146,22 @@
     "implication": {
       "right": "Consequent holds",
       "left": "Antecedent does not hold",
-      "invalid": "Antecedent holds but consequent does not"
+      "invalid": "Antecedent holds, but consequent does not hold"
     },
     "bi-implication": {
       "valid": "Antecedent holds if and only if consequent holds",
       "invalid": "Antecedent does not hold if and only if consequent holds",
       "positive": {
-        "valid": "Antecedent holds if and only if consequent holds",
-        "invalid": "Antecedent does not hold if and only if consequent holds"
+        "valid": "Antecedent and consequent hold",
+        "invalid": "Antecedent does not hold if and only if consequent does not hold",
+        "left": "Consequent holds, but antecedent does not hold",
+        "right": "Antecedent holds, but consequent does not hold"
       },
       "negative": {
-        "valid": "Antecedent does not hold if and only if consequent does not hold",
-        "invalid": "Antecedent holds if and only if consequent does not hold"
+        "valid": "Antecedent and consequent do not hold",
+        "invalid": "Antecedent holds if and only if consequent holds",
+        "left": "Consequent does not hold, but antecedent holds",
+        "right": "Antecedent does not hold, but consequent holds"
       }
     },
     "relation": {
@@ -193,7 +197,7 @@
       "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
       "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter.",
       "request-too-big": "The computation is too big for the server. Try a lower feedback setting.",
-      "response-too-big": "The result is too big for the server. Try a lower feedback settings."
+      "response-too-big": "The result is too big for the server. Try a lower feedback setting."
     }
   },
   "feedback": {
@@ -210,5 +214,8 @@
       "description": "Partial evaluation, excluding redundant checks. Only the result."
     },
     "title": "Feedback"
+  },
+  "result-tree": {
+    "expand-error": "Unable to expand tree completely, because the dataset is too big."
   }
 }

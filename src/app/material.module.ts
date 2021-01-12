@@ -1,4 +1,5 @@
 import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const matModules = [
   BrowserAnimationsModule,
+  DragDropModule,
   MatBottomSheetModule,
   MatButtonModule,
   MatButtonToggleModule,

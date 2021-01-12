@@ -124,16 +124,20 @@
       "right": "Zweites Konjunkt gilt nicht"
     },
     "bi-implication": {
-      "invalid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
+      "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
+      "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz gilt",
       "negative": {
         "invalid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
-        "valid": "Antezedens gilt genau dann nicht, wenn Konsequenz nicht gilt"
+        "valid": "Antezedens und Konsequenz gelten nicht",
+        "left": "Konsequenz gilt nicht, aber Antezedens gilt",
+        "right": "Antezedens gilt nicht, aber Konsequenz gilt"
       },
       "positive": {
-        "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz gilt",
-        "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt"
-      },
-      "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt"
+        "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz nicht gilt",
+        "valid": "Antezedens und Konsequenz gelten",
+        "left": "Konsequens gilt, aber Antezedens gilt nicht",
+        "right": "Antezedens gilt, aber Konsequenz gilt nicht"
+      }
     },
     "constant": {
       "false": "Konstante ist falsch",
@@ -169,7 +173,7 @@
       "left": "Antezedens gilt nicht",
       "right": "Konsequenz gilt"
     },
-    "invalid": "Der Graph ist kein Modell der Formel: {{formula}}",
+    "invalid": "Der Graph ist kein Modell der Formel",
     "not": {
       "invalid": "Unterformel gilt",
       "valid": "Unterformel gilt nicht"
@@ -194,7 +198,7 @@
         "valid": "{{node}} ∈ {{relation}}"
       }
     },
-    "valid": "Der Graph ist ein Modell der Formel: {{formula}}"
+    "valid": "Der Graph ist ein Modell der Formel"
   },
   "feedback": {
     "full": {
@@ -210,5 +214,8 @@
       "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Nur das Ergebnis."
     },
     "title": "Feedback"
+  },
+  "result-tree": {
+    "expand-error": "Baum konnte nicht vollständig erweiter werden, da der Datensatz zu groß ist."
   }
 }
