@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gramoFO</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">gramoFO</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DashboardPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/dashboard/dashboard.page.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gramofo-dashboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#language$">language$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#routes">routes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#sidebar$">sidebar$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#themeButtonIcon$">themeButtonIcon$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setLanguage">setLanguage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleSidebar">toggleSidebar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleTheme">toggleTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/State.html" target="_self" >Store&lt;State&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLanguage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setLanguage
+                        </b>
+                        <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setLanguage(event: MatButtonToggleChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatButtonToggleChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebar"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            toggleSidebar
+                        </b>
+                        <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleSidebar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            toggleTheme
+                        </b>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleTheme()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="language$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            language$</b>
+                            <a href="#language$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.language))</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="routes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            routes</b>
+                            <a href="#routes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>routes.filter((route) &#x3D;&gt; route.name !&#x3D;&#x3D; undefined)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sidebar$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            sidebar$</b>
+                            <a href="#sidebar$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.sidebar))</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="themeButtonIcon$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            themeButtonIcon$</b>
+                            <a href="#themeButtonIcon$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; (settings.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light_mode&#x27; : &#x27;dark_mode&#x27;)))</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { MatButtonToggleChange } from &#x27;@angular/material/button-toggle&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { routes } from &#x27;src/app/app-routing.module&#x27;;
+import { setLanguage, toggleSidebar, toggleTheme } from &#x27;src/app/store/actions&#x27;;
+import { State } from &#x27;src/app/store/state&#x27;;
+
+@Component({
+  selector: &#x27;gramofo-dashboard&#x27;,
+  templateUrl: &#x27;./dashboard.page.html&#x27;,
+  styleUrls: [&#x27;./dashboard.page.scss&#x27;],
+})
+export class DashboardPage {
+  public readonly routes &#x3D; routes.filter((route) &#x3D;&gt; route.name !&#x3D;&#x3D; undefined);
+
+  public readonly language$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.language));
+  public readonly sidebar$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.sidebar));
+
+  public readonly themeButtonIcon$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; (settings.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light_mode&#x27; : &#x27;dark_mode&#x27;)));
+
+  constructor(private readonly store: Store&lt;State&gt;) {}
+
+  public toggleSidebar(): void {
+    this.store.dispatch(toggleSidebar());
+  }
+
+  public setLanguage(event: MatButtonToggleChange): void {
+    this.store.dispatch(setLanguage({ language: event.value }));
+  }
+
+  public toggleTheme(): void {
+    this.store.dispatch(toggleTheme());
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;mat-toolbar color&#x3D;&quot;primary&quot; class&#x3D;&quot;toolbar mat-elevation-z8&quot;&gt;
+    &lt;button mat-icon-button (click)&#x3D;&quot;toggleSidebar()&quot;&gt;&lt;mat-icon&gt;menu&lt;/mat-icon&gt;&lt;/button&gt;
+    &lt;h1 class&#x3D;&quot;title&quot;&gt;{{&#x27;app.title&#x27; | translate}}&lt;/h1&gt;
+  &lt;/mat-toolbar&gt;
+  &lt;mat-sidenav-container class&#x3D;&quot;sidenav-container&quot;&gt;
+    &lt;mat-sidenav class&#x3D;&quot;sidenav mat-elevation-z6&quot; mode&#x3D;&quot;side&quot; [opened]&#x3D;&quot;sidebar$ | async&quot;&gt;
+      &lt;mat-nav-list&gt;
+        &lt;a mat-list-item *ngFor&#x3D;&quot;let route of routes&quot; [routerLink]&#x3D;&quot;route.path&quot;&gt;{{route.name! | translate}}&lt;/a&gt;
+      &lt;/mat-nav-list&gt;
+      &lt;mat-button-toggle-group name&#x3D;&quot;language&quot; class&#x3D;&quot;language-button-group&quot; (change)&#x3D;&quot;setLanguage($event)&quot;&gt;
+        &lt;mat-button-toggle value&#x3D;&quot;en&quot; class&#x3D;&quot;language-button&quot; [checked]&#x3D;&quot;(language$ | async) &#x3D;&#x3D;&#x3D; &#x27;en&#x27;&quot;&gt;{{&#x27;lang.en&#x27; | translate}}&lt;/mat-button-toggle&gt;
+        &lt;mat-button-toggle value&#x3D;&quot;de&quot; class&#x3D;&quot;language-button&quot; [checked]&#x3D;&quot;(language$ | async) &#x3D;&#x3D;&#x3D; &#x27;de&#x27;&quot;&gt;{{&#x27;lang.de&#x27; | translate}}&lt;/mat-button-toggle&gt;
+      &lt;/mat-button-toggle-group&gt;
+      &lt;div class&#x3D;&quot;theme-button-container&quot;&gt;
+        &lt;button mat-icon-button (click)&#x3D;&quot;toggleTheme()&quot;&gt;&lt;mat-icon&gt;{{themeButtonIcon$ | async}}&lt;/mat-icon&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;a href&#x3D;&quot;https://github.com/DerYeger/gramofo-frontend&quot; class&#x3D;&quot;repository-link&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+        &lt;svg class&#x3D;&quot;github-logo&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+          &lt;path
+            clas&#x3D;&quot;logo&quot;
+            transform&#x3D;&quot;scale(2)&quot;
+            d&#x3D;&quot;M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z&quot;
+          /&gt;
+        &lt;/svg&gt;
+        &lt;span&gt;{{&#x27;dashboard.github-repository&#x27; | translate}}&lt;/span&gt;
+        &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+      &lt;/a&gt;
+    &lt;/mat-sidenav&gt;
+    &lt;mat-sidenav-content&gt;
+      &lt;ng-content&gt;&lt;/ng-content&gt;
+    &lt;/mat-sidenav-content&gt;
+  &lt;/mat-sidenav-container&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./dashboard.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.toolbar {
+  z-index: 2;
+  // The following line equalizes dark and light themes.
+  height: 4rem;
+}
+
+h1.title {
+  margin-left: 0.5rem;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  min-width: 12.5rem;
+}
+
+.mat-drawer-transition .mat-drawer-content {
+  transition-duration: 0s !important;
+}
+
+mat-nav-list {
+  padding: 0;
+}
+
+.language-button-group {
+  width: 100%;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.language-button {
+  width: 50%;
+  // The following lines equalize dark and light themes.
+  display: flex;
+  align-items: center;
+  height: 3rem;
+}
+
+.theme-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+@mixin repository-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foregound: map-get($theme, foreground);
+  $text-color: mat-color($foregound, text);
+
+  .github-logo {
+    width: 2rem;
+    height: 2rem;
+    fill: $text-color;
+  }
+
+  .repository-link {
+    align-items: center;
+    color: $text-color;
+    display: flex;
+    justify-content: left;
+    margin: 1rem;
+    text-decoration: none;
+
+    span {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    mat-icon {
+      transform: scale(0.75);
+    }
+  }
+
+  .repository-link:visited {
+    color: $text-color;
+    text-decoration: none;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <mat-toolbar color="primary" class="toolbar mat-elevation-z8">    <button mat-icon-button (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>    <h1 class="title">{{\'app.title\' | translate}}</h1>  </mat-toolbar>  <mat-sidenav-container class="sidenav-container">    <mat-sidenav class="sidenav mat-elevation-z6" mode="side" [opened]="sidebar$ | async">      <mat-nav-list>        <a mat-list-item *ngFor="let route of routes" [routerLink]="route.path">{{route.name! | translate}}</a>      </mat-nav-list>      <mat-button-toggle-group name="language" class="language-button-group" (change)="setLanguage($event)">        <mat-button-toggle value="en" class="language-button" [checked]="(language$ | async) === \'en\'">{{\'lang.en\' | translate}}</mat-button-toggle>        <mat-button-toggle value="de" class="language-button" [checked]="(language$ | async) === \'de\'">{{\'lang.de\' | translate}}</mat-button-toggle>      </mat-button-toggle-group>      <div class="theme-button-container">        <button mat-icon-button (click)="toggleTheme()"><mat-icon>{{themeButtonIcon$ | async}}</mat-icon></button>      </div>      <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link" target="_blank" rel="noopener noreferrer">        <svg class="github-logo" xmlns="http://www.w3.org/2000/svg">          <path            clas="logo"            transform="scale(2)"            d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"          />        </svg>        <span>{{\'dashboard.github-repository\' | translate}}</span>        <mat-icon>open_in_new</mat-icon>      </a>    </mat-sidenav>    <mat-sidenav-content>      <ng-content></ng-content>    </mat-sidenav-content>  </mat-sidenav-container></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

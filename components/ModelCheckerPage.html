@@ -1,0 +1,1005 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>gramoFO</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">gramoFO</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ModelCheckerPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/model-checker/model-checker.page.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gramofo-model-checker</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./model-checker.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./model-checker.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#activeResultDialog">activeResultDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#formula">formula</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graph">graph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graphExportRequests">graphExportRequests</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#checkModel">checkModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onSaveRequested">onSaveRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#requestGraphExport">requestGraphExport</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showFormulaSyntaxDialog">showFormulaSyntaxDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>, backendService: <a href="../injectables/BackendService.html">BackendService</a>, dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/State.html" target="_self" >Store&lt;State&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SnackBarService.html" target="_self" >SnackBarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>backendService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BackendService.html" target="_self" >BackendService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkModel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            checkModel
+                        </b>
+                        <a href="#checkModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkModel(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>, feedback: <a href="../undefineds/Feedback.html">Feedback</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>graph</td>
+                                    <td>
+                                                <code><a href="../interfaces/FOLGraph.html" target="_self" >FOLGraph</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>feedback</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#Feedback" target="_self" >Feedback</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSaveRequested"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            onSaveRequested
+                        </b>
+                        <a href="#onSaveRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSaveRequested(domainGraph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainGraph</td>
+                                    <td>
+                                                <code><a href="../interfaces/FOLGraph.html" target="_self" >FOLGraph</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="requestGraphExport"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            requestGraphExport
+                        </b>
+                        <a href="#requestGraphExport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>requestGraphExport()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showFormulaSyntaxDialog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showFormulaSyntaxDialog
+                        </b>
+                        <a href="#showFormulaSyntaxDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showFormulaSyntaxDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="activeResultDialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Optional</span>
+                            activeResultDialog</b>
+                            <a href="#activeResultDialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/ResultTreeDialog.html" target="_self" >MatDialogRef&lt;ResultTreeDialog&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formula"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            formula</b>
+                            <a href="#formula"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new FormControl(&#x27;&#x27;, Validators.required)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graph"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            graph</b>
+                            <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/D3Graph.html" target="_self" >Observable&lt;D3Graph&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.route.queryParams.pipe(
+    map((params) &#x3D;&gt; [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
+    filter(([source, key]) &#x3D;&gt; source !&#x3D;&#x3D; undefined &amp;&amp; key !&#x3D;&#x3D; undefined),
+    mergeMap(([source, key]) &#x3D;&gt;
+      this.store.select(source).pipe(
+        map((graphs: GraphCollection) &#x3D;&gt; graphs[key]),
+        filter((graph) &#x3D;&gt; graph !&#x3D;&#x3D; undefined),
+        mergeMap((graph) &#x3D;&gt;
+          D3Graph.fromDomainGraph(graph).catch((error) &#x3D;&gt; {
+            this.snackBarService.openSnackBar(error);
+            return new D3Graph();
+          })
+        )
+      )
+    )
+  )</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="graphExportRequests"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Readonly</span>
+                            graphExportRequests</b>
+                            <a href="#graphExportRequests"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, OnDestroy } from &#x27;@angular/core&#x27;;
+import { FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { MatDialog, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { filter, map, mergeMap } from &#x27;rxjs/operators&#x27;;
+import { FormulaSyntaxDialog } from &#x27;src/app/components/dialogs/formula-syntax/formula-syntax.dialog&#x27;;
+import { HttpProgressDialog } from &#x27;src/app/components/dialogs/http-progress/http-progress.dialog&#x27;;
+import { ResultTreeDialog } from &#x27;src/app/components/dialogs/result-tree/result-tree.dialog&#x27;;
+import { Feedback } from &#x27;src/app/model/api/model-checker-request&#x27;;
+import { ModelCheckerResponse } from &#x27;src/app/model/api/model-checker-response&#x27;;
+import D3Graph from &#x27;src/app/model/d3/d3.graph&#x27;;
+import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
+import { GRAPH_KEY, GRAPH_SOURCE, GraphCollection, graphCollectionQueryParams } from &#x27;src/app/model/domain/graph.collection&#x27;;
+import { BackendService } from &#x27;src/app/services/backend.service&#x27;;
+import { SnackBarService } from &#x27;src/app/services/snack-bar.service&#x27;;
+import { storeGraph } from &#x27;src/app/store/actions&#x27;;
+import { State } from &#x27;src/app/store/state&#x27;;
+
+@Component({
+  selector: &#x27;gramofo-model-checker&#x27;,
+  templateUrl: &#x27;./model-checker.page.html&#x27;,
+  styleUrls: [&#x27;./model-checker.page.scss&#x27;],
+})
+export class ModelCheckerPage implements OnDestroy {
+  public readonly formula &#x3D; new FormControl(&#x27;&#x27;, Validators.required);
+
+  public readonly graphExportRequests &#x3D; new EventEmitter&lt;void&gt;();
+
+  public readonly graph: Observable&lt;D3Graph&gt; &#x3D; this.route.queryParams.pipe(
+    map((params) &#x3D;&gt; [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
+    filter(([source, key]) &#x3D;&gt; source !&#x3D;&#x3D; undefined &amp;&amp; key !&#x3D;&#x3D; undefined),
+    mergeMap(([source, key]) &#x3D;&gt;
+      this.store.select(source).pipe(
+        map((graphs: GraphCollection) &#x3D;&gt; graphs[key]),
+        filter((graph) &#x3D;&gt; graph !&#x3D;&#x3D; undefined),
+        mergeMap((graph) &#x3D;&gt;
+          D3Graph.fromDomainGraph(graph).catch((error) &#x3D;&gt; {
+            this.snackBarService.openSnackBar(error);
+            return new D3Graph();
+          })
+        )
+      )
+    )
+  );
+
+  private activeResultDialog?: MatDialogRef&lt;ResultTreeDialog&gt;;
+
+  constructor(
+    private readonly store: Store&lt;State&gt;,
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
+    private readonly snackBarService: SnackBarService,
+    private readonly backendService: BackendService,
+    private readonly dialog: MatDialog
+  ) {}
+
+  public ngOnDestroy(): void {
+    this.activeResultDialog?.close();
+  }
+
+  public onSaveRequested(domainGraph: FOLGraph): void {
+    this.store.dispatch(storeGraph(domainGraph));
+    this.router.navigate([&#x27;modelchecker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphStore&#x27;, domainGraph.name) });
+  }
+
+  public requestGraphExport(): void {
+    if (this.formula.invalid) {
+      return;
+    }
+    this.activeResultDialog?.close();
+    this.graphExportRequests.emit();
+  }
+
+  public checkModel(graph: FOLGraph, feedback: Feedback): void {
+    const request &#x3D; this.backendService.checkModel(graph, this.formula.value, feedback);
+    const requestDialog &#x3D; this.dialog.open&lt;HttpProgressDialog&lt;ModelCheckerResponse&gt;&gt;(HttpProgressDialog, {
+      width: &#x27;90%&#x27;,
+      data: request,
+      autoFocus: false,
+    });
+    requestDialog.afterOpened().subscribe(() &#x3D;&gt; {
+      this.activeResultDialog?.close();
+      this.activeResultDialog &#x3D; undefined;
+    });
+    requestDialog
+      .afterClosed()
+      .pipe(filter((response) &#x3D;&gt; response !&#x3D;&#x3D; undefined))
+      .subscribe((response) &#x3D;&gt; {
+        this.activeResultDialog &#x3D; this.dialog.open(ResultTreeDialog, {
+          width: response.rootTrace.children ? &#x27;70%&#x27; : undefined,
+          height: response.rootTrace.children ? &#x27;90%&#x27; : undefined,
+          data: response,
+          autoFocus: false,
+          hasBackdrop: false,
+        });
+      });
+  }
+
+  public showFormulaSyntaxDialog(): void {
+    this.dialog.open(FormulaSyntaxDialog, {
+      minWidth: &#x27;50%&#x27;,
+      panelClass: &#x27;unpadded-dialog&#x27;,
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;modelchecker-container&quot;&gt;
+  &lt;div class&#x3D;&quot;formula-section&quot;&gt;
+    &lt;mat-form-field&gt;
+      &lt;mat-label&gt;{{ &#x27;fol.formula&#x27; | translate }}&lt;/mat-label&gt;
+      &lt;input matInput [formControl]&#x3D;&quot;formula&quot; placeholder&#x3D;&quot;{{ &#x27;fol.formula&#x27; | translate}}&quot; autocomplete&#x3D;&quot;off&quot; (keyup.enter)&#x3D;&quot;requestGraphExport()&quot; /&gt;
+      &lt;button mat-icon-button matSuffix color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;showFormulaSyntaxDialog()&quot;&gt;
+        &lt;mat-icon&gt;help_outlined&lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/mat-form-field&gt;
+    &lt;button mat-raised-button class&#x3D;&quot;check-button&quot; (click)&#x3D;&quot;requestGraphExport()&quot; [disabled]&#x3D;&quot;formula.invalid&quot; color&#x3D;&quot;primary&quot;&gt;{{ &#x27;actions.check&#x27; | translate}}&lt;/button&gt;
+    &lt;gramofo-feedback-selection #feedbackSelection&gt;&lt;/gramofo-feedback-selection&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;graph-section&quot;&gt;
+    &lt;gramofo-graph-editor
+      [graph]&#x3D;&quot;graph&quot;
+      [graphExportRequests]&#x3D;&quot;graphExportRequests&quot;
+      (saveRequested)&#x3D;&quot;onSaveRequested($event)&quot;
+      (graphExported)&#x3D;&quot;checkModel($event, feedbackSelection.selectedFeedback)&quot;
+    &gt;&lt;/gramofo-graph-editor&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./model-checker.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.modelchecker-container {
+  margin: 1rem;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  mat-form-field {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .check-button {
+    margin-right: 1rem;
+  }
+}
+
+.graph-section {
+  // Workaround for flex-grow not respecting the parent margins
+  // flex-grow: 1;
+  height: calc(100% - 56.56px);
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="modelchecker-container">  <div class="formula-section">    <mat-form-field>      <mat-label>{{ \'fol.formula\' | translate }}</mat-label>      <input matInput [formControl]="formula" placeholder="{{ \'fol.formula\' | translate}}" autocomplete="off" (keyup.enter)="requestGraphExport()" />      <button mat-icon-button matSuffix color="primary" (click)="showFormulaSyntaxDialog()">        <mat-icon>help_outlined</mat-icon>      </button>    </mat-form-field>    <button mat-raised-button class="check-button" (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ \'actions.check\' | translate}}</button>    <gramofo-feedback-selection #feedbackSelection></gramofo-feedback-selection>  </div>  <div class="graph-section">    <gramofo-graph-editor      [graph]="graph"      [graphExportRequests]="graphExportRequests"      (saveRequested)="onSaveRequested($event)"      (graphExported)="checkModel($event, feedbackSelection.selectedFeedback)"    ></gramofo-graph-editor>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ModelCheckerPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ModelCheckerPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
