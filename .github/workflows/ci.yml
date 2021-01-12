@@ -7,22 +7,14 @@ on:
     branches: [master, develop, feature/*, renovate/*]
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: "12"
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run lint
   build:
-    needs: setup
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+      - name: Lint
+        run: npm run lint
       - name: Build
         run: npm run build -- --prod
       - name: Test
@@ -30,10 +22,12 @@ jobs:
       - name: E2E
         run: npm run e2e
   documentation:
-    needs: setup
+    needs: build
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
     steps:
+      - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
       - name: Generate documentation
         run: npm run build compdoc
       - name: Deploy
