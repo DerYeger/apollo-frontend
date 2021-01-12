@@ -10,21 +10,22 @@ import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.
   styleUrls: ['./symbol-editor.component.scss'],
 })
 export class SymbolEditorComponent implements OnChanges {
-  public formControl: FormControl = new FormControl('');
   @Input() public symbols!: Set<string>;
   @Input() public config!: SymbolEditorConfiguration;
 
-  @Output() readonly symbolsUpdated = new EventEmitter();
+  @Output() public readonly symbolsUpdated = new EventEmitter();
 
-  constructor(private readonly log: NGXLogger) {}
+  public formControl: FormControl = new FormControl('');
 
-  ngOnChanges(changes: SimpleChanges): void {
+  public constructor(private readonly log: NGXLogger) {}
+
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes.config !== undefined) {
       this.formControl = new FormControl('', Validators.pattern(this.config.symbolPattern));
     }
   }
 
-  addSymbol(symbolAddedEvent: MatChipInputEvent): void {
+  public addSymbol(symbolAddedEvent: MatChipInputEvent): void {
     if (this.formControl.invalid) {
       return;
     }
@@ -42,7 +43,7 @@ export class SymbolEditorComponent implements OnChanges {
       });
   }
 
-  removeSymbol(symbol: string): void {
+  public removeSymbol(symbol: string): void {
     this.log.debug(`Removing symbol ${symbol}.`);
     this.symbols.delete(symbol);
     this.symbolsUpdated.emit();

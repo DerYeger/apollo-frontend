@@ -189,7 +189,7 @@
       "different-function-values": "The unary function \"{{function}}\" has two function values for at least one node. A function must be right-unique.",
       "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
       "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but used as a function symbol in the graph.",
-      "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but not defined in the graph.",
+      "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but is not defined in the graph.",
       "function-totality": "The unary function \"{{function}}\" must be total.",
       "empty-graph": "The graph must contain at least one node.",
       "missing-node": "The node \"{{node}}\" is missing from the graph.",

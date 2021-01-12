@@ -12,30 +12,30 @@ import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-gra
   styleUrls: ['./graph-list.component.scss'],
 })
 export class GraphListComponent implements OnChanges, AfterViewInit {
-  public readonly columns: string[] = ['name', 'description', 'lastEdit', 'actions'];
-
   @Input() public graphs!: FOLGraph[] | null;
-
-  public readonly dataSource = new MatTableDataSource<FOLGraph>([]);
-
-  @ViewChild(MatSort, { static: false }) private sort!: MatSort;
 
   @Output() public readonly graphSelected = new EventEmitter<FOLGraph>();
   @Output() public readonly graphDeletionRequested = new EventEmitter<FOLGraph>();
 
-  constructor(private readonly bottomSheet: MatBottomSheet) {}
+  @ViewChild(MatSort, { static: false }) private sort!: MatSort;
 
-  ngOnChanges(_: SimpleChanges): void {
+  public readonly columns: string[] = ['name', 'description', 'lastEdit', 'actions'];
+
+  public readonly dataSource = new MatTableDataSource<FOLGraph>([]);
+
+  public constructor(private readonly bottomSheet: MatBottomSheet) {}
+
+  public ngOnChanges(_: SimpleChanges): void {
     if (this.graphs !== null) {
       this.dataSource.data = this.graphs;
     }
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
 
-  exportGraph(graph: FOLGraph): void {
+  public exportGraph(graph: FOLGraph): void {
     this.bottomSheet.open(ExportGraphBottomSheet, {
       data: graph,
     });

@@ -14,14 +14,14 @@ type FileType = 'json' | 'yml';
   styleUrls: ['./export-graph.bottom-sheet.scss'],
 })
 export class ExportGraphBottomSheet {
-  constructor(
+  public constructor(
     private readonly bottomSheetRef: MatBottomSheetRef<ExportGraphBottomSheet>,
     @Inject(MAT_BOTTOM_SHEET_DATA) private readonly graph: FOLGraph,
     private readonly clipboard: Clipboard,
     private readonly snackBarService: SnackBarService
   ) {}
 
-  downloadGraph(event: MouseEvent, fileType: FileType): void {
+  public downloadGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
     const sanitizedGraph = this.sanitizeGraph(this.graph);
@@ -42,7 +42,7 @@ export class ExportGraphBottomSheet {
     document.body.removeChild(element);
   }
 
-  copyGraph(event: MouseEvent, fileType: FileType): void {
+  public copyGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
     const sanitizedGraph = this.sanitizeGraph(this.graph);

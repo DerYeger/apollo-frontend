@@ -8,9 +8,9 @@ export default class D3Graph {
   public readonly nodes: D3Node[] = [];
   public readonly links: D3Link[] = [];
 
-  constructor(public readonly name = `graph_${Date.now().toString()}`, public readonly description = '') {}
+  public constructor(public readonly name = `graph_${Date.now().toString()}`, public readonly description = '') {}
 
-  static async fromDomainGraph(domainGraph: FOLGraph): Promise<D3Graph> {
+  public static async fromDomainGraph(domainGraph: FOLGraph): Promise<D3Graph> {
     const graph = new D3Graph(domainGraph.name, domainGraph.description);
     await Promise.all(domainGraph.nodes.map((node) => graph.createNode(node.name, node.relations, node.constants)));
     await Promise.all(domainGraph.edges.map((edge) => graph.createLink(edge.source, edge.target, edge.relations, edge.functions)));

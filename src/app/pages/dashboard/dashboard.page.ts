@@ -19,7 +19,7 @@ export class DashboardPage {
 
   public readonly themeButtonIcon$ = this.store.select('settings').pipe(map((settings) => (settings.theme === 'dark-theme' ? 'light_mode' : 'dark_mode')));
 
-  constructor(private readonly store: Store<State>) {}
+  public constructor(private readonly store: Store<State>) {}
 
   public toggleSidebar(): void {
     this.store.dispatch(toggleSidebar());

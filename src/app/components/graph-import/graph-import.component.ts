@@ -13,19 +13,17 @@ import * as YAML from 'yaml';
   styleUrls: ['./graph-import.component.scss'],
 })
 export class GraphImportComponent implements AfterViewInit {
-  public readonly textInputFormControl = new FormControl('');
-
-  @ViewChild('textInput')
-  private readonly textInput!: ElementRef<HTMLInputElement>;
-
-  @ViewChild('fileInput')
-  private readonly fileInput!: ElementRef<HTMLInputElement>;
-
   @Output() public readonly graphImport = new EventEmitter<FOLGraph>();
 
-  constructor(private readonly snackBarService: SnackBarService) {}
+  @ViewChild('textInput') private readonly textInput!: ElementRef<HTMLInputElement>;
 
-  ngAfterViewInit(): void {
+  @ViewChild('fileInput') private readonly fileInput!: ElementRef<HTMLInputElement>;
+
+  public readonly textInputFormControl = new FormControl('');
+
+  public constructor(private readonly snackBarService: SnackBarService) {}
+
+  public ngAfterViewInit(): void {
     this.textInput.nativeElement.addEventListener('keydown', (event: KeyboardEvent) => {
       const inputElement = this.textInput.nativeElement;
       if (event.key === 'Tab') {
