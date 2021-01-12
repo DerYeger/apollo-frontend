@@ -200,7 +200,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>, backendService: <a href="../injectables/BackendService.html">BackendService</a>, dialog: MatDialog)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>, backendService: <a href="../injectables/BackendService.html">BackendService</a>, dialog: MatDialog)</code>
                     </td>
                 </tr>
                         <tr>
@@ -786,7 +787,7 @@ export class ModelCheckerPage implements OnDestroy {
 
   private activeResultDialog?: MatDialogRef&lt;ResultTreeDialog&gt;;
 
-  constructor(
+  public constructor(
     private readonly store: Store&lt;State&gt;,
     private readonly router: Router,
     private readonly route: ActivatedRoute,

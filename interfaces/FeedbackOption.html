@@ -229,18 +229,17 @@ const feedbackOptions: FeedbackOption[] &#x3D; [
   styleUrls: [&#x27;./feedback-selection.component.scss&#x27;],
 })
 export class FeedbackSelectionComponent {
+  @ViewChild(&#x27;selectionInput&#x27;) private readonly selectionInput!: MatSelect;
+
   public readonly feedbackOptions &#x3D; feedbackOptions;
 
   public readonly selectedFeedback$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.selectedFeedback));
-
-  @ViewChild(&#x27;selectionInput&#x27;)
-  private readonly selectionInput!: MatSelect;
 
   public get selectedFeedback(): Feedback {
     return this.selectionInput.value;
   }
 
-  constructor(private readonly store: Store&lt;State&gt;) {}
+  public constructor(private readonly store: Store&lt;State&gt;) {}
 
   public onSelectionChange(change: MatSelectChange): void {
     this.store.dispatch(setSelectedFeedback({ feedback: change.value }));

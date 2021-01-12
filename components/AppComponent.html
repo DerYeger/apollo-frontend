@@ -159,9 +159,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnDestroy">ngOnDestroy</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                         </ul>
@@ -182,7 +184,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, translate: TranslateService, log: NGXLogger)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, translate: TranslateService, log: NGXLogger)</code>
                     </td>
                 </tr>
                         <tr>
@@ -265,6 +268,7 @@
                     <a name="ngOnDestroy"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             ngOnDestroy
                         </b>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
@@ -273,7 +277,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnDestroy()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
                 </td>
             </tr>
 
@@ -304,6 +309,7 @@
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             ngOnInit
                         </b>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
@@ -312,7 +318,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
                 </td>
             </tr>
 
@@ -471,7 +478,7 @@ export class AppComponent implements OnDestroy, OnInit {
   private languageSubscription?: Subscription;
   private themeSubscription?: Subscription;
 
-  constructor(private readonly store: Store&lt;State&gt;, private readonly translate: TranslateService, private readonly log: NGXLogger) {
+  public constructor(private readonly store: Store&lt;State&gt;, private readonly translate: TranslateService, private readonly log: NGXLogger) {
     Object.entries(this.languages).forEach(([language, locale]) &#x3D;&gt; {
       translate.setTranslation(language, require(&#x60;../assets/i18n/${language}.json&#x60;));
       registerLocaleData(locale);
@@ -479,7 +486,7 @@ export class AppComponent implements OnDestroy, OnInit {
     });
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.languageSubscription &#x3D; this.store
       .select(&#x27;settings&#x27;)
       .pipe(
@@ -508,7 +515,7 @@ export class AppComponent implements OnDestroy, OnInit {
       );
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.languageSubscription?.unsubscribe();
     this.themeSubscription?.unsubscribe();
   }

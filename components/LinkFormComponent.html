@@ -125,10 +125,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#functionEditorConfig">functionEditorConfig</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#relationEditorConfig">relationEditorConfig</a>
                             </li>
@@ -145,12 +147,15 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onLinkDeleted">onLinkDeleted</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onLinkUpdated">onLinkUpdated</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#requestLinkDeletion">requestLinkDeletion</a>
                             </li>
                         </ul>
@@ -202,7 +207,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(log: NGXLogger)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(log: NGXLogger)</code>
                     </td>
                 </tr>
                         <tr>
@@ -328,6 +334,7 @@
                     <a name="onLinkDeleted"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             onLinkDeleted
                         </b>
                         <a href="#onLinkDeleted"><span class="icon ion-ios-link"></span></a>
@@ -336,7 +343,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onLinkDeleted(deletedLink: <a href="../interfaces/D3Link.html">D3Link</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onLinkDeleted(deletedLink: <a href="../interfaces/D3Link.html">D3Link</a>)</code>
                 </td>
             </tr>
 
@@ -398,6 +406,7 @@
                     <a name="onLinkUpdated"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             onLinkUpdated
                         </b>
                         <a href="#onLinkUpdated"><span class="icon ion-ios-link"></span></a>
@@ -406,7 +415,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onLinkUpdated()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onLinkUpdated()</code>
                 </td>
             </tr>
 
@@ -437,6 +447,7 @@
                     <a name="requestLinkDeletion"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             requestLinkDeletion
                         </b>
                         <a href="#requestLinkDeletion"><span class="icon ion-ios-link"></span></a>
@@ -445,7 +456,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>requestLinkDeletion()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>requestLinkDeletion()</code>
                 </td>
             </tr>
 
@@ -482,6 +494,7 @@
                         <a name="functionEditorConfig"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             functionEditorConfig</b>
                             <a href="#functionEditorConfig"><span class="icon ion-ios-link"></span></a>
@@ -509,6 +522,7 @@
                         <a name="relationEditorConfig"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             relationEditorConfig</b>
                             <a href="#relationEditorConfig"><span class="icon ion-ios-link"></span></a>
@@ -546,17 +560,17 @@ import { D3Link } from &#x27;src/app/model/d3/d3.link&#x27;;
   styleUrls: [&#x27;./link-form.component.scss&#x27;],
 })
 export class LinkFormComponent {
-  @Input() link!: D3Link | null;
+  @Input() public link!: D3Link | null;
 
-  @Output() readonly linkDeletionRequested &#x3D; new EventEmitter&lt;D3Link&gt;();
-  @Output() readonly linkUpdated &#x3D; new EventEmitter();
+  @Output() public readonly linkDeletionRequested &#x3D; new EventEmitter&lt;D3Link&gt;();
+  @Output() public readonly linkUpdated &#x3D; new EventEmitter();
 
-  readonly relationEditorConfig &#x3D; RELATION_SYMBOL_EDITOR_CONFIGURATION;
-  readonly functionEditorConfig &#x3D; FUNCTION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly relationEditorConfig &#x3D; RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly functionEditorConfig &#x3D; FUNCTION_SYMBOL_EDITOR_CONFIGURATION;
 
-  constructor(private readonly log: NGXLogger) {}
+  public constructor(private readonly log: NGXLogger) {}
 
-  requestLinkDeletion(): void {
+  public requestLinkDeletion(): void {
     if (this.link !&#x3D;&#x3D; null) {
       const link &#x3D; this.link;
       this.link &#x3D; null;
@@ -564,11 +578,11 @@ export class LinkFormComponent {
     }
   }
 
-  onLinkUpdated(): void {
+  public onLinkUpdated(): void {
     this.linkUpdated.emit();
   }
 
-  onLinkDeleted(deletedLink: D3Link): void {
+  public onLinkDeleted(deletedLink: D3Link): void {
     if (this.link !&#x3D;&#x3D; null &amp;&amp; this.link.source.id &#x3D;&#x3D;&#x3D; deletedLink.source.id &amp;&amp; this.link.target.id &#x3D;&#x3D;&#x3D; deletedLink.target.id) {
       this.log.debug(&#x60;Removing Link ${this.link.source.id}-${this.link.target.id}, because it has been deleted.&#x60;);
       this.link &#x3D; null;

@@ -248,16 +248,17 @@ export class ResultTreeDialog implements OnInit {
     (node) &#x3D;&gt; node.expandable
   );
 
-  private readonly treeFlattener &#x3D; new MatTreeFlattener(
-    traceToFlatNode,
-    (node) &#x3D;&gt; node.level,
-    (node) &#x3D;&gt; node.expandable,
-    (node) &#x3D;&gt; node.children
+  public readonly dataSource &#x3D; new MatTreeFlatDataSource(
+    this.treeControl,
+    new MatTreeFlattener(
+      traceToFlatNode,
+      (node) &#x3D;&gt; node.level,
+      (node) &#x3D;&gt; node.expandable,
+      (node) &#x3D;&gt; node.children
+    )
   );
 
-  public readonly dataSource &#x3D; new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  constructor(
+  public constructor(
     private readonly dialogRef: MatDialogRef&lt;ResultTreeDialog&gt;,
     @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
     private readonly snackBarService: SnackBarService

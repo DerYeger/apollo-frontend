@@ -171,12 +171,13 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/home/home.page.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/home/home.page.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -490,7 +491,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/home/home.page.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/home/home.page.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -519,9 +520,9 @@ import { State } from &#x27;src/app/store/state&#x27;;
   styleUrls: [&#x27;./home.page.scss&#x27;],
 })
 export class HomePage {
-  constructor(private readonly store: Store&lt;State&gt;, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
-
   public readonly storedGraphs &#x3D; this.store.select(&#x27;graphStore&#x27;).pipe(map((graphs) &#x3D;&gt; Object.values(graphs)));
+
+  public constructor(private readonly store: Store&lt;State&gt;, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
 
   public onGraphSelected(graph: FOLGraph): void {
     this.router.navigate([&#x27;modelchecker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphStore&#x27;, graph.name) });

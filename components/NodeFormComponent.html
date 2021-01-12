@@ -125,10 +125,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#constantEditorConfig">constantEditorConfig</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#relationEditorConfig">relationEditorConfig</a>
                             </li>
@@ -145,12 +147,15 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onNodeDeleted">onNodeDeleted</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onNodeUpdated">onNodeUpdated</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#requestNodeDeletion">requestNodeDeletion</a>
                             </li>
                         </ul>
@@ -202,7 +207,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(log: NGXLogger)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(log: NGXLogger)</code>
                     </td>
                 </tr>
                         <tr>
@@ -328,6 +334,7 @@
                     <a name="onNodeDeleted"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             onNodeDeleted
                         </b>
                         <a href="#onNodeDeleted"><span class="icon ion-ios-link"></span></a>
@@ -336,7 +343,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onNodeDeleted(deletedNode: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onNodeDeleted(deletedNode: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -398,6 +406,7 @@
                     <a name="onNodeUpdated"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             onNodeUpdated
                         </b>
                         <a href="#onNodeUpdated"><span class="icon ion-ios-link"></span></a>
@@ -406,7 +415,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>onNodeUpdated()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onNodeUpdated()</code>
                 </td>
             </tr>
 
@@ -437,6 +447,7 @@
                     <a name="requestNodeDeletion"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             requestNodeDeletion
                         </b>
                         <a href="#requestNodeDeletion"><span class="icon ion-ios-link"></span></a>
@@ -445,7 +456,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>requestNodeDeletion()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>requestNodeDeletion()</code>
                 </td>
             </tr>
 
@@ -482,6 +494,7 @@
                         <a name="constantEditorConfig"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             constantEditorConfig</b>
                             <a href="#constantEditorConfig"><span class="icon ion-ios-link"></span></a>
@@ -509,6 +522,7 @@
                         <a name="relationEditorConfig"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             relationEditorConfig</b>
                             <a href="#relationEditorConfig"><span class="icon ion-ios-link"></span></a>
@@ -546,17 +560,17 @@ import { D3Node } from &#x27;src/app/model/d3/d3.node&#x27;;
   styleUrls: [&#x27;./node-form.component.scss&#x27;],
 })
 export class NodeFormComponent {
-  @Input() node!: D3Node | null;
+  @Input() public node!: D3Node | null;
 
-  @Output() readonly nodeDeletionRequested &#x3D; new EventEmitter&lt;D3Node&gt;();
-  @Output() readonly nodeUpdated &#x3D; new EventEmitter();
+  @Output() public readonly nodeDeletionRequested &#x3D; new EventEmitter&lt;D3Node&gt;();
+  @Output() public readonly nodeUpdated &#x3D; new EventEmitter();
 
-  readonly relationEditorConfig &#x3D; RELATION_SYMBOL_EDITOR_CONFIGURATION;
-  readonly constantEditorConfig &#x3D; CONSTANT_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly relationEditorConfig &#x3D; RELATION_SYMBOL_EDITOR_CONFIGURATION;
+  public readonly constantEditorConfig &#x3D; CONSTANT_SYMBOL_EDITOR_CONFIGURATION;
 
-  constructor(private readonly log: NGXLogger) {}
+  public constructor(private readonly log: NGXLogger) {}
 
-  requestNodeDeletion(): void {
+  public requestNodeDeletion(): void {
     if (this.node !&#x3D;&#x3D; null) {
       const node &#x3D; this.node;
       this.node &#x3D; null;
@@ -564,11 +578,11 @@ export class NodeFormComponent {
     }
   }
 
-  onNodeUpdated(): void {
+  public onNodeUpdated(): void {
     this.nodeUpdated.emit();
   }
 
-  onNodeDeleted(deletedNode: D3Node): void {
+  public onNodeDeleted(deletedNode: D3Node): void {
     if (this.node !&#x3D;&#x3D; null &amp;&amp; this.node.id &#x3D;&#x3D;&#x3D; deletedNode.id) {
       this.log.debug(&#x60;Removing Node ${this.node.id}, because it has been deleted.&#x60;);
       this.node &#x3D; null;

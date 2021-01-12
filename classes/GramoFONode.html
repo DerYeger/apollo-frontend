@@ -87,6 +87,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#constants">constants</a>
                             </li>
@@ -96,6 +97,7 @@
                                 <a href="#id">id</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#relations">relations</a>
                             </li>
@@ -128,7 +130,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, initialRelations?: string[], initialConstants?: string[], x?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, initialRelations?: string[], initialConstants?: string[], x?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -231,6 +234,7 @@
                         <a name="constants"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             constants</b>
                             <a href="#constants"><span class="icon ion-ios-link"></span></a>
@@ -287,6 +291,7 @@
                         <a name="relations"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             relations</b>
                             <a href="#relations"><span class="icon ion-ios-link"></span></a>
@@ -390,10 +395,10 @@ export interface D3Node extends SimulationNodeDatum {
 }
 
 export class GramoFONode implements D3Node {
-  readonly relations &#x3D; new Set&lt;string&gt;();
-  readonly constants &#x3D; new Set&lt;string&gt;();
+  public readonly relations &#x3D; new Set&lt;string&gt;();
+  public readonly constants &#x3D; new Set&lt;string&gt;();
 
-  constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
+  public constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
     initialRelations?.forEach((relation) &#x3D;&gt; this.relations.add(relation));
     initialConstants?.forEach((constant) &#x3D;&gt; this.constants.add(constant));
   }

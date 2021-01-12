@@ -142,7 +142,7 @@
                                 <a href="#requestSubscription">requestSubscription</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#state">state</a>
                             </li>
@@ -204,7 +204,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dialogRef: <a href="../components/HttpProgressDialog.html">MatDialogRef<HttpProgressDialog<T>></a>, request: Observable<HttpEvent<T>>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(dialogRef: <a href="../components/HttpProgressDialog.html">MatDialogRef<HttpProgressDialog<T>></a>, request: Observable<HttpEvent<T>>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -687,7 +688,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/dialogs/http-progress/http-progress.dialog.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/dialogs/http-progress/http-progress.dialog.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -775,7 +776,7 @@
                         <a name="state"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                                 <span class="modifier">Readonly</span>
                             state</b>
                             <a href="#state"><span class="icon ion-ios-link"></span></a>
@@ -789,7 +790,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/dialogs/http-progress/http-progress.dialog.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/dialogs/http-progress/http-progress.dialog.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -817,9 +818,9 @@ type State &#x3D; &#x27;sending&#x27; | &#x27;querying&#x27; | &#x27;fetching&#x
   styleUrls: [&#x27;./http-progress.dialog.scss&#x27;],
 })
 export class HttpProgressDialog&lt;T&gt; implements OnDestroy {
-  private readonly state &#x3D; new EventEmitter&lt;State&gt;();
-
   public readonly progress$ &#x3D; new EventEmitter&lt;number&gt;();
+
+  public readonly state &#x3D; new EventEmitter&lt;State&gt;();
 
   public readonly progressMode$: Observable&lt;ProgressBarMode&gt; &#x3D; this.state.pipe(
     map((state) &#x3D;&gt; {
@@ -836,7 +837,7 @@ export class HttpProgressDialog&lt;T&gt; implements OnDestroy {
 
   private requestSubscription?: Subscription;
 
-  constructor(
+  public constructor(
     private readonly dialogRef: MatDialogRef&lt;HttpProgressDialog&lt;T&gt;&gt;,
     @Inject(MAT_DIALOG_DATA) private readonly request: Observable&lt;HttpEvent&lt;T&gt;&gt;,
     private readonly snackBarService: SnackBarService

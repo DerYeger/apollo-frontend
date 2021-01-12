@@ -98,7 +98,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, translate: TranslateService)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, translate: TranslateService)</code>
                     </td>
                 </tr>
                         <tr>
@@ -276,7 +277,7 @@ const host &#x3D; environment.backendUrl;
   providedIn: &#x27;root&#x27;,
 })
 export class BackendService {
-  constructor(private readonly http: HttpClient, private translate: TranslateService) {}
+  public constructor(private readonly http: HttpClient, private translate: TranslateService) {}
 
   public checkModel(graph: FOLGraph, formula: string, feedback: Feedback): Observable&lt;HttpEvent&lt;ModelCheckerResponse&gt;&gt; {
     const request: ModelCheckerRequest &#x3D; {

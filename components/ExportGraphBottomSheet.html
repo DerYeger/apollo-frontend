@@ -126,9 +126,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#copyGraph">copyGraph</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#downloadGraph">downloadGraph</a>
                             </li>
                             <li>
@@ -153,7 +155,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(bottomSheetRef: <a href="../components/ExportGraphBottomSheet.html">MatBottomSheetRef<ExportGraphBottomSheet></a>, graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>, clipboard: Clipboard, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(bottomSheetRef: <a href="../components/ExportGraphBottomSheet.html">MatBottomSheetRef<ExportGraphBottomSheet></a>, graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>, clipboard: Clipboard, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -248,6 +251,7 @@
                     <a name="copyGraph"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             copyGraph
                         </b>
                         <a href="#copyGraph"><span class="icon ion-ios-link"></span></a>
@@ -256,7 +260,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
                 </td>
             </tr>
 
@@ -330,6 +335,7 @@
                     <a name="downloadGraph"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             downloadGraph
                         </b>
                         <a href="#downloadGraph"><span class="icon ion-ios-link"></span></a>
@@ -338,7 +344,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>downloadGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
                 </td>
             </tr>
 
@@ -499,14 +506,14 @@ type FileType &#x3D; &#x27;json&#x27; | &#x27;yml&#x27;;
   styleUrls: [&#x27;./export-graph.bottom-sheet.scss&#x27;],
 })
 export class ExportGraphBottomSheet {
-  constructor(
+  public constructor(
     private readonly bottomSheetRef: MatBottomSheetRef&lt;ExportGraphBottomSheet&gt;,
     @Inject(MAT_BOTTOM_SHEET_DATA) private readonly graph: FOLGraph,
     private readonly clipboard: Clipboard,
     private readonly snackBarService: SnackBarService
   ) {}
 
-  downloadGraph(event: MouseEvent, fileType: FileType): void {
+  public downloadGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
     const sanitizedGraph &#x3D; this.sanitizeGraph(this.graph);
@@ -527,7 +534,7 @@ export class ExportGraphBottomSheet {
     document.body.removeChild(element);
   }
 
-  copyGraph(event: MouseEvent, fileType: FileType): void {
+  public copyGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
     const sanitizedGraph &#x3D; this.sanitizeGraph(this.graph);

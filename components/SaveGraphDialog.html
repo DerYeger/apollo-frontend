@@ -148,9 +148,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#closeDialog">closeDialog</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#updatedGraph">updatedGraph</a>
                             </li>
                         </ul>
@@ -171,7 +173,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dialogRef: <a href="../components/SaveGraphDialog.html">MatDialogRef<SaveGraphDialog></a>, graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(dialogRef: <a href="../components/SaveGraphDialog.html">MatDialogRef<SaveGraphDialog></a>, graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -242,6 +245,7 @@
                     <a name="closeDialog"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             closeDialog
                         </b>
                         <a href="#closeDialog"><span class="icon ion-ios-link"></span></a>
@@ -250,7 +254,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>closeDialog()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeDialog()</code>
                 </td>
             </tr>
 
@@ -281,6 +286,7 @@
                     <a name="updatedGraph"></a>
                     <span class="name">
                         <b>
+                            <span class="modifier">Public</span>
                             updatedGraph
                         </b>
                         <a href="#updatedGraph"><span class="icon ion-ios-link"></span></a>
@@ -289,7 +295,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updatedGraph()</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatedGraph()</code>
                 </td>
             </tr>
 
@@ -434,19 +441,19 @@ export class SaveGraphDialog {
   public readonly graphName: FormControl;
   public readonly graphDescription: FormControl;
 
-  constructor(private readonly dialogRef: MatDialogRef&lt;SaveGraphDialog&gt;, @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph) {
+  public constructor(private readonly dialogRef: MatDialogRef&lt;SaveGraphDialog&gt;, @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph) {
     this.graphName &#x3D; new FormControl(graph.name, Validators.required);
     this.graphDescription &#x3D; new FormControl(graph.description);
   }
 
-  updatedGraph(): FOLGraph | undefined {
+  public updatedGraph(): FOLGraph | undefined {
     if (this.graphName.invalid) {
       return undefined;
     }
     return { ...this.graph, name: this.graphName.value, description: this.graphDescription.value, lastEdit: Date.now() };
   }
 
-  closeDialog(): void {
+  public closeDialog(): void {
     this.dialogRef.close();
   }
 }

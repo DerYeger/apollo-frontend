@@ -173,7 +173,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(name, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(name, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -1146,9 +1147,9 @@ export default class D3Graph {
   public readonly nodes: D3Node[] &#x3D; [];
   public readonly links: D3Link[] &#x3D; [];
 
-  constructor(public readonly name &#x3D; &#x60;graph_${Date.now().toString()}&#x60;, public readonly description &#x3D; &#x27;&#x27;) {}
+  public constructor(public readonly name &#x3D; &#x60;graph_${Date.now().toString()}&#x60;, public readonly description &#x3D; &#x27;&#x27;) {}
 
-  static async fromDomainGraph(domainGraph: FOLGraph): Promise&lt;D3Graph&gt; {
+  public static async fromDomainGraph(domainGraph: FOLGraph): Promise&lt;D3Graph&gt; {
     const graph &#x3D; new D3Graph(domainGraph.name, domainGraph.description);
     await Promise.all(domainGraph.nodes.map((node) &#x3D;&gt; graph.createNode(node.name, node.relations, node.constants)));
     await Promise.all(domainGraph.edges.map((edge) &#x3D;&gt; graph.createLink(edge.source, edge.target, edge.relations, edge.functions)));

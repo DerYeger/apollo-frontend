@@ -241,10 +241,10 @@ export interface D3Link extends SimulationLinkDatum&lt;D3Node&gt; {
 }
 
 export class GramoFOLink implements D3Link {
-  readonly relations &#x3D; new Set&lt;string&gt;();
-  readonly functions &#x3D; new Set&lt;string&gt;();
+  public readonly relations &#x3D; new Set&lt;string&gt;();
+  public readonly functions &#x3D; new Set&lt;string&gt;();
 
-  constructor(readonly source: D3Node, readonly target: D3Node, initialRelations?: string[], initialFunctions?: string[]) {
+  public constructor(public readonly source: D3Node, public readonly target: D3Node, initialRelations?: string[], initialFunctions?: string[]) {
     initialRelations?.forEach((relation) &#x3D;&gt; this.relations.add(relation));
     initialFunctions?.forEach((functions) &#x3D;&gt; this.functions.add(functions));
   }

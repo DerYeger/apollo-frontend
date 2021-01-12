@@ -141,11 +141,6 @@
                                     <span class="modifier">Readonly</span>
                                 <a href="#treeControl">treeControl</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#treeFlattener">treeFlattener</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -200,12 +195,13 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dialogRef: <a href="../components/ResultTreeDialog.html">MatDialogRef<ResultTreeDialog></a>, result: <a href="../interfaces/ModelCheckerResponse.html">ModelCheckerResponse</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(dialogRef: <a href="../components/ResultTreeDialog.html">MatDialogRef<ResultTreeDialog></a>, result: <a href="../interfaces/ModelCheckerResponse.html">ModelCheckerResponse</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -300,8 +296,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:49</a></div>
                 </td>
             </tr>
 
@@ -341,8 +337,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:57</a></div>
                 </td>
             </tr>
 
@@ -382,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:76</a></div>
                 </td>
             </tr>
 
@@ -478,8 +474,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:53</a></div>
                 </td>
             </tr>
 
@@ -562,8 +558,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:42</a></div>
                 </td>
             </tr>
 
@@ -603,8 +599,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:66</a></div>
                 </td>
             </tr>
 
@@ -673,12 +669,20 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new MatTreeFlatDataSource(this.treeControl, this.treeFlattener)</code>
+                            <i>Default value : </i><code>new MatTreeFlatDataSource(
+    this.treeControl,
+    new MatTreeFlattener(
+      traceToFlatNode,
+      (node) &#x3D;&gt; node.level,
+      (node) &#x3D;&gt; node.expandable,
+      (node) &#x3D;&gt; node.children
+    )
+  )</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -716,7 +720,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -754,39 +758,6 @@
 
             </tbody>
         </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="treeFlattener"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Readonly</span>
-                            treeFlattener</b>
-                            <a href="#treeFlattener"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>new MatTreeFlattener(
-    traceToFlatNode,
-    (node) &#x3D;&gt; node.level,
-    (node) &#x3D;&gt; node.expandable,
-    (node) &#x3D;&gt; node.children
-  )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/dialogs/result-tree/result-tree.dialog.ts:26</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
 </section>
 
 </div>
@@ -818,16 +789,17 @@ export class ResultTreeDialog implements OnInit {
     (node) &#x3D;&gt; node.expandable
   );
 
-  private readonly treeFlattener &#x3D; new MatTreeFlattener(
-    traceToFlatNode,
-    (node) &#x3D;&gt; node.level,
-    (node) &#x3D;&gt; node.expandable,
-    (node) &#x3D;&gt; node.children
+  public readonly dataSource &#x3D; new MatTreeFlatDataSource(
+    this.treeControl,
+    new MatTreeFlattener(
+      traceToFlatNode,
+      (node) &#x3D;&gt; node.level,
+      (node) &#x3D;&gt; node.expandable,
+      (node) &#x3D;&gt; node.children
+    )
   );
 
-  public readonly dataSource &#x3D; new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
-  constructor(
+  public constructor(
     private readonly dialogRef: MatDialogRef&lt;ResultTreeDialog&gt;,
     @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
     private readonly snackBarService: SnackBarService

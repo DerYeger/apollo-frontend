@@ -103,7 +103,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(snackBar: MatSnackBar, translate: TranslateService, store: <a href="../interfaces/State.html">Store<State></a>, log: NGXLogger)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(snackBar: MatSnackBar, translate: TranslateService, store: <a href="../interfaces/State.html">Store<State></a>, log: NGXLogger)</code>
                     </td>
                 </tr>
                         <tr>
@@ -386,7 +387,7 @@ import { State } from &#x27;../store/state&#x27;;
   providedIn: &#x27;root&#x27;,
 })
 export class SnackBarService {
-  constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store&lt;State&gt;, private readonly log: NGXLogger) {}
+  public constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store&lt;State&gt;, private readonly log: NGXLogger) {}
 
   public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined &#x3D; 5000): Promise&lt;MatSnackBarRef&lt;TextOnlySnackBar&gt;&gt; {
     const message$: Observable&lt;string&gt; &#x3D; this.translate.get(messageDTO.key, messageDTO.params);

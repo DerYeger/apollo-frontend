@@ -186,7 +186,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: <a href="../interfaces/State.html">Store<State></a>)</code>
+                                <span class="modifier">Public</span>
+                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -537,7 +538,7 @@ export class DashboardPage {
 
   public readonly themeButtonIcon$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; (settings.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light_mode&#x27; : &#x27;dark_mode&#x27;)));
 
-  constructor(private readonly store: Store&lt;State&gt;) {}
+  public constructor(private readonly store: Store&lt;State&gt;) {}
 
   public toggleSidebar(): void {
     this.store.dispatch(toggleSidebar());
