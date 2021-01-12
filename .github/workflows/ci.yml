@@ -9,14 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: "12"
-      - name: Install dependencies
-        run: npm ci
+      - uses: bahmutov/npm-install@v1
       - name: Lint
         run: npm run lint
       - name: Build
@@ -25,3 +21,19 @@ jobs:
         run: npm test
       - name: E2E
         run: npm run e2e
+  documentation:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+      - name: Generate documentation
+        run: npm run build compdoc
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: documentation
+          CLEAN: true
