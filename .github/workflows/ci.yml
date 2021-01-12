@@ -7,9 +7,8 @@ on:
     branches: [master, develop, feature/*, renovate/*]
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -19,9 +18,28 @@ jobs:
         run: npm ci
       - name: Lint
         run: npm run lint
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
       - name: Build
         run: npm run build -- --prod
       - name: Test
         run: npm test
       - name: E2E
         run: npm run e2e
+  documentation:
+    needs: setup
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
+    steps:
+      - name: Generate documentation
+        run: npm run build compdoc
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: documentation
+          CLEAN: true

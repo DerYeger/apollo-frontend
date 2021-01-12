@@ -11,8 +11,7 @@
     "e2e": "ng e2e",
     "postinstall": "ngcc",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",
-    "compodoc": "npx compodoc -p tsconfig.json",
-    "serve-compodoc": "npx compodoc -s tsconfig.json"
+    "compodoc": "npx compodoc -p tsconfig.json --theme material -n\"gramoFO\""
   },
   "private": true,
   "dependencies": {
