@@ -47,3 +47,6 @@ Thumbs.db
 
 # Log Files
 *.log
+
+# Documentation
+documentation
