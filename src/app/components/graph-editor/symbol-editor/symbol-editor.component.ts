@@ -10,11 +10,12 @@ import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.
   styleUrls: ['./symbol-editor.component.scss'],
 })
 export class SymbolEditorComponent implements OnChanges {
-  public formControl: FormControl = new FormControl('');
   @Input() public symbols!: Set<string>;
   @Input() public config!: SymbolEditorConfiguration;
 
   @Output() public readonly symbolsUpdated = new EventEmitter();
+
+  public formControl: FormControl = new FormControl('');
 
   public constructor(private readonly log: NGXLogger) {}
 

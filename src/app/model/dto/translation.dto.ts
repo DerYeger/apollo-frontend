@@ -1,4 +1,4 @@
 export interface TranslationDTO {
   key: string;
-  params?: object;
+  params?: Record<string, string>;
 }

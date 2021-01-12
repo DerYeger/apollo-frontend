@@ -13,9 +13,9 @@ type State = 'sending' | 'querying' | 'fetching';
   styleUrls: ['./http-progress.dialog.scss'],
 })
 export class HttpProgressDialog<T> implements OnDestroy {
-  private readonly state = new EventEmitter<State>();
-
   public readonly progress$ = new EventEmitter<number>();
+
+  public readonly state = new EventEmitter<State>();
 
   public readonly progressMode$: Observable<ProgressBarMode> = this.state.pipe(
     map((state) => {

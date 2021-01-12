@@ -13,15 +13,13 @@ import * as YAML from 'yaml';
   styleUrls: ['./graph-import.component.scss'],
 })
 export class GraphImportComponent implements AfterViewInit {
-  public readonly textInputFormControl = new FormControl('');
-
-  @ViewChild('textInput')
-  private readonly textInput!: ElementRef<HTMLInputElement>;
-
-  @ViewChild('fileInput')
-  private readonly fileInput!: ElementRef<HTMLInputElement>;
-
   @Output() public readonly graphImport = new EventEmitter<FOLGraph>();
+
+  @ViewChild('textInput') private readonly textInput!: ElementRef<HTMLInputElement>;
+
+  @ViewChild('fileInput') private readonly fileInput!: ElementRef<HTMLInputElement>;
+
+  public readonly textInputFormControl = new FormControl('');
 
   public constructor(private readonly snackBarService: SnackBarService) {}
 

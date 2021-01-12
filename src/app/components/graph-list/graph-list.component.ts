@@ -12,16 +12,16 @@ import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-gra
   styleUrls: ['./graph-list.component.scss'],
 })
 export class GraphListComponent implements OnChanges, AfterViewInit {
-  public readonly columns: string[] = ['name', 'description', 'lastEdit', 'actions'];
-
   @Input() public graphs!: FOLGraph[] | null;
-
-  public readonly dataSource = new MatTableDataSource<FOLGraph>([]);
-
-  @ViewChild(MatSort, { static: false }) private sort!: MatSort;
 
   @Output() public readonly graphSelected = new EventEmitter<FOLGraph>();
   @Output() public readonly graphDeletionRequested = new EventEmitter<FOLGraph>();
+
+  @ViewChild(MatSort, { static: false }) private sort!: MatSort;
+
+  public readonly columns: string[] = ['name', 'description', 'lastEdit', 'actions'];
+
+  public readonly dataSource = new MatTableDataSource<FOLGraph>([]);
 
   public constructor(private readonly bottomSheet: MatBottomSheet) {}
 

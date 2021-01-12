@@ -39,7 +39,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
   @Input() public graphExportRequests?: Observable<void>;
-  private graphExportRequestsSubscription?: Subscription;
 
   @Output() public readonly linkSelected = new EventEmitter<D3Link>();
   @Output() public readonly nodeSelected = new EventEmitter<D3Node>();
@@ -50,6 +49,8 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   @Output() public readonly saveRequested = new EventEmitter<FOLGraph>();
   @Output() public readonly graphExported = new EventEmitter<FOLGraph>();
 
+  @ViewChild('graphHost') private readonly graphHost!: ElementRef<HTMLDivElement>;
+
   // TranslateService::stream and TranslateService::onLangChange do not properly emit upon first subscription.
   // As a workaround, we emit a dummy value froma second observable to trigger the forkJoin and call TranslateService::get instead.
   public readonly controlsTooltipText: Observable<string> = concat(of(true), this.translate.onLangChange).pipe(
@@ -58,7 +59,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   );
 
   public readonly graphSettings = this.store.select('graphSettings');
+
   private graphSettingsSubscription?: Subscription;
+  private graphExportRequestsSubscription?: Subscription;
 
   private enableSimulation = true;
   private showLabels = true;
@@ -68,9 +71,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   private xOffset = 0;
   private yOffset = 0;
-
-  @ViewChild('graphHost')
-  private readonly graphHost!: ElementRef<HTMLDivElement>;
 
   private simulation?: d3.Simulation<D3Node, D3Link>;
 
@@ -93,11 +93,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     private readonly bottomSheet: MatBottomSheet
   ) {}
 
-  public ngAfterViewInit(): void {
-    this.initGraph();
-    this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
-  }
-
   @HostListener('window:resize', ['$event'])
   public ngAfterViewChecked(): void {
     const newWidth = this.graphHost.nativeElement.offsetWidth;
@@ -107,6 +102,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     if (widthDiffers || heightDiffers) {
       this.cleanInitGraph(newWidth, newHeight);
     }
+  }
+
+  public ngAfterViewInit(): void {
+    this.initGraph();
+    this.graphSettingsSubscription = this.graphSettings.subscribe((settings) => this.onSettingsChanged(settings));
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -132,23 +132,6 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   public ngOnDestroy(): void {
     this.graphSettingsSubscription?.unsubscribe();
     this.graphExportRequestsSubscription?.unsubscribe();
-  }
-
-  private onSettingsChanged(settings: GraphSettings): void {
-    const simulationChanged = this.enableSimulation !== settings.enableSimulation;
-    const labelsChanged = this.showLabels !== settings.showLabels;
-    this.enableSimulation = settings.enableSimulation;
-    this.showLabels = settings.showLabels;
-    if (simulationChanged) {
-      this.simulation?.stop();
-      if (this.enableSimulation) {
-        this.graph!.unlockNodes();
-      }
-      this.initSimulation();
-    }
-    if (simulationChanged || labelsChanged) {
-      this.restart(1);
-    }
   }
 
   public saveGraph(): void {
@@ -183,6 +166,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.graph!.unlockNodes();
     this.cleanInitGraph();
     this.store.dispatch(enableSimulation());
+  }
+
+  public cleanInitGraph(width?: number, height?: number): void {
+    this.clean();
+    this.initGraph(width, height);
   }
 
   public restart(alpha: number = 0.5): void {
@@ -239,9 +227,47 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.simulation!.alpha(alpha).restart();
   }
 
-  public cleanInitGraph(width?: number, height?: number): void {
-    this.clean();
-    this.initGraph(width, height);
+  public async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
+    if (!this.allowEditing) {
+      return Promise.reject('Graph is not in edit mode.');
+    }
+    const node = await this.graph!.createNodeWithGeneratedId(x, y);
+    this.restart();
+    this.nodeSelected.emit(node);
+  }
+
+  public removeNode(node: D3Node): void {
+    if (!this.allowEditing) {
+      return;
+    }
+    this.resetDraggableLink();
+    this.graph!.removeNode(node).then(([deletedNode, deletedLinks]) => {
+      this.restart();
+      this.nodeDeleted.emit(deletedNode);
+      deletedLinks.forEach((deletedLink) => this.linkDeleted.emit(deletedLink));
+    });
+  }
+
+  public createLink(source: D3Node, target: D3Node): Promise<void> {
+    if (!this.allowEditing) {
+      return Promise.reject('Graph is not in edit mode.');
+    }
+    return this.graph!.createLink(source.id, target.id)
+      .then((newLink) => {
+        this.restart();
+        this.linkSelected.emit(newLink);
+      })
+      .catch((existingLink: D3Link) => this.linkSelected.emit(existingLink));
+  }
+
+  public removeLink(link: D3Link): void {
+    if (!this.allowEditing) {
+      return;
+    }
+    this.graph!.removeLink(link).then((deletedLink) => {
+      this.restart();
+      this.linkDeleted.emit(deletedLink);
+    });
   }
 
   private initGraph(width: number = this.graphHost.nativeElement.clientWidth, height: number = this.graphHost.nativeElement.clientHeight): void {
@@ -474,46 +500,20 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     );
   }
 
-  public async createNode(x: number = this.width / 2 - this.xOffset, y: number = this.height / 2 - this.yOffset): Promise<void> {
-    if (!this.allowEditing) {
-      return Promise.reject('Graph is not in edit mode.');
+  private onSettingsChanged(settings: GraphSettings): void {
+    const simulationChanged = this.enableSimulation !== settings.enableSimulation;
+    const labelsChanged = this.showLabels !== settings.showLabels;
+    this.enableSimulation = settings.enableSimulation;
+    this.showLabels = settings.showLabels;
+    if (simulationChanged) {
+      this.simulation?.stop();
+      if (this.enableSimulation) {
+        this.graph!.unlockNodes();
+      }
+      this.initSimulation();
     }
-    const node = await this.graph!.createNodeWithGeneratedId(x, y);
-    this.restart();
-    this.nodeSelected.emit(node);
-  }
-
-  public removeNode(node: D3Node): void {
-    if (!this.allowEditing) {
-      return;
+    if (simulationChanged || labelsChanged) {
+      this.restart(1);
     }
-    this.resetDraggableLink();
-    this.graph!.removeNode(node).then(([deletedNode, deletedLinks]) => {
-      this.restart();
-      this.nodeDeleted.emit(deletedNode);
-      deletedLinks.forEach((deletedLink) => this.linkDeleted.emit(deletedLink));
-    });
-  }
-
-  private createLink(source: D3Node, target: D3Node): Promise<void> {
-    if (!this.allowEditing) {
-      return Promise.reject('Graph is not in edit mode.');
-    }
-    return this.graph!.createLink(source.id, target.id)
-      .then((newLink) => {
-        this.restart();
-        this.linkSelected.emit(newLink);
-      })
-      .catch((existingLink: D3Link) => this.linkSelected.emit(existingLink));
-  }
-
-  public removeLink(link: D3Link): void {
-    if (!this.allowEditing) {
-      return;
-    }
-    this.graph!.removeLink(link).then((deletedLink) => {
-      this.restart();
-      this.linkDeleted.emit(deletedLink);
-    });
   }
 }
