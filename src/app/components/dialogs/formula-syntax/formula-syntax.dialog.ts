@@ -20,7 +20,6 @@ const entities: FOLEntity[] = [
 ];
 
 @Component({
-  selector: 'gramofo-formula-syntax',
   templateUrl: './formula-syntax.dialog.html',
   styleUrls: ['./formula-syntax.dialog.scss'],
 })
