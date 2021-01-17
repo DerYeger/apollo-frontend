@@ -32,7 +32,7 @@
     "eslint": "7.18.0",
     "fast-copy": "2.1.1",
     "ml-matrix": "6.6.0",
-    "ngrx-store-localstorage": "10.1.1",
+    "ngrx-store-localstorage": "10.1.2",
     "ngx-logger": "4.1.9",
     "rxjs": "6.6.3",
     "tslib": "2.1.0",
