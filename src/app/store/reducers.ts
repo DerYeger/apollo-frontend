@@ -19,6 +19,9 @@ import {
 } from './actions';
 import { GraphSettings, Settings, State } from './state';
 
+/**
+ * Reducers for the app-state.
+ */
 export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
     { language: undefined, sidebar: true, theme: 'dark-theme', selectedFeedback: 'relevant' },
@@ -50,6 +53,10 @@ export const reducers: ActionReducerMap<State> = {
   ),
 };
 
+/**
+ * Meta-reducers.
+ * Configured to store the state in the localStorage, excluding fields names 'cache'.
+ */
 export const metaReducers: MetaReducer<State>[] = [
   localStorageSync({
     keys: Object.keys(reducers).filter((key) => !key.toLowerCase().includes('cache')),

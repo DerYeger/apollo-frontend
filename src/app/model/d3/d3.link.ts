@@ -2,6 +2,10 @@ import { SimulationLinkDatum } from 'd3';
 
 import { D3Node } from './d3.node';
 
+/**
+ * Link (edge) interface with D3.js compatability.
+ * Required for strict type-checking.
+ */
 export interface D3Link extends SimulationLinkDatum<D3Node> {
   source: D3Node;
   target: D3Node;
@@ -9,6 +13,9 @@ export interface D3Link extends SimulationLinkDatum<D3Node> {
   functions: Set<string>;
 }
 
+/**
+ * Link (edge) class with D3.js compatability.
+ */
 export class GramoFOLink implements D3Link {
   public readonly relations = new Set<string>();
   public readonly functions = new Set<string>();

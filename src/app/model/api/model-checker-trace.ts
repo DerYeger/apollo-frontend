@@ -1,5 +1,9 @@
 import { TranslationDTO } from '../dto/translation.dto';
 
+/**
+ * Trace of the ModelChecking algorithm.
+ * Includes information about a checked formula and its children.
+ */
 export interface ModelCheckerTrace {
   formula: string;
   description: TranslationDTO;

@@ -1,3 +1,7 @@
+/**
+ * Configuration for the SymbolEditorComponent.
+ * Defines input validation and translation keys.
+ */
 export interface SymbolEditorConfiguration {
   title: string;
   placeholder: string;
