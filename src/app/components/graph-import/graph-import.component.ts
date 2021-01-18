@@ -7,6 +7,10 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { terminate } from 'src/app/utils/event.utils';
 import * as YAML from 'yaml';
 
+/**
+ * Allows importing graphs as text or by uploading files.
+ * Supports both JSON and YAML.
+ */
 @Component({
   selector: 'gramofo-graph-import',
   templateUrl: './graph-import.component.html',

@@ -27,17 +27,37 @@ import { terminate } from 'src/app/utils/event.utils';
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { SaveGraphDialog } from '../dialogs/save-graph/save-graph.dialog';
 
+/**
+ * The interactive graph component.
+ */
 @Component({
   selector: 'gramofo-graph[graph][allowEditing]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })
 export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, AfterViewChecked {
+  /**
+   * The graph that will be displayed.
+   * Can be changed after initialization.
+   * For proper usage see GraphEditorComponent and ModelCheckerPage.
+   */
   @Input() public graph: D3Graph | null | undefined = new D3Graph();
 
+  /**
+   * Allows editing if set to true.
+   * Should not be changed after initialization.
+   */
   @Input() public allowEditing!: boolean;
+
+  /**
+   * Configuration for visuals of the graph.
+   * Should not be changed after initialization.
+   */
   @Input() public config: GraphConfiguration = DEFAULT_GRAPH_CONFIGURATION;
 
+  /**
+   * Graph will be exported when export-requests are received.
+   */
   @Input() public graphExportRequests?: Observable<void>;
 
   @Output() public readonly linkSelected = new EventEmitter<D3Link>();
@@ -93,6 +113,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     private readonly bottomSheet: MatBottomSheet
   ) {}
 
+  /**
+   * Redraws the entire graph with new sizes.
+   */
   @HostListener('window:resize', ['$event'])
   public ngAfterViewChecked(): void {
     const newWidth = this.graphHost.nativeElement.offsetWidth;
@@ -173,6 +196,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.initGraph(width, height);
   }
 
+  /**
+   * Creates, updates and deletes the displayed nodes and links.
+   *
+   * @param alpha Alpha value (heat, activity) of the simulation
+   */
   public restart(alpha: number = 0.5): void {
     this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');

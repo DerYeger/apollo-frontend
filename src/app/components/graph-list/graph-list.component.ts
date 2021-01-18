@@ -6,6 +6,11 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
 import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
 
+/**
+ * Table that displays a list of graphs.
+ * Has options to export, open and delete graphs.
+ * The latter two have to be handled by the containing component.
+ */
 @Component({
   selector: 'gramofo-graph-list[graphs]',
   templateUrl: './graph-list.component.html',

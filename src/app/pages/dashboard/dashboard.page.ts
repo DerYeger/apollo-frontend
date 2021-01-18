@@ -6,6 +6,10 @@ import { routes } from 'src/app/app-routing.module';
 import { setLanguage, toggleSidebar, toggleTheme } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
+/**
+ * Dashboard-frame of the app.
+ * Contains navigation, language selection, theme selection and a link to this app's repository.
+ */
 @Component({
   selector: 'gramofo-dashboard',
   templateUrl: './dashboard.page.html',

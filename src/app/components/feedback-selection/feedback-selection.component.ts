@@ -30,6 +30,10 @@ const feedbackOptions: FeedbackOption[] = [
   },
 ];
 
+/**
+ * Drop-down input for selecting the feedback-level of a ModelChecking request.
+ * Persists the selection throughout refreshed.
+ */
 @Component({
   selector: 'gramofo-feedback-selection',
   templateUrl: './feedback-selection.component.html',

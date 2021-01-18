@@ -19,6 +19,9 @@ const entities: FOLEntity[] = [
   { semantics: '≐', syntax: '=' },
 ];
 
+/**
+ * Dialog that shows the semantics of the FOL formula syntax.
+ */
 @Component({
   templateUrl: './formula-syntax.dialog.html',
   styleUrls: ['./formula-syntax.dialog.scss'],

@@ -18,6 +18,10 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { storeGraph } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
+/**
+ * Page for ModelChecking.
+ * Contains an input for a formula, feedback-selection and the GraphEditorComponent.
+ */
 @Component({
   selector: 'gramofo-model-checker',
   templateUrl: './model-checker.page.html',
@@ -28,6 +32,10 @@ export class ModelCheckerPage implements OnDestroy {
 
   public readonly graphExportRequests = new EventEmitter<void>();
 
+  /**
+   * The graph that is passed to the GraphComponent.
+   * Tries to retieved the cached or stored graph by the query parameters.
+   */
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
     map((params) => [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
     filter(([source, key]) => source !== undefined && key !== undefined),

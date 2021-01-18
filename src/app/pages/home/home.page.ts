@@ -8,6 +8,10 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { cacheGraph, removeGraphFromStore } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
+/**
+ * Home-page of the app.
+ * Contains a list of (locally) saved graphs and the GraphImportComponent.
+ */
 @Component({
   selector: 'gramofo-home',
   templateUrl: './home.page.html',

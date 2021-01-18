@@ -12,6 +12,11 @@ import { distinctUntilChanged, map } from 'rxjs/operators';
 import { setLanguage } from './store/actions';
 import { Language, State } from './store/state';
 
+/**
+ * Root component of the app.
+ * Manages languages and themes.
+ * Sets the default values upon initialization.
+ */
 @Component({
   selector: 'gramofo-root',
   templateUrl: './app.component.html',
@@ -34,6 +39,9 @@ export class AppComponent implements OnDestroy, OnInit {
     });
   }
 
+  /**
+   * Subscribes to setting-changes.
+   */
   public ngOnInit(): void {
     this.languageSubscription = this.store
       .select('settings')
@@ -63,6 +71,9 @@ export class AppComponent implements OnDestroy, OnInit {
       );
   }
 
+  /**
+   * Unsubscribes from setting-changes.
+   */
   public ngOnDestroy(): void {
     this.languageSubscription?.unsubscribe();
     this.themeSubscription?.unsubscribe();

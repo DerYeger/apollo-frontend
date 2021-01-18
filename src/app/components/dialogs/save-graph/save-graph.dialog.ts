@@ -3,6 +3,9 @@ import { FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
+/**
+ * Dialog that allows changing name and description of a graph.
+ */
 @Component({
   templateUrl: './save-graph.dialog.html',
   styleUrls: ['./save-graph.dialog.scss'],

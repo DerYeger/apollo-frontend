@@ -13,6 +13,10 @@ interface FlatTraceNode {
   level: number;
 }
 
+/**
+ * Dialog that shows the result of a ModelChecking request in a tree-structure.
+ * Provides options to control the tree, depending on the feedback level.
+ */
 @Component({
   templateUrl: './result-tree.dialog.html',
   styleUrls: ['./result-tree.dialog.scss'],
