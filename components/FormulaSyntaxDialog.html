@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,13 @@
     <code>src/app/components/dialogs/formula-syntax/formula-syntax.dialog.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Dialog that shows the semantics of the FOL formula syntax.</p>
+
+    </p>
 
 
 
@@ -84,10 +90,6 @@
 
 
 
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>gramofo-formula-syntax</code></td>
-            </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
@@ -185,7 +187,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/dialogs/formula-syntax/formula-syntax.dialog.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/dialogs/formula-syntax/formula-syntax.dialog.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -213,7 +215,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/dialogs/formula-syntax/formula-syntax.dialog.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/dialogs/formula-syntax/formula-syntax.dialog.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -247,8 +249,10 @@ const entities: FOLEntity[] &#x3D; [
   { semantics: &#x27;≐&#x27;, syntax: &#x27;&#x3D;&#x27; },
 ];
 
+/**
+ * Dialog that shows the semantics of the FOL formula syntax.
+ */
 @Component({
-  selector: &#x27;gramofo-formula-syntax&#x27;,
   templateUrl: &#x27;./formula-syntax.dialog.html&#x27;,
   styleUrls: [&#x27;./formula-syntax.dialog.scss&#x27;],
 })
@@ -317,7 +321,7 @@ export class FormulaSyntaxDialog {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><table mat-table [dataSource]="dataSource">  <!-- Semantics Column -->  <ng-container matColumnDef="semantics">    <th mat-header-cell *matHeaderCellDef>{{ "misc.semantics" | translate }}</th>    <td mat-cell *matCellDef="let entity">{{ entity.semantics | translate }}</td>  </ng-container>  <!-- Syntax Column -->  <ng-container matColumnDef="syntax">    <th mat-header-cell *matHeaderCellDef>{{ "misc.syntax" | translate }}</th>    <td mat-cell *matCellDef="let entity">{{ entity.syntax }}</td>  </ng-container>  <tr mat-header-row *matHeaderRowDef="columns"></tr>  <tr mat-row *matRowDef="let row; columns: columns"></tr></table></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FormulaSyntaxDialog'};
 </script>

@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,13 @@
             <code>src/app/model/domain/graph.collection.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Collection of graphs, associated by their names.</p>
+
+            </p>
 
 
 
@@ -81,7 +87,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/model/domain/graph.collection.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/model/domain/graph.collection.ts:9</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -97,16 +103,31 @@ import copy from &#x27;fast-copy&#x27;;
 
 import { FOLGraph } from &#x27;./fol.graph&#x27;;
 
+/**
+ * Collection of graphs, associated by their names.
+ */
 export interface GraphCollection {
   [key: string]: FOLGraph;
 }
 
+/**
+ * Adds a graph to the specified collection.
+ *
+ * @param state The target collection.
+ * @param graph The graph to be added.
+ */
 export function setGraph(state: GraphCollection, graph: FOLGraph): GraphCollection {
   const newState &#x3D; copy(state);
   newState[graph.name] &#x3D; graph;
   return newState;
 }
 
+/**
+ * Removes a graph from the specified collection.
+ *
+ * @param state The source collection.
+ * @param key The name of the graph to be removed.
+ */
 export function unsetGraph(state: GraphCollection, key: string): GraphCollection {
   const newState &#x3D; copy(state);
   delete newState[key];
@@ -117,6 +138,12 @@ export const GRAPH_KEY &#x3D; &#x27;graphKey&#x27;;
 export const GRAPH_SOURCE &#x3D; &#x27;graphSource&#x27;;
 export type GraphSource &#x3D; &#x27;graphCache&#x27; | &#x27;graphStore&#x27;;
 
+/**
+ * Creates queryParams that allow extraction of the graph with the given name from the specified source.
+ *
+ * @param graphSource Source of the graph.
+ * @param graphKey Name of the graph.
+ */
 export function graphCollectionQueryParams(graphSource: GraphSource, graphKey: string): Params {
   return { graphSource, graphKey };
 }

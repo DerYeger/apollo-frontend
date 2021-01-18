@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,15 @@
     <code>src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>BottomSheet for exporting graphs.
+Allows exporting as files or by copying to the clipboard.
+Supports JSON and YAML.</p>
+
+    </p>
 
 
 
@@ -161,7 +169,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -268,14 +276,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:62</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Copies the graph to the clipboard and shows a confirmation SnackBar.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -285,6 +295,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -299,6 +310,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Source event. Will be terminated.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>fileType</td>
@@ -311,6 +326,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Format that will be copied.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -352,14 +371,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:35</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Downloads the graph as a file by creating a hidden link and performing a click on it.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -369,6 +390,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -383,6 +405,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Source event. Will be terminated.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>fileType</td>
@@ -395,6 +421,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Type of the file to be downloaded.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -436,14 +466,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet.ts:86</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Removed internal fields from a graph.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -453,6 +485,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -467,6 +500,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The graph that will be sanitized.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -500,6 +537,11 @@ import * as YAML from &#x27;yaml&#x27;;
 
 type FileType &#x3D; &#x27;json&#x27; | &#x27;yml&#x27;;
 
+/**
+ * BottomSheet for exporting graphs.
+ * Allows exporting as files or by copying to the clipboard.
+ * Supports JSON and YAML.
+ */
 @Component({
   selector: &#x27;gramofo-export-graph&#x27;,
   templateUrl: &#x27;./export-graph.bottom-sheet.html&#x27;,
@@ -513,6 +555,12 @@ export class ExportGraphBottomSheet {
     private readonly snackBarService: SnackBarService
   ) {}
 
+  /**
+   * Downloads the graph as a file by creating a hidden link and performing a click on it.
+   *
+   * @param event Source event. Will be terminated.
+   * @param fileType Type of the file to be downloaded.
+   */
   public downloadGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
@@ -534,6 +582,12 @@ export class ExportGraphBottomSheet {
     document.body.removeChild(element);
   }
 
+  /**
+   * Copies the graph to the clipboard and shows a confirmation SnackBar.
+   *
+   * @param event Source event. Will be terminated.
+   * @param fileType Format that will be copied.
+   */
   public copyGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
@@ -553,6 +607,11 @@ export class ExportGraphBottomSheet {
     }
   }
 
+  /**
+   * Removed internal fields from a graph.
+   *
+   * @param graph The graph that will be sanitized.
+   */
   private sanitizeGraph(graph: FOLGraph): any {
     return {
       name: graph.name,
@@ -628,7 +687,7 @@ export class ExportGraphBottomSheet {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-nav-list>  <h1 class="title">{{ \'export.json\' | translate }}</h1>  <a mat-list-item (click)="downloadGraph($event, \'json\')">    <mat-icon>get_app</mat-icon>    <span mat-line>{{ \'export.download\' | translate }}</span>  </a>  <a mat-list-item (click)="copyGraph($event, \'json\')">    <mat-icon>content_copy</mat-icon>    <span mat-line>{{ \'export.copy\' | translate }}</span>  </a></mat-nav-list><mat-nav-list>  <h1 class="title">{{ \'export.yaml\' | translate }}</h1>  <a mat-list-item (click)="downloadGraph($event, \'yml\')">    <mat-icon>get_app</mat-icon>    <span mat-line>{{ \'export.download\' | translate }}</span>  </a>  <a mat-list-item (click)="copyGraph($event, \'yml\')">    <mat-icon>content_copy</mat-icon>    <span mat-line>{{ \'export.copy\' | translate }}</span>  </a></mat-nav-list></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ExportGraphBottomSheet'};
 </script>

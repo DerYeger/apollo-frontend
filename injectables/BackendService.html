@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -60,6 +59,13 @@
             <code>src/app/services/backend.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service for communication with the backend.</p>
+
+            </p>
 
 
 
@@ -104,7 +110,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/backend.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/backend.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -183,14 +189,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/backend.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/services/backend.service.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Request the execution of the ModelChecking algorithm for the given graph, formula and feedback.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -200,6 +208,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -214,6 +223,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The graph of the request.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>formula</td>
@@ -226,6 +239,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The formula of the request.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>feedback</td>
@@ -238,6 +255,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The selected feedback of the request.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -273,12 +294,22 @@ import { FOLGraph } from &#x27;../model/domain/fol.graph&#x27;;
 
 const host &#x3D; environment.backendUrl;
 
+/**
+ * Service for communication with the backend.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class BackendService {
   public constructor(private readonly http: HttpClient, private translate: TranslateService) {}
 
+  /**
+   * Request the execution of the ModelChecking algorithm for the given graph, formula and feedback.
+   *
+   * @param graph The graph of the request.
+   * @param formula The formula of the request.
+   * @param feedback The selected feedback of the request.
+   */
   public checkModel(graph: FOLGraph, formula: string, feedback: Feedback): Observable&lt;HttpEvent&lt;ModelCheckerResponse&gt;&gt; {
     const request: ModelCheckerRequest &#x3D; {
       formula,

@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,14 @@
     <code>src/app/components/feedback-selection/feedback-selection.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Drop-down input for selecting the feedback-level of a ModelChecking request.
+Persists the selection throughout refreshed.</p>
+
+    </p>
 
 
 
@@ -193,7 +200,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -264,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:55</a></div>
                 </td>
             </tr>
 
@@ -339,7 +346,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:45</a></div>
                             </td>
                         </tr>
 
@@ -367,7 +374,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -405,7 +412,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -434,7 +441,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:49</a></div>
                                 </td>
                             </tr>
 
@@ -477,6 +484,10 @@ const feedbackOptions: FeedbackOption[] &#x3D; [
   },
 ];
 
+/**
+ * Drop-down input for selecting the feedback-level of a ModelChecking request.
+ * Persists the selection throughout refreshed.
+ */
 @Component({
   selector: &#x27;gramofo-feedback-selection&#x27;,
   templateUrl: &#x27;./feedback-selection.component.html&#x27;,
@@ -554,7 +565,7 @@ export class FeedbackSelectionComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><mat-form-field>  <mat-label>{{ "feedback.title" | translate }}</mat-label>  <mat-select #selectionInput (selectionChange)="onSelectionChange($event)" [value]="selectedFeedback$ | async">    <mat-option      *ngFor="let feedbackOption of feedbackOptions"      [value]="feedbackOption.feedback"      [matTooltip]="feedbackOption.description | translate"      matTooltipPosition="left"      matTooltipShowDelay="250"      matTooltipHideDelay="250"    >      {{ feedbackOption.name | translate }}    </mat-option>  </mat-select></mat-form-field></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FeedbackSelectionComponent'};
 </script>

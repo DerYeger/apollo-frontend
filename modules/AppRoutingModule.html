@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -59,6 +58,13 @@
         </p>
 
 
+        <p class="comment">
+            <h3>Description</h3>
+        </p>
+        <p class="comment">
+            <p>Defines all routes of the app and configures the RoutingModule.</p>
+
+        </p>
 
 
         <div class="container-fluid module">
@@ -78,18 +84,30 @@ import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { HomePage } from &#x27;./pages/home/home.page&#x27;;
 import { ModelCheckerPage } from &#x27;./pages/model-checker/model-checker.page&#x27;;
 
+/**
+ * Extends Route to provide additional data.
+ */
 export interface GramofoRoute extends Route {
+  /**
+   * Used for providing translations keys to the navigation menu.
+   */
   name?: string;
 }
 
 export type GramofoRoutes &#x3D; GramofoRoute[];
 
+/**
+ * The routes of this app.
+ */
 export const routes: GramofoRoutes &#x3D; [
   { path: &#x27;home&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
   { path: &#x27;modelchecker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
   { path: &#x27;**&#x27;, redirectTo: &#x27;home&#x27;, pathMatch: &#x27;full&#x27; },
 ];
 
+/**
+ * Defines all routes of the app and configures the RoutingModule.
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes), TranslateModule],
   exports: [RouterModule],

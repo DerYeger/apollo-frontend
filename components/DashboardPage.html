@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,14 @@
     <code>src/app/pages/dashboard/dashboard.page.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Dashboard-frame of the app.
+Contains navigation, language selection, theme selection and a link to this app&#39;s repository.</p>
+
+    </p>
 
 
 
@@ -192,7 +199,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -263,8 +270,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:32</a></div>
                 </td>
             </tr>
 
@@ -335,8 +342,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:28</a></div>
                 </td>
             </tr>
 
@@ -376,8 +383,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:36</a></div>
                 </td>
             </tr>
 
@@ -420,7 +427,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -448,7 +455,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -476,7 +483,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -504,7 +511,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -525,6 +532,10 @@ import { routes } from &#x27;src/app/app-routing.module&#x27;;
 import { setLanguage, toggleSidebar, toggleTheme } from &#x27;src/app/store/actions&#x27;;
 import { State } from &#x27;src/app/store/state&#x27;;
 
+/**
+ * Dashboard-frame of the app.
+ * Contains navigation, language selection, theme selection and a link to this app&#x27;s repository.
+ */
 @Component({
   selector: &#x27;gramofo-dashboard&#x27;,
   templateUrl: &#x27;./dashboard.page.html&#x27;,
@@ -719,7 +730,7 @@ mat-nav-list {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="container">  <mat-toolbar color="primary" class="toolbar mat-elevation-z8">    <button mat-icon-button (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>    <h1 class="title">{{\'app.title\' | translate}}</h1>  </mat-toolbar>  <mat-sidenav-container class="sidenav-container">    <mat-sidenav class="sidenav mat-elevation-z6" mode="side" [opened]="sidebar$ | async">      <mat-nav-list>        <a mat-list-item *ngFor="let route of routes" [routerLink]="route.path">{{route.name! | translate}}</a>      </mat-nav-list>      <mat-button-toggle-group name="language" class="language-button-group" (change)="setLanguage($event)">        <mat-button-toggle value="en" class="language-button" [checked]="(language$ | async) === \'en\'">{{\'lang.en\' | translate}}</mat-button-toggle>        <mat-button-toggle value="de" class="language-button" [checked]="(language$ | async) === \'de\'">{{\'lang.de\' | translate}}</mat-button-toggle>      </mat-button-toggle-group>      <div class="theme-button-container">        <button mat-icon-button (click)="toggleTheme()"><mat-icon>{{themeButtonIcon$ | async}}</mat-icon></button>      </div>      <a href="https://github.com/DerYeger/gramofo-frontend" class="repository-link" target="_blank" rel="noopener noreferrer">        <svg class="github-logo" xmlns="http://www.w3.org/2000/svg">          <path            clas="logo"            transform="scale(2)"            d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z"          />        </svg>        <span>{{\'dashboard.github-repository\' | translate}}</span>        <mat-icon>open_in_new</mat-icon>      </a>    </mat-sidenav>    <mat-sidenav-content>      <ng-content></ng-content>    </mat-sidenav-content>  </mat-sidenav-container></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': 'gramofo-formula-syntax'},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardPage'};
 </script>

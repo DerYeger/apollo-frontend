@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -60,6 +59,13 @@
             <code>src/app/services/snack-bar.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service that provides methods for easy creation of SnackBar messages by translation keys.</p>
+
+            </p>
 
 
 
@@ -109,7 +115,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/snack-bar.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/snack-bar.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -212,14 +218,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/services/snack-bar.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/services/snack-bar.service.ts:42</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Informs the user about the deletion of a graph and has an undo-option.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -229,6 +237,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -243,6 +252,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The deleted graph.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -285,14 +298,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/services/snack-bar.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/services/snack-bar.service.ts:29</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Opens a SnackBar with the given message.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -303,6 +318,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -319,6 +335,10 @@
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The message to be shown.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>actionDTO</td>
@@ -333,6 +353,10 @@
                                     <td>
                                     </td>
 
+                                    <td>
+                                        <p>The optional action of the message.</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>duration</td>
@@ -348,6 +372,10 @@
                                         <code>5000</code>
                                     </td>
 
+                                    <td>
+                                        <p>The duration of the message. Defaults to 5 seconds.</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -383,12 +411,22 @@ import { TranslationDTO } from &#x27;../model/dto/translation.dto&#x27;;
 import { storeGraph } from &#x27;../store/actions&#x27;;
 import { State } from &#x27;../store/state&#x27;;
 
+/**
+ * Service that provides methods for easy creation of SnackBar messages by translation keys.
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
 export class SnackBarService {
   public constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store&lt;State&gt;, private readonly log: NGXLogger) {}
 
+  /**
+   * Opens a SnackBar with the given message.
+   *
+   * @param messageDTO The message to be shown.
+   * @param actionDTO The optional action of the message.
+   * @param duration The duration of the message. Defaults to 5 seconds.
+   */
   public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined &#x3D; 5000): Promise&lt;MatSnackBarRef&lt;TextOnlySnackBar&gt;&gt; {
     const message$: Observable&lt;string&gt; &#x3D; this.translate.get(messageDTO.key, messageDTO.params);
     const action$: Observable&lt;string | undefined&gt; &#x3D; actionDTO ? this.translate.get(actionDTO.key, actionDTO.params) : of(undefined);
@@ -397,6 +435,11 @@ export class SnackBarService {
     return this.snackBar.open(message, action, { duration });
   }
 
+  /**
+   * Informs the user about the deletion of a graph and has an undo-option.
+   *
+   * @param graph The deleted graph.
+   */
   public graphDeleted(graph: FOLGraph): void {
     this.openSnackBar({ key: &#x27;snackbar.graph-deleted&#x27;, params: { name: graph.name } }, { key: &#x27;actions.undo&#x27; }, 10000).then((snackBarRef) &#x3D;&gt; {
       const subscription &#x3D; snackBarRef.onAction().subscribe(() &#x3D;&gt; {

@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -64,6 +63,13 @@
             <code>src/app/model/d3/d3.link.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Link (edge) class with D3.js compatability.</p>
+
+            </p>
 
 
             <p class="comment">
@@ -131,7 +137,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.link.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/model/d3/d3.link.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -231,7 +237,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.link.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/model/d3/d3.link.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -259,7 +265,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/model/d3/d3.link.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/model/d3/d3.link.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -288,7 +294,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/model/d3/d3.link.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/model/d3/d3.link.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -317,7 +323,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/model/d3/d3.link.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/model/d3/d3.link.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -340,6 +346,10 @@
 
 import { D3Node } from &#x27;./d3.node&#x27;;
 
+/**
+ * Link (edge) interface with D3.js compatability.
+ * Required for strict type-checking.
+ */
 export interface D3Link extends SimulationLinkDatum&lt;D3Node&gt; {
   source: D3Node;
   target: D3Node;
@@ -347,6 +357,9 @@ export interface D3Link extends SimulationLinkDatum&lt;D3Node&gt; {
   functions: Set&lt;string&gt;;
 }
 
+/**
+ * Link (edge) class with D3.js compatability.
+ */
 export class GramoFOLink implements D3Link {
   public readonly relations &#x3D; new Set&lt;string&gt;();
   public readonly functions &#x3D; new Set&lt;string&gt;();

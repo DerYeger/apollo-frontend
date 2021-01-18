@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO</title>
+        <title>gramoFO-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO</a>
+            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,6 +64,13 @@
             <code>src/app/store/state.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>The settings of this app.</p>
+
+            </p>
 
 
         <section>
@@ -232,6 +238,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Feedback } from &#x27;../model/api/model-checker-request&#x27;;
 import { GraphCollection } from &#x27;../model/domain/graph.collection&#x27;;
 
+/**
+ * The state of this app.
+ */
 export interface State {
   settings: Settings;
   graphSettings: GraphSettings;
@@ -239,9 +248,19 @@ export interface State {
   graphCache: GraphCollection;
 }
 
+/**
+ * Type of available languages.
+ */
 export type Language &#x3D; &#x27;en&#x27; | &#x27;de&#x27;;
+
+/**
+ * Type of available themes.
+ */
 export type Theme &#x3D; &#x27;dark-theme&#x27; | &#x27;light-theme&#x27;;
 
+/**
+ * The settings of this app.
+ */
 export interface Settings {
   language?: Language;
   sidebar: boolean;
@@ -249,6 +268,9 @@ export interface Settings {
   selectedFeedback: Feedback;
 }
 
+/**
+ * The settings of the GraphComponent.
+ */
 export interface GraphSettings {
   enableSimulation: boolean;
   showLabels: boolean;
