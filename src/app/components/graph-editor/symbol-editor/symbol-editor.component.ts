@@ -4,6 +4,10 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { NGXLogger } from 'ngx-logger';
 import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.configuration';
 
+/**
+ * Component for editing a set of symbols.
+ * Title and validation are provided by the configuration.
+ */
 @Component({
   selector: 'gramofo-symbol-editor[symbols][config]',
   templateUrl: './symbol-editor.component.html',

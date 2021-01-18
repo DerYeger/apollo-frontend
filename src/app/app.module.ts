@@ -31,6 +31,9 @@ import { HomePage } from './pages/home/home.page';
 import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
 import { metaReducers, reducers } from './store/reducers';
 
+/**
+ * Main module of the app. Declares all components and imports third-party modules.
+ */
 @NgModule({
   declarations: [
     AppComponent,

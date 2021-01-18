@@ -8,6 +8,9 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 type State = 'sending' | 'querying' | 'fetching';
 
+/**
+ * Dialog that presents a progressbar for HTTP-requests, handles errors and automatically closes after receiving the result.
+ */
 @Component({
   templateUrl: './http-progress.dialog.html',
   styleUrls: ['./http-progress.dialog.scss'],

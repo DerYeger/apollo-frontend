@@ -3,6 +3,13 @@ import { Matrix } from 'ml-matrix';
 import { GraphConfiguration } from '../configurations/graph.configuration';
 import { D3Node } from '../model/d3/d3.node';
 
+/**
+ * Creates the path of a straight line between the edges of two nodes.
+ *
+ * @param source The source D3Node.
+ * @param target The target D3Node.
+ * @param graphConfiguration Visual configuration.
+ */
 export function paddedLinePath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const deltaX = target.x! - source.x!;
   const deltaY = target.y! - source.y!;
@@ -17,6 +24,13 @@ export function paddedLinePath(source: D3Node, target: D3Node, graphConfiguratio
           L${targetX},${targetY}`;
 }
 
+/**
+ * Creates the path of an arc line between the edges of two nodes.
+ *
+ * @param source The source D3Node.
+ * @param target The target D3Node.
+ * @param graphConfiguration Visual configuration.
+ */
 export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const s = new Matrix([[source.x!, source.y!]]);
   const t = new Matrix([[target.x!, target.y!]]);
@@ -37,6 +51,14 @@ export function paddedArcPath(source: D3Node, target: D3Node, graphConfiguration
           A${arcRadius},${arcRadius},0,0,1,${end.get(0, 0)},${end.get(0, 1)}`;
 }
 
+/**
+ * Creates the path of a reflexive line of a node.
+ * It will be always be directed away from the center.
+ *
+ * @param node The D3Node.
+ * @param center The center point of the graph.
+ * @param graphConfiguration Visual configuration.
+ */
 export function paddedReflexivePath(node: D3Node, center: [number, number], graphConfiguration: GraphConfiguration): string {
   const n = new Matrix([[node.x!, node.y!]]);
   const c = new Matrix([center]);
@@ -57,17 +79,36 @@ export function paddedReflexivePath(node: D3Node, center: [number, number], grap
           A${graphConfiguration.nodeRadius},${graphConfiguration.nodeRadius},0,1,0,${end.get(0, 0)},${end.get(0, 1)}`;
 }
 
+/**
+ * Creates a straight path between two points.
+ *
+ * @param from Source coordinates.
+ * @param to Target coordinates.
+ */
 export function linePath(from: [number, number], to: [number, number]): string {
   return `M${from[0]},${from[1]}
           L${to[0]},${to[1]}`;
 }
 
+/**
+ * Calculates the offset for the text of a mono-directional link.
+ *
+ * @param source The source D3Node.
+ * @param target The target D3Node.
+ */
 export function directLinkTextTransform(source: D3Node, target: D3Node): string {
   const xOffset = (source.x! + target.x!) / 2;
   const yOffset = (source.y! + target.y!) / 2;
   return `translate(${xOffset},${yOffset - 8})`;
 }
 
+/**
+ * Calculates the offset for the text of a bi-directional link.
+ *
+ * @param source The source D3Node.
+ * @param target The target D3Node.
+ * @param graphConfiguration Visual configuration.
+ */
 export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node, graphConfiguration: GraphConfiguration): string {
   const s = new Matrix([[source.x!, source.y!]]);
   const t = new Matrix([[target.x!, target.y!]]);
@@ -81,6 +122,13 @@ export function bidirectionalLinkTextTransform(source: D3Node, target: D3Node, g
   return `translate(${end.get(0, 0)},${end.get(0, 1)})`;
 }
 
+/**
+ *  Calculates the offset for the text of a reflexive link.
+ *
+ * @param node The D3Node.
+ * @param center The center point of the graph.
+ * @param graphConfiguration Visual configuration.
+ */
 export function reflexiveLinkTextTransform(node: D3Node, center: [number, number], graphConfiguration: GraphConfiguration): string {
   const n = new Matrix([[node.x!, node.y!]]);
   const c = new Matrix([center]);
@@ -95,10 +143,21 @@ export function reflexiveLinkTextTransform(node: D3Node, center: [number, number
   return `translate(${offset.get(0, 0)},${offset.get(0, 1)})`;
 }
 
+/**
+ * Calculates the radian value for the given degrees.
+ *
+ * @param degrees The degrees.
+ */
 function degreesToRadians(degrees: number): number {
   return degrees * (Math.PI / 180);
 }
 
+/**
+ * Rotates a vector by the given radians around the origin.
+ *
+ * @param vector The vector to be rotated.
+ * @param radians The radians to rotate the vector by.
+ */
 function rotate(vector: Matrix, radians: number): Matrix {
   const x = vector.get(0, 0);
   const y = vector.get(0, 1);

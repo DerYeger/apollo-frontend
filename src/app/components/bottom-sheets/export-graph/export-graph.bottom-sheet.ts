@@ -8,6 +8,11 @@ import * as YAML from 'yaml';
 
 type FileType = 'json' | 'yml';
 
+/**
+ * BottomSheet for exporting graphs.
+ * Allows exporting as files or by copying to the clipboard.
+ * Supports JSON and YAML.
+ */
 @Component({
   selector: 'gramofo-export-graph',
   templateUrl: './export-graph.bottom-sheet.html',
@@ -21,6 +26,12 @@ export class ExportGraphBottomSheet {
     private readonly snackBarService: SnackBarService
   ) {}
 
+  /**
+   * Downloads the graph as a file by creating a hidden link and performing a click on it.
+   *
+   * @param event Source event. Will be terminated.
+   * @param fileType Type of the file to be downloaded.
+   */
   public downloadGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
@@ -42,6 +53,12 @@ export class ExportGraphBottomSheet {
     document.body.removeChild(element);
   }
 
+  /**
+   * Copies the graph to the clipboard and shows a confirmation SnackBar.
+   *
+   * @param event Source event. Will be terminated.
+   * @param fileType Format that will be copied.
+   */
   public copyGraph(event: MouseEvent, fileType: FileType): void {
     terminate(event);
     this.bottomSheetRef.dismiss();
@@ -61,6 +78,11 @@ export class ExportGraphBottomSheet {
     }
   }
 
+  /**
+   * Removed internal fields from a graph.
+   *
+   * @param graph The graph that will be sanitized.
+   */
   private sanitizeGraph(graph: FOLGraph): any {
     return {
       name: graph.name,

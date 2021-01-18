@@ -1,5 +1,9 @@
 import { SimulationNodeDatum } from 'd3';
 
+/**
+ * Node interface with D3.js compatability.
+ * Required for strict type-checking.
+ */
 export interface D3Node extends SimulationNodeDatum {
   id: string;
   relations: Set<string>;
@@ -10,6 +14,9 @@ export interface D3Node extends SimulationNodeDatum {
   fy?: number;
 }
 
+/**
+ * Node class with D3.js compatability.
+ */
 export class GramoFONode implements D3Node {
   public readonly relations = new Set<string>();
   public readonly constants = new Set<string>();

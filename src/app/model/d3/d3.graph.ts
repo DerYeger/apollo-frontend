@@ -4,6 +4,9 @@ import { FOLNode } from '../domain/fol.node';
 import { D3Link, GramoFOLink } from './d3.link';
 import { D3Node, GramoFONode } from './d3.node';
 
+/**
+ * Graph class with D3.js compatability.
+ */
 export default class D3Graph {
   public readonly nodes: D3Node[] = [];
   public readonly links: D3Link[] = [];

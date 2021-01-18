@@ -50,6 +50,10 @@ const matModules = [
   MatTreeModule,
 ];
 
+/**
+ * Imports and exports all required Material Design modules.
+ * Also provides default configurations for some third party components.
+ */
 @NgModule({
   imports: [...matModules],
   exports: [...matModules],

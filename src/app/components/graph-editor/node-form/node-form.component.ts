@@ -3,6 +3,9 @@ import { NGXLogger } from 'ngx-logger';
 import { CONSTANT_SYMBOL_EDITOR_CONFIGURATION, RELATION_SYMBOL_EDITOR_CONFIGURATION } from 'src/app/configurations/symbol-editor.configuration';
 import { D3Node } from 'src/app/model/d3/d3.node';
 
+/**
+ * Component for editing and deleting nodes of a graph.
+ */
 @Component({
   selector: 'gramofo-node-form[node]',
   templateUrl: './node-form.component.html',

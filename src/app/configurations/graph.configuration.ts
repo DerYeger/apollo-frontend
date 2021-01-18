@@ -1,3 +1,6 @@
+/**
+ * Visual configuration for the GraphComponent.
+ */
 export interface GraphConfiguration {
   nodeRadius: number;
 
