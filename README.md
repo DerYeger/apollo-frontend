@@ -1,27 +1,40 @@
-# GramofoFrontend
+# gramoFO-Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
+> A web application for first-order model checking in graph structures
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Installation
 
-## Code scaffolding
+Run `npm ci` to perform a clean installation of the required dependencies.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Development server
 
-## Build
+Run `npm start` to run a development server. The app will open and automatically reload if any source files are changed.
+
+### Code scaffolding
+
+Run `ng g c components/{{component-name}} --module=app` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. To create components with special names such as `Page` add `--type={{type}}`.
+
+### Linting & formatting
+
+Run `ng lint` to lint and `npm run pretty` to format all source files.
+
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Running tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io) and `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Running end-to-end tests
+## Deployment
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Documentation
 
-## Further help
+Run `npm run compodoc` to generate the documentation. It will be stored in the `documentation/` directory.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Docker
+
+Run `docker-compose up -d --build` to build and start a container. Alternatively, build the image via the Dockerfile.
+>Note: Change the argument `BACKEND_URL` as required.
