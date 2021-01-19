@@ -30,20 +30,31 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="gramofofrontend">GramofoFrontend</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 11.0.3.</p>
-<h2 id="development-server">Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2 id="code-scaffolding">Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2 id="build">Build</h2>
+<h1 id="gramofo-frontend">gramoFO-Frontend</h1>
+<blockquote>
+<p>A web application for first-order model checking in graph structures</p>
+</blockquote>
+<h2 id="development">Development</h2>
+<h3 id="installation">Installation</h3>
+<p>Run <code>npm ci</code> to perform a clean installation of the required dependencies.</p>
+<h3 id="development-server">Development server</h3>
+<p>Run <code>npm start</code> to run a development server. The app will open and automatically reload if any source files are changed.</p>
+<h3 id="code-scaffolding">Code scaffolding</h3>
+<p>Run <code>ng g c components/{{component-name}} --module=app</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>. To create components with special names such as <code>Page</code> add <code>--type={{type}}</code>.</p>
+<h3 id="linting--formatting">Linting &amp; formatting</h3>
+<p>Run <code>ng lint</code> to lint and <code>npm run pretty</code> to format all source files.</p>
+<h3 id="build">Build</h3>
 <p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
-<h2 id="running-unit-tests">Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2 id="further-help">Further help</h2>
-<p>To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://angular.io/cli">Angular CLI Overview and Command Reference</a> page.</p>
+<h3 id="running-tests">Running tests</h3>
+<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a> and <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
+<h2 id="deployment">Deployment</h2>
+<h3 id="documentation">Documentation</h3>
+<p>Run <code>npm run compodoc</code> to generate the documentation. It will be stored in the <code>documentation/</code> directory.</p>
+<h3 id="docker">Docker</h3>
+<p>Run <code>docker-compose up -d --build</code> to build and start a container. Alternatively, build the image via the Dockerfile.</p>
+<blockquote>
+<p>Note: Change the argument <code>BACKEND_URL</code> as required.</p>
+</blockquote>
 
 
 
