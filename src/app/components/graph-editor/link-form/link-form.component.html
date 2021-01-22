@@ -4,7 +4,7 @@
   </ng-container>
   <ng-container *ngIf="!!link">
     <mat-card-title>
-      <span>{{ "editor.link.title" | translate }} {{ link!.source.id }}<mat-icon class="link-arrow-icon">arrow_right_alt</mat-icon>{{ link!.target.id }}</span>
+      <span class="link-title">{{ "editor.link.title" | translate }} {{ link!.source.id }}<mat-icon>arrow_right_alt</mat-icon>{{ link!.target.id }}</span>
     </mat-card-title>
     <mat-card-content>
       <div>

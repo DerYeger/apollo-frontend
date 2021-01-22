@@ -6,8 +6,8 @@
   text-align: right;
 }
 
-.link-arrow-icon {
-  display: inline-flex;
-  // Somehow bottom alignment is above middle or top alignment. Still not centered, but better than the alternatives.
-  vertical-align: bottom;
+.link-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
