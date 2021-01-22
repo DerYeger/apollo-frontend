@@ -49,7 +49,7 @@ export default class D3Graph {
     const highestCurrentId = this.nodes
       .map((node) => +node.id)
       .filter((id) => !isNaN(id))
-      .reduce((prev, curr) => (prev >= curr ? prev : curr), 0);
+      .reduce((prev, curr) => (prev >= curr ? prev : curr), -1);
     return this.createNode(`${highestCurrentId + 1}`, undefined, undefined, x, y);
   }
 
