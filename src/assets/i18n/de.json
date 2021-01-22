@@ -18,7 +18,7 @@
     "simulation": "Automatische Anordnung",
     "save-graph": "Graph speichern",
     "controls": {
-      "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste",
+      "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste / Multi-Touch",
       "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen"
     }
   },

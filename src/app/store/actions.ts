@@ -43,7 +43,6 @@ export const toggleSimulation = createAction('[graph.simulation] toggle');
  */
 export const toggleLabels = createAction('[graph.labels] toggle');
 
-
 // GraphStore
 
 /**

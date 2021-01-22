@@ -318,7 +318,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.zoom = d3
       .zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, 1])
-      .filter((event) => event.button === 0)
+      .filter((event) => event.button === 0 || event.touches?.length >= 2)
       .on('zoom', (event) => this.zoomed(event));
   }
 
