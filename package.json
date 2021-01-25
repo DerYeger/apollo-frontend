@@ -1,6 +1,16 @@
 {
   "name": "gramofo-frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A web application for first-order model checking in graph structures.",
+  "license": "BSD-3-Clause",
+  "homepage": "https://github.com/DerYeger/gramofo-frontend",
+  "bugs": {
+    "url": "https://github.com/DerYeger/gramofo-frontend/issues"
+  },
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
