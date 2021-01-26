@@ -19,6 +19,7 @@
     "test:local": "ng test -- --karma-config=karma.local.conf.js",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "e2e:ci": "ng e2e --webdriverUpdate=false",
     "postinstall": "ngcc",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",
     "compodoc": "npx compodoc -p tsconfig.json -n \"gramoFO-Frontend\" --disableCoverage"
