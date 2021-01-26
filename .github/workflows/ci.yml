@@ -20,7 +20,9 @@ jobs:
       - name: Test
         run: npm test
       - name: E2E
-        run: npm run e2e:ci
+        run: |
+          npx webdriver-manager update --versions.chrome=87.0.4280.88
+          npm run e2e:ci
   documentation:
     needs: build
     runs-on: ubuntu-latest
