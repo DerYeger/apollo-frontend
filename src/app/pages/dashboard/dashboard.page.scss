@@ -10,8 +10,6 @@
 
 .toolbar {
   z-index: 2;
-  // The following line equalizes dark and light themes.
-  height: 4rem;
 }
 
 h1.title {
@@ -43,10 +41,6 @@ mat-nav-list {
 
 .language-button {
   width: 50%;
-  // The following lines equalize dark and light themes.
-  display: flex;
-  align-items: center;
-  height: 3rem;
 }
 
 .theme-button-container {
