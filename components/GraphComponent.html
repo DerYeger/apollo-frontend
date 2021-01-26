@@ -3705,7 +3705,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.zoom &#x3D; d3
       .zoom&lt;SVGSVGElement, unknown&gt;()
       .scaleExtent([1, 1])
-      .filter((event) &#x3D;&gt; event.button &#x3D;&#x3D;&#x3D; 0)
+      .filter((event) &#x3D;&gt; event.button &#x3D;&#x3D;&#x3D; 0 || event.touches?.length &gt;&#x3D; 2)
       .on(&#x27;zoom&#x27;, (event) &#x3D;&gt; this.zoomed(event));
   }
 
@@ -3994,6 +3994,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    pointer-events: none;
+
+    * {
+      pointer-events: all;
+    }
 
     &gt; mat-slide-toggle {
       margin-left: 0.5rem;

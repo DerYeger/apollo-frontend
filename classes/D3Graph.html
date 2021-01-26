@@ -1194,7 +1194,7 @@ export default class D3Graph {
     const highestCurrentId &#x3D; this.nodes
       .map((node) &#x3D;&gt; +node.id)
       .filter((id) &#x3D;&gt; !isNaN(id))
-      .reduce((prev, curr) &#x3D;&gt; (prev &gt;&#x3D; curr ? prev : curr), 0);
+      .reduce((prev, curr) &#x3D;&gt; (prev &gt;&#x3D; curr ? prev : curr), -1);
     return this.createNode(&#x60;${highestCurrentId + 1}&#x60;, undefined, undefined, x, y);
   }
 
