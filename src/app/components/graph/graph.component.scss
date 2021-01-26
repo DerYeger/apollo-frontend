@@ -19,6 +19,11 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    pointer-events: none;
+
+    * {
+      pointer-events: all;
+    }
 
     > mat-slide-toggle {
       margin-left: 0.5rem;
