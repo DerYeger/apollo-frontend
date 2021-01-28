@@ -11,6 +11,7 @@ Run `npm ci` to perform a clean installation of the required dependencies.
 ### Development server
 
 Run `npm start` to run a development server. The app will open and automatically reload if any source files are changed.
+>Note: Default port is 4200.
 
 ### Code scaffolding
 
@@ -37,4 +38,6 @@ Run `npm run compodoc` to generate the documentation. It will be stored in the `
 ### Docker
 
 Run `docker-compose up -d --build` to build and start a container. Alternatively, build the image via the Dockerfile.
+>Note: Default port is 80.
+
 >Note: Change the argument `BACKEND_URL` as required.
