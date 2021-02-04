@@ -60,7 +60,7 @@
     "@angular/compiler-cli": "11.1.2",
     "@compodoc/compodoc": "1.1.11",
     "@types/jasmine": "3.6.3",
-    "@types/node": "12.19.15",
+    "@types/node": "12.19.16",
     "@typescript-eslint/eslint-plugin": "4.14.2",
     "@typescript-eslint/parser": "4.14.2",
     "codelyzer": "6.0.1",
