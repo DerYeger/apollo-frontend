@@ -165,7 +165,7 @@
       "valid": "Unterformel gilt für mindestens eine Variablenzuweisung"
     },
     "forall": {
-      "invalid": "Unterformel gilt für keine Variablenzuweisungen",
+      "invalid": "Unterformel gilt nicht für alle Variablenzuweisungen",
       "valid": "Unterformel gilt für alle Variablenzuweisungen"
     },
     "implication": {
