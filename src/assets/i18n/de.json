@@ -161,12 +161,12 @@
       "response-too-big": "Die Antwort ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung."
     },
     "exists": {
-      "invalid": "Unterformel gilt für keine Variablenzuweisungen",
-      "valid": "Unterformel gilt für mindestens eine Variablenzuweisung"
+      "invalid": "Unterformel gilt für keine Variablenbelegung",
+      "valid": "Unterformel gilt für mindestens eine Variablenbelegung"
     },
     "forall": {
-      "invalid": "Unterformel gilt nicht für alle Variablenzuweisungen",
-      "valid": "Unterformel gilt für alle Variablenzuweisungen"
+      "invalid": "Unterformel gilt nicht für alle Variablenbelegungen",
+      "valid": "Unterformel gilt für alle Variablenbelegungen"
     },
     "implication": {
       "invalid": "Antezedens gilt, aber Konsequenz gilt nicht",
