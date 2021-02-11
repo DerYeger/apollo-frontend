@@ -2,6 +2,8 @@
 
 > A web application for first-order model checking in graph structures
 
+Documentation is available [here](https://gramofo-frontend.yeger.eu/).
+
 ## Development
 
 ### Installation
