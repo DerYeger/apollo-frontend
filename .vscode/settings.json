@@ -1,0 +1,8 @@
+{
+  "i18n-ally.localesPaths": "src/assets/i18n",
+  "i18n-ally.keystyle": "nested",
+  "eslint.options": {
+    "extensions": [".ts", ".html"]
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"]
+}

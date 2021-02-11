@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.toolbar {
+  z-index: 2;
+}
+
+h1.title {
+  margin-left: 0.5rem;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  min-width: 12.5rem;
+}
+
+.mat-drawer-transition .mat-drawer-content {
+  transition-duration: 0s !important;
+}
+
+mat-nav-list {
+  padding: 0;
+}
+
+.language-button-group {
+  width: 100%;
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.language-button {
+  width: 50%;
+}
+
+.theme-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+@mixin repository-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foregound: map-get($theme, foreground);
+  $text-color: mat-color($foregound, text);
+
+  .github-logo {
+    width: 2rem;
+    height: 2rem;
+    fill: $text-color;
+  }
+
+  .repository-link {
+    align-items: center;
+    color: $text-color;
+    display: flex;
+    justify-content: left;
+    margin: 1rem;
+    text-decoration: none;
+
+    span {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    mat-icon {
+      transform: scale(0.75);
+    }
+  }
+
+  .repository-link:visited {
+    color: $text-color;
+    text-decoration: none;
+  }
+}

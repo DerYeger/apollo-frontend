@@ -1,0 +1,30 @@
+<div class="graph-tool-container">
+  <button mat-icon-button color="primary" (click)="saveGraph()" matTooltip="{{ 'actions.save' | translate }}">
+    <mat-icon>save</mat-icon>
+  </button>
+  <button mat-icon-button (click)="exportGraph()" color="primary" matTooltip="{{ 'actions.export' | translate }}">
+    <mat-icon>get_app</mat-icon>
+  </button>
+  <button mat-icon-button color="primary" (click)="resetGraph()" matTooltip="{{ 'graph.reset-graph' | translate }}">
+    <mat-icon>location_searching</mat-icon>
+  </button>
+  <mat-icon class="help-icon" color="primary" [matTooltip]="(controlsTooltipText | async) || ''" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>
+  <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">
+    {{ "graph.simulation" | translate }}
+  </mat-slide-toggle>
+  <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">
+    {{ "graph.labels" | translate }}
+  </mat-slide-toggle>
+</div>
+<button
+  *ngIf="allowEditing"
+  mat-mini-fab
+  color="primary"
+  (click)="createNode()"
+  class="create-node-button"
+  matTooltip="{{ 'graph.create-node' | translate }}"
+  matTooltipPosition="left"
+>
+  <mat-icon>add</mat-icon>
+</button>
+<div #graphHost class="graph"></div>

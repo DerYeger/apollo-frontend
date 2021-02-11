@@ -1,16 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
+import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { AppComponent } from './app.component';
+import { GraphEditorComponent } from './components/graph-editor/graph-editor.component';
+import { GraphComponent } from './components/graph/graph.component';
+import { MaterialModule } from './material.module';
+import { DashboardPage } from './pages/dashboard/dashboard.page';
+import { reducers } from './store/reducers';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent, DashboardPage, GraphEditorComponent, GraphComponent],
+      imports: [RouterTestingModule, TranslateModule.forRoot(), LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined)],
     }).compileComponents();
   });
 
@@ -18,18 +23,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'gramofo-frontend'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('gramofo-frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('gramofo-frontend app is running!');
   });
 });

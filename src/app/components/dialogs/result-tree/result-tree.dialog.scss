@@ -1,0 +1,78 @@
+@import "src/assets/styles/variables";
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin result-tree-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  .valid-trace {
+    color: mat-color($primary);
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.no-bottom-margin * {
+    margin-bottom: 0 !important;
+  }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+
+      .mat-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .icon-container {
+    display: flex;
+    flex-wrap: nowrap;
+    vertical-align: top;
+    margin-bottom: 1rem;
+
+    .drag-handle {
+      cursor: move;
+    }
+  }
+}
+
+.invalid {
+  color: mat-color($warn-palette);
+}
+
+.tree-container {
+  flex-grow: 1;
+  max-height: unset;
+
+  .result-tree-invisible {
+    display: none;
+  }
+
+  .result-tree ul,
+  .result-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+}
+
+.mat-slide-toggle {
+  margin-left: 0.5rem;
+}

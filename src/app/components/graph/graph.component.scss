@@ -1,0 +1,88 @@
+@mixin graph-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $foregound: map-get($theme, foreground);
+
+  .graph {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+  }
+
+  .graph-tool-container {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    right: 1rem;
+    text-align: right;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    pointer-events: none;
+
+    * {
+      pointer-events: all;
+    }
+
+    > mat-slide-toggle {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .help-icon {
+      padding: 8px;
+    }
+  }
+
+  .create-node-button {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .link {
+    stroke: mat-color($accent);
+    stroke-width: 4px;
+    fill: none;
+
+    &.hidden {
+      stroke-width: 0;
+    }
+
+    &.draggable {
+      stroke: mat-color($accent, darker);
+      stroke-dasharray: 8px 2px;
+      pointer-events: none;
+    }
+  }
+
+  .clickbox {
+    stroke: rgba($color: #000000, $alpha: 0);
+    stroke-width: 16px;
+    fill: none;
+    cursor: pointer;
+  }
+
+  .arrow {
+    fill: mat-color($accent);
+  }
+
+  .node {
+    fill: mat-color($primary);
+    stroke: none;
+    cursor: pointer;
+  }
+
+  .link-details,
+  .node-details {
+    fill: mat-color($foregound, text);
+    text-anchor: middle;
+  }
+
+  .node-id {
+    pointer-events: none;
+    fill: mat-color($primary, default-contrast);
+    text-anchor: middle;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="header-container" [class.no-bottom-margin]="result.feedback === 'minimal'" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary=".cdk-overlay-container">
+  <div class="title-container">
+    <h2 mat-dialog-title>
+      <mat-icon [class]="result.rootTrace.isModel ? 'valid-trace' : 'invalid'">{{ result.rootTrace.isModel ? 'done' : 'close'}}</mat-icon>
+      {{ (result.rootTrace.isModel ? 'api.valid' : 'api.invalid') | translate }}
+    </h2>
+    <h2 mat-dialog-title>{{ result.rootTrace.formula }}</h2>
+  </div>
+  <div class="icon-container">
+    <button mat-icon-button color="primary" disableRipple class="drag-handle" cdkDragHandle>
+      <mat-icon>open_with</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="closeDialog()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+</div>
+<mat-dialog-content *ngIf="result.feedback !== 'minimal'" class="tree-container">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- This is the tree node template for leaf nodes -->
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
+      <!-- use a disabled button to provide padding for tree leaf -->
+      <button mat-icon-button disabled></button>
+      <gramofo-trace [trace]="node.trace"></gramofo-trace>
+    </mat-tree-node>
+    <!-- This is the tree node template for expandable nodes -->
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
+      <button mat-icon-button matTreeNodeToggle>
+        <mat-icon class="mat-icon-rtl-mirror" [class.invalid]="node.trace.isModel !== node.trace.shouldBeModel">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      <gramofo-trace [trace]="node.trace"></gramofo-trace>
+    </mat-tree-node>
+  </mat-tree>
+</mat-dialog-content>
+<mat-dialog-actions *ngIf="result.rootTrace.children">
+  <button mat-raised-button (click)="expandAll()" color="primary">{{ 'actions.expand' | translate }}</button>
+  <button mat-raised-button (click)="treeControl.collapseAll()" color="primary">{{ 'actions.collapse' | translate }}</button>
+  <mat-slide-toggle *ngIf="result.feedback === 'full'" color="accent" (change)="updateFilter($event.checked)"> {{ 'actions.filter-causes' | translate }} </mat-slide-toggle>
+</mat-dialog-actions>

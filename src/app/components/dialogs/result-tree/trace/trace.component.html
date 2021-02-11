@@ -1,0 +1,4 @@
+<div class="trace" [class.invalid]="trace.isModel !== trace.shouldBeModel">
+  <span class="formula">{{ trace.formula }}</span>
+  <span class="descriprion">{{ trace.description.key | translate: trace.description.params }}</span>
+</div>
