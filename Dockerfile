@@ -10,7 +10,7 @@ RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.
     npm install &&\
     npm run build --prod
 
-FROM nginx:1.19.6-alpine
+FROM nginx:1.19.7-alpine
 
 COPY --from=BUILDER /usr/app/dist/gramofo-frontend/ /usr/share/nginx/html
 
