@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.2...v1.0.3) (2021-03-17)
+
+
+### Bug Fixes
+
+* **deployment:** use correct repository ([d2ca740](https://github.com/DerYeger/gramofo-frontend/commit/d2ca740a0e33905d999995af4ac94a4f5dddd97a))
+
 ## [1.0.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.1...v1.0.2) (2021-03-17)
 
 
