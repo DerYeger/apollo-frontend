@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.1...v1.0.2) (2021-03-17)
+
+
+### Bug Fixes
+
+* **deployment:** use correct artifact path ([66b9890](https://github.com/DerYeger/gramofo-frontend/commit/66b989074d725058cee9aad4dde8a3771db21405))
+
 ## [1.0.1](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.0...v1.0.1) (2021-03-17)
 
 
