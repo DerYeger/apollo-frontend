@@ -15,7 +15,7 @@ describe('GraphImportComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GraphImportComponent],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), LoggerTestingModule, FormsModule, ReactiveFormsModule],
+      imports: [FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

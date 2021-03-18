@@ -12,7 +12,7 @@ describe('SnackBarService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot(), LoggerTestingModule],
+      imports: [LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     });
     service = TestBed.inject(SnackBarService);
   });

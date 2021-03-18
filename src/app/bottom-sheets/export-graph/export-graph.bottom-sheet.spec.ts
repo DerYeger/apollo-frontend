@@ -15,7 +15,7 @@ describe('ExportGraphBottomSheet', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ExportGraphBottomSheet],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), LoggerTestingModule],
+      imports: [LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
       providers: [
         { provide: MatBottomSheetRef, useValue: {} },
         { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} },

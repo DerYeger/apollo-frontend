@@ -13,7 +13,7 @@ describe('NodeFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NodeFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+      imports: [FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

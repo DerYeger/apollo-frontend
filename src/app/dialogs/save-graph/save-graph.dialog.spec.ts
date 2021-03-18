@@ -13,7 +13,7 @@ describe('SaveGraphDialog', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SaveGraphDialog],
-      imports: [MaterialModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot()],
+      imports: [FormsModule, MaterialModule, ReactiveFormsModule, TranslateModule.forRoot()],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} },

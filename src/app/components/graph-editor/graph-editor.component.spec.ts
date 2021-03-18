@@ -18,8 +18,8 @@ describe('GraphEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GraphEditorComponent, GraphComponent, LinkFormComponent, NodeFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), MaterialModule, AppRoutingModule],
+      declarations: [GraphComponent, GraphEditorComponent, NodeFormComponent, LinkFormComponent],
+      imports: [AppRoutingModule, FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 
