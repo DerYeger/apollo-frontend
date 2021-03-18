@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 
-import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
 

@@ -10,7 +10,7 @@ import { DEFAULT_COLOR_SCHEME, LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
-import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { FeedbackSelectionComponent } from 'src/app/components/feedback-selection/feedback-selection.component';
 import { GraphEditorComponent } from 'src/app/components/graph-editor/graph-editor.component';
 import { LinkFormComponent } from 'src/app/components/graph-editor/link-form/link-form.component';
