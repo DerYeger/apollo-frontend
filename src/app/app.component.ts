@@ -62,7 +62,10 @@ export class AppComponent implements OnDestroy, OnInit {
 
     this.themeSubscription = this.store
       .select('settings')
-      .pipe(map((settings) => settings.theme))
+      .pipe(
+        map((settings) => settings.theme),
+        distinctUntilChanged()
+      )
       .subscribe((theme) =>
         d3
           .select(document.body)
