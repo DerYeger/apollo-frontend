@@ -356,6 +356,32 @@ export class GraphEditorComponent {
   margin-bottom: 1rem;
   width: 100%;
 }
+
+@media screen and (max-width: 800px) {
+  .graph-container {
+    width: 100%;
+    height: 75%;
+    min-height: 28rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-container {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    :first {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .horizontal-divider {
+    visibility: hidden;
+    margin-top: 0;
+  }
+}
 </code></pre>
     </div>
 
