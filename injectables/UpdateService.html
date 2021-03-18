@@ -27,15 +27,18 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>AppComponent</li>
+  <li>Injectables</li>
+  <li>UpdateService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -45,89 +48,21 @@
         <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/app.component.ts</code>
-</p>
-
-    <p class="comment">
-        <h3>Description</h3>
-    </p>
-    <p class="comment">
-        <p>Root component of the app.
-Manages languages and themes.
-Sets the default values upon initialization.</p>
-
-    </p>
-
-
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/update.service.ts</code>
+        </p>
 
 
 
 
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>gramofo-root</code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./app.component.scss</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./app.component.html</code></td>
-            </tr>
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
+            <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -141,18 +76,18 @@ Sets the default values upon initialization.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#languages">languages</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#checkForUpdateSubscription">checkForUpdateSubscription</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#languageSubscription">languageSubscription</a>
+                                <a href="#updateActivatedSubscription">updateActivatedSubscription</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#themeSubscription">themeSubscription</a>
+                                <a href="#updateAvailableSubscription">updateAvailableSubscription</a>
                             </li>
                         </ul>
                     </td>
@@ -168,11 +103,11 @@ Sets the default values upon initialization.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#start">start</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#stop">stop</a>
                             </li>
                         </ul>
                     </td>
@@ -186,19 +121,19 @@ Sets the default values upon initialization.</p>
     </table>
 </section>
 
-    <section>
+            <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(log: NGXLogger, store: <a href="../interfaces/State.html">Store<State></a>, translate: TranslateService, updateService: <a href="../injectables/UpdateService.html">UpdateService</a>)</code>
+                        <code>constructor(appRef: <a href="https://angular.io/api/core/ApplicationRef" target="_blank">ApplicationRef</a>, dialog: MatDialog, log: NGXLogger, swUpdate: <a href="https://angular.io/api/service-worker/SwUpdate" target="_blank">SwUpdate</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/app.component.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/update.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -216,6 +151,30 @@ Sets the default values upon initialization.</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>appRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ApplicationRef" target="_blank" >ApplicationRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>log</td>
                                                   
                                                         <td>
@@ -228,34 +187,10 @@ Sets the default values upon initialization.</p>
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>store</td>
+                                                        <td>swUpdate</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/State.html" target="_self" >Store&lt;State&gt;</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>translate</td>
-                                                  
-                                                        <td>
-                                                                    <code>TranslateService</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>updateService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UpdateService.html" target="_self" >UpdateService</a></code>
+                                                                        <code><a href="https://angular.io/api/service-worker/SwUpdate" target="_blank" >SwUpdate</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -272,11 +207,7 @@ Sets the default values upon initialization.</p>
         </table>
 </section>
 
-
-
-
-
-    <section>
+            <section>
     
     <h3 id="methods">
         Methods
@@ -285,36 +216,34 @@ Sets the default values upon initialization.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnDestroy"></a>
+                    <a name="start"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            ngOnDestroy
+                            start
                         </b>
-                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        <a href="#start"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngOnDestroy()</code>
+                    <code>start()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/app.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/services/update.service.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Unsubscribes from setting-changes.</p>
-</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -328,36 +257,34 @@ Sets the default values upon initialization.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="stop"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Public</span>
-                            ngOnInit
+                            stop
                         </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <a href="#stop"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngOnInit()</code>
+                    <code>stop()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/app.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/services/update.service.ts:53</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Subscribes to setting-changes.</p>
-</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -368,7 +295,7 @@ Sets the default values upon initialization.</p>
         </tbody>
     </table>
 </section>
-    <section>
+            <section>
     
         <h3 id="inputs">
             Properties
@@ -377,50 +304,13 @@ Sets the default values upon initialization.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="languages"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Readonly</span>
-                            languages</b>
-                            <a href="#languages"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-    en: localeEn,
-    de: localeDe,
-  }</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/app.component.ts:27</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="languageSubscription"></a>
+                        <a name="checkForUpdateSubscription"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
                                 <span class="modifier">Optional</span>
-                            languageSubscription</b>
-                            <a href="#languageSubscription"><span class="icon ion-ios-link"></span></a>
+                            checkForUpdateSubscription</b>
+                            <a href="#checkForUpdateSubscription"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -432,7 +322,7 @@ Sets the default values upon initialization.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/app.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/services/update.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -443,13 +333,13 @@ Sets the default values upon initialization.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="themeSubscription"></a>
+                        <a name="updateActivatedSubscription"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
                                 <span class="modifier">Optional</span>
-                            themeSubscription</b>
-                            <a href="#themeSubscription"><span class="icon ion-ios-link"></span></a>
+                            updateActivatedSubscription</b>
+                            <a href="#updateActivatedSubscription"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -461,7 +351,36 @@ Sets the default values upon initialization.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/app.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/update.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateAvailableSubscription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Optional</span>
+                            updateAvailableSubscription</b>
+                            <a href="#updateAvailableSubscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/update.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -470,153 +389,74 @@ Sets the default values upon initialization.</p>
         </table>
 </section>
 
-</div>
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { registerLocaleData } from &#x27;@angular/common&#x27;;
-import localeDe from &#x27;@angular/common/locales/de&#x27;;
-import localeEn from &#x27;@angular/common/locales/en&#x27;;
-import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
-import { Store } from &#x27;@ngrx/store&#x27;;
-import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import * as d3 from &#x27;d3&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApplicationRef, Injectable } from &#x27;@angular/core&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { SwUpdate } from &#x27;@angular/service-worker&#x27;;
 import { NGXLogger } from &#x27;ngx-logger&#x27;;
-import { Subscription } from &#x27;rxjs&#x27;;
-import { distinctUntilChanged, map } from &#x27;rxjs/operators&#x27;;
+import { concat, interval, Subscription } from &#x27;rxjs&#x27;;
+import { first } from &#x27;rxjs/operators&#x27;;
 
-import { UpdateService } from &#x27;src/app/services/update.service&#x27;;
-import { setLanguage } from &#x27;src/app/store/actions&#x27;;
-import { Language, State } from &#x27;src/app/store/state&#x27;;
+import { UpdateAvailableDialog } from &#x27;src/app/dialogs/update-available/update-available.dialog&#x27;;
 
-/**
- * Root component of the app.
- * Manages languages and themes.
- * Sets the default values upon initialization.
- */
-@Component({
-  selector: &#x27;gramofo-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.scss&#x27;],
+@Injectable({
+  providedIn: &#x27;root&#x27;,
 })
-export class AppComponent implements OnDestroy, OnInit {
-  private readonly languages &#x3D; {
-    en: localeEn,
-    de: localeDe,
-  };
+export class UpdateService {
+  private checkForUpdateSubscription?: Subscription;
+  private updateAvailableSubscription?: Subscription;
+  private updateActivatedSubscription?: Subscription;
 
-  private languageSubscription?: Subscription;
-  private themeSubscription?: Subscription;
+  public constructor(private readonly appRef: ApplicationRef, private readonly dialog: MatDialog, private readonly log: NGXLogger, private readonly swUpdate: SwUpdate) {}
 
-  public constructor(
-    private readonly log: NGXLogger,
-    private readonly store: Store&lt;State&gt;,
-    private readonly translate: TranslateService,
-    private readonly updateService: UpdateService
-  ) {
-    Object.entries(this.languages).forEach(([language, locale]) &#x3D;&gt; {
-      translate.setTranslation(language, require(&#x60;../assets/i18n/${language}.json&#x60;));
-      registerLocaleData(locale);
-      log.debug(&#x60;Language ${language} registered.&#x60;);
+  public start(): void {
+    if (!this.swUpdate.isEnabled) {
+      return;
+    }
+
+    if (this.checkForUpdateSubscription !&#x3D;&#x3D; undefined || this.updateAvailableSubscription !&#x3D;&#x3D; undefined || this.updateActivatedSubscription !&#x3D;&#x3D; undefined) {
+      this.stop();
+    }
+
+    const appIsStable$ &#x3D; this.appRef.isStable.pipe(first((isStable) &#x3D;&gt; isStable));
+    const everyThirtyMinutes$ &#x3D; interval(30 * 60 * 1000);
+    const everyThirtyMinutesOnceAppIsStable$ &#x3D; concat(appIsStable$, everyThirtyMinutes$);
+    this.checkForUpdateSubscription &#x3D; everyThirtyMinutesOnceAppIsStable$.subscribe(() &#x3D;&gt; {
+      this.log.debug(&#x27;Checking for updates&#x27;);
+      return this.swUpdate.checkForUpdate();
     });
-    this.updateService.start();
+
+    this.updateAvailableSubscription &#x3D; this.swUpdate.available.subscribe(() &#x3D;&gt; {
+      this.log.debug(&#x27;Update available&#x27;);
+      this.dialog
+        .open(UpdateAvailableDialog)
+        .afterClosed()
+        .subscribe(() &#x3D;&gt; {
+          this.log.debug(&#x27;Updating&#x27;);
+          return this.swUpdate.activateUpdate().then(() &#x3D;&gt; document.location.reload());
+        });
+    });
+
+    this.updateActivatedSubscription &#x3D; this.swUpdate.activated.subscribe(() &#x3D;&gt; this.log.info(&#x27;Updated&#x27;));
+
+    this.log.debug(&#x27;UpdateService started&#x27;);
   }
 
-  /**
-   * Subscribes to setting-changes.
-   */
-  public ngOnInit(): void {
-    this.languageSubscription &#x3D; this.store
-      .select(&#x27;settings&#x27;)
-      .pipe(
-        map((settings) &#x3D;&gt; settings.language),
-        distinctUntilChanged()
-      )
-      .subscribe((language) &#x3D;&gt; {
-        if (language &#x3D;&#x3D;&#x3D; undefined) {
-          const browserLanguage &#x3D; this.translate.getBrowserLang() as Language;
-          const initialLanguage &#x3D; browserLanguage &#x3D;&#x3D;&#x3D; &#x27;en&#x27; || browserLanguage &#x3D;&#x3D;&#x3D; &#x27;de&#x27; ? browserLanguage : &#x27;en&#x27;;
-          this.store.dispatch(setLanguage({ language: initialLanguage }));
-        } else {
-          this.log.info(&#x60;Set ${language} as current language.&#x60;);
-          this.translate.use(language);
-        }
-      });
+  public stop(): void {
+    this.checkForUpdateSubscription?.unsubscribe();
+    this.updateAvailableSubscription?.unsubscribe();
+    this.updateActivatedSubscription?.unsubscribe();
 
-    this.themeSubscription &#x3D; this.store
-      .select(&#x27;settings&#x27;)
-      .pipe(
-        map((settings) &#x3D;&gt; settings.theme),
-        distinctUntilChanged()
-      )
-      .subscribe((theme) &#x3D;&gt;
-        d3
-          .select(document.body)
-          .classed(&#x27;dark-theme&#x27;, &#x27;dark-theme&#x27; &#x3D;&#x3D;&#x3D; theme)
-          .classed(&#x27;light-theme&#x27;, &#x27;light-theme&#x27; &#x3D;&#x3D;&#x3D; theme)
-      );
-  }
-
-  /**
-   * Unsubscribes from setting-changes.
-   */
-  public ngOnDestroy(): void {
-    this.languageSubscription?.unsubscribe();
-    this.themeSubscription?.unsubscribe();
-    this.updateService.stop();
+    this.log.debug(&#x27;UpdateService stopped&#x27;);
   }
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;gramofo-dashboard&gt;
-  &lt;router-outlet&gt;&lt;/router-outlet&gt;
-&lt;/gramofo-dashboard&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./app.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
-        </div>
-    </div>
-
-    
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><gramofo-dashboard>  <router-outlet></router-outlet></gramofo-dashboard></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'gramofo-update-available'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'AppComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
 
 
 
@@ -645,8 +485,8 @@ export class AppComponent implements OnDestroy, OnInit {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppComponent.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UpdateService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
