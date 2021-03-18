@@ -4,8 +4,8 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 
-import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
-import { TraceComponent } from 'src/app/components/dialogs/result-tree/trace/trace.component';
+import { ResultTreeDialog } from 'src/app/dialogs/result-tree/result-tree.dialog';
+import { TraceComponent } from 'src/app/dialogs/result-tree/trace/trace.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
