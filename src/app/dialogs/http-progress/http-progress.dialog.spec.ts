@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 import { of } from 'rxjs';
 
-import { HttpProgressDialog } from 'src/app/components/dialogs/http-progress/http-progress.dialog';
+import { HttpProgressDialog } from 'src/app/dialogs/http-progress/http-progress.dialog';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
 
