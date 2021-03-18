@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.4...v1.1.0) (2021-03-18)
+
+
+### Features
+
+* auto-enable automatic layout ([f80ea39](https://github.com/DerYeger/gramofo-frontend/commit/f80ea391b36c92548adfc356ec02643a8c3872eb))
+* improve layout of graph editor on screens with max-width 800 ([ce94137](https://github.com/DerYeger/gramofo-frontend/commit/ce94137fd7a0a8af3f00e619d851faf4790eb320))
+
 ## [1.0.4](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.3...v1.0.4) (2021-03-18)
 
 
