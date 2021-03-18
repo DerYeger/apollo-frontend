@@ -49,7 +49,8 @@
     "check": "Prüfen",
     "collapse": "Einklappen",
     "expand": "Erweitern",
-    "filter-causes": "Relevantes filtern"
+    "filter-causes": "Relevantes filtern",
+    "update": "Aktualisieren"
   },
   "fol": {
     "constant": {
@@ -78,7 +79,8 @@
     "false": "Falsch",
     "true": "Wahr",
     "syntax": "Syntax",
-    "semantics": "Semantik"
+    "semantics": "Semantik",
+    "update-available": "Update verfügbar"
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."

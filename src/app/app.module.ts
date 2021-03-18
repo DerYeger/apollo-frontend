@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { DEFAULT_COLOR_SCHEME, LoggerModule, NgxLoggerLevel } from 'ngx-logger';
@@ -24,6 +25,7 @@ import { HttpProgressDialog } from 'src/app/dialogs/http-progress/http-progress.
 import { ResultTreeDialog } from 'src/app/dialogs/result-tree/result-tree.dialog';
 import { TraceComponent } from 'src/app/dialogs/result-tree/trace/trace.component';
 import { SaveGraphDialog } from 'src/app/dialogs/save-graph/save-graph.dialog';
+import { UpdateAvailableDialog } from 'src/app/dialogs/update-available/update-available.dialog';
 import { MaterialModule } from 'src/app/material.module';
 import { DashboardPage } from 'src/app/pages/dashboard/dashboard.page';
 import { HomePage } from 'src/app/pages/home/home.page';
@@ -54,6 +56,7 @@ import { environment } from 'src/environments/environment';
     SaveGraphDialog,
     SymbolEditorComponent,
     TraceComponent,
+    UpdateAvailableDialog,
   ],
   imports: [
     AppRoutingModule,
@@ -74,6 +77,7 @@ import { environment } from 'src/environments/environment';
     }),
     MaterialModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers, { metaReducers }),
     TranslateModule.forRoot({}),
   ],
