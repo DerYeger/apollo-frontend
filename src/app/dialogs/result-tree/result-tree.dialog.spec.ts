@@ -18,7 +18,7 @@ describe('ResultTreeDialog', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ResultTreeDialog, TraceComponent],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), LoggerTestingModule],
+      imports: [LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
       providers: [
         {
           provide: MAT_DIALOG_DATA,

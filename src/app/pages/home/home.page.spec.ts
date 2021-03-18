@@ -17,8 +17,8 @@ describe('HomePage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomePage, GraphListComponent, GraphImportComponent],
-      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), AppRoutingModule, TranslateModule.forRoot(), LoggerTestingModule, FormsModule, ReactiveFormsModule],
+      declarations: [GraphImportComponent, GraphListComponent, HomePage],
+      imports: [AppRoutingModule, FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

@@ -13,7 +13,7 @@ describe('LinkFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LinkFormComponent],
-      imports: [LoggerTestingModule, FormsModule, ReactiveFormsModule, TranslateModule.forRoot(), MaterialModule],
+      imports: [FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

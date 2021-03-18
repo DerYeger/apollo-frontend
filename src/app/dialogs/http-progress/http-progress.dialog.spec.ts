@@ -16,7 +16,7 @@ describe('HttpProgressDialog', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HttpProgressDialog],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined), LoggerTestingModule],
+      imports: [LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: of() },
         { provide: MatDialogRef, useValue: {} },

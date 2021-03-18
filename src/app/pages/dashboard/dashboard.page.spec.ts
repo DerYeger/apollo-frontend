@@ -14,7 +14,7 @@ describe('DashboardPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardPage],
-      imports: [MaterialModule, RouterTestingModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined)],
+      imports: [MaterialModule, RouterTestingModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

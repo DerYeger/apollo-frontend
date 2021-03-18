@@ -13,7 +13,7 @@ describe('GraphComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GraphComponent],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined)],
+      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

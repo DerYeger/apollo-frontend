@@ -14,7 +14,7 @@ describe('SymbolEditorComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SymbolEditorComponent],
-      imports: [LoggerTestingModule, TranslateModule.forRoot(), MaterialModule, FormsModule, ReactiveFormsModule],
+      imports: [FormsModule, LoggerTestingModule, MaterialModule, ReactiveFormsModule, TranslateModule.forRoot()],
     }).compileComponents();
   });
 

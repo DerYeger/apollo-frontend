@@ -13,7 +13,7 @@ describe('FeedbackSelectionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FeedbackSelectionComponent],
-      imports: [MaterialModule, TranslateModule.forRoot(), StoreModule.forRoot(reducers, undefined)],
+      imports: [MaterialModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

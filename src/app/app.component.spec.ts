@@ -14,8 +14,8 @@ import { reducers } from 'src/app/store/reducers';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, DashboardPage, GraphEditorComponent, GraphComponent],
-      imports: [RouterTestingModule, TranslateModule.forRoot(), LoggerTestingModule, MaterialModule, StoreModule.forRoot(reducers, undefined)],
+      declarations: [AppComponent, DashboardPage, GraphComponent, GraphEditorComponent],
+      imports: [LoggerTestingModule, MaterialModule, RouterTestingModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 
