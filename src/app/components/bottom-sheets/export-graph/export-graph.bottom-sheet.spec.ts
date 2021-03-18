@@ -3,10 +3,10 @@ import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bott
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
+import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
-
-import { ExportGraphBottomSheet } from './export-graph.bottom-sheet';
 
 describe('ExportGraphBottomSheet', () => {
   let component: ExportGraphBottomSheet;

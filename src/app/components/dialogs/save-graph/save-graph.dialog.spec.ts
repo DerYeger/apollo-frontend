@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
-import { MaterialModule } from 'src/app/material.module';
 
-import { SaveGraphDialog } from './save-graph.dialog';
+import { SaveGraphDialog } from 'src/app/components/dialogs/save-graph/save-graph.dialog';
+import { MaterialModule } from 'src/app/material.module';
 
 describe('SaveGraphDialog', () => {
   let component: SaveGraphDialog;

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSelect, MatSelectChange } from '@angular/material/select';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+
 import { Feedback } from 'src/app/model/api/model-checker-request';
 import { setSelectedFeedback } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';

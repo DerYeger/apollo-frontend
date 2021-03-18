@@ -5,10 +5,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { NGXLogger } from 'ngx-logger';
 import { forkJoin, Observable, of } from 'rxjs';
 
-import { FOLGraph } from '../model/domain/fol.graph';
-import { TranslationDTO } from '../model/dto/translation.dto';
-import { storeGraph } from '../store/actions';
-import { State } from '../store/state';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
+import { TranslationDTO } from 'src/app/model/dto/translation.dto';
+import { storeGraph } from 'src/app/store/actions';
+import { State } from 'src/app/store/state';
 
 /**
  * Service that provides methods for easy creation of SnackBar messages by translation keys.

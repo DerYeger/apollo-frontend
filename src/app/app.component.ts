@@ -9,8 +9,8 @@ import { NGXLogger } from 'ngx-logger';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
-import { setLanguage } from './store/actions';
-import { Language, State } from './store/state';
+import { setLanguage } from 'src/app/store/actions';
+import { Language, State } from 'src/app/store/state';
 
 /**
  * Root component of the app.

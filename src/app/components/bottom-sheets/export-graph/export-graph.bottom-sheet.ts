@@ -1,10 +1,11 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component, Inject } from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import * as YAML from 'yaml';
+
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { terminate } from 'src/app/utils/event.utils';
-import * as YAML from 'yaml';
 
 type FileType = 'json' | 'yml';
 

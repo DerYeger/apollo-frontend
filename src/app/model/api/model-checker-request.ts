@@ -1,6 +1,5 @@
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { Language } from 'src/app/store/state';
-
-import { FOLGraph } from '../domain/fol.graph';
 
 /**
  * Feedback level of the ModelChecking algorithm.

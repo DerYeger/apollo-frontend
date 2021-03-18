@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
 import { SnackBarService } from 'src/app/services/snack-bar.service';

@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
-import { MaterialModule } from 'src/app/material.module';
 
-import { NodeFormComponent } from './node-form.component';
+import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/node-form.component';
+import { MaterialModule } from 'src/app/material.module';
 
 describe('NodeFormComponent', () => {
   let component: NodeFormComponent;

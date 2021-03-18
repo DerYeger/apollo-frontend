@@ -8,7 +8,26 @@
         "project": ["tsconfig.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
-      "extends": ["plugin:@angular-eslint/ng-cli-compat", "plugin:@angular-eslint/ng-cli-compat--formatting-add-on", "plugin:@angular-eslint/template/process-inline-templates"],
+      "extends": [
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/errors",
+        "plugin:import/typescript",
+        "plugin:import/warnings"
+      ],
+      "plugins": ["import"],
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": ["./tsconfig.json", "./e2e/tsconfig.json"]
+          }
+        }
+      },
       "rules": {
         "@angular-eslint/component-class-suffix": "off",
         "@angular-eslint/component-selector": [
@@ -45,7 +64,31 @@
             "code": 180
           }
         ],
-        "prefer-arrow/prefer-arrow-functions": "off"
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 1,
+            "maxEOF": 1
+          }
+        ],
+        "import/no-deprecated": "off",
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [".*"]
+          }
+        ]
       }
     },
     {

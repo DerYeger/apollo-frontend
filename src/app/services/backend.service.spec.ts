@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { BackendService } from './backend.service';
+import { BackendService } from 'src/app/services/backend.service';
 
 describe('BackendService', () => {
   let service: BackendService;

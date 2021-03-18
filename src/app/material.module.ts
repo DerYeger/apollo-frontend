@@ -1,5 +1,5 @@
-import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { COMMA, ENTER, SPACE } from '@angular/cdk/keycodes';
 import { NgModule } from '@angular/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';

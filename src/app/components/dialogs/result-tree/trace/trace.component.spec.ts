@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { TraceComponent } from './trace.component';
+import { TraceComponent } from 'src/app/components/dialogs/result-tree/trace/trace.component';
 
 describe('TraceComponent', () => {
   let component: TraceComponent;

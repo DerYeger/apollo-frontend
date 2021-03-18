@@ -1,5 +1,5 @@
-import { Feedback } from './model-checker-request';
-import { ModelCheckerTrace } from './model-checker-trace';
+import { Feedback } from 'src/app/model/api/model-checker-request';
+import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 
 /**
  * API response of the ModelChecking algorithm.

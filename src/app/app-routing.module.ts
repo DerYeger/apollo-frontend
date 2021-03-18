@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { HomePage } from './pages/home/home.page';
-import { ModelCheckerPage } from './pages/model-checker/model-checker.page';
+import { HomePage } from 'src/app/pages/home/home.page';
+import { ModelCheckerPage } from 'src/app/pages/model-checker/model-checker.page';
 
 /**
  * Extends Route to provide additional data.

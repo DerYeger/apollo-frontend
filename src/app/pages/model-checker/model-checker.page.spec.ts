@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { FeedbackSelectionComponent } from 'src/app/components/feedback-selection/feedback-selection.component';
 import { GraphEditorComponent } from 'src/app/components/graph-editor/graph-editor.component';
@@ -11,9 +12,8 @@ import { LinkFormComponent } from 'src/app/components/graph-editor/link-form/lin
 import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/node-form.component';
 import { GraphComponent } from 'src/app/components/graph/graph.component';
 import { MaterialModule } from 'src/app/material.module';
+import { ModelCheckerPage } from 'src/app/pages/model-checker/model-checker.page';
 import { reducers } from 'src/app/store/reducers';
-
-import { ModelCheckerPage } from './model-checker.page';
 
 describe('ModelCheckerPage', () => {
   let component: ModelCheckerPage;

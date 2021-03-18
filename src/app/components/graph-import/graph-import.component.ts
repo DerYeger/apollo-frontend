@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import * as YAML from 'yaml';
+
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { DEMO_GRAPH } from 'src/app/model/domain/demo.graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { terminate } from 'src/app/utils/event.utils';
-import * as YAML from 'yaml';
 
 /**
  * Allows importing graphs as text or by uploading files.

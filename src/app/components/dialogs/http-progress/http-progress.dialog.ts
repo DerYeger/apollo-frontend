@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ProgressBarMode } from '@angular/material/progress-bar';
 import { Observable, of, Subscription } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 type State = 'sending' | 'querying' | 'fetching';

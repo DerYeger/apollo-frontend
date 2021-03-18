@@ -7,6 +7,9 @@ import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
 import { concat, forkJoin, Observable, of, Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+
+import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { SaveGraphDialog } from 'src/app/components/dialogs/save-graph/save-graph.dialog';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
@@ -24,8 +27,6 @@ import {
   bidirectionalLinkTextTransform,
 } from 'src/app/utils/d3.utils';
 import { terminate } from 'src/app/utils/event.utils';
-import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
-import { SaveGraphDialog } from '../dialogs/save-graph/save-graph.dialog';
 
 /**
  * The interactive graph component.

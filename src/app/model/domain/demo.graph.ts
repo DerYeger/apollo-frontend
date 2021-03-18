@@ -1,4 +1,4 @@
-import { FOLGraph } from './fol.graph';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
 export const DEMO_GRAPH: FOLGraph = {
   name: 'Demo Graph',

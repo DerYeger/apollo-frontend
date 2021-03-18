@@ -2,9 +2,9 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, Simpl
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
-import { ExportGraphBottomSheet } from '../bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
 /**
  * Table that displays a list of graphs.

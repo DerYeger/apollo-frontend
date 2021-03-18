@@ -3,9 +3,9 @@ import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
 
-import { MaterialModule } from '../material.module';
-import { reducers } from '../store/reducers';
-import { SnackBarService } from './snack-bar.service';
+import { MaterialModule } from 'src/app/material.module';
+import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { reducers } from 'src/app/store/reducers';
 
 describe('SnackBarService', () => {
   let service: SnackBarService;

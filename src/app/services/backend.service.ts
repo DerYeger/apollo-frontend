@@ -2,11 +2,11 @@ import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
-import { Feedback, ModelCheckerRequest } from '../model/api/model-checker-request';
-import { ModelCheckerResponse } from '../model/api/model-checker-response';
-import { FOLGraph } from '../model/domain/fol.graph';
+import { Feedback, ModelCheckerRequest } from 'src/app/model/api/model-checker-request';
+import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
+import { environment } from 'src/environments/environment';
 
 const host = environment.backendUrl;
 

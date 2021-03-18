@@ -3,13 +3,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
+import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';
+import { TraceComponent } from 'src/app/components/dialogs/result-tree/trace/trace.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 import { reducers } from 'src/app/store/reducers';
-
-import { ResultTreeDialog } from './result-tree.dialog';
-import { TraceComponent } from './trace/trace.component';
 
 describe('ResultTreeDialog', () => {
   let component: ResultTreeDialog;

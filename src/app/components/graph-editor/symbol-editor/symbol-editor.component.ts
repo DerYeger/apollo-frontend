@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { FormControl, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { NGXLogger } from 'ngx-logger';
+
 import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.configuration';
 
 /**

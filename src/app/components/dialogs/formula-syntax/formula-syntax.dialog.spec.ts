@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
-import { MaterialModule } from 'src/app/material.module';
 
-import { FormulaSyntaxDialog } from './formula-syntax.dialog';
+import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
+import { MaterialModule } from 'src/app/material.module';
 
 describe('FormulaSyntaxDialog', () => {
   let component: FormulaSyntaxDialog;
