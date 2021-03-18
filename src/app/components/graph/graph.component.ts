@@ -8,7 +8,7 @@ import { D3DragEvent, D3ZoomEvent } from 'd3';
 import { concat, forkJoin, Observable, of, Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
-import { ExportGraphBottomSheet } from 'src/app/components/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
 import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
 import { SaveGraphDialog } from 'src/app/dialogs/save-graph/save-graph.dialog';
 import D3Graph from 'src/app/model/d3/d3.graph';
