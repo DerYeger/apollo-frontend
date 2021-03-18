@@ -11,9 +11,9 @@
 
   .graph-tool-container {
     position: absolute;
-    left: 1rem;
-    top: 1rem;
-    right: 1rem;
+    left: 0.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
     text-align: right;
     display: flex;
     justify-content: flex-start;
@@ -32,6 +32,19 @@
 
     .help-icon {
       padding: 8px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .graph-tool-container {
+      position: absolute;
+      left: 0.25rem;
+      top: 0.2rem;
+      right: 0.25rem;
+
+      .automatic-layout-toggle {
+        display: none;
+      }
     }
   }
 

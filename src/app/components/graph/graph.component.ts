@@ -122,7 +122,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     const newHeight = this.graphHost.nativeElement.offsetHeight;
     const widthDiffers = this.width.toFixed(2) !== newWidth.toFixed(2);
     const heightDiffers = this.height.toFixed(2) !== newHeight.toFixed(2);
-    if (widthDiffers || heightDiffers) {
+
+    if (!widthDiffers && !heightDiffers) {
+      return;
+    } else if (window.innerWidth <= 800 && !this.enableSimulation) {
+      this.store.dispatch(enableSimulation());
+    } else {
       this.cleanInitGraph(newWidth, newHeight);
     }
   }
