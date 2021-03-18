@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.3...v1.0.4) (2021-03-18)
+
+
+### Bug Fixes
+
+* **deployment:** use new backend url ([6b204df](https://github.com/DerYeger/gramofo-frontend/commit/6b204df1a67d0472df098266cdb338cd36d48ef6))
+
 ## [1.0.3](https://github.com/DerYeger/gramofo-frontend/compare/v1.0.2...v1.0.3) (2021-03-17)
 
 
