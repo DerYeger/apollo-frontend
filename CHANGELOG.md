@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.1.2...v1.2.0) (2021-03-18)
+
+
+### Features
+
+* enable pwa support and add update service ([#50](https://github.com/DerYeger/gramofo-frontend/issues/50)) ([ed84772](https://github.com/DerYeger/gramofo-frontend/commit/ed84772ebfe747309af3d68eb465f0505d3c2bea))
+
 ## [1.1.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.1.1...v1.1.2) (2021-03-18)
 
 
