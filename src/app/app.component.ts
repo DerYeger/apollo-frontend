@@ -9,6 +9,7 @@ import { NGXLogger } from 'ngx-logger';
 import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
+import { UpdateService } from 'src/app/services/update.service';
 import { setLanguage } from 'src/app/store/actions';
 import { Language, State } from 'src/app/store/state';
 
@@ -31,12 +32,18 @@ export class AppComponent implements OnDestroy, OnInit {
   private languageSubscription?: Subscription;
   private themeSubscription?: Subscription;
 
-  public constructor(private readonly store: Store<State>, private readonly translate: TranslateService, private readonly log: NGXLogger) {
+  public constructor(
+    private readonly log: NGXLogger,
+    private readonly store: Store<State>,
+    private readonly translate: TranslateService,
+    private readonly updateService: UpdateService
+  ) {
     Object.entries(this.languages).forEach(([language, locale]) => {
       translate.setTranslation(language, require(`../assets/i18n/${language}.json`));
       registerLocaleData(locale);
       log.debug(`Language ${language} registered.`);
     });
+    this.updateService.start();
   }
 
   /**
@@ -80,5 +87,6 @@ export class AppComponent implements OnDestroy, OnInit {
   public ngOnDestroy(): void {
     this.languageSubscription?.unsubscribe();
     this.themeSubscription?.unsubscribe();
+    this.updateService.stop();
   }
 }
