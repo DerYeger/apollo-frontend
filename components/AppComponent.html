@@ -293,8 +293,8 @@ Sets the default values upon initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/app.component.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/app.component.ts:80</a></div>
                 </td>
             </tr>
 
@@ -473,8 +473,8 @@ import { NGXLogger } from &#x27;ngx-logger&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;;
 import { distinctUntilChanged, map } from &#x27;rxjs/operators&#x27;;
 
-import { setLanguage } from &#x27;./store/actions&#x27;;
-import { Language, State } from &#x27;./store/state&#x27;;
+import { setLanguage } from &#x27;src/app/store/actions&#x27;;
+import { Language, State } from &#x27;src/app/store/state&#x27;;
 
 /**
  * Root component of the app.
@@ -526,7 +526,10 @@ export class AppComponent implements OnDestroy, OnInit {
 
     this.themeSubscription &#x3D; this.store
       .select(&#x27;settings&#x27;)
-      .pipe(map((settings) &#x3D;&gt; settings.theme))
+      .pipe(
+        map((settings) &#x3D;&gt; settings.theme),
+        distinctUntilChanged()
+      )
       .subscribe((theme) &#x3D;&gt;
         d3
           .select(document.body)

@@ -286,11 +286,11 @@
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { environment } from &#x27;src/environments/environment&#x27;;
 
-import { Feedback, ModelCheckerRequest } from &#x27;../model/api/model-checker-request&#x27;;
-import { ModelCheckerResponse } from &#x27;../model/api/model-checker-response&#x27;;
-import { FOLGraph } from &#x27;../model/domain/fol.graph&#x27;;
+import { Feedback, ModelCheckerRequest } from &#x27;src/app/model/api/model-checker-request&#x27;;
+import { ModelCheckerResponse } from &#x27;src/app/model/api/model-checker-response&#x27;;
+import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
 
 const host &#x3D; environment.backendUrl;
 
