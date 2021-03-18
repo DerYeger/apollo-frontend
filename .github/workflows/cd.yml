@@ -74,6 +74,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Set backend URL
+        run: sed -i "s|{{BACKEND_URL}}|https://yeger.eu/gramofo|g" src/environments/environment.prod.ts
       - name: Build
         run: npm run build
       - name: Upload artifact
