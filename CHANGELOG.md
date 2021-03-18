@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.1.1...v1.1.2) (2021-03-18)
+
+
+### Bug Fixes
+
+* prevent redundant theme changes ([f8612ff](https://github.com/DerYeger/gramofo-frontend/commit/f8612ffcf2ca8f65df6061cd7e81f6f7cfc3550b))
+
 ## [1.1.1](https://github.com/DerYeger/gramofo-frontend/compare/v1.1.0...v1.1.1) (2021-03-18)
 
 
