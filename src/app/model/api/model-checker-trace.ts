@@ -1,4 +1,4 @@
-import { TranslationDTO } from '../dto/translation.dto';
+import { TranslationDTO } from 'src/app/model/dto/translation.dto';
 
 /**
  * Trace of the ModelChecking algorithm.

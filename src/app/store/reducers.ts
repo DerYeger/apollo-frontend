@@ -1,7 +1,7 @@
 import { ActionReducerMap, createReducer, MetaReducer, on } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
-import { GraphCollection, setGraph, unsetGraph } from '../model/domain/graph.collection';
+import { GraphCollection, setGraph, unsetGraph } from 'src/app/model/domain/graph.collection';
 import {
   cacheGraph,
   clearGraphCache,
@@ -16,8 +16,8 @@ import {
   toggleSidebar,
   toggleSimulation,
   toggleTheme,
-} from './actions';
-import { GraphSettings, Settings, State } from './state';
+} from 'src/app/store/actions';
+import { GraphSettings, Settings, State } from 'src/app/store/state';
 
 /**
  * Reducers for the app-state.

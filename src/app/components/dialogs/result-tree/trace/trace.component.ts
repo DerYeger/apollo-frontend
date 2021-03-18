@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 
 /**

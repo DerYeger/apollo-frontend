@@ -1,7 +1,7 @@
 import { Params } from '@angular/router';
 import copy from 'fast-copy';
 
-import { FOLGraph } from './fol.graph';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
 /**
  * Collection of graphs, associated by their names.

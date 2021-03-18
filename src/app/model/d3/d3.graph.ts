@@ -1,8 +1,8 @@
-import { FOLEdge } from '../domain/fol.edge';
-import { FOLGraph } from '../domain/fol.graph';
-import { FOLNode } from '../domain/fol.node';
-import { D3Link, GramoFOLink } from './d3.link';
-import { D3Node, GramoFONode } from './d3.node';
+import { D3Link, GramoFOLink } from 'src/app/model/d3/d3.link';
+import { D3Node, GramoFONode } from 'src/app/model/d3/d3.node';
+import { FOLEdge } from 'src/app/model/domain/fol.edge';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
+import { FOLNode } from 'src/app/model/domain/fol.node';
 
 /**
  * Graph class with D3.js compatability.

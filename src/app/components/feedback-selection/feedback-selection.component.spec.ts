@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+
+import { FeedbackSelectionComponent } from 'src/app/components/feedback-selection/feedback-selection.component';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
-
-import { FeedbackSelectionComponent } from './feedback-selection.component';
 
 describe('FeedbackSelectionComponent', () => {
   let component: FeedbackSelectionComponent;

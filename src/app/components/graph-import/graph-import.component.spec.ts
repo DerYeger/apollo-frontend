@@ -3,10 +3,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
+import { GraphImportComponent } from 'src/app/components/graph-import/graph-import.component';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
-
-import { GraphImportComponent } from './graph-import.component';
 
 describe('GraphImportComponent', () => {
   let component: GraphImportComponent;

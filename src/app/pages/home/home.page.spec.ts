@@ -3,13 +3,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { GraphImportComponent } from 'src/app/components/graph-import/graph-import.component';
 import { GraphListComponent } from 'src/app/components/graph-list/graph-list.component';
 import { MaterialModule } from 'src/app/material.module';
+import { HomePage } from 'src/app/pages/home/home.page';
 import { reducers } from 'src/app/store/reducers';
-
-import { HomePage } from './home.page';
 
 describe('HomePage', () => {
   let component: HomePage;

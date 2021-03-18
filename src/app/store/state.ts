@@ -1,5 +1,5 @@
-import { Feedback } from '../model/api/model-checker-request';
-import { GraphCollection } from '../model/domain/graph.collection';
+import { Feedback } from 'src/app/model/api/model-checker-request';
+import { GraphCollection } from 'src/app/model/domain/graph.collection';
 
 /**
  * The state of this app.

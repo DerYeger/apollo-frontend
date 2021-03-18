@@ -2,6 +2,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+
 import { ModelCheckerResponse } from 'src/app/model/api/model-checker-response';
 import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
 import { SnackBarService } from 'src/app/services/snack-bar.service';

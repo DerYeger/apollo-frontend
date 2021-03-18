@@ -1,7 +1,7 @@
 import { Matrix } from 'ml-matrix';
 
-import { GraphConfiguration } from '../configurations/graph.configuration';
-import { D3Node } from '../model/d3/d3.node';
+import { GraphConfiguration } from 'src/app/configurations/graph.configuration';
+import { D3Node } from 'src/app/model/d3/d3.node';
 
 /**
  * Creates the path of a straight line between the edges of two nodes.

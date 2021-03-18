@@ -1,6 +1,6 @@
 import { SimulationLinkDatum } from 'd3';
 
-import { D3Node } from './d3.node';
+import { D3Node } from 'src/app/model/d3/d3.node';
 
 /**
  * Link (edge) interface with D3.js compatability.

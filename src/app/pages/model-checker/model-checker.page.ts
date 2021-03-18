@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, map, mergeMap } from 'rxjs/operators';
+
 import { FormulaSyntaxDialog } from 'src/app/components/dialogs/formula-syntax/formula-syntax.dialog';
 import { HttpProgressDialog } from 'src/app/components/dialogs/http-progress/http-progress.dialog';
 import { ResultTreeDialog } from 'src/app/components/dialogs/result-tree/result-tree.dialog';

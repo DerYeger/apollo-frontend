@@ -2,10 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
-import { MaterialModule } from 'src/app/material.module';
-import { reducers } from 'src/app/store/reducers';
 
-import { DashboardPage } from './dashboard.page';
+import { MaterialModule } from 'src/app/material.module';
+import { DashboardPage } from 'src/app/pages/dashboard/dashboard.page';
+import { reducers } from 'src/app/store/reducers';
 
 describe('DashboardPage', () => {
   let component: DashboardPage;

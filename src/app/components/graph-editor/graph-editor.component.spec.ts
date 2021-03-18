@@ -3,14 +3,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoggerTestingModule } from 'ngx-logger/testing';
+
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { GraphEditorComponent } from 'src/app/components/graph-editor/graph-editor.component';
+import { LinkFormComponent } from 'src/app/components/graph-editor/link-form/link-form.component';
+import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/node-form.component';
+import { GraphComponent } from 'src/app/components/graph/graph.component';
 import { MaterialModule } from 'src/app/material.module';
 import { reducers } from 'src/app/store/reducers';
-
-import { GraphComponent } from '../graph/graph.component';
-import { GraphEditorComponent } from './graph-editor.component';
-import { LinkFormComponent } from './link-form/link-form.component';
-import { NodeFormComponent } from './node-form/node-form.component';
 
 describe('GraphEditorComponent', () => {
   let component: GraphEditorComponent;

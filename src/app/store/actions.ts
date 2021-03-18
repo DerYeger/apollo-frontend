@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Feedback } from '../model/api/model-checker-request';
-import { FOLGraph } from '../model/domain/fol.graph';
-import { Language } from './state';
+import { Feedback } from 'src/app/model/api/model-checker-request';
+import { FOLGraph } from 'src/app/model/domain/fol.graph';
+import { Language } from 'src/app/store/state';
 
 // Settings
 
