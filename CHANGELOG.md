@@ -1,3 +1,11 @@
+## [1.2.5](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.4...v1.2.5) (2021-03-31)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to v11.2.7 ([#51](https://github.com/DerYeger/gramofo-frontend/issues/51)) ([8383864](https://github.com/DerYeger/gramofo-frontend/commit/838386455cfa70ff17986a92d89f8fd02183e94e))
+* **deps:** update dependency @ngrx/store to v11.1.0 ([eaefb18](https://github.com/DerYeger/gramofo-frontend/commit/eaefb182d5551d814a8afc445aa23fbf625acc26))
+
 ## [1.2.4](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.3...v1.2.4) (2021-03-30)
 
 
