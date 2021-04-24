@@ -1,3 +1,10 @@
+## [1.2.13](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.12...v1.2.13) (2021-04-24)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ml-matrix to v6.8.0 ([7623f7f](https://github.com/DerYeger/gramofo-frontend/commit/7623f7f4ca1aa41a154e7269a222885df1485cee))
+
 ## [1.2.12](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.11...v1.2.12) (2021-04-21)
 
 
