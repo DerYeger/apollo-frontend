@@ -1,3 +1,10 @@
+## [1.2.15](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.14...v1.2.15) (2021-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update angularmaterial monorepo to v11.2.12 ([1e6563c](https://github.com/DerYeger/gramofo-frontend/commit/1e6563cebfbe59bae774dc81778ae148ac0727d4))
+
 ## [1.2.14](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.13...v1.2.14) (2021-04-28)
 
 
