@@ -1,3 +1,10 @@
+## [1.2.18](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.17...v1.2.18) (2021-05-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/d3 to v6.6.0 ([0dec6b4](https://github.com/DerYeger/gramofo-frontend/commit/0dec6b4899c878f3ee71050517c942270a9ca1c1))
+
 ## [1.2.17](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.16...v1.2.17) (2021-05-19)
 
 
