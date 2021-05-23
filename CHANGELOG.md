@@ -1,3 +1,10 @@
+## [1.2.19](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.18...v1.2.19) (2021-05-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ngx-logger to v4.2.2 ([fcb6200](https://github.com/DerYeger/gramofo-frontend/commit/fcb6200021d3c0b6b721c4648e0e620facabadd6))
+
 ## [1.2.18](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.17...v1.2.18) (2021-05-21)
 
 
