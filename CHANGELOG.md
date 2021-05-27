@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/DerYeger/gramofo-frontend/compare/v1.3.0...v1.3.1) (2021-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @ngrx/store to v12 ([#63](https://github.com/DerYeger/gramofo-frontend/issues/63)) ([6bb2e52](https://github.com/DerYeger/gramofo-frontend/commit/6bb2e52bf4af3348edc8e5d3636001014b9a5309))
+* **deps:** update dependency ngrx-store-localstorage to v12 ([#65](https://github.com/DerYeger/gramofo-frontend/issues/65)) ([9380dbb](https://github.com/DerYeger/gramofo-frontend/commit/9380dbbf1d404e0c0e18e158fd5af490b4d90eb8))
+
 # [1.3.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.21...v1.3.0) (2021-05-27)
 
 
