@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "src/assets/styles/variables";
 
 :host {
@@ -11,7 +12,7 @@
   width: 100%;
 
   &.invalid {
-    color: mat-color($warn-palette);
+    color: mat.get-color-from-palette($warn-palette);
   }
 
   .formula {

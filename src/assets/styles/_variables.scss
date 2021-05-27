@@ -1,12 +1,12 @@
-@import "~@angular/material/theming";
+@use '~@angular/material' as mat;
 
-$primary-light-palette: mat-palette($mat-indigo);
-$accent-light-palette: mat-palette($mat-pink, A200, A100, A400);
+$primary-light-palette: mat.define-palette(mat.$indigo-palette);
+$accent-light-palette: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
-$primary-dark-palette: mat-palette($mat-blue-grey);
-$accent-dark-palette: mat-palette($mat-pink, 700, 400, 800);
+$primary-dark-palette: mat.define-palette(mat.$blue-grey-palette);
+$accent-dark-palette: mat.define-palette(mat.$pink-palette, 700, 400, 800);
 
-$warn-palette: mat-palette($mat-red);
+$warn-palette: mat.define-palette(mat.$red-palette);
 
-$light-theme: mat-light-theme($primary-light-palette, $accent-light-palette, $warn-palette);
-$dark-theme: mat-dark-theme($primary-dark-palette, $accent-dark-palette, $warn-palette);
+$light-theme: mat.define-light-theme($primary-light-palette, $accent-light-palette, $warn-palette);
+$dark-theme: mat.define-dark-theme($primary-dark-palette, $accent-dark-palette, $warn-palette);

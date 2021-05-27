@@ -1,9 +1,9 @@
-@import "~@angular/material/theming";
+@use '~@angular/material' as mat;
 @import "variables";
 @import "src/app/components/graph/graph.component";
 @import "src/app/dialogs/result-tree/result-tree.dialog";
 @import "src/app/pages/dashboard/dashboard.page";
-@include mat-core();
+@include mat.core();
 
 @mixin component-themes($theme) {
   @include graph-theme($theme);
@@ -12,11 +12,11 @@
 }
 
 .light-theme {
-  @include angular-material-theme($light-theme);
+  @include mat.all-component-themes($light-theme);
   @include component-themes($light-theme);
 }
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
+  @include mat.all-component-themes($dark-theme);
   @include component-themes($dark-theme);
 }

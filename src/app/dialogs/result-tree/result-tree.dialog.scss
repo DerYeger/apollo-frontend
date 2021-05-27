@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "src/assets/styles/variables";
 
 :host {
@@ -11,7 +12,7 @@
   $primary: map-get($theme, primary);
 
   .valid-trace {
-    color: mat-color($primary);
+    color: mat.get-color-from-palette($primary);
   }
 }
 
@@ -54,7 +55,7 @@
 }
 
 .invalid {
-  color: mat-color($warn-palette);
+  color: mat.get-color-from-palette($warn-palette);
 }
 
 .tree-container {
