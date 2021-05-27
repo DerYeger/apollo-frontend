@@ -18,12 +18,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
         if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: yarn install
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -40,11 +40,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Build
-        run: npm run build
+        run: yarn build
   e2e:
     name: E2E
     runs-on: ubuntu-latest
@@ -61,13 +61,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: E2E
         run: |
           npx webdriver-manager update --versions.chrome=89.0.4389.82
-          npm run e2e:ci
+          yarn e2e:ci
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -84,11 +84,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Lint
-        run: npm run lint
+        run: yarn lint
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -105,11 +105,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('./yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Test
-        run: npm run test
+        run: yarn test
   release:
     name: Release
     runs-on: ubuntu-latest
