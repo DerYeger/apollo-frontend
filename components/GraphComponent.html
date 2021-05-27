@@ -3392,7 +3392,7 @@ import { Store } from &#x27;@ngrx/store&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import * as d3 from &#x27;d3&#x27;;
 import { D3DragEvent, D3ZoomEvent } from &#x27;d3&#x27;;
-import { concat, forkJoin, Observable, of, Subscription } from &#x27;rxjs&#x27;;
+import { concat, firstValueFrom, forkJoin, Observable, of, Subscription } from &#x27;rxjs&#x27;;
 import { map, mergeMap } from &#x27;rxjs/operators&#x27;;
 
 import { ExportGraphBottomSheet } from &#x27;src/app/bottom-sheets/export-graph/export-graph.bottom-sheet&#x27;;
@@ -3551,17 +3551,17 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public saveGraph(): void {
-    this.dialog
-      .open(SaveGraphDialog, {
-        data: this.graph!.toDomainGraph(),
-      })
-      .afterClosed()
-      .toPromise()
-      .then((domainGraph) &#x3D;&gt; {
-        if (domainGraph !&#x3D;&#x3D; undefined) {
-          this.saveRequested.emit(domainGraph);
-        }
-      });
+    firstValueFrom(
+      this.dialog
+        .open(SaveGraphDialog, {
+          data: this.graph!.toDomainGraph(),
+        })
+        .afterClosed()
+    ).then((domainGraph) &#x3D;&gt; {
+      if (domainGraph !&#x3D;&#x3D; undefined) {
+        this.saveRequested.emit(domainGraph);
+      }
+    });
   }
 
   public exportGraph(): void {
