@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as d3 from 'd3';
 import { D3DragEvent, D3ZoomEvent } from 'd3';
-import { concat, forkJoin, Observable, of, Subscription } from 'rxjs';
+import { concat, firstValueFrom, forkJoin, Observable, of, Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
@@ -164,17 +164,17 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public saveGraph(): void {
-    this.dialog
-      .open(SaveGraphDialog, {
-        data: this.graph!.toDomainGraph(),
-      })
-      .afterClosed()
-      .toPromise()
-      .then((domainGraph) => {
-        if (domainGraph !== undefined) {
-          this.saveRequested.emit(domainGraph);
-        }
-      });
+    firstValueFrom(
+      this.dialog
+        .open(SaveGraphDialog, {
+          data: this.graph!.toDomainGraph(),
+        })
+        .afterClosed()
+    ).then((domainGraph) => {
+      if (domainGraph !== undefined) {
+        this.saveRequested.emit(domainGraph);
+      }
+    });
   }
 
   public exportGraph(): void {

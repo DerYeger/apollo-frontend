@@ -3,7 +3,7 @@ import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { NGXLogger } from 'ngx-logger';
-import { forkJoin, Observable, of } from 'rxjs';
+import { firstValueFrom, forkJoin, Observable, of } from 'rxjs';
 
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { TranslationDTO } from 'src/app/model/dto/translation.dto';
@@ -29,7 +29,7 @@ export class SnackBarService {
   public async openSnackBar(messageDTO: TranslationDTO, actionDTO?: TranslationDTO, duration: number | undefined = 5000): Promise<MatSnackBarRef<TextOnlySnackBar>> {
     const message$: Observable<string> = this.translate.get(messageDTO.key, messageDTO.params);
     const action$: Observable<string | undefined> = actionDTO ? this.translate.get(actionDTO.key, actionDTO.params) : of(undefined);
-    const [message, action] = await forkJoin([message$, action$]).toPromise();
+    const [message, action] = await firstValueFrom(forkJoin([message$, action$]));
     this.log.debug(`Openend SnackBar - Message: ${message} - Action: ${action}`);
     return this.snackBar.open(message, action, { duration });
   }
