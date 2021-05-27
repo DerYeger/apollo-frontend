@@ -210,7 +210,8 @@ export class TraceComponent {
                 <p class="comment">
                     <code>./trace.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">@import &quot;src/assets/styles/variables&quot;;
+                <pre class="line-numbers"><code class="language-scss">@use &#x27;~@angular/material&#x27; as mat;
+@import &quot;src/assets/styles/variables&quot;;
 
 :host {
   width: 100%;
@@ -223,7 +224,7 @@ export class TraceComponent {
   width: 100%;
 
   &amp;.invalid {
-    color: mat-color($warn-palette);
+    color: mat.get-color-from-palette($warn-palette);
   }
 
   .formula {

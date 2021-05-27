@@ -3979,10 +3979,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
                 <p class="comment">
                     <code>./graph.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">@mixin graph-theme($theme) {
+                <pre class="line-numbers"><code class="language-scss">@use &#x27;~@angular/material&#x27; as mat;
+
+@mixin graph-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
-  $foregound: map-get($theme, foreground);
+  $foreground: map-get($theme, foreground);
 
   .graph {
     width: 100%;
@@ -4036,7 +4038,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   .link {
-    stroke: mat-color($accent);
+    stroke: mat.get-color-from-palette($accent);
     stroke-width: 4px;
     fill: none;
 
@@ -4045,7 +4047,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     }
 
     &amp;.draggable {
-      stroke: mat-color($accent, darker);
+      stroke: mat.get-color-from-palette($accent, darker);
       stroke-dasharray: 8px 2px;
       pointer-events: none;
     }
@@ -4059,24 +4061,24 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   .arrow {
-    fill: mat-color($accent);
+    fill: mat.get-color-from-palette($accent);
   }
 
   .node {
-    fill: mat-color($primary);
+    fill: mat.get-color-from-palette($primary);
     stroke: none;
     cursor: pointer;
   }
 
   .link-details,
   .node-details {
-    fill: mat-color($foregound, text);
+    fill: mat.get-color-from-palette($foreground, text);
     text-anchor: middle;
   }
 
   .node-id {
     pointer-events: none;
-    fill: mat-color($primary, default-contrast);
+    fill: mat.get-color-from-palette($primary, default-contrast);
     text-anchor: middle;
   }
 }
