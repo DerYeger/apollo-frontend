@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.3.1...v1.3.2) (2021-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rxjs to v7 ([#56](https://github.com/DerYeger/gramofo-frontend/issues/56)) ([365b108](https://github.com/DerYeger/gramofo-frontend/commit/365b1081c486cb0e61578f3d2fd03b176703a614))
+
 ## [1.3.1](https://github.com/DerYeger/gramofo-frontend/compare/v1.3.0...v1.3.1) (2021-05-27)
 
 
