@@ -126,12 +126,12 @@
     ora "5.4.0"
     rxjs "6.6.7"
 
-"@angular-eslint/builder@^12.0.0":
+"@angular-eslint/builder@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-12.0.0.tgz#b6cf118b8918fd6440599b1765f2bd5d90bbc6e7"
   integrity sha512-gvvXQDXXi0gsWZ25KyMqF/1b3AaX+CJbpVgTPqxJdEx4euvmG/m3993ynmpf+Kc+F+aI2O9W4TUbDbbLWoCjIA==
 
-"@angular-eslint/eslint-plugin-template@12.0.0", "@angular-eslint/eslint-plugin-template@^12.0.0":
+"@angular-eslint/eslint-plugin-template@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-12.0.0.tgz#eac9df5a04b3c0a5dc14a67aa580f5164f892f93"
   integrity sha512-RF8PwN2A3U4ihd7sKYUM8wgPj46M30reziLl8CPPhN3H5Hn46nksmKmHRbPNakH2gW0Ba7NIxy+ocqUy0fQpcQ==
@@ -140,7 +140,7 @@
     aria-query "^4.2.2"
     axobject-query "^2.2.0"
 
-"@angular-eslint/eslint-plugin@12.0.0", "@angular-eslint/eslint-plugin@^12.0.0":
+"@angular-eslint/eslint-plugin@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-12.0.0.tgz#47663c1b1101bcf07fb0f714f8287b3de3b3d7f7"
   integrity sha512-osdJdMu8bYFv9WGhC04AwRcbeKq4sxCQnShV7NiF0xkgNG9KqDaStytVhPjJFn2Ja1QhfiTGlcFFk4D/9aruog==
@@ -158,7 +158,7 @@
     strip-json-comments "3.1.1"
     tmp "0.2.1"
 
-"@angular-eslint/template-parser@^12.0.0":
+"@angular-eslint/template-parser@12.0.0":
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/@angular-eslint/template-parser/-/template-parser-12.0.0.tgz#5b2ea31d4a9338cfe4a52689de36c8b00b94f286"
   integrity sha512-gl5ansA2a8LY6TEjhe0k8NiQJJdEQPjjqpysO1Rpt3NWUYQkFMt+1+AnUyokHB1TU3/11dHRUjVWXj+pMtTIAA==
@@ -4969,7 +4969,7 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.26.0:
+eslint@7.27.0:
   version "7.27.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.27.0.tgz#665a1506d8f95655c9274d84bd78f7166b07e9c7"
   integrity sha512-JZuR6La2ZF0UD384lcbnd0Cgg6QJjiCwhMD6eU4h/VGPcVGwawNNzKU41tgokGXnfjOOyI6QIffthhJTPzzuRA==
@@ -11266,14 +11266,14 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zone.js@~0.10.3:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.10.3.tgz#3e5e4da03c607c9dcd92e37dd35687a14a140c16"
-  integrity sha512-LXVLVEq0NNOqK/fLJo3d0kfzd4sxwn2/h67/02pjCjfKDxgx1i9QqpvtHD8CrBnSSwMw5+dy11O7FRX5mkO7Cg==
-
-zone.js@~0.11.4:
+zone.js@0.11.4:
   version "0.11.4"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.11.4.tgz#0f70dcf6aba80f698af5735cbb257969396e8025"
   integrity sha512-DDh2Ab+A/B+9mJyajPjHFPWfYU1H+pdun4wnnk0OcQTNjem1XQSZ2CDW+rfZEUDjv5M19SBqAkjZi0x5wuB5Qw==
   dependencies:
     tslib "^2.0.0"
+
+zone.js@~0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.10.3.tgz#3e5e4da03c607c9dcd92e37dd35687a14a140c16"
+  integrity sha512-LXVLVEq0NNOqK/fLJo3d0kfzd4sxwn2/h67/02pjCjfKDxgx1i9QqpvtHD8CrBnSSwMw5+dy11O7FRX5mkO7Cg==
