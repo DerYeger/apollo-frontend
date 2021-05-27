@@ -14,7 +14,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "test:local": "ng test -- --karma-config=karma.local.conf.js",
     "lint": "ng lint",

@@ -8,7 +8,7 @@ ARG BACKEND_URL=http://localhost:8080
 
 RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.ts &&\
     yarn install &&\
-    yarn build --prod
+    yarn build
 
 FROM nginx:1.21.0-alpine
 
