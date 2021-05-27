@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.21...v1.3.0) (2021-05-27)
+
+
+### Features
+
+* update angular to v12 ([b9361fe](https://github.com/DerYeger/gramofo-frontend/commit/b9361fe190bb08dc88fde231b05c63b756de9f7b))
+
 ## [1.2.21](https://github.com/DerYeger/gramofo-frontend/compare/v1.2.20...v1.2.21) (2021-05-27)
 
 
