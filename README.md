@@ -8,11 +8,11 @@ Documentation is available [here](https://gramofo-frontend.yeger.eu/).
 
 ### Installation
 
-Run `npm ci` to perform a clean installation of the required dependencies.
+Run `yarn install` to install the required dependencies.
 
 ### Development server
 
-Run `npm start` to run a development server. The app will open and automatically reload if any source files are changed.
+Run `yarn start` to run a development server. The app will open and automatically reload if any source files are changed.
 >Note: Default port is 4200.
 
 ### Code scaffolding
@@ -21,7 +21,7 @@ Run `ng g c components/{{component-name}} --module=app` to generate a new compon
 
 ### Linting & formatting
 
-Run `ng lint` to lint and `npm run pretty` to format all source files.
+Run `ng lint` to lint and `yarn pretty` to format all source files.
 
 ### Build
 
@@ -35,7 +35,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ### Documentation
 
-Run `npm run compodoc` to generate the documentation. It will be stored in the `documentation/` directory.
+Run `yarn compodoc` to generate the documentation. It will be stored in the `documentation/` directory.
 
 ### Docker
 
