@@ -18,6 +18,12 @@ h1.title {
   margin-left: 0.5rem;
 }
 
+.logo {
+  justify-self: flex-end;
+  position: absolute;
+  right: 1rem;
+}
+
 .sidenav-container {
   flex: 1;
 }
@@ -55,8 +61,8 @@ mat-nav-list {
 @mixin repository-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
-  $foregound: map-get($theme, foreground);
-  $text-color: mat.get-color-from-palette($foregound, text);
+  $foreground: map-get($theme, foreground);
+  $text-color: mat.get-color-from-palette($foreground, text);
 
   .github-logo {
     width: 2rem;
