@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.3.2...v1.4.0) (2021-05-28)
+
+
+### Features
+
+* add logo ([6c9c36b](https://github.com/DerYeger/gramofo-frontend/commit/6c9c36b41fae35d8e63eba279abb50fb71993810))
+
 ## [1.3.2](https://github.com/DerYeger/gramofo-frontend/compare/v1.3.1...v1.3.2) (2021-05-27)
 
 
