@@ -66,7 +66,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: E2E
         run: |
-          npx webdriver-manager update --versions.chrome=89.0.4389.82
+          npx webdriver-manager update --versions.chrome=91.0.4472.77
           yarn e2e:ci
   lint:
     name: Lint
