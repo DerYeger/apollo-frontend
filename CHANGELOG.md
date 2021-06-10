@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.4...v1.4.5) (2021-06-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @ngrx/store to v12.1.0 ([28c1504](https://github.com/DerYeger/gramofo-frontend/commit/28c1504f3e7d71f9b173f97fb896d656fbaeecf8))
+
 ## [1.4.4](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.3...v1.4.4) (2021-06-09)
 
 
