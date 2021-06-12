@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.5...v1.4.6) (2021-06-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tslib to v2.3.0 ([d2ecf9b](https://github.com/DerYeger/gramofo-frontend/commit/d2ecf9bdb9556326c337cbe4965f701f3b937a0d))
+
 ## [1.4.5](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.4...v1.4.5) (2021-06-10)
 
 
