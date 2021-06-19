@@ -12,7 +12,7 @@ import { State } from 'src/app/store/state';
  * Contains navigation, language selection, theme selection and a link to this app's repository.
  */
 @Component({
-  selector: 'gramofo-dashboard',
+  selector: 'apollo-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })

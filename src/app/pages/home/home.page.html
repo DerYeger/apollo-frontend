@@ -1,7 +1,7 @@
 <h1 class="home-section">{{ 'home.saved-graphs' | translate }}</h1>
 <div class="home-section">
-  <gramofo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></gramofo-graph-list>
+  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list>
 </div>
 <div class="home-section">
-  <gramofo-graph-import (graphImport)="onGraphImport($event)"></gramofo-graph-import>
+  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import>
 </div>

@@ -8,7 +8,7 @@ import { D3Node } from 'src/app/model/d3/d3.node';
  * Component for editing and deleting nodes of a graph.
  */
 @Component({
-  selector: 'gramofo-node-form[node]',
+  selector: 'apollo-node-form[node]',
   templateUrl: './node-form.component.html',
   styleUrls: ['./node-form.component.scss'],
 })

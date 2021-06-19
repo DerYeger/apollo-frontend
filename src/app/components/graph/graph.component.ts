@@ -40,7 +40,7 @@ import { terminate } from 'src/app/utils/events';
  * The interactive graph component.
  */
 @Component({
-  selector: 'gramofo-graph[graph][allowEditing]',
+  selector: 'apollo-graph[graph][allowEditing]',
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss'],
 })

@@ -1,9 +1,9 @@
 {
   "app": {
-    "title": "gramoFO"
+    "title": "Apollo"
   },
   "model-checker": {
-    "title": "ModelChecker",
+    "title": "Model Checker",
     "minimize-result": "Minimize Result",
     "minimize-tooltip": "When enabled, only necessary checks are evaluated. Required for big graphs and complex formulas."
   },

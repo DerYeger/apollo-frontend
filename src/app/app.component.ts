@@ -19,7 +19,7 @@ import { Language, State } from 'src/app/store/state';
  * Sets the default values upon initialization.
  */
 @Component({
-  selector: 'gramofo-root',
+  selector: 'apollo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

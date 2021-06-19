@@ -8,7 +8,7 @@ import { D3Link } from 'src/app/model/d3/d3.link';
  * Component for editing and deleting links (edges) of a graph.
  */
 @Component({
-  selector: 'gramofo-link-form[link]',
+  selector: 'apollo-link-form[link]',
   templateUrl: './link-form.component.html',
   styleUrls: ['./link-form.component.scss'],
 })

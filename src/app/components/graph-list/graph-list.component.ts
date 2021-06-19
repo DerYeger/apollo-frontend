@@ -12,7 +12,7 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
  * The latter two have to be handled by the containing component.
  */
 @Component({
-  selector: 'gramofo-graph-list[graphs]',
+  selector: 'apollo-graph-list[graphs]',
   templateUrl: './graph-list.component.html',
   styleUrls: ['./graph-list.component.scss'],
 })

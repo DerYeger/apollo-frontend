@@ -36,7 +36,7 @@ const feedbackOptions: FeedbackOption[] = [
  * Persists the selection throughout refreshed.
  */
 @Component({
-  selector: 'gramofo-feedback-selection',
+  selector: 'apollo-feedback-selection',
   templateUrl: './feedback-selection.component.html',
   styleUrls: ['./feedback-selection.component.scss'],
 })

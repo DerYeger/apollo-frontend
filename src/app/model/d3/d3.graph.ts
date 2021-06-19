@@ -1,5 +1,5 @@
-import { D3Link, GramoFOLink } from 'src/app/model/d3/d3.link';
-import { D3Node, GramoFONode } from 'src/app/model/d3/d3.node';
+import { D3Link, ApolloLink } from 'src/app/model/d3/d3.link';
+import { D3Node, ApolloNode } from 'src/app/model/d3/d3.node';
 import { FOLEdge } from 'src/app/model/domain/fol.edge';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { FOLNode } from 'src/app/model/domain/fol.node';
@@ -55,7 +55,7 @@ export default class D3Graph {
       return Promise.reject({ key: 'validation.node.invalid-constants', params: { node: id } });
     }
 
-    const node = new GramoFONode(id, relations, constants, x, y);
+    const node = new ApolloNode(id, relations, constants, x, y);
     this.nodes.push(node);
     return Promise.resolve(node);
   }
@@ -82,7 +82,7 @@ export default class D3Graph {
       return Promise.reject({ key: 'validation.edge.invalid-functions', params: { source: sourceId, target: targetId } });
     }
 
-    const link = new GramoFOLink(source, target, relations, functions);
+    const link = new ApolloLink(source, target, relations, functions);
     this.links.push(link);
     return Promise.resolve(link);
   }

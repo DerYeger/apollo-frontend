@@ -12,7 +12,7 @@ describe('workspace-project App', () => {
 
   it('should contain the dashboard', async () => {
     await page.navigateTo();
-    expect(await page.getDashboardTitleText()).toEqual('gramoFO');
+    expect(await page.getDashboardTitleText()).toEqual('Apollo');
   });
 
   afterEach(async () => {

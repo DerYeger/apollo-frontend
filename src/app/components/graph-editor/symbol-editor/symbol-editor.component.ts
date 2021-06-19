@@ -10,7 +10,7 @@ import { SymbolEditorConfiguration } from 'src/app/configurations/symbol-editor.
  * Title and validation are provided by the configuration.
  */
 @Component({
-  selector: 'gramofo-symbol-editor[symbols][config]',
+  selector: 'apollo-symbol-editor[symbols][config]',
   templateUrl: './symbol-editor.component.html',
   styleUrls: ['./symbol-editor.component.scss'],
 })

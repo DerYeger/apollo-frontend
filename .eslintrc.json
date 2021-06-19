@@ -34,7 +34,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "gramofo",
+            "prefix": "apollo",
             "style": "kebab-case"
           }
         ],
@@ -42,7 +42,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "gramofo",
+            "prefix": "apollo",
             "style": "camelCase"
           }
         ],

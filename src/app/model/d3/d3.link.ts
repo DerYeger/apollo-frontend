@@ -16,7 +16,7 @@ export interface D3Link extends SimulationLinkDatum<D3Node> {
 /**
  * Link (edge) class with D3.js compatability.
  */
-export class GramoFOLink implements D3Link {
+export class ApolloLink implements D3Link {
   public readonly relations = new Set<string>();
   public readonly functions = new Set<string>();
 
