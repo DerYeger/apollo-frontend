@@ -64,7 +64,6 @@ export class ResultTreeDialog implements OnInit {
       this.treeControl.expandAll();
     } catch (_) {
       this.snackBarService.openSnackBar({ key: 'result-tree.expand-error' });
-      console.log('caught');
     }
   }
 

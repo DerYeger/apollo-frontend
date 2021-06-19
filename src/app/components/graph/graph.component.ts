@@ -17,6 +17,12 @@ import { D3Node } from 'src/app/model/d3/d3.node';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { enableSimulation, toggleLabels, toggleSimulation } from 'src/app/store/actions';
 import { GraphSettings, State } from 'src/app/store/state';
+import { Canvas, createCanvas } from 'src/app/utils/d3/canvas';
+import { createDrag, Drag, NodeDragEvent } from 'src/app/utils/d3/drag';
+import { createDraggableLink, DraggableLink } from 'src/app/utils/d3/draggable-link';
+import { createLinkSelection, LinkSelection } from 'src/app/utils/d3/link-selection';
+import { initMarkers } from 'src/app/utils/d3/markers';
+import { createNodeSelection, NodeSelection } from 'src/app/utils/d3/node-selection';
 import {
   paddedArcPath,
   directLinkTextTransform,
@@ -25,8 +31,10 @@ import {
   reflexiveLinkTextTransform,
   paddedReflexivePath,
   bidirectionalLinkTextTransform,
-} from 'src/app/utils/d3.utils';
-import { terminate } from 'src/app/utils/event.utils';
+} from 'src/app/utils/d3/paths';
+import { createSimulation, Simulation } from 'src/app/utils/d3/simulation';
+import { createZoom, Zoom } from 'src/app/utils/d3/zoom';
+import { terminate } from 'src/app/utils/events';
 
 /**
  * The interactive graph component.
@@ -93,16 +101,18 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private xOffset = 0;
   private yOffset = 0;
 
-  private simulation?: d3.Simulation<D3Node, D3Link>;
+  private scale = 1;
 
-  private canvas?: d3.Selection<SVGGElement, unknown, null, undefined>;
-  private link?: d3.Selection<SVGGElement, D3Link, SVGGElement, unknown>;
-  private node?: d3.Selection<SVGGElement, D3Node, SVGGElement, unknown>;
+  private simulation?: Simulation;
 
-  private zoom?: d3.ZoomBehavior<SVGSVGElement, unknown>;
-  private drag?: d3.DragBehavior<SVGGElement, D3Node, D3Node>;
+  private canvas?: Canvas;
+  private linkSelection?: LinkSelection;
+  private nodeSelection?: NodeSelection;
 
-  private draggableLink?: d3.Selection<SVGPathElement, unknown, null, undefined>;
+  private zoom?: Zoom;
+  private drag?: Drag;
+
+  private draggableLink?: DraggableLink;
   private draggableLinkSourceNode?: D3Node;
   private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
@@ -192,13 +202,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public resetGraph(): void {
-    this.graph!.unlockNodes();
     this.cleanInitGraph();
     this.store.dispatch(enableSimulation());
   }
 
   public cleanInitGraph(width?: number, height?: number): void {
-    this.clean();
+    this.resetView();
     this.initGraph(width, height);
   }
 
@@ -208,7 +217,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
    * @param alpha Alpha value (heat, activity) of the simulation
    */
   public restart(alpha: number = 0.5): void {
-    this.link = this.link!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
+    this.linkSelection = this.linkSelection!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');
       linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
       linkGroup
@@ -222,7 +231,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       return linkGroup;
     });
 
-    this.node = this.node!.data(this.graph!.nodes, (d) => d.id).join((enter) => {
+    this.nodeSelection = this.nodeSelection!.data(this.graph!.nodes, (d) => d.id).join((enter) => {
       const nodeGroup = enter
         .append('g')
         .call(this.drag!)
@@ -247,12 +256,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       return nodeGroup;
     });
 
-    this.link
+    this.linkSelection
       .select('.link-details')
       .attr('opacity', this.showLabels ? 1 : 0)
       .text((d) => [...d.relations, ...d.functions].join(', '));
 
-    this.node
+    this.nodeSelection
       .select('.node-details')
       .attr('opacity', this.showLabels ? 1 : 0)
       .text((d) => [...d.relations, ...d.constants].join(', '));
@@ -307,116 +316,33 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private initGraph(width: number = this.graphHost.nativeElement.clientWidth, height: number = this.graphHost.nativeElement.clientHeight): void {
     this.width = width;
     this.height = height;
-    this.initZoom();
-    this.initCanvas();
-    this.initMarkers();
+    this.zoom = createZoom((event) => this.onZoom(event));
+    this.canvas = createCanvas(
+      d3.select(this.graphHost.nativeElement),
+      this.zoom,
+      (event: PointerEvent) => this.onPointerMoved(event),
+      (event: PointerEvent) => this.onPointerUp(event),
+      (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1])
+    );
+    initMarkers(this.canvas, this.config);
     if (this.allowEditing) {
-      this.initDraggableLink();
+      this.draggableLink = createDraggableLink(this.canvas);
     }
-    this.initLink();
-    this.initNode();
-    this.initSimulation();
-    this.initDrag();
+    this.linkSelection = createLinkSelection(this.canvas);
+    this.nodeSelection = createNodeSelection(this.canvas);
+    this.simulation = this.createSimulation();
+    this.drag = this.createDrag();
     this.restart();
   }
 
-  private initZoom(): void {
-    this.zoom = d3
-      .zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, 1])
-      .filter((event) => event.button === 0 || event.touches?.length >= 2)
-      .on('zoom', (event) => this.zoomed(event));
+  private createSimulation(): Simulation {
+    return createSimulation(this.graph!, this.config, this.width, this.height, this.enableSimulation, () => this.onTick());
   }
 
-  private initCanvas(): void {
-    this.canvas = d3
-      .select(this.graphHost.nativeElement)
-      .append('svg')
-      .attr('width', '100%')
-      .attr('height', '100%')
-      .on('pointermove', (event: PointerEvent) => this.pointerMoved(event))
-      .on('pointerup', (event: PointerEvent) => this.onPointerUp(event))
-      .on('contextmenu', (event: MouseEvent) => terminate(event))
-      .attr('width', this.width)
-      .attr('height', this.height)
-      .on('dblclick', (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
-      .call(this.zoom!)
-      .append('g');
-  }
+  private onTick(): void {
+    this.nodeSelection!.attr('transform', (d) => `translate(${d.x},${d.y})`);
 
-  private initMarkers(): void {
-    this.canvas!.append('defs')
-      .append('marker')
-      .attr('id', 'link-arrow')
-      .attr('viewBox', this.config.markerPath)
-      .attr('refX', this.config.markerRef)
-      .attr('refY', this.config.markerRef)
-      .attr('markerWidth', this.config.markerBoxSize)
-      .attr('markerHeight', this.config.markerBoxSize)
-      .attr('orient', 'auto')
-      .classed('arrow', true)
-      .append('path')
-      .attr('d', `${d3.line()(this.config.arrowPoints)}`);
-  }
-
-  private initDraggableLink(): void {
-    this.draggableLink = this.canvas!.append('path').classed('link draggable hidden', true).attr('d', 'M0,0L0,0');
-  }
-
-  private initLink(): void {
-    this.link = this.canvas!.append('g').classed('links', true).selectAll('path');
-  }
-
-  private initNode(): void {
-    this.node = this.canvas!.append('g').classed('nodes', true).selectAll('circle');
-  }
-
-  private initSimulation(): void {
-    this.simulation = d3.forceSimulation<D3Node, D3Link>(this.graph!.nodes).on('tick', () => this.tick());
-    if (this.enableSimulation) {
-      this.simulation
-        .force('charge', d3.forceManyBody<D3Node>().strength(-500))
-        .force('collision', d3.forceCollide<D3Node>().radius(this.config.nodeRadius))
-        .force(
-          'link',
-          d3
-            .forceLink<D3Node, D3Link>()
-            .links(this.graph!.links)
-            .id((d: D3Node) => d.id)
-            .distance(this.config.nodeRadius * 10)
-        )
-        .force('x', d3.forceX<D3Node>(this.width / 2).strength(0.05))
-        .force('y', d3.forceY<D3Node>(this.height / 2).strength(0.05));
-    }
-  }
-
-  private initDrag(): void {
-    this.drag = d3
-      .drag<SVGGElement, D3Node, D3Node>()
-      .filter((event) => event.button === 1)
-      .on('start', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
-        terminate(event.sourceEvent);
-        if (event.active === 0) {
-          this.simulation!.alphaTarget(0.5).restart();
-        }
-        d.fx = d.x;
-        d.fy = d.y;
-      })
-      .on('drag', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>, d: D3Node) => {
-        d.fx = event.x;
-        d.fy = event.y;
-      })
-      .on('end', (event: D3DragEvent<SVGCircleElement, D3Node, D3Node>) => {
-        if (event.active === 0) {
-          this.simulation!.alphaTarget(0);
-        }
-      });
-  }
-
-  private tick(): void {
-    this.node!.attr('transform', (d) => `translate(${d.x},${d.y})`);
-
-    this.link!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => {
+    this.linkSelection!.selectAll<SVGPathElement, D3Link>('path').attr('d', (d: D3Link) => {
       if (d.source.id === d.target.id) {
         return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d.source, d.target)) {
@@ -426,7 +352,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       }
     });
 
-    this.link!.select('.link-details').attr('transform', (d: D3Link) => {
+    this.linkSelection!.select('.link-details').attr('transform', (d: D3Link) => {
       if (d.source.id === d.target.id) {
         return reflexiveLinkTextTransform(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d.source, d.target)) {
@@ -460,6 +386,36 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     }
   }
 
+  private createDrag(): Drag {
+    return createDrag(
+      (event, node) => this.onDragStart(event, node),
+      (event, node) => this.onDrag(event, node),
+      (event, node) => this.onDragEnd(event, node)
+    );
+  }
+
+  private onDragStart(event: NodeDragEvent, node: D3Node) {
+    terminate(event.sourceEvent);
+    if (event.active === 0) {
+      this.simulation?.alphaTarget(0.5).restart();
+    }
+    node.fx = node.x;
+    node.fy = node.y;
+  }
+
+  private onDrag(event: NodeDragEvent, node: D3Node) {
+    node.fx = event.x;
+    node.fy = event.y;
+  }
+
+  private onDragEnd(event: NodeDragEvent, node: D3Node) {
+    if (event.active === 0) {
+      this.simulation?.alphaTarget(0);
+    }
+    node.fx = undefined;
+    node.fy = undefined;
+  }
+
   private onPointerDown(event: PointerEvent, node: D3Node): void {
     if (!this.allowEditing || event.button !== 0) {
       return;
@@ -468,15 +424,15 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     const coordinates: [number, number] = [node.x!, node.y!];
     this.draggableLinkEnd = coordinates;
     this.draggableLinkSourceNode = node;
-    this.draggableLink!.style('marker-end', 'url(#link-arrow').classed('hidden', false).attr('d', linePath(coordinates, coordinates));
+    this.draggableLink!.style('marker-end', 'url(#draggable-link-arrow').classed('hidden', false).attr('d', linePath(coordinates, coordinates));
     this.restart();
   }
 
-  private pointerMoved(event: PointerEvent): void {
+  private onPointerMoved(event: PointerEvent): void {
     terminate(event);
     if (this.draggableLinkSourceNode !== undefined) {
       const pointer = d3.pointers(event, this.graphHost.nativeElement)[0];
-      const point: [number, number] = [pointer[0] - this.xOffset, pointer[1] - this.yOffset];
+      const point: [number, number] = [(pointer[0] - this.xOffset) / this.scale, (pointer[1] - this.yOffset) / this.scale];
       if (event.pointerType === 'touch') {
         point[1] = point[1] - 4 * this.config.nodeRadius;
         // PointerEvents are not firing correctly for touch input.
@@ -506,24 +462,26 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.draggableLinkEnd = undefined;
   }
 
-  private clean(): void {
+  private resetView(): void {
     this.simulation!.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
     this.zoom = undefined;
     this.xOffset = 0;
     this.yOffset = 0;
+    this.scale = 1;
     this.canvas = undefined;
     this.draggableLink = undefined;
-    this.link = undefined;
-    this.node = undefined;
+    this.linkSelection = undefined;
+    this.nodeSelection = undefined;
     this.simulation = undefined;
     this.resetDraggableLink();
   }
 
-  private zoomed(event: D3ZoomEvent<any, any>): void {
+  private onZoom(event: D3ZoomEvent<any, any>): void {
     this.xOffset = event.transform.x;
     this.yOffset = event.transform.y;
-    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})`);
+    this.scale = event.transform.k;
+    this.canvas!.attr('transform', `translate(${this.xOffset},${this.yOffset})scale(${this.scale})`);
   }
 
   private isBidirectional(source: D3Node, target: D3Node): boolean {
@@ -541,10 +499,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.showLabels = settings.showLabels;
     if (simulationChanged) {
       this.simulation?.stop();
-      if (this.enableSimulation) {
-        this.graph!.unlockNodes();
-      }
-      this.initSimulation();
+      this.simulation = this.createSimulation();
     }
     if (simulationChanged || labelsChanged) {
       this.restart(1);

@@ -38,13 +38,6 @@ export default class D3Graph {
     };
   }
 
-  public unlockNodes(): void {
-    this.nodes.forEach((node) => {
-      node.fx = undefined;
-      node.fy = undefined;
-    });
-  }
-
   public createNodeWithGeneratedId(x?: number, y?: number): Promise<D3Node> {
     const highestCurrentId = this.nodes
       .map((node) => +node.id)

@@ -5,7 +5,7 @@ import * as YAML from 'yaml';
 
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
-import { terminate } from 'src/app/utils/event.utils';
+import { terminate } from 'src/app/utils/events';
 
 type FileType = 'json' | 'yml';
 
