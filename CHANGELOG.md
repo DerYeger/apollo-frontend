@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.10...v1.5.0) (2021-06-19)
+
+
+### Features
+
+* add zoom functionality to graph ([0654e5b](https://github.com/DerYeger/gramofo-frontend/commit/0654e5b3b438f7b3700a3aaa85d68d881ebfc6ea))
+
 ## [1.4.10](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.9...v1.4.10) (2021-06-19)
 
 
