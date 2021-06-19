@@ -79,3 +79,7 @@ Run `docker-compose up -d --build` to build and start a container. Alternatively
 >Note: Default port is 80.
 
 >Note: Change the argument `BACKEND_URL` as required.
+
+## License
+
+[BSD 3-Clause License](./LICENSE) - Copyright &copy; Jan Müller
