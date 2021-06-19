@@ -157,10 +157,6 @@
                                     <span class="modifier">Public</span>
                                 <a href="#toDomainGraph">toDomainGraph</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#unlockNodes">unlockNodes</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -400,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:63</a></div>
                 </td>
             </tr>
 
@@ -508,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:49</a></div>
                 </td>
             </tr>
 
@@ -628,8 +624,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:41</a></div>
                 </td>
             </tr>
 
@@ -931,8 +927,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="113"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:113</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:106</a></div>
                 </td>
             </tr>
 
@@ -1003,8 +999,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:90</a></div>
                 </td>
             </tr>
 
@@ -1092,47 +1088,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="unlockNodes"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            unlockNodes
-                        </b>
-                        <a href="#unlockNodes"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>unlockNodes()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:41</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
 
@@ -1181,13 +1136,6 @@ export default class D3Graph {
       nodes: this.nodes.map&lt;FOLNode&gt;((node) &#x3D;&gt; ({ name: node.id, relations: [...node.relations], constants: [...node.constants] })),
       edges: this.links.map&lt;FOLEdge&gt;((link) &#x3D;&gt; ({ source: link.source.id, target: link.target.id, relations: [...link.relations], functions: [...link.functions] })),
     };
-  }
-
-  public unlockNodes(): void {
-    this.nodes.forEach((node) &#x3D;&gt; {
-      node.fx &#x3D; undefined;
-      node.fy &#x3D; undefined;
-    });
   }
 
   public createNodeWithGeneratedId(x?: number, y?: number): Promise&lt;D3Node&gt; {

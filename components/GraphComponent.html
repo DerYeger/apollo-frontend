@@ -205,12 +205,16 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#link">link</a>
+                                <a href="#linkSelection">linkSelection</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#node">node</a>
+                                <a href="#nodeSelection">nodeSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scale">scale</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -251,12 +255,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#clean">clean</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#cleanInitGraph">cleanInitGraph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createDrag">createDrag</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -268,44 +272,16 @@
                                 <a href="#createNode">createNode</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createSimulation">createSimulation</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#exportGraph">exportGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#initCanvas">initCanvas</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initDrag">initDrag</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initDraggableLink">initDraggableLink</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#initGraph">initGraph</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initLink">initLink</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initMarkers">initMarkers</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initNode">initNode</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initSimulation">initSimulation</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#initZoom">initZoom</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -325,7 +301,23 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#onDrag">onDrag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onDragEnd">onDragEnd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onDragStart">onDragStart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#onPointerDown">onPointerDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerMoved">onPointerMoved</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -337,7 +329,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#pointerMoved">pointerMoved</a>
+                                <a href="#onTick">onTick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onZoom">onZoom</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -356,16 +352,16 @@
                                 <a href="#resetGraph">resetGraph</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetView">resetView</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#restart">restart</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#saveGraph">saveGraph</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#tick">tick</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -378,10 +374,6 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#updateDraggableLinkPath">updateDraggableLinkPath</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#zoomed">zoomed</a>
                             </li>
                         </ul>
                     </td>
@@ -473,7 +465,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/graph/graph.component.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/components/graph/graph.component.ts:118</a></div>
                             </td>
                         </tr>
 
@@ -565,7 +557,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/graph/graph.component.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/graph/graph.component.ts:59</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -598,7 +590,7 @@ Should not be changed after initialization.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/graph/graph.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/graph/graph.component.ts:65</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -631,7 +623,7 @@ Should not be changed after initialization.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/graph/graph.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/graph/graph.component.ts:53</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -660,7 +652,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/graph/graph.component.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/components/graph/graph.component.ts:70</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -690,7 +682,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/components/graph/graph.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/components/graph/graph.component.ts:79</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -711,7 +703,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/components/graph/graph.component.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/graph/graph.component.ts:75</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -732,7 +724,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/graph/graph.component.ts:64</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/graph/graph.component.ts:72</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -753,7 +745,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/components/graph/graph.component.ts:68</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/components/graph/graph.component.ts:76</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -774,7 +766,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/graph/graph.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/graph/graph.component.ts:73</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -795,7 +787,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/components/graph/graph.component.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/components/graph/graph.component.ts:78</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -830,8 +822,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="121"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:121</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:131</a></div>
                 </td>
             </tr>
 
@@ -851,47 +843,6 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="clean"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            clean
-                        </b>
-                        <a href="#clean"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>clean()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="509"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:509</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -916,8 +867,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="200"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:200</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="209"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:209</a></div>
                 </td>
             </tr>
 
@@ -980,6 +931,47 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createDrag"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            createDrag
+                        </b>
+                        <a href="#createDrag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createDrag()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="389"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:389</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Drag" target="_self" >Drag</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createLink"></a>
                     <span class="name">
                         <b>
@@ -1000,8 +992,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="285"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:285</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="294"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:294</a></div>
                 </td>
             </tr>
 
@@ -1085,8 +1077,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="264"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:264</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="273"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:273</a></div>
                 </td>
             </tr>
 
@@ -1156,6 +1148,47 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createSimulation"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            createSimulation
+                        </b>
+                        <a href="#createSimulation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createSimulation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="338"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:338</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Simulation" target="_self" >Simulation</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="exportGraph"></a>
                     <span class="name">
                         <b>
@@ -1176,131 +1209,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="180"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:180</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initCanvas"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initCanvas
-                        </b>
-                        <a href="#initCanvas"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initCanvas()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="331"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:331</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initDrag"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initDrag
-                        </b>
-                        <a href="#initDrag"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initDrag()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="393"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:393</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initDraggableLink"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initDraggableLink
-                        </b>
-                        <a href="#initDraggableLink"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initDraggableLink()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="362"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:362</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:190</a></div>
                 </td>
             </tr>
 
@@ -1340,8 +1250,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="307"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:307</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:316</a></div>
                 </td>
             </tr>
 
@@ -1411,211 +1321,6 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="initLink"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initLink
-                        </b>
-                        <a href="#initLink"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initLink()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="366"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:366</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initMarkers"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initMarkers
-                        </b>
-                        <a href="#initMarkers"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initMarkers()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="347"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:347</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initNode"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initNode
-                        </b>
-                        <a href="#initNode"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initNode()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="370"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:370</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initSimulation"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initSimulation
-                        </b>
-                        <a href="#initSimulation"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initSimulation()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="374"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:374</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="initZoom"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initZoom
-                        </b>
-                        <a href="#initZoom"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>initZoom()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="323"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:323</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="isBidirectional"></a>
                     <span class="name">
                         <b>
@@ -1636,8 +1341,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="529"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:529</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="487"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:487</a></div>
                 </td>
             </tr>
 
@@ -1720,8 +1425,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:146</a></div>
                 </td>
             </tr>
 
@@ -1761,8 +1466,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:151</a></div>
                 </td>
             </tr>
 
@@ -1833,8 +1538,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="161"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:161</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:171</a></div>
                 </td>
             </tr>
 
@@ -1845,6 +1550,258 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDrag"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onDrag
+                        </b>
+                        <a href="#onDrag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDrag(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="406"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:406</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#NodeDragEvent" target="_self" >NodeDragEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                                <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDragEnd"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onDragEnd
+                        </b>
+                        <a href="#onDragEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDragEnd(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="411"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:411</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#NodeDragEvent" target="_self" >NodeDragEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                                <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDragStart"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onDragStart
+                        </b>
+                        <a href="#onDragStart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onDragStart(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="397"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:397</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#NodeDragEvent" target="_self" >NodeDragEvent</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>node</td>
+                                    <td>
+                                                <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -1874,8 +1831,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="463"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:463</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="419"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:419</a></div>
                 </td>
             </tr>
 
@@ -1938,6 +1895,78 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="onPointerMoved"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onPointerMoved
+                        </b>
+                        <a href="#onPointerMoved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onPointerMoved(event: PointerEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="431"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:431</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>PointerEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="onPointerUp"></a>
                     <span class="name">
                         <b>
@@ -1958,8 +1987,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="491"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:491</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="447"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:447</a></div>
                 </td>
             </tr>
 
@@ -2030,8 +2059,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="537"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:537</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="495"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:495</a></div>
                 </td>
             </tr>
 
@@ -2082,28 +2111,69 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="pointerMoved"></a>
+                    <a name="onTick"></a>
                     <span class="name">
                         <b>
                             <span class="modifier">Private</span>
-                            pointerMoved
+                            onTick
                         </b>
-                        <a href="#pointerMoved"><span class="icon ion-ios-link"></span></a>
+                        <a href="#onTick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>pointerMoved(event: PointerEvent)</code>
+                    <code>onTick()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="475"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:475</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="342"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:342</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onZoom"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            onZoom
+                        </b>
+                        <a href="#onZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onZoom(event: <a href="../undefineds/Zoom.html">D3ZoomEvent<any | any></a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="480"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:480</a></div>
                 </td>
             </tr>
 
@@ -2125,7 +2195,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                                 <tr>
                                     <td>event</td>
                                     <td>
-                                            <code>PointerEvent</code>
+                                                <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >D3ZoomEvent&lt;any | any&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -2174,8 +2244,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="297"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:297</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="306"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:306</a></div>
                 </td>
             </tr>
 
@@ -2246,8 +2316,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="273"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:273</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="282"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:282</a></div>
                 </td>
             </tr>
 
@@ -2318,8 +2388,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="502"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:502</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="458"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:458</a></div>
                 </td>
             </tr>
 
@@ -2359,8 +2429,49 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="194"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:194</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:204</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetView"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            resetView
+                        </b>
+                        <a href="#resetView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetView()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="465"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:465</a></div>
                 </td>
             </tr>
 
@@ -2400,8 +2511,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="210"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:210</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="219"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:219</a></div>
                 </td>
             </tr>
 
@@ -2483,49 +2594,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:166</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="tick"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            tick
-                        </b>
-                        <a href="#tick"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>tick()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="416"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:416</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:176</a></div>
                 </td>
             </tr>
 
@@ -2565,8 +2635,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="186"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:186</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:196</a></div>
                 </td>
             </tr>
 
@@ -2606,8 +2676,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:200</a></div>
                 </td>
             </tr>
 
@@ -2647,8 +2717,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="442"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:442</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="368"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:368</a></div>
                 </td>
             </tr>
 
@@ -2659,78 +2729,6 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="zoomed"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            zoomed
-                        </b>
-                        <a href="#zoomed"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>zoomed(event: D3ZoomEvent<any | any>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="523"
-                            class="link-to-prism">src/app/components/graph/graph.component.ts:523</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>event</td>
-                                    <td>
-                                            <code>D3ZoomEvent&lt;any | any&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -2758,13 +2756,13 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>d3.Selection&lt;SVGGElement | unknown | null | undefined&gt;</code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Canvas" target="_self" >Canvas</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/components/graph/graph.component.ts:98</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/graph/graph.component.ts:108</a></div>
                             </td>
                         </tr>
 
@@ -2801,7 +2799,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/components/graph/graph.component.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/components/graph/graph.component.ts:85</a></div>
                             </td>
                         </tr>
 
@@ -2824,13 +2822,13 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >d3.DragBehavior&lt;SVGGElement | D3Node | D3Node&gt;</a></code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Drag" target="_self" >Drag</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/components/graph/graph.component.ts:103</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/components/graph/graph.component.ts:113</a></div>
                             </td>
                         </tr>
 
@@ -2853,13 +2851,13 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>d3.Selection&lt;SVGPathElement | unknown | null | undefined&gt;</code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#DraggableLink" target="_self" >DraggableLink</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/components/graph/graph.component.ts:105</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/components/graph/graph.component.ts:115</a></div>
                             </td>
                         </tr>
 
@@ -2888,7 +2886,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/graph/graph.component.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/components/graph/graph.component.ts:118</a></div>
                             </td>
                         </tr>
 
@@ -2917,7 +2915,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/components/graph/graph.component.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/components/graph/graph.component.ts:116</a></div>
                             </td>
                         </tr>
 
@@ -2946,7 +2944,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/components/graph/graph.component.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/components/graph/graph.component.ts:117</a></div>
                             </td>
                         </tr>
 
@@ -2973,7 +2971,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/components/graph/graph.component.ts:87</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/components/graph/graph.component.ts:95</a></div>
                             </td>
                         </tr>
 
@@ -3002,7 +3000,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/components/graph/graph.component.ts:85</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/components/graph/graph.component.ts:93</a></div>
                             </td>
                         </tr>
 
@@ -3040,7 +3038,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/graph/graph.component.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/graph/graph.component.ts:81</a></div>
                             </td>
                         </tr>
 
@@ -3068,7 +3066,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/components/graph/graph.component.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/graph/graph.component.ts:90</a></div>
                             </td>
                         </tr>
 
@@ -3097,7 +3095,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/components/graph/graph.component.ts:84</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/components/graph/graph.component.ts:92</a></div>
                             </td>
                         </tr>
 
@@ -3130,35 +3128,6 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/components/graph/graph.component.ts:91</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="link"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            link</b>
-                            <a href="#link"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Link.html" target="_self" >d3.Selection&lt;SVGGElement | D3Link | SVGGElement | unknown&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/components/graph/graph.component.ts:99</a></div>
                             </td>
                         </tr>
@@ -3170,25 +3139,87 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="node"></a>
+                        <a name="linkSelection"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
                                 <span class="modifier">Optional</span>
-                            node</b>
-                            <a href="#node"><span class="icon ion-ios-link"></span></a>
+                            linkSelection</b>
+                            <a href="#linkSelection"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >d3.Selection&lt;SVGGElement | D3Node | SVGGElement | unknown&gt;</a></code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#LinkSelection" target="_self" >LinkSelection</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/app/components/graph/graph.component.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/components/graph/graph.component.ts:109</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nodeSelection"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Optional</span>
+                            nodeSelection</b>
+                            <a href="#nodeSelection"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#NodeSelection" target="_self" >NodeSelection</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/components/graph/graph.component.ts:110</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scale"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            scale</b>
+                            <a href="#scale"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/components/graph/graph.component.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -3215,7 +3246,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/components/graph/graph.component.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/components/graph/graph.component.ts:96</a></div>
                             </td>
                         </tr>
 
@@ -3238,13 +3269,13 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>d3.Simulation&lt;D3Node | D3Link&gt;</code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Simulation" target="_self" >Simulation</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/components/graph/graph.component.ts:96</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/components/graph/graph.component.ts:106</a></div>
                             </td>
                         </tr>
 
@@ -3277,7 +3308,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/graph/graph.component.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/components/graph/graph.component.ts:98</a></div>
                             </td>
                         </tr>
 
@@ -3310,7 +3341,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/components/graph/graph.component.ts:93</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/components/graph/graph.component.ts:101</a></div>
                             </td>
                         </tr>
 
@@ -3343,7 +3374,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/components/graph/graph.component.ts:94</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/components/graph/graph.component.ts:102</a></div>
                             </td>
                         </tr>
 
@@ -3366,13 +3397,13 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>d3.ZoomBehavior&lt;SVGSVGElement | unknown&gt;</code>
+                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >Zoom</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/components/graph/graph.component.ts:102</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/components/graph/graph.component.ts:112</a></div>
                             </td>
                         </tr>
 
@@ -3404,6 +3435,12 @@ import { D3Node } from &#x27;src/app/model/d3/d3.node&#x27;;
 import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
 import { enableSimulation, toggleLabels, toggleSimulation } from &#x27;src/app/store/actions&#x27;;
 import { GraphSettings, State } from &#x27;src/app/store/state&#x27;;
+import { Canvas, createCanvas } from &#x27;src/app/utils/d3/canvas&#x27;;
+import { createDrag, Drag, NodeDragEvent } from &#x27;src/app/utils/d3/drag&#x27;;
+import { createDraggableLink, DraggableLink } from &#x27;src/app/utils/d3/draggable-link&#x27;;
+import { createLinkSelection, LinkSelection } from &#x27;src/app/utils/d3/link-selection&#x27;;
+import { initMarkers } from &#x27;src/app/utils/d3/markers&#x27;;
+import { createNodeSelection, NodeSelection } from &#x27;src/app/utils/d3/node-selection&#x27;;
 import {
   paddedArcPath,
   directLinkTextTransform,
@@ -3412,8 +3449,10 @@ import {
   reflexiveLinkTextTransform,
   paddedReflexivePath,
   bidirectionalLinkTextTransform,
-} from &#x27;src/app/utils/d3.utils&#x27;;
-import { terminate } from &#x27;src/app/utils/event.utils&#x27;;
+} from &#x27;src/app/utils/d3/paths&#x27;;
+import { createSimulation, Simulation } from &#x27;src/app/utils/d3/simulation&#x27;;
+import { createZoom, Zoom } from &#x27;src/app/utils/d3/zoom&#x27;;
+import { terminate } from &#x27;src/app/utils/events&#x27;;
 
 /**
  * The interactive graph component.
@@ -3480,16 +3519,18 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private xOffset &#x3D; 0;
   private yOffset &#x3D; 0;
 
-  private simulation?: d3.Simulation&lt;D3Node, D3Link&gt;;
+  private scale &#x3D; 1;
 
-  private canvas?: d3.Selection&lt;SVGGElement, unknown, null, undefined&gt;;
-  private link?: d3.Selection&lt;SVGGElement, D3Link, SVGGElement, unknown&gt;;
-  private node?: d3.Selection&lt;SVGGElement, D3Node, SVGGElement, unknown&gt;;
+  private simulation?: Simulation;
 
-  private zoom?: d3.ZoomBehavior&lt;SVGSVGElement, unknown&gt;;
-  private drag?: d3.DragBehavior&lt;SVGGElement, D3Node, D3Node&gt;;
+  private canvas?: Canvas;
+  private linkSelection?: LinkSelection;
+  private nodeSelection?: NodeSelection;
 
-  private draggableLink?: d3.Selection&lt;SVGPathElement, unknown, null, undefined&gt;;
+  private zoom?: Zoom;
+  private drag?: Drag;
+
+  private draggableLink?: DraggableLink;
   private draggableLinkSourceNode?: D3Node;
   private draggableLinkTargetNode?: D3Node;
   private draggableLinkEnd?: [number, number];
@@ -3579,13 +3620,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public resetGraph(): void {
-    this.graph!.unlockNodes();
     this.cleanInitGraph();
     this.store.dispatch(enableSimulation());
   }
 
   public cleanInitGraph(width?: number, height?: number): void {
-    this.clean();
+    this.resetView();
     this.initGraph(width, height);
   }
 
@@ -3595,7 +3635,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
    * @param alpha Alpha value (heat, activity) of the simulation
    */
   public restart(alpha: number &#x3D; 0.5): void {
-    this.link &#x3D; this.link!.data(this.graph!.links, (d: D3Link) &#x3D;&gt; &#x60;${d.source.id}-${d.target.id}&#x60;).join((enter) &#x3D;&gt; {
+    this.linkSelection &#x3D; this.linkSelection!.data(this.graph!.links, (d: D3Link) &#x3D;&gt; &#x60;${d.source.id}-${d.target.id}&#x60;).join((enter) &#x3D;&gt; {
       const linkGroup &#x3D; enter.append(&#x27;g&#x27;);
       linkGroup.append(&#x27;path&#x27;).classed(&#x27;link&#x27;, true).style(&#x27;marker-end&#x27;, &#x27;url(#link-arrow&#x27;);
       linkGroup
@@ -3609,7 +3649,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       return linkGroup;
     });
 
-    this.node &#x3D; this.node!.data(this.graph!.nodes, (d) &#x3D;&gt; d.id).join((enter) &#x3D;&gt; {
+    this.nodeSelection &#x3D; this.nodeSelection!.data(this.graph!.nodes, (d) &#x3D;&gt; d.id).join((enter) &#x3D;&gt; {
       const nodeGroup &#x3D; enter
         .append(&#x27;g&#x27;)
         .call(this.drag!)
@@ -3634,12 +3674,12 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       return nodeGroup;
     });
 
-    this.link
+    this.linkSelection
       .select(&#x27;.link-details&#x27;)
       .attr(&#x27;opacity&#x27;, this.showLabels ? 1 : 0)
       .text((d) &#x3D;&gt; [...d.relations, ...d.functions].join(&#x27;, &#x27;));
 
-    this.node
+    this.nodeSelection
       .select(&#x27;.node-details&#x27;)
       .attr(&#x27;opacity&#x27;, this.showLabels ? 1 : 0)
       .text((d) &#x3D;&gt; [...d.relations, ...d.constants].join(&#x27;, &#x27;));
@@ -3694,116 +3734,33 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   private initGraph(width: number &#x3D; this.graphHost.nativeElement.clientWidth, height: number &#x3D; this.graphHost.nativeElement.clientHeight): void {
     this.width &#x3D; width;
     this.height &#x3D; height;
-    this.initZoom();
-    this.initCanvas();
-    this.initMarkers();
+    this.zoom &#x3D; createZoom((event) &#x3D;&gt; this.onZoom(event));
+    this.canvas &#x3D; createCanvas(
+      d3.select(this.graphHost.nativeElement),
+      this.zoom,
+      (event: PointerEvent) &#x3D;&gt; this.onPointerMoved(event),
+      (event: PointerEvent) &#x3D;&gt; this.onPointerUp(event),
+      (event) &#x3D;&gt; this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1])
+    );
+    initMarkers(this.canvas, this.config);
     if (this.allowEditing) {
-      this.initDraggableLink();
+      this.draggableLink &#x3D; createDraggableLink(this.canvas);
     }
-    this.initLink();
-    this.initNode();
-    this.initSimulation();
-    this.initDrag();
+    this.linkSelection &#x3D; createLinkSelection(this.canvas);
+    this.nodeSelection &#x3D; createNodeSelection(this.canvas);
+    this.simulation &#x3D; this.createSimulation();
+    this.drag &#x3D; this.createDrag();
     this.restart();
   }
 
-  private initZoom(): void {
-    this.zoom &#x3D; d3
-      .zoom&lt;SVGSVGElement, unknown&gt;()
-      .scaleExtent([1, 1])
-      .filter((event) &#x3D;&gt; event.button &#x3D;&#x3D;&#x3D; 0 || event.touches?.length &gt;&#x3D; 2)
-      .on(&#x27;zoom&#x27;, (event) &#x3D;&gt; this.zoomed(event));
+  private createSimulation(): Simulation {
+    return createSimulation(this.graph!, this.config, this.width, this.height, this.enableSimulation, () &#x3D;&gt; this.onTick());
   }
 
-  private initCanvas(): void {
-    this.canvas &#x3D; d3
-      .select(this.graphHost.nativeElement)
-      .append(&#x27;svg&#x27;)
-      .attr(&#x27;width&#x27;, &#x27;100%&#x27;)
-      .attr(&#x27;height&#x27;, &#x27;100%&#x27;)
-      .on(&#x27;pointermove&#x27;, (event: PointerEvent) &#x3D;&gt; this.pointerMoved(event))
-      .on(&#x27;pointerup&#x27;, (event: PointerEvent) &#x3D;&gt; this.onPointerUp(event))
-      .on(&#x27;contextmenu&#x27;, (event: MouseEvent) &#x3D;&gt; terminate(event))
-      .attr(&#x27;width&#x27;, this.width)
-      .attr(&#x27;height&#x27;, this.height)
-      .on(&#x27;dblclick&#x27;, (event) &#x3D;&gt; this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]))
-      .call(this.zoom!)
-      .append(&#x27;g&#x27;);
-  }
+  private onTick(): void {
+    this.nodeSelection!.attr(&#x27;transform&#x27;, (d) &#x3D;&gt; &#x60;translate(${d.x},${d.y})&#x60;);
 
-  private initMarkers(): void {
-    this.canvas!.append(&#x27;defs&#x27;)
-      .append(&#x27;marker&#x27;)
-      .attr(&#x27;id&#x27;, &#x27;link-arrow&#x27;)
-      .attr(&#x27;viewBox&#x27;, this.config.markerPath)
-      .attr(&#x27;refX&#x27;, this.config.markerRef)
-      .attr(&#x27;refY&#x27;, this.config.markerRef)
-      .attr(&#x27;markerWidth&#x27;, this.config.markerBoxSize)
-      .attr(&#x27;markerHeight&#x27;, this.config.markerBoxSize)
-      .attr(&#x27;orient&#x27;, &#x27;auto&#x27;)
-      .classed(&#x27;arrow&#x27;, true)
-      .append(&#x27;path&#x27;)
-      .attr(&#x27;d&#x27;, &#x60;${d3.line()(this.config.arrowPoints)}&#x60;);
-  }
-
-  private initDraggableLink(): void {
-    this.draggableLink &#x3D; this.canvas!.append(&#x27;path&#x27;).classed(&#x27;link draggable hidden&#x27;, true).attr(&#x27;d&#x27;, &#x27;M0,0L0,0&#x27;);
-  }
-
-  private initLink(): void {
-    this.link &#x3D; this.canvas!.append(&#x27;g&#x27;).classed(&#x27;links&#x27;, true).selectAll(&#x27;path&#x27;);
-  }
-
-  private initNode(): void {
-    this.node &#x3D; this.canvas!.append(&#x27;g&#x27;).classed(&#x27;nodes&#x27;, true).selectAll(&#x27;circle&#x27;);
-  }
-
-  private initSimulation(): void {
-    this.simulation &#x3D; d3.forceSimulation&lt;D3Node, D3Link&gt;(this.graph!.nodes).on(&#x27;tick&#x27;, () &#x3D;&gt; this.tick());
-    if (this.enableSimulation) {
-      this.simulation
-        .force(&#x27;charge&#x27;, d3.forceManyBody&lt;D3Node&gt;().strength(-500))
-        .force(&#x27;collision&#x27;, d3.forceCollide&lt;D3Node&gt;().radius(this.config.nodeRadius))
-        .force(
-          &#x27;link&#x27;,
-          d3
-            .forceLink&lt;D3Node, D3Link&gt;()
-            .links(this.graph!.links)
-            .id((d: D3Node) &#x3D;&gt; d.id)
-            .distance(this.config.nodeRadius * 10)
-        )
-        .force(&#x27;x&#x27;, d3.forceX&lt;D3Node&gt;(this.width / 2).strength(0.05))
-        .force(&#x27;y&#x27;, d3.forceY&lt;D3Node&gt;(this.height / 2).strength(0.05));
-    }
-  }
-
-  private initDrag(): void {
-    this.drag &#x3D; d3
-      .drag&lt;SVGGElement, D3Node, D3Node&gt;()
-      .filter((event) &#x3D;&gt; event.button &#x3D;&#x3D;&#x3D; 1)
-      .on(&#x27;start&#x27;, (event: D3DragEvent&lt;SVGCircleElement, D3Node, D3Node&gt;, d: D3Node) &#x3D;&gt; {
-        terminate(event.sourceEvent);
-        if (event.active &#x3D;&#x3D;&#x3D; 0) {
-          this.simulation!.alphaTarget(0.5).restart();
-        }
-        d.fx &#x3D; d.x;
-        d.fy &#x3D; d.y;
-      })
-      .on(&#x27;drag&#x27;, (event: D3DragEvent&lt;SVGCircleElement, D3Node, D3Node&gt;, d: D3Node) &#x3D;&gt; {
-        d.fx &#x3D; event.x;
-        d.fy &#x3D; event.y;
-      })
-      .on(&#x27;end&#x27;, (event: D3DragEvent&lt;SVGCircleElement, D3Node, D3Node&gt;) &#x3D;&gt; {
-        if (event.active &#x3D;&#x3D;&#x3D; 0) {
-          this.simulation!.alphaTarget(0);
-        }
-      });
-  }
-
-  private tick(): void {
-    this.node!.attr(&#x27;transform&#x27;, (d) &#x3D;&gt; &#x60;translate(${d.x},${d.y})&#x60;);
-
-    this.link!.selectAll&lt;SVGPathElement, D3Link&gt;(&#x27;path&#x27;).attr(&#x27;d&#x27;, (d: D3Link) &#x3D;&gt; {
+    this.linkSelection!.selectAll&lt;SVGPathElement, D3Link&gt;(&#x27;path&#x27;).attr(&#x27;d&#x27;, (d: D3Link) &#x3D;&gt; {
       if (d.source.id &#x3D;&#x3D;&#x3D; d.target.id) {
         return paddedReflexivePath(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d.source, d.target)) {
@@ -3813,7 +3770,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       }
     });
 
-    this.link!.select(&#x27;.link-details&#x27;).attr(&#x27;transform&#x27;, (d: D3Link) &#x3D;&gt; {
+    this.linkSelection!.select(&#x27;.link-details&#x27;).attr(&#x27;transform&#x27;, (d: D3Link) &#x3D;&gt; {
       if (d.source.id &#x3D;&#x3D;&#x3D; d.target.id) {
         return reflexiveLinkTextTransform(d.source, [this.width / 2, this.height / 2], this.config);
       } else if (this.isBidirectional(d.source, d.target)) {
@@ -3847,6 +3804,36 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     }
   }
 
+  private createDrag(): Drag {
+    return createDrag(
+      (event, node) &#x3D;&gt; this.onDragStart(event, node),
+      (event, node) &#x3D;&gt; this.onDrag(event, node),
+      (event, node) &#x3D;&gt; this.onDragEnd(event, node)
+    );
+  }
+
+  private onDragStart(event: NodeDragEvent, node: D3Node) {
+    terminate(event.sourceEvent);
+    if (event.active &#x3D;&#x3D;&#x3D; 0) {
+      this.simulation?.alphaTarget(0.5).restart();
+    }
+    node.fx &#x3D; node.x;
+    node.fy &#x3D; node.y;
+  }
+
+  private onDrag(event: NodeDragEvent, node: D3Node) {
+    node.fx &#x3D; event.x;
+    node.fy &#x3D; event.y;
+  }
+
+  private onDragEnd(event: NodeDragEvent, node: D3Node) {
+    if (event.active &#x3D;&#x3D;&#x3D; 0) {
+      this.simulation?.alphaTarget(0);
+    }
+    node.fx &#x3D; undefined;
+    node.fy &#x3D; undefined;
+  }
+
   private onPointerDown(event: PointerEvent, node: D3Node): void {
     if (!this.allowEditing || event.button !&#x3D;&#x3D; 0) {
       return;
@@ -3855,15 +3842,15 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     const coordinates: [number, number] &#x3D; [node.x!, node.y!];
     this.draggableLinkEnd &#x3D; coordinates;
     this.draggableLinkSourceNode &#x3D; node;
-    this.draggableLink!.style(&#x27;marker-end&#x27;, &#x27;url(#link-arrow&#x27;).classed(&#x27;hidden&#x27;, false).attr(&#x27;d&#x27;, linePath(coordinates, coordinates));
+    this.draggableLink!.style(&#x27;marker-end&#x27;, &#x27;url(#draggable-link-arrow&#x27;).classed(&#x27;hidden&#x27;, false).attr(&#x27;d&#x27;, linePath(coordinates, coordinates));
     this.restart();
   }
 
-  private pointerMoved(event: PointerEvent): void {
+  private onPointerMoved(event: PointerEvent): void {
     terminate(event);
     if (this.draggableLinkSourceNode !&#x3D;&#x3D; undefined) {
       const pointer &#x3D; d3.pointers(event, this.graphHost.nativeElement)[0];
-      const point: [number, number] &#x3D; [pointer[0] - this.xOffset, pointer[1] - this.yOffset];
+      const point: [number, number] &#x3D; [(pointer[0] - this.xOffset) / this.scale, (pointer[1] - this.yOffset) / this.scale];
       if (event.pointerType &#x3D;&#x3D;&#x3D; &#x27;touch&#x27;) {
         point[1] &#x3D; point[1] - 4 * this.config.nodeRadius;
         // PointerEvents are not firing correctly for touch input.
@@ -3893,24 +3880,26 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.draggableLinkEnd &#x3D; undefined;
   }
 
-  private clean(): void {
+  private resetView(): void {
     this.simulation!.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
     this.zoom &#x3D; undefined;
     this.xOffset &#x3D; 0;
     this.yOffset &#x3D; 0;
+    this.scale &#x3D; 1;
     this.canvas &#x3D; undefined;
     this.draggableLink &#x3D; undefined;
-    this.link &#x3D; undefined;
-    this.node &#x3D; undefined;
+    this.linkSelection &#x3D; undefined;
+    this.nodeSelection &#x3D; undefined;
     this.simulation &#x3D; undefined;
     this.resetDraggableLink();
   }
 
-  private zoomed(event: D3ZoomEvent&lt;any, any&gt;): void {
+  private onZoom(event: D3ZoomEvent&lt;any, any&gt;): void {
     this.xOffset &#x3D; event.transform.x;
     this.yOffset &#x3D; event.transform.y;
-    this.canvas!.attr(&#x27;transform&#x27;, &#x60;translate(${this.xOffset},${this.yOffset})&#x60;);
+    this.scale &#x3D; event.transform.k;
+    this.canvas!.attr(&#x27;transform&#x27;, &#x60;translate(${this.xOffset},${this.yOffset})scale(${this.scale})&#x60;);
   }
 
   private isBidirectional(source: D3Node, target: D3Node): boolean {
@@ -3928,10 +3917,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.showLabels &#x3D; settings.showLabels;
     if (simulationChanged) {
       this.simulation?.stop();
-      if (this.enableSimulation) {
-        this.graph!.unlockNodes();
-      }
-      this.initSimulation();
+      this.simulation &#x3D; this.createSimulation();
     }
     if (simulationChanged || labelsChanged) {
       this.restart(1);
@@ -4062,6 +4048,10 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
   .arrow {
     fill: mat.get-color-from-palette($accent);
+
+    &amp;.draggable {
+      fill: mat.get-color-from-palette($accent, darker);
+    }
   }
 
   .node {
