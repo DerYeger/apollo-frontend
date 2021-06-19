@@ -6,7 +6,7 @@ import { ModelCheckerTrace } from 'src/app/model/api/model-checker-trace';
  * Single tree node of the ResultTreeDialog.
  */
 @Component({
-  selector: 'gramofo-trace[trace]',
+  selector: 'apollo-trace[trace]',
   templateUrl: './trace.component.html',
   styleUrls: ['./trace.component.scss'],
 })

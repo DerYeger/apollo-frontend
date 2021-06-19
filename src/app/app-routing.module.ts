@@ -8,21 +8,21 @@ import { ModelCheckerPage } from 'src/app/pages/model-checker/model-checker.page
 /**
  * Extends Route to provide additional data.
  */
-export interface GramofoRoute extends Route {
+export interface ApolloRoute extends Route {
   /**
    * Used for providing translations keys to the navigation menu.
    */
   name?: string;
 }
 
-export type GramofoRoutes = GramofoRoute[];
+export type ApolloRoutes = ApolloRoute[];
 
 /**
  * The routes of this app.
  */
-export const routes: GramofoRoutes = [
+export const routes: ApolloRoutes = [
   { path: 'home', name: 'home.title', component: HomePage },
-  { path: 'modelchecker', name: 'model-checker.title', component: ModelCheckerPage },
+  { path: 'model-checker', name: 'model-checker.title', component: ModelCheckerPage },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

@@ -33,6 +33,6 @@ export class BackendService {
       language: this.translate.currentLang === 'de' ? 'de' : 'en',
       feedback,
     };
-    return this.http.post(host + '/modelchecker', request, { reportProgress: true, observe: 'events' }) as Observable<HttpEvent<ModelCheckerResponse>>;
+    return this.http.post(host + '/model-checker', request, { reportProgress: true, observe: 'events' }) as Observable<HttpEvent<ModelCheckerResponse>>;
   }
 }

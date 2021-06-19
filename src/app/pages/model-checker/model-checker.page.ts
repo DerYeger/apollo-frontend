@@ -24,7 +24,7 @@ import { State } from 'src/app/store/state';
  * Contains an input for a formula, feedback-selection and the GraphEditorComponent.
  */
 @Component({
-  selector: 'gramofo-model-checker',
+  selector: 'apollo-model-checker',
   templateUrl: './model-checker.page.html',
   styleUrls: ['./model-checker.page.scss'],
 })
@@ -71,7 +71,7 @@ export class ModelCheckerPage implements OnDestroy {
 
   public onSaveRequested(domainGraph: FOLGraph): void {
     this.store.dispatch(storeGraph(domainGraph));
-    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', domainGraph.name) });
+    this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphStore', domainGraph.name) });
   }
 
   public requestGraphExport(): void {

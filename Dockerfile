@@ -12,7 +12,7 @@ RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.
 
 FROM nginx:1.21.0-alpine
 
-COPY --from=BUILDER /usr/app/dist/gramofo-frontend/ /usr/share/nginx/html
+COPY --from=BUILDER /usr/app/dist/apollo-frontend/ /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/default.conf
 

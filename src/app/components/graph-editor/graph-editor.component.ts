@@ -8,7 +8,7 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
  * Contains all components required to fully edit graphs.
  */
 @Component({
-  selector: 'gramofo-graph-editor[graph]',
+  selector: 'apollo-graph-editor[graph]',
   templateUrl: './graph-editor.component.html',
   styleUrls: ['./graph-editor.component.scss'],
 })

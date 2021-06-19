@@ -6,10 +6,10 @@
     <mat-card-title>{{ "editor.node.title" | translate }} {{ node!.id }}</mat-card-title>
     <mat-card-content>
       <div>
-        <gramofo-symbol-editor [symbols]="node!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onNodeUpdated()"></gramofo-symbol-editor>
+        <apollo-symbol-editor [symbols]="node!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onNodeUpdated()"></apollo-symbol-editor>
       </div>
       <div>
-        <gramofo-symbol-editor [symbols]="node!.constants" [config]="constantEditorConfig" (symbolsUpdated)="onNodeUpdated()"></gramofo-symbol-editor>
+        <apollo-symbol-editor [symbols]="node!.constants" [config]="constantEditorConfig" (symbolsUpdated)="onNodeUpdated()"></apollo-symbol-editor>
       </div>
     </mat-card-content>
     <mat-card-actions>

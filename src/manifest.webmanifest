@@ -1,6 +1,6 @@
 {
-  "name": "gramoFO",
-  "short_name": "gramoFO",
+  "name": "Apollo",
+  "short_name": "Apollo",
   "description": "A web application for first-order model checking in graph structures.",
   "theme_color": "#303030",
   "background_color": "#2C2C2C",

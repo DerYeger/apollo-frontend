@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'gramofo-update-available',
+  selector: 'apollo-update-available',
   templateUrl: './update-available.dialog.html',
   styleUrls: ['./update-available.dialog.scss'],
 })

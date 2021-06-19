@@ -13,7 +13,7 @@ import { terminate } from 'src/app/utils/events';
  * Supports both JSON and YAML.
  */
 @Component({
-  selector: 'gramofo-graph-import',
+  selector: 'apollo-graph-import',
   templateUrl: './graph-import.component.html',
   styleUrls: ['./graph-import.component.scss'],
 })

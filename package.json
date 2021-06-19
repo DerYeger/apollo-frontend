@@ -1,11 +1,11 @@
 {
-  "name": "gramofo-frontend",
+  "name": "apollo-frontend",
   "version": "1.5.0",
   "description": "A web application for first-order model checking in graph structures.",
   "license": "BSD-3-Clause",
-  "homepage": "https://github.com/DerYeger/gramofo-frontend",
+  "homepage": "https://github.com/DerYeger/apollo-frontend",
   "bugs": {
-    "url": "https://github.com/DerYeger/gramofo-frontend/issues"
+    "url": "https://github.com/DerYeger/apollo-frontend/issues"
   },
   "author": {
     "name": "Jan Müller",
@@ -22,7 +22,7 @@
     "e2e:ci": "ng e2e --webdriverUpdate=false",
     "postinstall": "ngcc",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",
-    "compodoc": "npx compodoc -p tsconfig.json -n \"gramoFO-Frontend\" --disableCoverage"
+    "compodoc": "npx compodoc -p tsconfig.json -n \"Apollo-Frontend\" --disableCoverage"
   },
   "private": true,
   "dependencies": {

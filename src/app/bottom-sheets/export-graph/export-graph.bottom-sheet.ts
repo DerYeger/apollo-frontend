@@ -15,7 +15,7 @@ type FileType = 'json' | 'yml';
  * Supports JSON and YAML.
  */
 @Component({
-  selector: 'gramofo-export-graph',
+  selector: 'apollo-export-graph',
   templateUrl: './export-graph.bottom-sheet.html',
   styleUrls: ['./export-graph.bottom-sheet.scss'],
 })

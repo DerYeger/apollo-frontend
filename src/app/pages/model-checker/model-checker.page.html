@@ -1,4 +1,4 @@
-<div class="modelchecker-container">
+<div class="model-checker-container">
   <div class="formula-section">
     <mat-form-field>
       <mat-label>{{ 'fol.formula' | translate }}</mat-label>
@@ -8,14 +8,14 @@
       </button>
     </mat-form-field>
     <button mat-raised-button class="check-button" (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ 'actions.check' | translate}}</button>
-    <gramofo-feedback-selection #feedbackSelection></gramofo-feedback-selection>
+    <apollo-feedback-selection #feedbackSelection></apollo-feedback-selection>
   </div>
   <div class="graph-section">
-    <gramofo-graph-editor
+    <apollo-graph-editor
       [graph]="graph"
       [graphExportRequests]="graphExportRequests"
       (saveRequested)="onSaveRequested($event)"
       (graphExported)="checkModel($event, feedbackSelection.selectedFeedback)"
-    ></gramofo-graph-editor>
+    ></apollo-graph-editor>
   </div>
 </div>

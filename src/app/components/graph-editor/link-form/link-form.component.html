@@ -8,10 +8,10 @@
     </mat-card-title>
     <mat-card-content>
       <div>
-        <gramofo-symbol-editor [symbols]="link!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onLinkUpdated()"></gramofo-symbol-editor>
+        <apollo-symbol-editor [symbols]="link!.relations" [config]="relationEditorConfig" (symbolsUpdated)="onLinkUpdated()"></apollo-symbol-editor>
       </div>
       <div>
-        <gramofo-symbol-editor [symbols]="link!.functions" [config]="functionEditorConfig" (symbolsUpdated)="onLinkUpdated()"></gramofo-symbol-editor>
+        <apollo-symbol-editor [symbols]="link!.functions" [config]="functionEditorConfig" (symbolsUpdated)="onLinkUpdated()"></apollo-symbol-editor>
       </div>
     </mat-card-content>
     <mat-card-actions>

@@ -75,14 +75,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Set backend URL
-        run: sed -i "s|{{BACKEND_URL}}|https://yeger.eu/gramofo|g" src/environments/environment.prod.ts
+        run: sed -i "s|{{BACKEND_URL}}|https://yeger.eu/apollo|g" src/environments/environment.prod.ts
       - name: Build
         run: yarn build
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: build-artifact
-          path: ./dist/gramofo-frontend
+          path: ./dist/apollo-frontend
           if-no-files-found: error
   upload-assets:
     name: Upload assets
@@ -99,11 +99,11 @@ jobs:
       - name: Zip files
         uses: montudor/action-zip@v1.0.0
         with:
-          args: zip -qq -r ./gramofo-frontend.zip ./dist/
+          args: zip -qq -r ./apollo-frontend.zip ./dist/
       - name: Release assets
         uses: softprops/action-gh-release@v1
         with:
-          files: gramofo-frontend.zip
+          files: apollo-frontend.zip
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
   deploy:
@@ -123,7 +123,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          repository-name: DerYeger/gramofo
+          repository-name: DerYeger/apollo
           branch: gh-pages
           folder: ./dist
           clean: true

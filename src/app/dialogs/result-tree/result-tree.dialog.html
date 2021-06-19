@@ -21,7 +21,7 @@
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
       <!-- use a disabled button to provide padding for tree leaf -->
       <button mat-icon-button disabled></button>
-      <gramofo-trace [trace]="node.trace"></gramofo-trace>
+      <apollo-trace [trace]="node.trace"></apollo-trace>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding [class.result-tree-invisible]="!node.visible">
@@ -30,7 +30,7 @@
           {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
         </mat-icon>
       </button>
-      <gramofo-trace [trace]="node.trace"></gramofo-trace>
+      <apollo-trace [trace]="node.trace"></apollo-trace>
     </mat-tree-node>
   </mat-tree>
 </mat-dialog-content>

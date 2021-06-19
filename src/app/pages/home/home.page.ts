@@ -14,7 +14,7 @@ import { State } from 'src/app/store/state';
  * Contains a list of (locally) saved graphs and the GraphImportComponent.
  */
 @Component({
-  selector: 'gramofo-home',
+  selector: 'apollo-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
@@ -24,7 +24,7 @@ export class HomePage {
   public constructor(private readonly store: Store<State>, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
 
   public onGraphSelected(graph: FOLGraph): void {
-    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphStore', graph.name) });
+    this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphStore', graph.name) });
   }
 
   public onGraphDeletionRequested(graph: FOLGraph): void {
@@ -34,6 +34,6 @@ export class HomePage {
 
   public onGraphImport(graph: FOLGraph): void {
     this.store.dispatch(cacheGraph(graph));
-    this.router.navigate(['modelchecker'], { queryParams: graphCollectionQueryParams('graphCache', graph.name) });
+    this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphCache', graph.name) });
   }
 }

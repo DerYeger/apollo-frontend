@@ -17,7 +17,7 @@ export interface D3Node extends SimulationNodeDatum {
 /**
  * Node class with D3.js compatability.
  */
-export class GramoFONode implements D3Node {
+export class ApolloNode implements D3Node {
   public readonly relations = new Set<string>();
   public readonly constants = new Set<string>();
 

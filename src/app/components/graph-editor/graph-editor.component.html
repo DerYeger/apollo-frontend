@@ -1,7 +1,7 @@
 <div class="graph-container">
   <mat-card class="graph-card mat-elevation-z4">
     <mat-card-content class="graph-card-content">
-      <gramofo-graph
+      <apollo-graph
         #graphComponent
         [graph]="graph | async"
         [allowEditing]="true"
@@ -10,22 +10,22 @@
         (linkDeleted)="linkForm.onLinkDeleted($event)"
         (saveRequested)="saveRequested.emit($event)"
         (graphExported)="graphExported.emit($event)"
-      ></gramofo-graph>
+      ></apollo-graph>
     </mat-card-content>
   </mat-card>
 </div>
 <div class="form-container">
-  <gramofo-node-form
+  <apollo-node-form
     #nodeForm
     [node]="graphComponent.nodeSelected | async"
     (nodeUpdated)="graphComponent.restart()"
     (nodeDeletionRequested)="graphComponent.removeNode($event)"
-  ></gramofo-node-form>
+  ></apollo-node-form>
   <mat-divider class="horizontal-divider"></mat-divider>
-  <gramofo-link-form
+  <apollo-link-form
     #linkForm
     [link]="graphComponent.linkSelected | async"
     (linkUpdated)="graphComponent.restart()"
     (linkDeletionRequested)="graphComponent.removeLink($event)"
-  ></gramofo-link-form>
+  ></apollo-link-form>
 </div>
