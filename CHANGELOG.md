@@ -1,3 +1,10 @@
+## [1.4.10](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.9...v1.4.10) (2021-06-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency d3 to v7 ([#74](https://github.com/DerYeger/gramofo-frontend/issues/74)) ([6b561d3](https://github.com/DerYeger/gramofo-frontend/commit/6b561d3f23946540e45d34e1473e8d257a16a18f))
+
 ## [1.4.9](https://github.com/DerYeger/gramofo-frontend/compare/v1.4.8...v1.4.9) (2021-06-18)
 
 
