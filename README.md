@@ -35,10 +35,11 @@
 - 🌐 **Localization**: Fully localized in English and German
 - 🌗 **Themes**: Dark and light designs
 
+## Links
 
-## Documentation
-
-Documentation is available at [gramofo-frontend.yeger.eu](https://gramofo-frontend.yeger.eu/).
+- [gramoFO](https://github.com/DerYeger/gramofo)
+- [gramoFO-Backend](https://github.com/DerYeger/gramofo-backend)
+- [Documentation](https://gramofo-frontend.yeger.eu/)
 
 ## Development
 
