@@ -80,7 +80,8 @@
     "syntax": "Syntax",
     "true": "True",
     "false": "False",
-    "update-available": "Update available"
+    "update-available": "Update available",
+    "graph-not-found": "This graph does not exist."
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" has been deleted."

@@ -12,6 +12,11 @@ import { Language } from 'src/app/store/state';
 export const setLanguage = createAction('[settings.language] set', props<{ language: Language }>());
 
 /**
+ * Sets the state of the sidebar to expanded or collapsed.
+ */
+export const setSidebar = createAction('[settings.sidebar] set', props<{ expanded: boolean }>());
+
+/**
  * Toggles the state of the sidebar between expanded and collapsed.
  */
 export const toggleSidebar = createAction('[settings.sidebar] toggle');

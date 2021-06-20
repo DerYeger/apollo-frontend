@@ -80,7 +80,8 @@
     "true": "Wahr",
     "syntax": "Syntax",
     "semantics": "Semantik",
-    "update-available": "Update verfügbar"
+    "update-available": "Update verfügbar",
+    "graph-not-found": "Dieser Graph existiert nicht."
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."

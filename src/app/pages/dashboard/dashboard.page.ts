@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
 import { routes } from 'src/app/app-routing.module';
-import { setLanguage, toggleSidebar, toggleTheme } from 'src/app/store/actions';
+import { setLanguage, setSidebar, toggleSidebar, toggleTheme } from 'src/app/store/actions';
 import { State } from 'src/app/store/state';
 
 /**
@@ -25,6 +25,10 @@ export class DashboardPage {
   public readonly themeButtonIcon$ = this.store.select('settings').pipe(map((settings) => (settings.theme === 'dark-theme' ? 'light_mode' : 'dark_mode')));
 
   public constructor(private readonly store: Store<State>) {}
+
+  public setSidebar(expanded: boolean): void {
+    this.store.dispatch(setSidebar({ expanded }));
+  }
 
   public toggleSidebar(): void {
     this.store.dispatch(toggleSidebar());
