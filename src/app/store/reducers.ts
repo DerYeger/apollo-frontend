@@ -10,7 +10,7 @@ import {
   removeGraphFromCache,
   removeGraphFromStore,
   setLanguage,
-  setSelectedFeedback,
+  setSelectedFeedback, setSidebar,
   storeGraph,
   toggleLabels,
   toggleSidebar,
@@ -26,6 +26,7 @@ export const reducers: ActionReducerMap<State> = {
   settings: createReducer<Settings>(
     { language: undefined, sidebar: true, theme: 'dark-theme', selectedFeedback: 'relevant' },
     on(setLanguage, (state, { language }) => ({ ...state, language })),
+    on(setSidebar, (state, { expanded }) => ({ ...state, sidebar: expanded })),
     on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar })),
     on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' })),
     on(setSelectedFeedback, (state, { feedback }) => ({ ...state, selectedFeedback: feedback }))

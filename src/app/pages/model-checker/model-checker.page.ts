@@ -43,7 +43,13 @@ export class ModelCheckerPage implements OnDestroy {
     mergeMap(([source, key]) =>
       this.store.select(source).pipe(
         map((graphs: GraphCollection) => graphs[key]),
-        filter((graph) => graph !== undefined),
+        filter((graph) => {
+          const found = graph !== undefined;
+          if (!found) {
+            this.snackBarService.openSnackBar({ key: 'misc.graph-not-found' });
+          }
+          return found;
+        }),
         mergeMap((graph) =>
           D3Graph.fromDomainGraph(graph).catch((error) => {
             this.snackBarService.openSnackBar(error);
