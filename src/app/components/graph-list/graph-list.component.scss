@@ -11,17 +11,16 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
-// .mat-column-name {
-//   flex: 0 0 60%;
-//   width: 60%;
-// }
+:is(.mat-column-name, .mat-column-description) {
+  word-break: break-all;
 
-// .mat-column-lastEdit {
-//   flex: 0 0 10%;
-//   width: 10%;
-// }
+}
 
-// .mat-column-actions {
-//   flex: 0 0 30%;
-//   width: 30%;
-// }
+:is(.mat-column-description, .mat-column-lastEdit) {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.mat-header-cell {
+  word-break: keep-all !important;
+}
