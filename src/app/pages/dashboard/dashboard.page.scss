@@ -13,6 +13,10 @@
 .toolbar {
   z-index: 2;
   height: 48px;
+
+  button:first-child {
+    margin-left: -0.5rem;
+  }
 }
 
 h1.title {
@@ -23,6 +27,7 @@ h1.title {
   justify-self: flex-end;
   position: absolute;
   right: 1rem;
+  cursor: pointer;
 }
 
 .sidenav-container {

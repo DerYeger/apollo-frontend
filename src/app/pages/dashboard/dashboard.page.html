@@ -1,8 +1,10 @@
 <div class="container">
   <mat-toolbar color="primary" class="toolbar mat-elevation-z8">
-    <button mat-icon-button (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
     <h1 class="title">{{'app.title' | translate}}</h1>
-    <img src="/assets/icons/logo.svg" alt="Logo" width="36px" height="36px" class="logo" />
+    <img src="/assets/icons/logo.svg" alt="Logo" width="36px" height="36px" class="logo" [routerLink]="'/'" />
   </mat-toolbar>
   <mat-sidenav-container class="sidenav-container" autosize>
     <mat-sidenav class="sidenav mat-elevation-z6" mode="over" [opened]="sidebar$ | async" (closed)="setSidebar(false)">
