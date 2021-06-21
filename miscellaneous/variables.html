@@ -76,9 +76,6 @@
                             <a href="#DEFAULT_GRAPH_CONFIGURATION" title="src/app/configurations/graph.configuration.ts"><b>DEFAULT_GRAPH_CONFIGURATION</b>&nbsp;&nbsp;&nbsp;(src/.../graph.configuration.ts)</a>
                         </li>
                         <li>
-                            <a href="#DEMO_GRAPH" title="src/app/model/domain/demo.graph.ts"><b>DEMO_GRAPH</b>&nbsp;&nbsp;&nbsp;(src/.../demo.graph.ts)</a>
-                        </li>
-                        <li>
                             <a href="#enableSimulation" title="src/app/store/actions.ts"><b>enableSimulation</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
@@ -89,6 +86,9 @@
                         </li>
                         <li>
                             <a href="#environment" title="src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#exampleGraph" title="src/app/model/domain/example-graph.ts"><b>exampleGraph</b>&nbsp;&nbsp;&nbsp;(src/.../example-graph.ts)</a>
                         </li>
                         <li>
                             <a href="#feedbackOptions" title="src/app/components/feedback-selection/feedback-selection.component.ts"><b>feedbackOptions</b>&nbsp;&nbsp;&nbsp;(src/.../feedback-selection.component.ts)</a>
@@ -882,52 +882,6 @@
             </tbody>
         </table>
 </section>
-    <h3>src/app/model/domain/demo.graph.ts</h3>
-    <section>
-    <h3></h3>        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="DEMO_GRAPH"></a>
-                        <span class="name">
-                            <b>
-                            DEMO_GRAPH</b>
-                            <a href="#DEMO_GRAPH"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/FOLGraph.html" target="_self" >FOLGraph</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>{
-  name: &#x27;Demo Graph&#x27;,
-  description: &#x27;A simple demonstration Graph.&#x27;,
-  lastEdit: Date.now(),
-  nodes: [
-    { name: &#x27;0&#x27;, relations: [], constants: [&#x27;a&#x27;, &#x27;b&#x27;] },
-    { name: &#x27;1&#x27;, relations: [], constants: [&#x27;c&#x27;] },
-    { name: &#x27;2&#x27;, relations: [], constants: [&#x27;d&#x27;] },
-    { name: &#x27;3&#x27;, relations: [], constants: [&#x27;e&#x27;, &#x27;f&#x27;] },
-  ],
-  edges: [
-    { source: &#x27;0&#x27;, target: &#x27;0&#x27;, relations: [&#x27;R&#x27;], functions: [] },
-    { source: &#x27;0&#x27;, target: &#x27;1&#x27;, relations: [&#x27;A&#x27;], functions: [] },
-    { source: &#x27;1&#x27;, target: &#x27;2&#x27;, relations: [&#x27;B&#x27;], functions: [] },
-    { source: &#x27;2&#x27;, target: &#x27;1&#x27;, relations: [&#x27;B&#x27;], functions: [] },
-  ],
-}</code>
-                        </td>
-                    </tr>
-
-
-            </tbody>
-        </table>
-</section>
     <h3>src/app/dialogs/formula-syntax/formula-syntax.dialog.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
@@ -1027,6 +981,52 @@
                             <i>Default value : </i><code>{
   production: false,
   backendUrl: &#x27;http://localhost:8080&#x27;,
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/app/model/domain/example-graph.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="exampleGraph"></a>
+                        <span class="name">
+                            <b>
+                            exampleGraph</b>
+                            <a href="#exampleGraph"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/FOLGraph.html" target="_self" >FOLGraph</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;Example Graph&#x27;,
+  description: &#x27;An example graph.&#x27;,
+  lastEdit: Date.now(),
+  nodes: [
+    { name: &#x27;0&#x27;, relations: [], constants: [&#x27;a&#x27;, &#x27;b&#x27;] },
+    { name: &#x27;1&#x27;, relations: [], constants: [&#x27;c&#x27;] },
+    { name: &#x27;2&#x27;, relations: [], constants: [&#x27;d&#x27;] },
+    { name: &#x27;3&#x27;, relations: [], constants: [&#x27;e&#x27;, &#x27;f&#x27;] },
+  ],
+  edges: [
+    { source: &#x27;0&#x27;, target: &#x27;0&#x27;, relations: [&#x27;R&#x27;], functions: [] },
+    { source: &#x27;0&#x27;, target: &#x27;1&#x27;, relations: [&#x27;A&#x27;], functions: [] },
+    { source: &#x27;1&#x27;, target: &#x27;2&#x27;, relations: [&#x27;B&#x27;], functions: [] },
+    { source: &#x27;2&#x27;, target: &#x27;1&#x27;, relations: [&#x27;B&#x27;], functions: [] },
+  ],
 }</code>
                         </td>
                     </tr>
@@ -1303,7 +1303,8 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
     on(clearGraphStore, (_) &#x3D;&gt; ({}))
   ),
   graphCache: createReducer&lt;GraphCollection&gt;(
-    {},
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    { &#x27;Example Graph&#x27;: exampleGraph },
     on(cacheGraph, (state, graph) &#x3D;&gt; setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) &#x3D;&gt; unsetGraph(state, key)),
     on(clearGraphCache, (_) &#x3D;&gt; ({}))
@@ -1345,9 +1346,9 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
-  { path: &#x27;home&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
+  { path: &#x27;&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
   { path: &#x27;model-checker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
-  { path: &#x27;**&#x27;, redirectTo: &#x27;home&#x27;, pathMatch: &#x27;full&#x27; },
+  { path: &#x27;**&#x27;, redirectTo: &#x27;/&#x27;, pathMatch: &#x27;full&#x27; },
 ]</code>
                         </td>
                     </tr>

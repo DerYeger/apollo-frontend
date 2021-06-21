@@ -150,6 +150,10 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#navigateToExampleGraph">navigateToExampleGraph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onGraphDeletionRequested">onGraphDeletionRequested</a>
                             </li>
                             <li>
@@ -184,7 +188,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/home/home.page.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -259,6 +263,47 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="navigateToExampleGraph"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            navigateToExampleGraph
+                        </b>
+                        <a href="#navigateToExampleGraph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>navigateToExampleGraph()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="onGraphDeletionRequested"></a>
                     <span class="name">
                         <b>
@@ -279,8 +324,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
                 </td>
             </tr>
 
@@ -351,8 +396,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:36</a></div>
                 </td>
             </tr>
 
@@ -423,8 +468,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:27</a></div>
                 </td>
             </tr>
 
@@ -498,7 +543,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/home/home.page.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -516,6 +561,7 @@ import { Router } from &#x27;@angular/router&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
 
+import { exampleGraph } from &#x27;src/app/model/domain/example-graph&#x27;;
 import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
 import { graphCollectionQueryParams } from &#x27;src/app/model/domain/graph.collection&#x27;;
 import { SnackBarService } from &#x27;src/app/services/snack-bar.service&#x27;;
@@ -549,18 +595,34 @@ export class HomePage {
     this.store.dispatch(cacheGraph(graph));
     this.router.navigate([&#x27;model-checker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphCache&#x27;, graph.name) });
   }
+
+  public navigateToExampleGraph() {
+    this.router.navigate([&#x27;model-checker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphCache&#x27;, exampleGraph.name) });
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;home-section&quot;&gt;{{ &#x27;home.saved-graphs&#x27; | translate }}&lt;/h1&gt;
-&lt;div class&#x3D;&quot;home-section&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;section graphs&quot;&gt;
+  &lt;h1&gt;{{ &#x27;home.saved-graphs&#x27; | translate }}&lt;/h1&gt;
   &lt;apollo-graph-list [graphs]&#x3D;&quot;storedGraphs | async&quot; (graphSelected)&#x3D;&quot;onGraphSelected($event)&quot; (graphDeletionRequested)&#x3D;&quot;onGraphDeletionRequested($event)&quot;&gt;&lt;/apollo-graph-list&gt;
-&lt;/div&gt;
-&lt;div class&#x3D;&quot;home-section&quot;&gt;
+&lt;/section&gt;
+&lt;section class&#x3D;&quot;section import&quot;&gt;
+  &lt;h1 style&#x3D;&quot;margin-bottom: 0&quot;&gt;{{ &quot;import.title&quot; | translate }}&lt;/h1&gt;
   &lt;apollo-graph-import (graphImport)&#x3D;&quot;onGraphImport($event)&quot;&gt;&lt;/apollo-graph-import&gt;
-&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class&#x3D;&quot;section quick-access&quot;&gt;
+  &lt;h1&gt;{{ &#x27;home.quick-access&#x27; | translate }}&lt;/h1&gt;
+  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;navigateToExampleGraph()&quot;&gt;
+    {{ &quot;home.example-graph&quot; | translate }}
+    &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+  &lt;/button&gt;
+  &lt;button mat-raised-button color&#x3D;&quot;accent&quot; [routerLink]&#x3D;&quot;&#x27;/model-checker&#x27;&quot;&gt;
+    {{ &quot;model-checker.title&quot; | translate }}
+    &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+  &lt;/button&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
 
@@ -568,14 +630,27 @@ export class HomePage {
                 <p class="comment">
                     <code>./home.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.home-section {
+                <pre class="line-numbers"><code class="language-scss">.section {
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-}
 
-h1 {
-  margin-top: 1rem !important;
+  &amp;:first-child {
+    margin-top: 1rem !important;
+  }
+
+  &amp;.quick-access {
+    display: flex;
+    flex-direction: column;
+
+    &gt; *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &gt; button {
+      max-width: fit-content;
+    }
+  }
 }
 </code></pre>
     </div>
@@ -605,7 +680,7 @@ h1 {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 class="home-section">{{ \'home.saved-graphs\' | translate }}</h1><div class="home-section">  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list></div><div class="home-section">  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import></div></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="section graphs">  <h1>{{ \'home.saved-graphs\' | translate }}</h1>  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list></section><section class="section import">  <h1 style="margin-bottom: 0">{{ "import.title" | translate }}</h1>  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import></section><section class="section quick-access">  <h1>{{ \'home.quick-access\' | translate }}</h1>  <button mat-raised-button color="primary" (click)="navigateToExampleGraph()">    {{ "home.example-graph" | translate }}    <mat-icon>open_in_new</mat-icon>  </button>  <button mat-raised-button color="accent" [routerLink]="\'/model-checker\'">    {{ "model-checker.title" | translate }}    <mat-icon>open_in_new</mat-icon>  </button></section></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};

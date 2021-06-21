@@ -486,7 +486,7 @@ import { Subscription } from &#x27;rxjs&#x27;;
 import { distinctUntilChanged, map } from &#x27;rxjs/operators&#x27;;
 
 import { UpdateService } from &#x27;src/app/services/update.service&#x27;;
-import {setLanguage, setSidebar} from &#x27;src/app/store/actions&#x27;;
+import { setLanguage, setSidebar } from &#x27;src/app/store/actions&#x27;;
 import { Language, State } from &#x27;src/app/store/state&#x27;;
 
 /**
@@ -556,7 +556,7 @@ export class AppComponent implements OnDestroy, OnInit {
           .classed(&#x27;light-theme&#x27;, &#x27;light-theme&#x27; &#x3D;&#x3D;&#x3D; theme)
       );
 
-    this.store.dispatch(setSidebar({expanded: false}));
+    this.store.dispatch(setSidebar({ expanded: false }));
   }
 
   /**
