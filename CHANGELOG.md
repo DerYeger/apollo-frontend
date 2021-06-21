@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/DerYeger/apollo-frontend/compare/v2.0.1...v2.1.0) (2021-06-21)
+
+
+### Bug Fixes
+
+* use empty route for home page ([6f9db4d](https://github.com/DerYeger/apollo-frontend/commit/6f9db4d79a296a243b4845facbdfef7a108f211b))
+
+
+### Features
+
+* rework home page ([a24dd2d](https://github.com/DerYeger/apollo-frontend/commit/a24dd2d9a548dd3777e600812cc2d29857faa7de))
+
 ## [2.0.1](https://github.com/DerYeger/apollo-frontend/compare/v2.0.0...v2.0.1) (2021-06-21)
 
 
