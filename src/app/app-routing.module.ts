@@ -21,7 +21,7 @@ export type ApolloRoutes = ApolloRoute[];
  * The routes of this app.
  */
 export const routes: ApolloRoutes = [
-  { path: 'home', name: 'home.title', component: HomePage },
+  { path: '', name: 'home.title', component: HomePage },
   { path: 'model-checker', name: 'model-checker.title', component: ModelCheckerPage },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
