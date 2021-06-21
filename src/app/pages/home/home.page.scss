@@ -1,9 +1,22 @@
-.home-section {
+.section {
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
-}
 
-h1 {
-  margin-top: 1rem !important;
+  &:first-child {
+    margin-top: 1rem !important;
+  }
+
+  &.quick-access {
+    display: flex;
+    flex-direction: column;
+
+    > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    > button {
+      max-width: fit-content;
+    }
+  }
 }

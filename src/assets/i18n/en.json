@@ -9,7 +9,9 @@
   },
   "home": {
     "title": "Home",
-    "saved-graphs": "Saved Graphs"
+    "saved-graphs": "Saved Graphs",
+    "quick-access": "Quick Access",
+    "example-graph": "Example Graph"
   },
   "graph": {
     "reset-graph": "Reset Layout",
@@ -116,7 +118,6 @@
     "title": "Import Graph",
     "file": "Import File",
     "file-error": "Could not import File.",
-    "load-demo": "Load Demo Graph",
     "text": "Paste or edit Graph"
   },
   "api": {

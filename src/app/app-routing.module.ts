@@ -23,7 +23,7 @@ export type ApolloRoutes = ApolloRoute[];
 export const routes: ApolloRoutes = [
   { path: '', name: 'home.title', component: HomePage },
   { path: 'model-checker', name: 'model-checker.title', component: ModelCheckerPage },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 /**

@@ -1,7 +1,19 @@
-<h1 class="home-section">{{ 'home.saved-graphs' | translate }}</h1>
-<div class="home-section">
+<section class="section graphs">
+  <h1>{{ 'home.saved-graphs' | translate }}</h1>
   <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list>
-</div>
-<div class="home-section">
+</section>
+<section class="section import">
+  <h1 style="margin-bottom: 0">{{ "import.title" | translate }}</h1>
   <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import>
-</div>
+</section>
+<section class="section quick-access">
+  <h1>{{ 'home.quick-access' | translate }}</h1>
+  <button mat-raised-button color="primary" (click)="navigateToExampleGraph()">
+    {{ "home.example-graph" | translate }}
+    <mat-icon>open_in_new</mat-icon>
+  </button>
+  <button mat-raised-button color="accent" [routerLink]="'/model-checker'">
+    {{ "model-checker.title" | translate }}
+    <mat-icon>open_in_new</mat-icon>
+  </button>
+</section>

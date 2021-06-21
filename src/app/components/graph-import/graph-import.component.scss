@@ -4,15 +4,13 @@ h1 {
 
 div {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
+  flex-direction: column;
 
-mat-form-field {
-  flex: 1;
-}
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 
-span {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  > button {
+    max-width: fit-content;
+  }
 }

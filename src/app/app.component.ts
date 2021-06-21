@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 
 import { UpdateService } from 'src/app/services/update.service';
-import {setLanguage, setSidebar} from 'src/app/store/actions';
+import { setLanguage, setSidebar } from 'src/app/store/actions';
 import { Language, State } from 'src/app/store/state';
 
 /**
@@ -80,7 +80,7 @@ export class AppComponent implements OnDestroy, OnInit {
           .classed('light-theme', 'light-theme' === theme)
       );
 
-    this.store.dispatch(setSidebar({expanded: false}));
+    this.store.dispatch(setSidebar({ expanded: false }));
   }
 
   /**

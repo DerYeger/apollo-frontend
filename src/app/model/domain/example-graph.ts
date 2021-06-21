@@ -1,8 +1,8 @@
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 
-export const DEMO_GRAPH: FOLGraph = {
-  name: 'Demo Graph',
-  description: 'A simple demonstration Graph.',
+export const exampleGraph: FOLGraph = {
+  name: 'Example Graph',
+  description: 'An example graph.',
   lastEdit: Date.now(),
   nodes: [
     { name: '0', relations: [], constants: ['a', 'b'] },

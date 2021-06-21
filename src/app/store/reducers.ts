@@ -1,6 +1,7 @@
 import { ActionReducerMap, createReducer, MetaReducer, on } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
+import { exampleGraph } from 'src/app/model/domain/example-graph';
 import { GraphCollection, setGraph, unsetGraph } from 'src/app/model/domain/graph.collection';
 import {
   cacheGraph,
@@ -10,7 +11,8 @@ import {
   removeGraphFromCache,
   removeGraphFromStore,
   setLanguage,
-  setSelectedFeedback, setSidebar,
+  setSelectedFeedback,
+  setSidebar,
   storeGraph,
   toggleLabels,
   toggleSidebar,
@@ -47,7 +49,8 @@ export const reducers: ActionReducerMap<State> = {
     on(clearGraphStore, (_) => ({}))
   ),
   graphCache: createReducer<GraphCollection>(
-    {},
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    { 'Example Graph': exampleGraph },
     on(cacheGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) => unsetGraph(state, key)),
     on(clearGraphCache, (_) => ({}))

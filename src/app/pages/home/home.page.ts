@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 
+import { exampleGraph } from 'src/app/model/domain/example-graph';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { graphCollectionQueryParams } from 'src/app/model/domain/graph.collection';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
@@ -35,5 +36,9 @@ export class HomePage {
   public onGraphImport(graph: FOLGraph): void {
     this.store.dispatch(cacheGraph(graph));
     this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphCache', graph.name) });
+  }
+
+  public navigateToExampleGraph() {
+    this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphCache', exampleGraph.name) });
   }
 }

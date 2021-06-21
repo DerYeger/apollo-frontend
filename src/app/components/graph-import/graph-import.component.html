@@ -1,6 +1,5 @@
-<h1>{{ "import.title" | translate }}</h1>
 <div>
-  <mat-form-field (keyup.enter)="handleTextInput()">
+  <mat-form-field (keyup.enter)="handleTextInput()" style="margin-bottom: -0.25rem" class="import-form-field">
     <mat-label>{{ "import.text" | translate }}</mat-label>
     <textarea
       #textInput
@@ -10,13 +9,11 @@
       (paste)="onPaste($event)"
       cdkTextareaAutosize
       #autosize="cdkTextareaAutosize"
-      cdkAutosizeMinRows="4"
+      cdkAutosizeMinRows="1"
       cdkAutosizeMaxRows="50"
     ></textarea>
   </mat-form-field>
-  <span>{{ "misc.or" | translate }}</span>
-  <button mat-raised-button color="primary" (click)="triggerFileImport()">{{ "import.file" | translate }}</button>
   <input #fileInput type="file" id="file" style="display: none" accept=".json,.yml,text/json,application/json,text/yml" (change)="onFileInput()" />
   <span>{{ "misc.or" | translate }}</span>
-  <button mat-raised-button (click)="loadDemoGraph()" color="primary">{{ "import.load-demo" | translate }}</button>
+  <button mat-raised-button color="primary" (click)="triggerFileImport()">{{ "import.file" | translate }}</button>
 </div>

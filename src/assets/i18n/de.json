@@ -9,7 +9,9 @@
   },
   "home": {
     "title": "Home",
-    "saved-graphs": "Gespeicherte Graphen"
+    "saved-graphs": "Gespeicherte Graphen",
+    "quick-access": "Schnellzugriff",
+    "example-graph": "Beispielgraph"
   },
   "graph": {
     "reset-graph": "Anordnung zurücksetzen",
@@ -115,7 +117,6 @@
     "file": "Datei importieren",
     "file-error": "Datei konnte nicht importiert werden.",
     "format-hint": "JSON oder YAML",
-    "load-demo": "Demo Graph laden",
     "title": "Graph importieren",
     "text": "Graph einfügen oder bearbeiten"
   },
