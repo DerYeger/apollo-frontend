@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/DerYeger/apollo-frontend/compare/v2.0.0...v2.0.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* remove background from android icons ([8bfff02](https://github.com/DerYeger/apollo-frontend/commit/8bfff022741caf714efe91831adb6bb55b7dd33d))
+
 # [2.0.0](https://github.com/DerYeger/apollo-frontend/compare/v1.5.0...v2.0.0) (2021-06-21)
 
 
