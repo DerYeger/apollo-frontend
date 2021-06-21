@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO-Frontend</title>
+        <title>Apollo-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
+            <a href="../" class="navbar-brand">Apollo-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -93,7 +93,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>gramofo-home</code></td>
+                <td class="col-md-9"><code>apollo-home</code></td>
             </tr>
 
             <tr>
@@ -527,7 +527,7 @@ import { State } from &#x27;src/app/store/state&#x27;;
  * Contains a list of (locally) saved graphs and the GraphImportComponent.
  */
 @Component({
-  selector: &#x27;gramofo-home&#x27;,
+  selector: &#x27;apollo-home&#x27;,
   templateUrl: &#x27;./home.page.html&#x27;,
   styleUrls: [&#x27;./home.page.scss&#x27;],
 })
@@ -537,7 +537,7 @@ export class HomePage {
   public constructor(private readonly store: Store&lt;State&gt;, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
 
   public onGraphSelected(graph: FOLGraph): void {
-    this.router.navigate([&#x27;modelchecker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphStore&#x27;, graph.name) });
+    this.router.navigate([&#x27;model-checker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphStore&#x27;, graph.name) });
   }
 
   public onGraphDeletionRequested(graph: FOLGraph): void {
@@ -547,7 +547,7 @@ export class HomePage {
 
   public onGraphImport(graph: FOLGraph): void {
     this.store.dispatch(cacheGraph(graph));
-    this.router.navigate([&#x27;modelchecker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphCache&#x27;, graph.name) });
+    this.router.navigate([&#x27;model-checker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphCache&#x27;, graph.name) });
   }
 }
 </code></pre>
@@ -556,10 +556,10 @@ export class HomePage {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;home-section&quot;&gt;{{ &#x27;home.saved-graphs&#x27; | translate }}&lt;/h1&gt;
 &lt;div class&#x3D;&quot;home-section&quot;&gt;
-  &lt;gramofo-graph-list [graphs]&#x3D;&quot;storedGraphs | async&quot; (graphSelected)&#x3D;&quot;onGraphSelected($event)&quot; (graphDeletionRequested)&#x3D;&quot;onGraphDeletionRequested($event)&quot;&gt;&lt;/gramofo-graph-list&gt;
+  &lt;apollo-graph-list [graphs]&#x3D;&quot;storedGraphs | async&quot; (graphSelected)&#x3D;&quot;onGraphSelected($event)&quot; (graphDeletionRequested)&#x3D;&quot;onGraphDeletionRequested($event)&quot;&gt;&lt;/apollo-graph-list&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;home-section&quot;&gt;
-  &lt;gramofo-graph-import (graphImport)&#x3D;&quot;onGraphImport($event)&quot;&gt;&lt;/gramofo-graph-import&gt;
+  &lt;apollo-graph-import (graphImport)&#x3D;&quot;onGraphImport($event)&quot;&gt;&lt;/apollo-graph-import&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -605,8 +605,8 @@ h1 {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1 class="home-section">{{ \'home.saved-graphs\' | translate }}</h1><div class="home-section">  <gramofo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></gramofo-graph-list></div><div class="home-section">  <gramofo-graph-import (graphImport)="onGraphImport($event)"></gramofo-graph-import></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'gramofo-update-available'}];
+        var COMPONENT_TEMPLATE = '<div><h1 class="home-section">{{ \'home.saved-graphs\' | translate }}</h1><div class="home-section">  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list></div><div class="home-section">  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO-Frontend</title>
+        <title>Apollo-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
+            <a href="../" class="navbar-brand">Apollo-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -140,6 +140,9 @@
                         </li>
                         <li>
                             <a href="#setSelectedFeedback" title="src/app/store/actions.ts"><b>setSelectedFeedback</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#setSidebar" title="src/app/store/actions.ts"><b>setSidebar</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
                             <a href="#storeGraph" title="src/app/store/actions.ts"><b>storeGraph</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
@@ -384,6 +387,33 @@
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Sets the selected feedback to the given value.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setSidebar"></a>
+                        <span class="name">
+                            <b>
+                            setSidebar</b>
+                            <a href="#setSidebar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>createAction(&#x27;[settings.sidebar] set&#x27;, props&lt;{ expanded: boolean }&gt;())</code>
+                        </td>
+                    </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Sets the state of the sidebar to expanded or collapsed.</p>
 </div>
                     </td>
                 </tr>
@@ -1252,6 +1282,7 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
   settings: createReducer&lt;Settings&gt;(
     { language: undefined, sidebar: true, theme: &#x27;dark-theme&#x27;, selectedFeedback: &#x27;relevant&#x27; },
     on(setLanguage, (state, { language }) &#x3D;&gt; ({ ...state, language })),
+    on(setSidebar, (state, { expanded }) &#x3D;&gt; ({ ...state, sidebar: expanded })),
     on(toggleSidebar, (state) &#x3D;&gt; ({ ...state, sidebar: !state.sidebar })),
     on(toggleTheme, (state) &#x3D;&gt; ({ ...state, theme: state.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light-theme&#x27; : &#x27;dark-theme&#x27; })),
     on(setSelectedFeedback, (state, { feedback }) &#x3D;&gt; ({ ...state, selectedFeedback: feedback }))
@@ -1307,7 +1338,7 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/GramofoRoute.html" target="_self" >GramofoRoutes</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/ApolloRoute.html" target="_self" >ApolloRoutes</a></code>
 
                         </td>
                     </tr>
@@ -1315,7 +1346,7 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
   { path: &#x27;home&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
-  { path: &#x27;modelchecker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
+  { path: &#x27;model-checker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
   { path: &#x27;**&#x27;, redirectTo: &#x27;home&#x27;, pathMatch: &#x27;full&#x27; },
 ]</code>
                         </td>

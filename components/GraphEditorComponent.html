@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO-Frontend</title>
+        <title>Apollo-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
+            <a href="../" class="navbar-brand">Apollo-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -92,7 +92,7 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>gramofo-graph-editor[graph]</code></td>
+                <td class="col-md-9"><code>apollo-graph-editor[graph]</code></td>
             </tr>
 
             <tr>
@@ -275,7 +275,7 @@ import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
  * Contains all components required to fully edit graphs.
  */
 @Component({
-  selector: &#x27;gramofo-graph-editor[graph]&#x27;,
+  selector: &#x27;apollo-graph-editor[graph]&#x27;,
   templateUrl: &#x27;./graph-editor.component.html&#x27;,
   styleUrls: [&#x27;./graph-editor.component.scss&#x27;],
 })
@@ -292,7 +292,7 @@ export class GraphEditorComponent {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;graph-container&quot;&gt;
   &lt;mat-card class&#x3D;&quot;graph-card mat-elevation-z4&quot;&gt;
     &lt;mat-card-content class&#x3D;&quot;graph-card-content&quot;&gt;
-      &lt;gramofo-graph
+      &lt;apollo-graph
         #graphComponent
         [graph]&#x3D;&quot;graph | async&quot;
         [allowEditing]&#x3D;&quot;true&quot;
@@ -301,24 +301,24 @@ export class GraphEditorComponent {
         (linkDeleted)&#x3D;&quot;linkForm.onLinkDeleted($event)&quot;
         (saveRequested)&#x3D;&quot;saveRequested.emit($event)&quot;
         (graphExported)&#x3D;&quot;graphExported.emit($event)&quot;
-      &gt;&lt;/gramofo-graph&gt;
+      &gt;&lt;/apollo-graph&gt;
     &lt;/mat-card-content&gt;
   &lt;/mat-card&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;form-container&quot;&gt;
-  &lt;gramofo-node-form
+  &lt;apollo-node-form
     #nodeForm
     [node]&#x3D;&quot;graphComponent.nodeSelected | async&quot;
     (nodeUpdated)&#x3D;&quot;graphComponent.restart()&quot;
     (nodeDeletionRequested)&#x3D;&quot;graphComponent.removeNode($event)&quot;
-  &gt;&lt;/gramofo-node-form&gt;
+  &gt;&lt;/apollo-node-form&gt;
   &lt;mat-divider class&#x3D;&quot;horizontal-divider&quot;&gt;&lt;/mat-divider&gt;
-  &lt;gramofo-link-form
+  &lt;apollo-link-form
     #linkForm
     [link]&#x3D;&quot;graphComponent.linkSelected | async&quot;
     (linkUpdated)&#x3D;&quot;graphComponent.restart()&quot;
     (linkDeletionRequested)&#x3D;&quot;graphComponent.removeLink($event)&quot;
-  &gt;&lt;/gramofo-link-form&gt;
+  &gt;&lt;/apollo-link-form&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -349,7 +349,6 @@ export class GraphEditorComponent {
   vertical-align: top;
   display: inline-block;
   width: 25%;
-  height: 100%;
 }
 
 .horizontal-divider {
@@ -361,21 +360,16 @@ export class GraphEditorComponent {
 @media screen and (max-width: 800px) {
   .graph-container {
     width: 100%;
-    height: 75%;
-    min-height: 28rem;
+    height: 65vh;
+    min-height: 10rem;
     margin-bottom: 1rem;
   }
 
   .form-container {
     width: 100%;
-    height: 25%;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
-
-    :first {
-      margin-bottom: 1rem;
-    }
   }
 
   .horizontal-divider {
@@ -411,8 +405,8 @@ export class GraphEditorComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="graph-container">  <mat-card class="graph-card mat-elevation-z4">    <mat-card-content class="graph-card-content">      <gramofo-graph        #graphComponent        [graph]="graph | async"        [allowEditing]="true"        [graphExportRequests]="graphExportRequests"        (nodeDeleted)="nodeForm.onNodeDeleted($event)"        (linkDeleted)="linkForm.onLinkDeleted($event)"        (saveRequested)="saveRequested.emit($event)"        (graphExported)="graphExported.emit($event)"      ></gramofo-graph>    </mat-card-content>  </mat-card></div><div class="form-container">  <gramofo-node-form    #nodeForm    [node]="graphComponent.nodeSelected | async"    (nodeUpdated)="graphComponent.restart()"    (nodeDeletionRequested)="graphComponent.removeNode($event)"  ></gramofo-node-form>  <mat-divider class="horizontal-divider"></mat-divider>  <gramofo-link-form    #linkForm    [link]="graphComponent.linkSelected | async"    (linkUpdated)="graphComponent.restart()"    (linkDeletionRequested)="graphComponent.removeLink($event)"  ></gramofo-link-form></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'gramofo-update-available'}];
+        var COMPONENT_TEMPLATE = '<div><div class="graph-container">  <mat-card class="graph-card mat-elevation-z4">    <mat-card-content class="graph-card-content">      <apollo-graph        #graphComponent        [graph]="graph | async"        [allowEditing]="true"        [graphExportRequests]="graphExportRequests"        (nodeDeleted)="nodeForm.onNodeDeleted($event)"        (linkDeleted)="linkForm.onLinkDeleted($event)"        (saveRequested)="saveRequested.emit($event)"        (graphExported)="graphExported.emit($event)"      ></apollo-graph>    </mat-card-content>  </mat-card></div><div class="form-container">  <apollo-node-form    #nodeForm    [node]="graphComponent.nodeSelected | async"    (nodeUpdated)="graphComponent.restart()"    (nodeDeletionRequested)="graphComponent.removeNode($event)"  ></apollo-node-form>  <mat-divider class="horizontal-divider"></mat-divider>  <apollo-link-form    #linkForm    [link]="graphComponent.linkSelected | async"    (linkUpdated)="graphComponent.restart()"    (linkDeletionRequested)="graphComponent.removeLink($event)"  ></apollo-link-form></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GraphEditorComponent'};
 </script>

@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">gramoFO-Frontend</a>
+                    <a href="index.html" data-type="index-link">Apollo-Frontend</a>
                 </li>
 
                 <li class="divider"></li>
@@ -168,16 +168,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/ApolloLink.html" data-type="entity-link">ApolloLink</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ApolloNode.html" data-type="entity-link">ApolloNode</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
                             </li>
                             <li class="link">
                                 <a href="classes/D3Graph.html" data-type="entity-link">D3Graph</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/GramoFOLink.html" data-type="entity-link">GramoFOLink</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/GramoFONode.html" data-type="entity-link">GramoFONode</a>
                             </li>
                         </ul>
                     </li>
@@ -209,6 +209,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
+                                <a href="interfaces/ApolloRoute.html" data-type="entity-link">ApolloRoute</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/D3Link.html" data-type="entity-link">D3Link</a>
                             </li>
                             <li class="link">
@@ -231,9 +234,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/FOLNode.html" data-type="entity-link">FOLNode</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/GramofoRoute.html" data-type="entity-link">GramofoRoute</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/GraphCollection.html" data-type="entity-link">GraphCollection</a>

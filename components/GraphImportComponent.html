@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>gramoFO-Frontend</title>
+        <title>Apollo-Frontend</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">gramoFO-Frontend</a>
+            <a href="../" class="navbar-brand">Apollo-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -99,7 +99,7 @@ Supports both JSON and YAML.</p>
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>gramofo-graph-import</code></td>
+                <td class="col-md-9"><code>apollo-graph-import</code></td>
             </tr>
 
             <tr>
@@ -739,7 +739,7 @@ import { terminate } from &#x27;src/app/utils/events&#x27;;
  * Supports both JSON and YAML.
  */
 @Component({
-  selector: &#x27;gramofo-graph-import&#x27;,
+  selector: &#x27;apollo-graph-import&#x27;,
   templateUrl: &#x27;./graph-import.component.html&#x27;,
   styleUrls: [&#x27;./graph-import.component.scss&#x27;],
 })
@@ -886,7 +886,7 @@ span {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><h1>{{ "import.title" | translate }}</h1><div>  <mat-form-field (keyup.enter)="handleTextInput()">    <mat-label>{{ "import.text" | translate }}</mat-label>    <textarea      #textInput      matInput      [formControl]="textInputFormControl"      placeholder="{{ \'import.format-hint\' | translate }}"      (paste)="onPaste($event)"      cdkTextareaAutosize      #autosize="cdkTextareaAutosize"      cdkAutosizeMinRows="4"      cdkAutosizeMaxRows="50"    ></textarea>  </mat-form-field>  <span>{{ "misc.or" | translate }}</span>  <button mat-raised-button color="primary" (click)="triggerFileImport()">{{ "import.file" | translate }}</button>  <input #fileInput type="file" id="file" style="display: none" accept=".json,.yml,text/json,application/json,text/yml" (change)="onFileInput()" />  <span>{{ "misc.or" | translate }}</span>  <button mat-raised-button (click)="loadDemoGraph()" color="primary">{{ "import.load-demo" | translate }}</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'gramofo-root'},{'name': 'DashboardPage', 'selector': 'gramofo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'gramofo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'gramofo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'gramofo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'gramofo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'gramofo-graph-import'},{'name': 'GraphListComponent', 'selector': 'gramofo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'gramofo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'gramofo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'gramofo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'gramofo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'gramofo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'gramofo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'gramofo-update-available'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GraphImportComponent'};
 </script>
