@@ -1,3 +1,25 @@
+# [2.0.0](https://github.com/DerYeger/apollo-frontend/compare/v1.5.0...v2.0.0) (2021-06-21)
+
+
+### Bug Fixes
+
+* disable user scaling on mobile devices ([c68497f](https://github.com/DerYeger/apollo-frontend/commit/c68497f4fdbe4ecc9959576647f43be2b9d2ef60))
+* improve toolbar layout ([3617051](https://github.com/DerYeger/apollo-frontend/commit/3617051b17223bd107b4618a73873adab45de56a))
+* minor improvement to layout behavior ([cbfaedf](https://github.com/DerYeger/apollo-frontend/commit/cbfaedf16b27410f7d51b01b4560c4ee99b333f7))
+* update icons with new theme colors ([d7e71e3](https://github.com/DerYeger/apollo-frontend/commit/d7e71e34865483dcfebe01de8a56c87d9e54ebaf))
+* update light theme to match dark theme colors ([1fe7bad](https://github.com/DerYeger/apollo-frontend/commit/1fe7bad365dae94ba43bc4f97063ccc3c97b3e4e))
+* update theme colors ([ab945f0](https://github.com/DerYeger/apollo-frontend/commit/ab945f0d84c5d3e38a59ef016def8856cab17eff))
+
+
+### Features
+
+* rename project ([262f0bc](https://github.com/DerYeger/apollo-frontend/commit/262f0bc3143b052a2228309f23df65d4828ae01a))
+
+
+### BREAKING CHANGES
+
+* rename project
+
 # [1.5.0](https://github.com/DerYeger/apollo-frontend/compare/v1.4.10...v1.5.0) (2021-06-19)
 
 
