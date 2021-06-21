@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/DerYeger/apollo-frontend/compare/v2.1.0...v2.1.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* enable word break in graph list ([d508bdb](https://github.com/DerYeger/apollo-frontend/commit/d508bdbbc3c663094a148e7489bc0643273baa34))
+
 # [2.1.0](https://github.com/DerYeger/apollo-frontend/compare/v2.0.1...v2.1.0) (2021-06-21)
 
 
