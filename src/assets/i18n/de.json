@@ -1,124 +1,18 @@
 {
-  "app": {
-    "title": "Apollo"
-  },
-  "model-checker": {
-    "title": "Modellprüfer",
-    "minimize-result": "Ergebnis minimieren",
-    "minimize-tooltip": "Bei Aktivierung werden nur notwendige Überprüfungen durchgeführt. Notwendig für umfangreiche Graphen und komplexe Formeln."
-  },
-  "home": {
-    "title": "Home",
-    "saved-graphs": "Gespeicherte Graphen",
-    "quick-access": "Schnellzugriff",
-    "example-graph": "Beispielgraph"
-  },
-  "graph": {
-    "reset-graph": "Anordnung zurücksetzen",
-    "create-node": "Knoten erzeugen",
-    "labels": "Beschriftungen",
-    "simulation": "Automatische Anordnung",
-    "save-graph": "Graph speichern",
-    "controls": {
-      "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste / Multi-Touch",
-      "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen"
-    }
-  },
-  "editor": {
-    "node": {
-      "title": "Knoten",
-      "none-selected": "Kein Knoten ausgewählt."
-    },
-    "link": {
-      "title": "Kante",
-      "none-selected": "Keine Kante ausgewählt."
-    },
-    "symbols": {
-      "new-constant": "Neue Konstante",
-      "new-function": "Neue Funktion",
-      "new-relation": "Neue Relation"
-    }
-  },
   "actions": {
     "apply": "Anwenden",
-    "delete": "Löschen",
     "cancel": "Abbrechen",
-    "save": "Speichern",
-    "undo": "Rückgängig machen",
-    "export": "Exportieren",
-    "title": "Aktionen",
-    "open": "Öffnen",
     "check": "Prüfen",
     "collapse": "Einklappen",
+    "delete": "Löschen",
     "expand": "Erweitern",
+    "export": "Exportieren",
     "filter-causes": "Relevantes filtern",
+    "open": "Öffnen",
+    "save": "Speichern",
+    "title": "Aktionen",
+    "undo": "Rückgängig machen",
     "update": "Aktualisieren"
-  },
-  "fol": {
-    "constant": {
-      "plural": "Konstanten"
-    },
-    "function": {
-      "plural": "Funktionen"
-    },
-    "relation": {
-      "plural": "Relationen"
-    },
-    "formula": "Formel"
-  },
-  "lang": {
-    "de": "Deutsch",
-    "en": "Englisch"
-  },
-  "dashboard": {
-    "github-repository": "GitHub Repository"
-  },
-  "misc": {
-    "name": "Name",
-    "last-edit": "Letzte Änderung",
-    "description": "Beschreibung",
-    "or": "oder",
-    "false": "Falsch",
-    "true": "Wahr",
-    "syntax": "Syntax",
-    "semantics": "Semantik",
-    "update-available": "Update verfügbar",
-    "graph-not-found": "Dieser Graph existiert nicht."
-  },
-  "snackbar": {
-    "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."
-  },
-  "export": {
-    "yaml": "YAML",
-    "json": "JSON",
-    "copy": "Graph in die Zwischenablage kopieren",
-    "download": "Graph als Datei herunterladen",
-    "copy-success": "Graph wurde in die Zwischenablage kopiert.",
-    "copy-failure": "Graph konnte nicht in die Zwischenablage kopiert werden."
-  },
-  "validation": {
-    "node": {
-      "missing": "Ungültiger Graph: Knoten \"{{node}}\" fehlt im Graphen.",
-      "duplicate": "Ungültiger Graph: Doppelter Knoten \"{{node}}\".",
-      "invalid-relations": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
-      "invalid-constants": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Konstante(n) (Konstanten müssen mit einem Kleinbuchstaben beginnen)."
-    },
-    "edge": {
-      "missing": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" fehlt im Graphen.",
-      "invalid-relations": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
-      "invalid-functions": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen)."
-    },
-    "parse-error": "Eingabe entspricht nicht dem Graph-Schema.",
-    "constant-pattern-error": "Konstantennamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
-    "function-pattern-error": "Funktionsnamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
-    "relation-pattern-error": "Relationsnamen müssen mit einem Großbuchstaben beginnen und dürfen keine Sonderzeichen enthalten."
-  },
-  "import": {
-    "file": "Datei importieren",
-    "file-error": "Datei konnte nicht importiert werden.",
-    "format-hint": "JSON oder YAML",
-    "title": "Graph importieren",
-    "text": "Graph einfügen oder bearbeiten"
   },
   "api": {
     "and": {
@@ -128,20 +22,20 @@
       "right": "Zweites Konjunkt gilt nicht"
     },
     "bi-implication": {
-      "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
       "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz gilt",
       "negative": {
         "invalid": "Antezedens gilt genau dann, wenn Konsequenz gilt",
-        "valid": "Antezedens und Konsequenz gelten nicht",
         "left": "Konsequenz gilt nicht, aber Antezedens gilt",
-        "right": "Antezedens gilt nicht, aber Konsequenz gilt"
+        "right": "Antezedens gilt nicht, aber Konsequenz gilt",
+        "valid": "Antezedens und Konsequenz gelten nicht"
       },
       "positive": {
         "invalid": "Antezedens gilt genau dann nicht, wenn Konsequenz nicht gilt",
-        "valid": "Antezedens und Konsequenz gelten",
         "left": "Konsequens gilt, aber Antezedens gilt nicht",
-        "right": "Antezedens gilt, aber Konsequenz gilt nicht"
-      }
+        "right": "Antezedens gilt, aber Konsequenz gilt nicht",
+        "valid": "Antezedens und Konsequenz gelten"
+      },
+      "valid": "Antezedens gilt genau dann, wenn Konsequenz gilt"
     },
     "constant": {
       "false": "Konstante ist falsch",
@@ -150,8 +44,8 @@
     "error": {
       "bound-variable-reuse": "In der Formel wird das Symbol \"{{symbol}}\" als gebundene Variable definiert, im Graphen jedoch als Funktionssymbol verwendet.",
       "different-arities": "Das Symbol \"{{symbol}}\" wird innerhalb des Graphens mit verschiedenen Aritäten definiert.",
-      "different-function-values": "Die unäre Funktion \"{{function}}\" hat zwei Funktionswerte für mindestens einen Knoten. Eine Funktion muss rechtseindeutig sein.",
       "different-arities-formula": "Die Arität des Symbols \"{{symbol}}\" unterscheidet sich zwischen Graph und Formel.",
+      "different-function-values": "Die unäre Funktion \"{{function}}\" hat zwei Funktionswerte für mindestens einen Knoten. Eine Funktion muss rechtseindeutig sein.",
       "duplicate-constant": "Die Konstante \"{{constant}}\" kann nur einem Knoten zugewiesen werden.",
       "empty-graph": "Der Graph muss mindestens einen Knoten enthalten.",
       "function-totality": "Die unäre Funktion \"{{function}}\" muss total sein.",
@@ -159,10 +53,10 @@
       "invalid-function": "Die Funktion \"{{function}}\" ist ungültig. Funktionssymbole dürfen nicht leer sein und müssen mit einem Kleinbuchstaben beginnen.",
       "invalid-relation": "Die Relation \"{{relation}}\" ist ungültig. Relationssymbole dürfen nicht leer sein und müssen mit einem Großbuchstaben beginnen.",
       "missing-node": "Der Knoten \"{{node}}\" fehlt im Graphen.",
-      "undefined-constant": "Die Konstante \"{{constant}}\" wird in der Formel verwendet, ist jedoch im Graphen nicht definiert.",
-      "unknown": "Ein unbekannter Fehler ist aufgetreten.",
       "request-too-big": "Die Berechnung ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung.",
-      "response-too-big": "Die Antwort ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung."
+      "response-too-big": "Die Antwort ist zu groß für den Server. Probiere eine niedrigere Feedback-Einstellung.",
+      "undefined-constant": "Die Konstante \"{{constant}}\" wird in der Formel verwendet, ist jedoch im Graphen nicht definiert.",
+      "unknown": "Ein unbekannter Fehler ist aufgetreten."
     },
     "exists": {
       "invalid": "Unterformel gilt für keine Variablenbelegung",
@@ -184,14 +78,14 @@
     },
     "or": {
       "both": "Beide Disjunkte gelten",
-      "neither": "Kein Disjunkt gilt",
       "left": "Erstes Disjunkt gilt",
+      "neither": "Kein Disjunkt gilt",
       "right": "Zweites Disjunkt gilt"
     },
     "relation": {
       "binary": {
-        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}",
-        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}"
+        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}",
+        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}"
       },
       "equality": {
         "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}} = {{secondTerm}}",
@@ -204,22 +98,128 @@
     },
     "valid": "Der Graph ist ein Modell der Formel"
   },
+  "app": {
+    "title": "Apollo"
+  },
+  "dashboard": {
+    "github-repository": "GitHub Repository"
+  },
+  "editor": {
+    "link": {
+      "none-selected": "Keine Kante ausgewählt.",
+      "title": "Kante"
+    },
+    "node": {
+      "none-selected": "Kein Knoten ausgewählt.",
+      "title": "Knoten"
+    },
+    "symbols": {
+      "new-constant": "Neue Konstante",
+      "new-function": "Neue Funktion",
+      "new-relation": "Neue Relation"
+    }
+  },
+  "export": {
+    "copy": "Graph in die Zwischenablage kopieren",
+    "copy-failure": "Graph konnte nicht in die Zwischenablage kopiert werden.",
+    "copy-success": "Graph wurde in die Zwischenablage kopiert.",
+    "download": "Graph als Datei herunterladen",
+    "json": "JSON",
+    "yaml": "YAML"
+  },
   "feedback": {
     "full": {
-      "name": "Vollständig",
-      "description": "Vollständige Evaluation, inklusive redundanter Überprüfungen. Funktioniert möglicherweise nicht bei großen Graphen und komplexen Formeln."
-    },
-    "relevant": {
-      "name": "Relevant",
-      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Empfohlen."
+      "description": "Vollständige Evaluation, inklusive redundanter Überprüfungen. Funktioniert möglicherweise nicht bei großen Graphen und komplexen Formeln.",
+      "name": "Vollständig"
     },
     "minimal": {
-      "name": "Minimal",
-      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Nur das Ergebnis."
+      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Nur das Ergebnis.",
+      "name": "Minimal"
+    },
+    "relevant": {
+      "description": "Partielle Evaluation, exklusive redundanter Überprüfungen. Empfohlen.",
+      "name": "Relevant"
     },
     "title": "Feedback"
   },
+  "fol": {
+    "constant": {
+      "plural": "Konstanten"
+    },
+    "formula": "Formel",
+    "function": {
+      "plural": "Funktionen"
+    },
+    "relation": {
+      "plural": "Relationen"
+    }
+  },
+  "graph": {
+    "controls": {
+      "graph": "Graph\n        Auswählen - Rechte Maustaste / Lange Berührung\n        Knoten erstellen - Doppelkick / Plus-Button\n        Kanten erstellen - Klick / Berühren und ziehen",
+      "view": "Ansicht\n        Knoten bewegen - Mittlere Maustaste\n        Ansicht bewegen - Linke Maustaste / Multi-Touch"
+    },
+    "create-node": "Knoten erzeugen",
+    "labels": "Beschriftungen",
+    "reset-graph": "Anordnung zurücksetzen",
+    "save-graph": "Graph speichern",
+    "simulation": "Automatische Anordnung"
+  },
+  "home": {
+    "example-graph": "Beispielgraph",
+    "quick-access": "Schnellzugriff",
+    "saved-graphs": "Gespeicherte Graphen",
+    "title": "Home"
+  },
+  "import": {
+    "file": "Datei importieren",
+    "file-error": "Datei konnte nicht importiert werden.",
+    "format-hint": "JSON oder YAML",
+    "text": "Graph einfügen oder bearbeiten",
+    "title": "Graph importieren"
+  },
+  "lang": {
+    "de": "Deutsch",
+    "en": "Englisch"
+  },
+  "misc": {
+    "description": "Beschreibung",
+    "false": "Falsch",
+    "graph-not-found": "Dieser Graph existiert nicht.",
+    "last-edit": "Letzte Änderung",
+    "name": "Name",
+    "or": "oder",
+    "semantics": "Semantik",
+    "syntax": "Syntax",
+    "true": "Wahr",
+    "update-available": "Update verfügbar"
+  },
+  "model-checker": {
+    "minimize-result": "Ergebnis minimieren",
+    "minimize-tooltip": "Bei Aktivierung werden nur notwendige Überprüfungen durchgeführt. Notwendig für umfangreiche Graphen und komplexe Formeln.",
+    "title": "Modellprüfer"
+  },
   "result-tree": {
     "expand-error": "Baum konnte nicht vollständig erweiter werden, da der Datensatz zu groß ist."
+  },
+  "snackbar": {
+    "graph-deleted": "Graph \"{{name}}\" wurde gelöscht."
+  },
+  "validation": {
+    "constant-pattern-error": "Konstantennamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
+    "edge": {
+      "invalid-functions": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Funktion(en) (Funktionen müssen mit einem Kleinbuchstaben beginnen).",
+      "invalid-relations": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
+      "missing": "Ungültiger Graph: Kante von \"{{source}}\" zu \"{{target}}\" fehlt im Graphen."
+    },
+    "function-pattern-error": "Funktionsnamen müssen mit einem Kleinbuchstaben beginnen und dürfen keine Sonderzeichen enthalten.",
+    "node": {
+      "duplicate": "Ungültiger Graph: Doppelter Knoten \"{{node}}\".",
+      "invalid-constants": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Konstante(n) (Konstanten müssen mit einem Kleinbuchstaben beginnen).",
+      "invalid-relations": "Ungültiger Graph: Knoten \"{{node}}\" hat ungültige Relation(en) (Relationen müssen mit einem Großbuchstaben beginnen).",
+      "missing": "Ungültiger Graph: Knoten \"{{node}}\" fehlt im Graphen."
+    },
+    "parse-error": "Eingabe entspricht nicht dem Graph-Schema.",
+    "relation-pattern-error": "Relationsnamen müssen mit einem Großbuchstaben beginnen und dürfen keine Sonderzeichen enthalten."
   }
 }

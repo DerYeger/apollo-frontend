@@ -1,225 +1,225 @@
 {
-  "app": {
-    "title": "Apollo"
-  },
-  "model-checker": {
-    "title": "Model Checker",
-    "minimize-result": "Minimize Result",
-    "minimize-tooltip": "When enabled, only necessary checks are evaluated. Required for big graphs and complex formulas."
-  },
-  "home": {
-    "title": "Home",
-    "saved-graphs": "Saved Graphs",
-    "quick-access": "Quick Access",
-    "example-graph": "Example Graph"
-  },
-  "graph": {
-    "reset-graph": "Reset Layout",
-    "create-node": "Create Node",
-    "labels": "Labels",
-    "simulation": "Automatic Layout",
-    "save-graph": "Save Graph",
-    "controls": {
-      "view": "View\n        Moving nodes - Middle mouse button\n        Move view - Left mouse button / Multi-touch",
-      "graph": "Graph\n        Selecting - Right mouse button / Long touch\n        Creating nodes - Double-click / Plus-button\n        Creating edges - Click / Touch and drag"
-    }
-  },
-  "editor": {
-    "node": {
-      "title": "Node",
-      "none-selected": "No Node selected."
-    },
-    "link": {
-      "title": "Edge",
-      "none-selected": "No Edge selected."
-    },
-    "symbols": {
-      "new-relation": "New Relation",
-      "new-function": "New Function",
-      "new-constant": "New Constant"
-    }
-  },
   "actions": {
     "apply": "Apply",
-    "delete": "Delete",
     "cancel": "Cancel",
-    "save": "Save",
-    "undo": "Undo",
-    "export": "Export",
-    "title": "Actions",
-    "open": "Open",
     "check": "Check",
-    "expand": "Expand",
     "collapse": "Collapse",
+    "delete": "Delete",
+    "expand": "Expand",
+    "export": "Export",
     "filter-causes": "Filter Relevant",
+    "open": "Open",
+    "save": "Save",
+    "title": "Actions",
+    "undo": "Undo",
     "update": "Update"
   },
-  "fol": {
-    "relation": {
-      "plural": "Relations"
+  "api": {
+    "and": {
+      "both": "Both conjuncts hold",
+      "left": "First conjunct does not hold",
+      "neither": "Neither conjunct holds",
+      "right": "Second conjunct does not hold"
     },
-    "function": {
-      "plural": "Functions"
+    "bi-implication": {
+      "invalid": "Antecedent does not hold if and only if consequent holds",
+      "negative": {
+        "invalid": "Antecedent holds if and only if consequent holds",
+        "left": "Consequent does not hold, but antecedent holds",
+        "right": "Antecedent does not hold, but consequent holds",
+        "valid": "Antecedent and consequent do not hold"
+      },
+      "positive": {
+        "invalid": "Antecedent does not hold if and only if consequent does not hold",
+        "left": "Consequent holds, but antecedent does not hold",
+        "right": "Antecedent holds, but consequent does not hold",
+        "valid": "Antecedent and consequent hold"
+      },
+      "valid": "Antecedent holds if and only if consequent holds"
     },
     "constant": {
-      "plural": "Constants"
+      "false": "Constant is false",
+      "true": "Constant is true"
     },
-    "formula": "Formula"
+    "error": {
+      "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but used as a function symbol in the graph.",
+      "different-arities": "The symbol \"{{symbol}}\" is defined with different arities within the graph.",
+      "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
+      "different-function-values": "The unary function \"{{function}}\" has two function values for at least one node. A function must be right-unique.",
+      "duplicate-constant": "The constant \"{{constant}}\" can only be assigned to one node.",
+      "empty-graph": "The graph must contain at least one node.",
+      "function-totality": "The unary function \"{{function}}\" must be total.",
+      "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter.",
+      "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
+      "invalid-relation": "The relation \"{{relation}}\" is invalid. Relation symbols cannot be empty and must start with an uppercase letter.",
+      "missing-node": "The node \"{{node}}\" is missing from the graph.",
+      "request-too-big": "The computation is too big for the server. Try a lower feedback setting.",
+      "response-too-big": "The result is too big for the server. Try a lower feedback setting.",
+      "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but is not defined in the graph.",
+      "unknown": "An unknown error occurred."
+    },
+    "exists": {
+      "invalid": "Subformula holds for no variable assignments",
+      "valid": "Subformula holds for some variable assignments"
+    },
+    "forall": {
+      "invalid": "Subformula does not hold for some variable assignments",
+      "valid": "Subformula holds for all variable assignments"
+    },
+    "implication": {
+      "invalid": "Antecedent holds, but consequent does not hold",
+      "left": "Antecedent does not hold",
+      "right": "Consequent holds"
+    },
+    "invalid": "The graph is not a model of the formula",
+    "not": {
+      "invalid": "Subformula holds",
+      "valid": "Subformula does not hold"
+    },
+    "or": {
+      "both": "Both disjuncts hold",
+      "left": "First disjunct holds",
+      "neither": "Neither disjunct holds",
+      "right": "Second disjunct holds"
+    },
+    "relation": {
+      "binary": {
+        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}",
+        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}"
+      },
+      "equality": {
+        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}} = {{secondTerm}}",
+        "valid": "{{firstTerm}} = {{firstResult}} = {{secondTerm}}"
+      },
+      "unary": {
+        "invalid": "{{node}} ∉ {{relation}}",
+        "valid": "{{node}} ∈ {{relation}}"
+      }
+    },
+    "valid": "The graph is a model of the formula"
   },
-  "lang": {
-    "en": "English",
-    "de": "German"
+  "app": {
+    "title": "Apollo"
   },
   "dashboard": {
     "github-repository": "GitHub Repository"
   },
+  "editor": {
+    "link": {
+      "none-selected": "No Edge selected.",
+      "title": "Edge"
+    },
+    "node": {
+      "none-selected": "No Node selected.",
+      "title": "Node"
+    },
+    "symbols": {
+      "new-constant": "New Constant",
+      "new-function": "New Function",
+      "new-relation": "New Relation"
+    }
+  },
+  "export": {
+    "copy": "Copy Graph to clipboard",
+    "copy-failure": "Could not copy Graph to clipboard.",
+    "copy-success": "Graph has been copied to the clipboard.",
+    "download": "Download Graph as file",
+    "json": "JSON",
+    "yaml": "YAML"
+  },
+  "feedback": {
+    "full": {
+      "description": "Full evaluation, including redundant checks. May not work for large graphs and complex formulas.",
+      "name": "Full"
+    },
+    "minimal": {
+      "description": "Partial evaluation, excluding redundant checks. Only the result.",
+      "name": "Minimal"
+    },
+    "relevant": {
+      "description": "Partial evaluation, excluding redundant checks. Recommended.",
+      "name": "Relevant"
+    },
+    "title": "Feedback"
+  },
+  "fol": {
+    "constant": {
+      "plural": "Constants"
+    },
+    "formula": "Formula",
+    "function": {
+      "plural": "Functions"
+    },
+    "relation": {
+      "plural": "Relations"
+    }
+  },
+  "graph": {
+    "controls": {
+      "graph": "Graph\n        Selecting - Right mouse button / Long touch\n        Creating nodes - Double-click / Plus-button\n        Creating edges - Click / Touch and drag",
+      "view": "View\n        Moving nodes - Middle mouse button\n        Move view - Left mouse button / Multi-touch"
+    },
+    "create-node": "Create Node",
+    "labels": "Labels",
+    "reset-graph": "Reset Layout",
+    "save-graph": "Save Graph",
+    "simulation": "Automatic Layout"
+  },
+  "home": {
+    "example-graph": "Example Graph",
+    "quick-access": "Quick Access",
+    "saved-graphs": "Saved Graphs",
+    "title": "Home"
+  },
+  "import": {
+    "file": "Import File",
+    "file-error": "Could not import File.",
+    "format-hint": "JSON or YAML",
+    "text": "Paste or edit Graph",
+    "title": "Import Graph"
+  },
+  "lang": {
+    "de": "German",
+    "en": "English"
+  },
   "misc": {
-    "name": "Name",
-    "last-edit": "Last Edit",
     "description": "Description",
+    "false": "False",
+    "graph-not-found": "This graph does not exist.",
+    "last-edit": "Last Edit",
+    "name": "Name",
     "or": "or",
     "semantics": "Semantics",
     "syntax": "Syntax",
     "true": "True",
-    "false": "False",
-    "update-available": "Update available",
-    "graph-not-found": "This graph does not exist."
+    "update-available": "Update available"
+  },
+  "model-checker": {
+    "minimize-result": "Minimize Result",
+    "minimize-tooltip": "When enabled, only necessary checks are evaluated. Required for big graphs and complex formulas.",
+    "title": "Model Checker"
+  },
+  "result-tree": {
+    "expand-error": "Unable to expand tree completely, because the dataset is too big."
   },
   "snackbar": {
     "graph-deleted": "Graph \"{{name}}\" has been deleted."
   },
-  "export": {
-    "json": "JSON",
-    "yaml": "YAML",
-    "copy": "Copy Graph to clipboard",
-    "download": "Download Graph as file",
-    "copy-failure": "Could not copy Graph to clipboard.",
-    "copy-success": "Graph has been copied to the clipboard."
-  },
   "validation": {
-    "node": {
-      "missing": "Invalid graph: Node \"{{node}}\" is missing from the graph.",
-      "duplicate": "Invalid graph: Duplicate Node \"{{node}}\".",
-      "invalid-relations": "Invalid graph: Node \"{{node}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
-      "invalid-constants": "Invalid graph: Node \"{{node}}\" has invalid constant(s) (Constants must begin with a lowercase letter)."
-    },
+    "constant-pattern-error": "Names of constants must start with a lowercase letter and cannot contain special characters.",
     "edge": {
-      "missing": "Invalid graph: Edge from \"{{source}}\" to \"{{target}}\" is missing from the graph.",
+      "invalid-functions": "Invalid graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid function(s) (Functions must begin with a lowercase letter).",
       "invalid-relations": "Invalid graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
-      "invalid-functions": "Invalid graph: Edge from \"{{source}}\" to \"{{target}}\" has invalid function(s) (Functions must begin with a lowercase letter)."
+      "missing": "Invalid graph: Edge from \"{{source}}\" to \"{{target}}\" is missing from the graph."
+    },
+    "function-pattern-error": "Names of functions must start with a lowercase letter and cannot contain special characters.",
+    "node": {
+      "duplicate": "Invalid graph: Duplicate Node \"{{node}}\".",
+      "invalid-constants": "Invalid graph: Node \"{{node}}\" has invalid constant(s) (Constants must begin with a lowercase letter).",
+      "invalid-relations": "Invalid graph: Node \"{{node}}\" has invalid relation(s) (Relations must begin with an uppercase letter).",
+      "missing": "Invalid graph: Node \"{{node}}\" is missing from the graph."
     },
     "parse-error": "Input does not match the graph schema.",
-    "constant-pattern-error": "Names of constants must start with a lowercase letter and cannot contain special characters.",
-    "function-pattern-error": "Names of functions must start with a lowercase letter and cannot contain special characters.",
     "relation-pattern-error": "Names of relations must start with an uppercase letter and cannot contain special characters."
-  },
-  "import": {
-    "format-hint": "JSON or YAML",
-    "title": "Import Graph",
-    "file": "Import File",
-    "file-error": "Could not import File.",
-    "text": "Paste or edit Graph"
-  },
-  "api": {
-    "valid": "The graph is a model of the formula",
-    "invalid": "The graph is not a model of the formula",
-    "forall": {
-      "valid": "Subformula holds for all variable assignments",
-      "invalid": "Subformula does not hold for some variable assignments"
-    },
-    "exists": {
-      "valid": "Subformula holds for some variable assignments",
-      "invalid": "Subformula holds for no variable assignments"
-    },
-    "not": {
-      "valid": "Subformula does not hold",
-      "invalid": "Subformula holds"
-    },
-    "and": {
-      "both": "Both conjuncts hold",
-      "neither": "Neither conjunct holds",
-      "left": "First conjunct does not hold",
-      "right": "Second conjunct does not hold"
-    },
-    "or": {
-      "both": "Both disjuncts hold",
-      "neither": "Neither disjunct holds",
-      "left": "First disjunct holds",
-      "right": "Second disjunct holds"
-    },
-    "implication": {
-      "right": "Consequent holds",
-      "left": "Antecedent does not hold",
-      "invalid": "Antecedent holds, but consequent does not hold"
-    },
-    "bi-implication": {
-      "valid": "Antecedent holds if and only if consequent holds",
-      "invalid": "Antecedent does not hold if and only if consequent holds",
-      "positive": {
-        "valid": "Antecedent and consequent hold",
-        "invalid": "Antecedent does not hold if and only if consequent does not hold",
-        "left": "Consequent holds, but antecedent does not hold",
-        "right": "Antecedent holds, but consequent does not hold"
-      },
-      "negative": {
-        "valid": "Antecedent and consequent do not hold",
-        "invalid": "Antecedent holds if and only if consequent holds",
-        "left": "Consequent does not hold, but antecedent holds",
-        "right": "Antecedent does not hold, but consequent holds"
-      }
-    },
-    "relation": {
-      "unary": {
-        "valid": "{{node}} ∈ {{relation}}",
-        "invalid": "{{node}} ∉ {{relation}}"
-      },
-      "equality": {
-        "valid": "{{firstTerm}} = {{firstResult}} = {{secondTerm}}",
-        "invalid": "{{firstTerm}} = {{firstResult}} ≠ {{secondResult}} = {{secondTerm}}"
-      },
-      "binary": {
-        "valid": "({{firstResult}}, {{secondResult}}) ∈ {{relation}}",
-        "invalid": "({{firstResult}}, {{secondResult}}) ∉ {{relation}}"
-      }
-    },
-    "constant": {
-      "true": "Constant is true",
-      "false": "Constant is false"
-    },
-    "error": {
-      "unknown": "An unknown error occured.",
-      "duplicate-constant": "The constant \"{{constant}}\" can only be assigned to one node.",
-      "different-arities": "The symbol \"{{symbol}}\" is defined with different arities within the graph.",
-      "different-function-values": "The unary function \"{{function}}\" has two function values for at least one node. A function must be right-unique.",
-      "different-arities-formula": "The arity of the symbol \"{{symbol}}\" differs between graph and formula.",
-      "bound-variable-reuse": "In the formula, the symbol \"{{symbol}}\" is defined as a bound variable, but used as a function symbol in the graph.",
-      "undefined-constant": "The constant \"{{constant}}\" appears in the formula, but is not defined in the graph.",
-      "function-totality": "The unary function \"{{function}}\" must be total.",
-      "empty-graph": "The graph must contain at least one node.",
-      "missing-node": "The node \"{{node}}\" is missing from the graph.",
-      "invalid-relation": "The relation \"{{relation}}\" is invalid. Relation symbols cannot be empty and must start with an uppercase letter.",
-      "invalid-function": "The function \"{{function}}\" is invalid. Function symbols cannot be empty and must start with a lowercase letter.",
-      "invalid-constant": "The constant \"{{constant}}\" is invalid. Constant symbols cannot be empty and must start with a lowercase letter.",
-      "request-too-big": "The computation is too big for the server. Try a lower feedback setting.",
-      "response-too-big": "The result is too big for the server. Try a lower feedback setting."
-    }
-  },
-  "feedback": {
-    "full": {
-      "name": "Full",
-      "description": "Full evaluation, including redundant checks. May not work for large graphs and complex formulas."
-    },
-    "relevant": {
-      "name": "Relevant",
-      "description": "Partial evaluation, excluding redundant checks. Recommended."
-    },
-    "minimal": {
-      "name": "Minimal",
-      "description": "Partial evaluation, excluding redundant checks. Only the result."
-    },
-    "title": "Feedback"
-  },
-  "result-tree": {
-    "expand-error": "Unable to expand tree completely, because the dataset is too big."
   }
 }
