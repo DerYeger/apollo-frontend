@@ -16,9 +16,8 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="form-button-container">
-        <button type="button" mat-raised-button color="warn" (click)="requestLinkDeletion()">
+        <button type="button" mat-icon-button [matTooltip]="'actions.delete' | translate" color="warn" (click)="requestLinkDeletion()">
           <mat-icon>delete</mat-icon>
-          {{ "actions.delete" | translate }}
         </button>
       </div>
     </mat-card-actions>
