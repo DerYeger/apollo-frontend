@@ -1,3 +1,11 @@
+## [2.1.2](https://github.com/DerYeger/apollo-frontend/compare/v2.1.1...v2.1.2) (2021-06-22)
+
+
+### Bug Fixes
+
+* increase spacing between sections on home screen ([c6f5ea8](https://github.com/DerYeger/apollo-frontend/commit/c6f5ea8d0d299873795e00b7e3dc152a33fd0bd6))
+* use icon button for deletion of nodes and links ([1ca8e0b](https://github.com/DerYeger/apollo-frontend/commit/1ca8e0b13ced45deb815069bbf05be02ebdf09d8))
+
 ## [2.1.1](https://github.com/DerYeger/apollo-frontend/compare/v2.1.0...v2.1.1) (2021-06-21)
 
 
