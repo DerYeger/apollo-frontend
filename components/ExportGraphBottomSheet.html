@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>ExportGraphBottomSheet</li>
+  <li
+  >
+  ExportGraphBottomSheet</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/bottom-sheets/export-graph/export-graph.bottom-sheet.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -135,15 +139,15 @@ Supports JSON and YAML.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#copyGraph">copyGraph</a>
+                                <a href="#copyGraph" >copyGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#downloadGraph">downloadGraph</a>
+                                <a href="#downloadGraph" >downloadGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#sanitizeGraph">sanitizeGraph</a>
+                                <a href="#sanitizeGraph" >sanitizeGraph</a>
                             </li>
                         </ul>
                     </td>
@@ -164,7 +168,7 @@ Supports JSON and YAML.</p>
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(bottomSheetRef: <a href="../components/ExportGraphBottomSheet.html">MatBottomSheetRef<ExportGraphBottomSheet></a>, graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>, clipboard: Clipboard, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                        <code>constructor(bottomSheetRef: <a href="../components/ExportGraphBottomSheet.html" target="_self">MatBottomSheetRef&lt;ExportGraphBottomSheet&gt;</a>, graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>, clipboard: Clipboard, snackBarService: <a href="../injectables/SnackBarService.html" target="_self">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -258,10 +262,8 @@ Supports JSON and YAML.</p>
                 <td class="col-md-4">
                     <a name="copyGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            copyGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>copyGraph</b></span>
                         <a href="#copyGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -269,7 +271,7 @@ Supports JSON and YAML.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
+                    <code>copyGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html" target="_self">FileType</a>)</code>
                 </td>
             </tr>
 
@@ -353,10 +355,8 @@ Supports JSON and YAML.</p>
                 <td class="col-md-4">
                     <a name="downloadGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            downloadGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>downloadGraph</b></span>
                         <a href="#downloadGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -364,7 +364,7 @@ Supports JSON and YAML.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>downloadGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html">FileType</a>)</code>
+                    <code>downloadGraph(event: MouseEvent, fileType: <a href="../undefineds/FileType.html" target="_self">FileType</a>)</code>
                 </td>
             </tr>
 
@@ -448,10 +448,8 @@ Supports JSON and YAML.</p>
                 <td class="col-md-4">
                     <a name="sanitizeGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            sanitizeGraph
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>sanitizeGraph</b></span>
                         <a href="#sanitizeGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -459,7 +457,7 @@ Supports JSON and YAML.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>sanitizeGraph(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>sanitizeGraph(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -731,9 +729,9 @@ export class ExportGraphBottomSheet {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

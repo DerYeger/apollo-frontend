@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>SymbolEditorConfiguration</li>
+  <li
+  >
+  SymbolEditorConfiguration</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
         <p class="comment">
             <code>src/app/configurations/symbol-editor.configuration.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -87,16 +91,28 @@ Defines input validation and translation keys.</p>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#patternError">patternError</a>
+                                        <a href="#patternError" 
+>
+                                            patternError
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#placeholder">placeholder</a>
+                                        <a href="#placeholder" 
+>
+                                            placeholder
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#symbolPattern">symbolPattern</a>
+                                        <a href="#symbolPattern" 
+>
+                                            symbolPattern
+                                        </a>
                                 </li>
                                 <li>
-                                        <a href="#title">title</a>
+                                        <a href="#title" 
+>
+                                            title
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -114,7 +130,11 @@ Defines input validation and translation keys.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="patternError"></a>
-                                        <span class="name"><b>patternError</b><a href="#patternError"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>patternError</b>
+                                            <a href="#patternError">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -143,7 +163,11 @@ Defines input validation and translation keys.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="placeholder"></a>
-                                        <span class="name"><b>placeholder</b><a href="#placeholder"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>placeholder</b>
+                                            <a href="#placeholder">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -172,7 +196,11 @@ Defines input validation and translation keys.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="symbolPattern"></a>
-                                        <span class="name"><b>symbolPattern</b><a href="#symbolPattern"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>symbolPattern</b>
+                                            <a href="#symbolPattern">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -201,7 +229,11 @@ Defines input validation and translation keys.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="title"></a>
-                                        <span class="name"><b>title</b><a href="#title"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -290,9 +322,9 @@ export const CONSTANT_SYMBOL_EDITOR_CONFIGURATION: SymbolEditorConfiguration &#x
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

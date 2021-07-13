@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -42,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>D3Graph</li>
+  <li >D3Graph</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +63,7 @@
         <p class="comment">
             <code>src/app/model/d3/d3.graph.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -89,22 +91,22 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#description">description</a>
+                                <a href="#description" >description</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#links">links</a>
+                                <a href="#links" >links</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#name">name</a>
+                                <a href="#name" >name</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#nodes">nodes</a>
+                                <a href="#nodes" >nodes</a>
                             </li>
                         </ul>
                     </td>
@@ -120,42 +122,42 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createLink">createLink</a>
+                                <a href="#createLink" >createLink</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createNode">createNode</a>
+                                <a href="#createNode" >createNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createNodeWithGeneratedId">createNodeWithGeneratedId</a>
+                                <a href="#createNodeWithGeneratedId" >createNodeWithGeneratedId</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
                                     <span class="modifier">Async</span>
-                                <a href="#fromDomainGraph">fromDomainGraph</a>
+                                <a href="#fromDomainGraph" >fromDomainGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
-                                <a href="#functionsAreValid">functionsAreValid</a>
+                                <a href="#functionsAreValid" >functionsAreValid</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Static</span>
-                                <a href="#relationsAreValid">relationsAreValid</a>
+                                <a href="#relationsAreValid" >relationsAreValid</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#removeLink">removeLink</a>
+                                <a href="#removeLink" >removeLink</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#removeNode">removeNode</a>
+                                <a href="#removeNode" >removeNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#toDomainGraph">toDomainGraph</a>
+                                <a href="#toDomainGraph" >toDomainGraph</a>
                             </li>
                         </ul>
                     </td>
@@ -232,139 +234,135 @@
 
             <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="description"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>description</b></span>
+                        <a href="#description"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="description"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            description</b>
-                            <a href="#description"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="links"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>links</b></span>
+                        <a href="#links"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="links"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            links</b>
-                            <a href="#links"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/D3Link.html" target="_self" >D3Link[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Link.html" target="_self" >D3Link[]</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/model/d3/d3.graph.ts:12</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/model/d3/d3.graph.ts:12</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="name"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="name"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            name</b>
-                            <a href="#name"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>&#x60;graph_${Date.now().toString()}&#x60;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x60;graph_${Date.now().toString()}&#x60;</code>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodes"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>nodes</b></span>
+                        <a href="#nodes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="nodes"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            nodes</b>
-                            <a href="#nodes"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node[]</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/model/d3/d3.graph.ts:11</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/model/d3/d3.graph.ts:11</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -378,10 +376,8 @@
                 <td class="col-md-4">
                     <a name="createLink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createLink
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createLink</b></span>
                         <a href="#createLink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -486,10 +482,8 @@
                 <td class="col-md-4">
                     <a name="createNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createNode
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createNode</b></span>
                         <a href="#createNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -606,10 +600,8 @@
                 <td class="col-md-4">
                     <a name="createNodeWithGeneratedId"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createNodeWithGeneratedId
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createNodeWithGeneratedId</b></span>
                         <a href="#createNodeWithGeneratedId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -690,11 +682,9 @@
                 <td class="col-md-4">
                     <a name="fromDomainGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            <span class="modifier">Async</span>
-                            fromDomainGraph
-                        </b>
+                        <span class="modifier">Static</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>fromDomainGraph</b></span>
                         <a href="#fromDomainGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -702,7 +692,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>fromDomainGraph(domainGraph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>fromDomainGraph(domainGraph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -763,11 +753,9 @@
                 <td class="col-md-4">
                     <a name="functionsAreValid"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Static</span>
-                            functionsAreValid
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>functionsAreValid</b></span>
                         <a href="#functionsAreValid"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -836,11 +824,9 @@
                 <td class="col-md-4">
                     <a name="relationsAreValid"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Static</span>
-                            relationsAreValid
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>relationsAreValid</b></span>
                         <a href="#relationsAreValid"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -909,10 +895,8 @@
                 <td class="col-md-4">
                     <a name="removeLink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            removeLink
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>removeLink</b></span>
                         <a href="#removeLink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -920,7 +904,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeLink(link: <a href="../interfaces/D3Link.html">D3Link</a>)</code>
+                    <code>removeLink(link: <a href="../interfaces/D3Link.html" target="_self">D3Link</a>)</code>
                 </td>
             </tr>
 
@@ -981,10 +965,8 @@
                 <td class="col-md-4">
                     <a name="removeNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            removeNode
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>removeNode</b></span>
                         <a href="#removeNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -992,7 +974,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeNode(node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>removeNode(node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1053,10 +1035,8 @@
                 <td class="col-md-4">
                     <a name="toDomainGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toDomainGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>toDomainGraph</b></span>
                         <a href="#toDomainGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1247,9 +1227,9 @@ export default class D3Graph {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>GraphComponent</li>
+  <li
+  >
+  GraphComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/components/graph/graph.component.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -140,107 +144,154 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#allowEditing" >allowEditing</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#canvas">canvas</a>
+                                <a href="#canvas" >canvas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#config" >config</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#controlsTooltipText">controlsTooltipText</a>
+                                <a href="#controlsTooltipText" >controlsTooltipText</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#drag">drag</a>
+                                <a href="#drag" >drag</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#draggableLink">draggableLink</a>
+                                <a href="#draggableLink" >draggableLink</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#draggableLinkEnd">draggableLinkEnd</a>
+                                <a href="#draggableLinkEnd" >draggableLinkEnd</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#draggableLinkSourceNode">draggableLinkSourceNode</a>
+                                <a href="#draggableLinkSourceNode" >draggableLinkSourceNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#draggableLinkTargetNode">draggableLinkTargetNode</a>
+                                <a href="#draggableLinkTargetNode" >draggableLinkTargetNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#enableSimulation">enableSimulation</a>
+                                <a href="#enableSimulation" >enableSimulation</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Optional</span>
-                                <a href="#graphExportRequestsSubscription">graphExportRequestsSubscription</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#graphHost">graphHost</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#graph" >graph</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#graphSettings">graphSettings</a>
+                                <a href="#graphExported" >graphExported</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#graphExportRequests" >graphExportRequests</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#graphSettingsSubscription">graphSettingsSubscription</a>
+                                <a href="#graphExportRequestsSubscription" >graphExportRequestsSubscription</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#height">height</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graphHost" >graphHost</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Optional</span>
-                                <a href="#linkSelection">linkSelection</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Optional</span>
-                                <a href="#nodeSelection">nodeSelection</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#scale">scale</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#showLabels">showLabels</a>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graphSettings" >graphSettings</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#simulation">simulation</a>
+                                <a href="#graphSettingsSubscription" >graphSettingsSubscription</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#width">width</a>
+                                <a href="#height" >height</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#xOffset">xOffset</a>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#linkDeleted" >linkDeleted</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#yOffset">yOffset</a>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#linkSelected" >linkSelected</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#zoom">zoom</a>
+                                <a href="#linkSelection" >linkSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#nodeDeleted" >nodeDeleted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#nodeSelected" >nodeSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#nodeSelection" >nodeSelection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#saveRequested" >saveRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scale" >scale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showLabels" >showLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#simulation" >simulation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#width" >width</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#xOffset" >xOffset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#yOffset" >yOffset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#zoom" >zoom</a>
                             </li>
                         </ul>
                     </td>
@@ -256,124 +307,128 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#cleanInitGraph">cleanInitGraph</a>
+                                <a href="#cleanInitGraph" >cleanInitGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#createDrag">createDrag</a>
+                                <a href="#createDrag" >createDrag</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#createLink">createLink</a>
+                                <a href="#createLink" >createLink</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#createNode">createNode</a>
+                                <a href="#createNode" >createNode</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#createSimulation">createSimulation</a>
+                                <a href="#createSimulation" >createSimulation</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#exportGraph">exportGraph</a>
+                                <a href="#exportGraph" >exportGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#initGraph">initGraph</a>
+                                <a href="#initGraph" >initGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#isBidirectional">isBidirectional</a>
+                                <a href="#isBidirectional" >isBidirectional</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                                <a href="#ngAfterViewChecked" >ngAfterViewChecked</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnChanges">ngOnChanges</a>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onDrag">onDrag</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onDragEnd">onDragEnd</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onDragStart">onDragStart</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onPointerDown">onPointerDown</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onPointerMoved">onPointerMoved</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onPointerUp">onPointerUp</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onSettingsChanged">onSettingsChanged</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onTick">onTick</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#onZoom">onZoom</a>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#removeLink">removeLink</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#removeNode">removeNode</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#resetDraggableLink">resetDraggableLink</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#resetGraph">resetGraph</a>
+                                <a href="#onDrag" >onDrag</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#resetView">resetView</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#restart">restart</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#saveGraph">saveGraph</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#toggleLabels">toggleLabels</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#toggleSimulation">toggleSimulation</a>
+                                <a href="#onDragEnd" >onDragEnd</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#updateDraggableLinkPath">updateDraggableLinkPath</a>
+                                <a href="#onDragStart" >onDragStart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerDown" >onPointerDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerMoved" >onPointerMoved</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onPointerUp" >onPointerUp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onSettingsChanged" >onSettingsChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onTick" >onTick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onZoom" >onZoom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeLink" >removeLink</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeNode" >removeNode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetDraggableLink" >resetDraggableLink</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resetGraph" >resetGraph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetView" >resetView</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#restart" >restart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saveGraph" >saveGraph</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleLabels" >toggleLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleSimulation" >toggleSimulation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateDraggableLinkPath" >updateDraggableLinkPath</a>
                             </li>
                         </ul>
                     </td>
@@ -388,16 +443,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#allowEditing">allowEditing</a>
+                                <a href="#allowEditing" >allowEditing</a>
                             </li>
                             <li>
-                                <a href="#config">config</a>
+                                <a href="#config" >config</a>
                             </li>
                             <li>
-                                <a href="#graph">graph</a>
+                                <a href="#graph" >graph</a>
                             </li>
                             <li>
-                                <a href="#graphExportRequests">graphExportRequests</a>
+                                <a href="#graphExportRequests" >graphExportRequests</a>
                             </li>
                         </ul>
                     </td>
@@ -412,22 +467,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graphExported">graphExported</a>
+                                <a href="#graphExported" >graphExported</a>
                             </li>
                             <li>
-                                <a href="#linkDeleted">linkDeleted</a>
+                                <a href="#linkDeleted" >linkDeleted</a>
                             </li>
                             <li>
-                                <a href="#linkSelected">linkSelected</a>
+                                <a href="#linkSelected" >linkSelected</a>
                             </li>
                             <li>
-                                <a href="#nodeDeleted">nodeDeleted</a>
+                                <a href="#nodeDeleted" >nodeDeleted</a>
                             </li>
                             <li>
-                                <a href="#nodeSelected">nodeSelected</a>
+                                <a href="#nodeSelected" >nodeSelected</a>
                             </li>
                             <li>
-                                <a href="#saveRequested">saveRequested</a>
+                                <a href="#saveRequested" >saveRequested</a>
                             </li>
                         </ul>
                     </td>
@@ -443,7 +498,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#window:resize">window:resize</a>
+                                <a href="#window:resize" >window:resize</a>
                             </li>
                         </ul>
                     </td>
@@ -460,7 +515,7 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, translate: TranslateService, dialog: MatDialog, bottomSheet: MatBottomSheet)</code>
+                        <code>constructor(store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>, translate: TranslateService, dialog: MatDialog, bottomSheet: MatBottomSheet)</code>
                     </td>
                 </tr>
                         <tr>
@@ -801,9 +856,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="window:resize"></a>
                     <span class="name">
-                        <b>
-                            window:resize
-                        </b>
+                        <span ><b>window:resize</b></span>
                         <a href="#window:resize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -849,10 +902,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="cleanInitGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            cleanInitGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>cleanInitGraph</b></span>
                         <a href="#cleanInitGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -933,10 +984,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="createDrag"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            createDrag
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>createDrag</b></span>
                         <a href="#createDrag"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -974,10 +1023,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="createLink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            createLink
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>createLink</b></span>
                         <a href="#createLink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -985,7 +1032,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createLink(source: <a href="../interfaces/D3Node.html">D3Node</a>, target: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>createLink(source: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>, target: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1058,11 +1105,9 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="createNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
-                            createNode
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>createNode</b></span>
                         <a href="#createNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1150,10 +1195,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="createSimulation"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            createSimulation
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>createSimulation</b></span>
                         <a href="#createSimulation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1191,10 +1234,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="exportGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            exportGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>exportGraph</b></span>
                         <a href="#exportGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1232,10 +1273,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="initGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            initGraph
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>initGraph</b></span>
                         <a href="#initGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1323,10 +1362,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="isBidirectional"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            isBidirectional
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>isBidirectional</b></span>
                         <a href="#isBidirectional"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1334,7 +1371,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isBidirectional(source: <a href="../interfaces/D3Node.html">D3Node</a>, target: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>isBidirectional(source: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>, target: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1405,12 +1442,58 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="ngAfterViewChecked"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>ngAfterViewChecked</b></span>
+                        <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngAfterViewChecked()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;window:resize&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">src/app/components/graph/graph.component.ts:131</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Redraws the entire graph with new sizes.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngAfterViewInit"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngAfterViewInit
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngAfterViewInit</b></span>
                         <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1448,10 +1531,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="ngOnChanges"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnChanges
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
                         <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1520,10 +1601,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnDestroy
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1561,10 +1640,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onDrag"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onDrag
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onDrag</b></span>
                         <a href="#onDrag"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1572,7 +1649,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onDrag(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>onDrag(event: <a href="../undefineds/NodeDragEvent.html" target="_self">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1645,10 +1722,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onDragEnd"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onDragEnd
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onDragEnd</b></span>
                         <a href="#onDragEnd"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1656,7 +1731,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onDragEnd(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>onDragEnd(event: <a href="../undefineds/NodeDragEvent.html" target="_self">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1729,10 +1804,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onDragStart"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onDragStart
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onDragStart</b></span>
                         <a href="#onDragStart"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1740,7 +1813,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onDragStart(event: <a href="../undefineds/NodeDragEvent.html">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>onDragStart(event: <a href="../undefineds/NodeDragEvent.html" target="_self">NodeDragEvent</a>, node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1813,10 +1886,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onPointerDown"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onPointerDown
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onPointerDown</b></span>
                         <a href="#onPointerDown"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1824,7 +1895,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onPointerDown(event: PointerEvent, node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>onPointerDown(event: PointerEvent, node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -1897,10 +1968,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onPointerMoved"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onPointerMoved
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onPointerMoved</b></span>
                         <a href="#onPointerMoved"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -1969,10 +2038,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onPointerUp"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onPointerUp
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onPointerUp</b></span>
                         <a href="#onPointerUp"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2041,10 +2108,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onSettingsChanged"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onSettingsChanged
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onSettingsChanged</b></span>
                         <a href="#onSettingsChanged"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2052,7 +2117,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onSettingsChanged(settings: <a href="../interfaces/GraphSettings.html">GraphSettings</a>)</code>
+                    <code>onSettingsChanged(settings: <a href="../interfaces/GraphSettings.html" target="_self">GraphSettings</a>)</code>
                 </td>
             </tr>
 
@@ -2113,10 +2178,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onTick"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onTick
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onTick</b></span>
                         <a href="#onTick"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2154,10 +2217,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="onZoom"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            onZoom
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>onZoom</b></span>
                         <a href="#onZoom"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2165,7 +2226,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onZoom(event: <a href="../undefineds/Zoom.html">D3ZoomEvent<any | any></a>)</code>
+                    <code>onZoom(event: <a href="../undefineds/Zoom.html" target="_self">D3ZoomEvent&lt;any | any&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -2226,10 +2287,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="removeLink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            removeLink
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>removeLink</b></span>
                         <a href="#removeLink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2237,7 +2296,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeLink(link: <a href="../interfaces/D3Link.html">D3Link</a>)</code>
+                    <code>removeLink(link: <a href="../interfaces/D3Link.html" target="_self">D3Link</a>)</code>
                 </td>
             </tr>
 
@@ -2298,10 +2357,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="removeNode"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            removeNode
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>removeNode</b></span>
                         <a href="#removeNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2309,7 +2366,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeNode(node: <a href="../interfaces/D3Node.html">D3Node</a>)</code>
+                    <code>removeNode(node: <a href="../interfaces/D3Node.html" target="_self">D3Node</a>)</code>
                 </td>
             </tr>
 
@@ -2370,10 +2427,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="resetDraggableLink"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            resetDraggableLink
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>resetDraggableLink</b></span>
                         <a href="#resetDraggableLink"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2411,10 +2466,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="resetGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            resetGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>resetGraph</b></span>
                         <a href="#resetGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2452,10 +2505,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="resetView"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            resetView
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>resetView</b></span>
                         <a href="#resetView"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2493,10 +2544,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="restart"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            restart
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>restart</b></span>
                         <a href="#restart"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2576,10 +2625,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="saveGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            saveGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>saveGraph</b></span>
                         <a href="#saveGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2617,10 +2664,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="toggleLabels"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toggleLabels
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>toggleLabels</b></span>
                         <a href="#toggleLabels"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2658,10 +2703,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="toggleSimulation"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toggleSimulation
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>toggleSimulation</b></span>
                         <a href="#toggleSimulation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2699,10 +2742,8 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="updateDraggableLinkPath"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            updateDraggableLinkPath
-                        </b>
+                        <span class="modifier">Private</span>
+                        <span ><b>updateDraggableLinkPath</b></span>
                         <a href="#updateDraggableLinkPath"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -2737,679 +2778,1056 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allowEditing"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>allowEditing</b></span>
+                        <a href="#allowEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="canvas"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            canvas</b>
-                            <a href="#canvas"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Canvas" target="_self" >Canvas</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/graph/graph.component.ts:59</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/graph/graph.component.ts:108</a></div>
-                            </td>
-                        </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Allows editing if set to true.
+Should not be changed after initialization.</p>
+</div>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canvas"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>canvas</b></span>
+                        <a href="#canvas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="controlsTooltipText"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            controlsTooltipText</b>
-                            <a href="#controlsTooltipText"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Canvas" target="_self" >Canvas</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Observable&lt;string&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/app/components/graph/graph.component.ts:108</a></div>
                         </td>
                     </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/GraphConfiguration.html" target="_self" >GraphConfiguration</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>DEFAULT_GRAPH_CONFIGURATION</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>concat(of(true), this.translate.onLangChange).pipe(
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/components/graph/graph.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Configuration for visuals of the graph.
+Should not be changed after initialization.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlsTooltipText"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>controlsTooltipText</b></span>
+                        <a href="#controlsTooltipText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>concat(of(true), this.translate.onLangChange).pipe(
     mergeMap(() &#x3D;&gt; forkJoin([this.translate.get(&#x27;graph.controls.view&#x27;), this.translate.get(&#x27;graph.controls.graph&#x27;)])),
     map(([view, controls]) &#x3D;&gt; (this.allowEditing ? view + &#x27;\n&#x27; + controls : view))
   )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/components/graph/graph.component.ts:85</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="drag"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            drag</b>
-                            <a href="#drag"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Drag" target="_self" >Drag</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/components/graph/graph.component.ts:85</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/components/graph/graph.component.ts:113</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drag"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>drag</b></span>
+                        <a href="#drag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="draggableLink"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            draggableLink</b>
-                            <a href="#draggableLink"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Drag" target="_self" >Drag</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#DraggableLink" target="_self" >DraggableLink</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/components/graph/graph.component.ts:113</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/components/graph/graph.component.ts:115</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="draggableLink"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>draggableLink</b></span>
+                        <a href="#draggableLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="draggableLinkEnd"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            draggableLinkEnd</b>
-                            <a href="#draggableLinkEnd"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#DraggableLink" target="_self" >DraggableLink</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>[number, number]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/app/components/graph/graph.component.ts:115</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/components/graph/graph.component.ts:118</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="draggableLinkEnd"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>draggableLinkEnd</b></span>
+                        <a href="#draggableLinkEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="draggableLinkSourceNode"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            draggableLinkSourceNode</b>
-                            <a href="#draggableLinkSourceNode"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>[number, number]</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/components/graph/graph.component.ts:118</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/components/graph/graph.component.ts:116</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="draggableLinkSourceNode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>draggableLinkSourceNode</b></span>
+                        <a href="#draggableLinkSourceNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="draggableLinkTargetNode"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            draggableLinkTargetNode</b>
-                            <a href="#draggableLinkTargetNode"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/components/graph/graph.component.ts:116</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/components/graph/graph.component.ts:117</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="draggableLinkTargetNode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>draggableLinkTargetNode</b></span>
+                        <a href="#draggableLinkTargetNode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="enableSimulation"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            enableSimulation</b>
-                            <a href="#enableSimulation"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/D3Node.html" target="_self" >D3Node</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>true</code>
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/components/graph/graph.component.ts:117</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/components/graph/graph.component.ts:95</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableSimulation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enableSimulation</b></span>
+                        <a href="#enableSimulation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphExportRequestsSubscription"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            graphExportRequestsSubscription</b>
-                            <a href="#graphExportRequestsSubscription"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/components/graph/graph.component.ts:95</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/components/graph/graph.component.ts:93</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graph"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>graph</b></span>
+                        <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphHost"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Readonly</span>
-                            graphHost</b>
-                            <a href="#graphHost"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../classes/D3Graph.html" target="_self" >D3Graph | null | undefined</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new D3Graph()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>ElementRef&lt;HTMLDivElement&gt;</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/graph/graph.component.ts:53</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ViewChild(&#x27;graphHost&#x27;)<br />
-                            </code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/graph/graph.component.ts:81</a></div>
-                            </td>
-                        </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The graph that will be displayed.
+Can be changed after initialization.
+For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
+</div>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphExported"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphExported</b></span>
+                        <a href="#graphExported"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphSettings"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            graphSettings</b>
-                            <a href="#graphSettings"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;FOLGraph&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.store.select(&#x27;graphSettings&#x27;)</code>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/components/graph/graph.component.ts:79</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/graph/graph.component.ts:90</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphExportRequests"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>graphExportRequests</b></span>
+                        <a href="#graphExportRequests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graphSettingsSubscription"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            graphSettingsSubscription</b>
-                            <a href="#graphSettingsSubscription"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Observable&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>Subscription</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/components/graph/graph.component.ts:70</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/components/graph/graph.component.ts:92</a></div>
-                            </td>
-                        </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Graph will be exported when export-requests are received.</p>
+</div>
+                </td>
+            </tr>
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphExportRequestsSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>graphExportRequestsSubscription</b></span>
+                        <a href="#graphExportRequestsSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="height"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            height</b>
-                            <a href="#height"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/components/graph/graph.component.ts:93</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/components/graph/graph.component.ts:99</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphHost"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphHost</b></span>
+                        <a href="#graphHost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="linkSelection"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            linkSelection</b>
-                            <a href="#linkSelection"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLDivElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;graphHost&#x27;)<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#LinkSelection" target="_self" >LinkSelection</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/components/graph/graph.component.ts:81</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/components/graph/graph.component.ts:109</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphSettings"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphSettings</b></span>
+                        <a href="#graphSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="nodeSelection"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            nodeSelection</b>
-                            <a href="#nodeSelection"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>this.store.select(&#x27;graphSettings&#x27;)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#NodeSelection" target="_self" >NodeSelection</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/components/graph/graph.component.ts:90</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/components/graph/graph.component.ts:110</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphSettingsSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>graphSettingsSubscription</b></span>
+                        <a href="#graphSettingsSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="scale"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            scale</b>
-                            <a href="#scale"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>Subscription</code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/components/graph/graph.component.ts:92</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>1</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/components/graph/graph.component.ts:104</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="height"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>height</b></span>
+                        <a href="#height"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="showLabels"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            showLabels</b>
-                            <a href="#showLabels"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>true</code>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/components/graph/graph.component.ts:99</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/components/graph/graph.component.ts:96</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkDeleted"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>linkDeleted</b></span>
+                        <a href="#linkDeleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="simulation"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            simulation</b>
-                            <a href="#simulation"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;D3Link&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Simulation" target="_self" >Simulation</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/components/graph/graph.component.ts:75</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/components/graph/graph.component.ts:106</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>linkSelected</b></span>
+                        <a href="#linkSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="width"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            width</b>
-                            <a href="#width"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;D3Link&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/graph/graph.component.ts:72</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/components/graph/graph.component.ts:98</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkSelection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>linkSelection</b></span>
+                        <a href="#linkSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="xOffset"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            xOffset</b>
-                            <a href="#xOffset"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#LinkSelection" target="_self" >LinkSelection</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/components/graph/graph.component.ts:109</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/components/graph/graph.component.ts:101</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeDeleted"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>nodeDeleted</b></span>
+                        <a href="#nodeDeleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="yOffset"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            yOffset</b>
-                            <a href="#yOffset"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;D3Node&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/components/graph/graph.component.ts:76</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/components/graph/graph.component.ts:102</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>nodeSelected</b></span>
+                        <a href="#nodeSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="zoom"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            zoom</b>
-                            <a href="#zoom"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;D3Node&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >Zoom</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/components/graph/graph.component.ts:73</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/components/graph/graph.component.ts:112</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nodeSelection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>nodeSelection</b></span>
+                        <a href="#nodeSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#NodeSelection" target="_self" >NodeSelection</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/app/components/graph/graph.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveRequested"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>saveRequested</b></span>
+                        <a href="#saveRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter&lt;FOLGraph&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/components/graph/graph.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scale"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scale</b></span>
+                        <a href="#scale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/components/graph/graph.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showLabels"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showLabels</b></span>
+                        <a href="#showLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/components/graph/graph.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>simulation</b></span>
+                        <a href="#simulation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Simulation" target="_self" >Simulation</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/components/graph/graph.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="width"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>width</b></span>
+                        <a href="#width"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/components/graph/graph.component.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="xOffset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>xOffset</b></span>
+                        <a href="#xOffset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/components/graph/graph.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="yOffset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>yOffset</b></span>
+                        <a href="#yOffset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/components/graph/graph.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoom"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>zoom</b></span>
+                        <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >Zoom</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/app/components/graph/graph.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -4144,9 +4562,9 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

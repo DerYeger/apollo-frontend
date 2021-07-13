@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>GraphListComponent</li>
+  <li
+  >
+  GraphListComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/components/graph-list/graph-list.component.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -142,16 +146,30 @@ The latter two have to be handled by the containing component.</p>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#columns">columns</a>
+                                <a href="#columns" >columns</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#dataSource">dataSource</a>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graphDeletionRequested" >graphDeletionRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#graphs" >graphs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#graphSelected" >graphSelected</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#sort">sort</a>
+                                <a href="#sort" >sort</a>
                             </li>
                         </ul>
                     </td>
@@ -167,15 +185,15 @@ The latter two have to be handled by the containing component.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#exportGraph">exportGraph</a>
+                                <a href="#exportGraph" >exportGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnChanges">ngOnChanges</a>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
                             </li>
                         </ul>
                     </td>
@@ -190,7 +208,7 @@ The latter two have to be handled by the containing component.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graphs">graphs</a>
+                                <a href="#graphs" >graphs</a>
                             </li>
                         </ul>
                     </td>
@@ -205,10 +223,10 @@ The latter two have to be handled by the containing component.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graphDeletionRequested">graphDeletionRequested</a>
+                                <a href="#graphDeletionRequested" >graphDeletionRequested</a>
                             </li>
                             <li>
-                                <a href="#graphSelected">graphSelected</a>
+                                <a href="#graphSelected" >graphSelected</a>
                             </li>
                         </ul>
                     </td>
@@ -352,10 +370,8 @@ The latter two have to be handled by the containing component.</p>
                 <td class="col-md-4">
                     <a name="exportGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            exportGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>exportGraph</b></span>
                         <a href="#exportGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -363,7 +379,7 @@ The latter two have to be handled by the containing component.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>exportGraph(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>exportGraph(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -424,10 +440,8 @@ The latter two have to be handled by the containing component.</p>
                 <td class="col-md-4">
                     <a name="ngAfterViewInit"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngAfterViewInit
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngAfterViewInit</b></span>
                         <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -465,10 +479,8 @@ The latter two have to be handled by the containing component.</p>
                 <td class="col-md-4">
                     <a name="ngOnChanges"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnChanges
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnChanges</b></span>
                         <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -534,108 +546,213 @@ The latter two have to be handled by the containing component.</p>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columns"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>columns</b></span>
+                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="columns"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            columns</b>
-                            <a href="#columns"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;name&#x27;, &#x27;description&#x27;, &#x27;lastEdit&#x27;, &#x27;actions&#x27;]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>string[]</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:27</a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[&#x27;name&#x27;, &#x27;description&#x27;, &#x27;lastEdit&#x27;, &#x27;actions&#x27;]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:27</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="dataSource"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            dataSource</b>
-                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new MatTableDataSource&lt;FOLGraph&gt;([])</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new MatTableDataSource&lt;FOLGraph&gt;([])</code>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:29</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:29</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphDeletionRequested"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphDeletionRequested</b></span>
+                        <a href="#graphDeletionRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="sort"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            sort</b>
-                            <a href="#sort"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new EventEmitter&lt;FOLGraph&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code>MatSort</code>
-
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:23</a></div>
                         </td>
                     </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphs"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>graphs</b></span>
+                        <a href="#graphs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/FOLGraph.html" target="_self" >FOLGraph[] | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <b>Decorators : </b>
-                            <br />
-                            <code>
-                                @ViewChild(MatSort, {static: false})<br />
-                            </code>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:20</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:25</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphSelected</b></span>
+                        <a href="#graphSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter&lt;FOLGraph&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sort</b></span>
+                        <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatSort</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatSort, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/graph-list/graph-list.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -837,9 +954,9 @@ th.mat-sort-header-sorted {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

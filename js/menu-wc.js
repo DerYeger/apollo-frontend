@@ -62,7 +62,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
+                                <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
                                             'data-target="#components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' : 'data-target="#xs-components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' }>
@@ -73,89 +73,70 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' :
                                             'id="xs-components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' }>
                                             <li class="link">
-                                                <a href="components/AppComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
+                                                <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/DashboardPage.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">DashboardPage</a>
+                                                <a href="components/DashboardPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DashboardPage</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ExportGraphBottomSheet.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ExportGraphBottomSheet</a>
+                                                <a href="components/ExportGraphBottomSheet.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExportGraphBottomSheet</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FeedbackSelectionComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FeedbackSelectionComponent</a>
+                                                <a href="components/FeedbackSelectionComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FeedbackSelectionComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/FormulaSyntaxDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FormulaSyntaxDialog</a>
+                                                <a href="components/FormulaSyntaxDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FormulaSyntaxDialog</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/GraphComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GraphComponent</a>
+                                                <a href="components/GraphComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GraphComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/GraphEditorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GraphEditorComponent</a>
+                                                <a href="components/GraphEditorComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GraphEditorComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/GraphImportComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GraphImportComponent</a>
+                                                <a href="components/GraphImportComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GraphImportComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/GraphListComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">GraphListComponent</a>
+                                                <a href="components/GraphListComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >GraphListComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/HomePage.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">HomePage</a>
+                                                <a href="components/HomePage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >HomePage</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/HttpProgressDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">HttpProgressDialog</a>
+                                                <a href="components/HttpProgressDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >HttpProgressDialog</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/LinkFormComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">LinkFormComponent</a>
+                                                <a href="components/LinkFormComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LinkFormComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ModelCheckerPage.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ModelCheckerPage</a>
+                                                <a href="components/ModelCheckerPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ModelCheckerPage</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/NodeFormComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NodeFormComponent</a>
+                                                <a href="components/NodeFormComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NodeFormComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/ResultTreeDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">ResultTreeDialog</a>
+                                                <a href="components/ResultTreeDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ResultTreeDialog</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/SaveGraphDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">SaveGraphDialog</a>
+                                                <a href="components/SaveGraphDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SaveGraphDialog</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/SymbolEditorComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">SymbolEditorComponent</a>
+                                                <a href="components/SymbolEditorComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SymbolEditorComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/TraceComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">TraceComponent</a>
+                                                <a href="components/TraceComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TraceComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/UpdateAvailableDialog.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">UpdateAvailableDialog</a>
+                                                <a href="components/UpdateAvailableDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UpdateAvailableDialog</a>
                                             </li>
                                         </ul>
                                     </li>
                             </li>
                             <li class="link">
-                                <a href="modules/AppRoutingModule.html" data-type="entity-link">AppRoutingModule</a>
+                                <a href="modules/AppRoutingModule.html" data-type="entity-link" >AppRoutingModule</a>
                             </li>
                             <li class="link">
-                                <a href="modules/MaterialModule.html" data-type="entity-link">MaterialModule</a>
+                                <a href="modules/MaterialModule.html" data-type="entity-link" >MaterialModule</a>
                             </li>
                 </ul>
                 </li>
@@ -168,16 +149,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/ApolloLink.html" data-type="entity-link">ApolloLink</a>
+                                <a href="classes/ApolloLink.html" data-type="entity-link" >ApolloLink</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ApolloNode.html" data-type="entity-link">ApolloNode</a>
+                                <a href="classes/ApolloNode.html" data-type="entity-link" >ApolloNode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AppPage.html" data-type="entity-link">AppPage</a>
+                                <a href="classes/AppPage.html" data-type="entity-link" >AppPage</a>
                             </li>
                             <li class="link">
-                                <a href="classes/D3Graph.html" data-type="entity-link">D3Graph</a>
+                                <a href="classes/D3Graph.html" data-type="entity-link" >D3Graph</a>
                             </li>
                         </ul>
                     </li>
@@ -190,13 +171,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/BackendService.html" data-type="entity-link">BackendService</a>
+                                    <a href="injectables/BackendService.html" data-type="entity-link" >BackendService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/SnackBarService.html" data-type="entity-link">SnackBarService</a>
+                                    <a href="injectables/SnackBarService.html" data-type="entity-link" >SnackBarService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/UpdateService.html" data-type="entity-link">UpdateService</a>
+                                    <a href="injectables/UpdateService.html" data-type="entity-link" >UpdateService</a>
                                 </li>
                             </ul>
                         </li>
@@ -209,61 +190,61 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/ApolloRoute.html" data-type="entity-link">ApolloRoute</a>
+                                <a href="interfaces/ApolloRoute.html" data-type="entity-link" >ApolloRoute</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/D3Link.html" data-type="entity-link">D3Link</a>
+                                <a href="interfaces/D3Link.html" data-type="entity-link" >D3Link</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/D3Node.html" data-type="entity-link">D3Node</a>
+                                <a href="interfaces/D3Node.html" data-type="entity-link" >D3Node</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FeedbackOption.html" data-type="entity-link">FeedbackOption</a>
+                                <a href="interfaces/FeedbackOption.html" data-type="entity-link" >FeedbackOption</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FlatTraceNode.html" data-type="entity-link">FlatTraceNode</a>
+                                <a href="interfaces/FlatTraceNode.html" data-type="entity-link" >FlatTraceNode</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FOLEdge.html" data-type="entity-link">FOLEdge</a>
+                                <a href="interfaces/FOLEdge.html" data-type="entity-link" >FOLEdge</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FOLEntity.html" data-type="entity-link">FOLEntity</a>
+                                <a href="interfaces/FOLEntity.html" data-type="entity-link" >FOLEntity</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FOLGraph.html" data-type="entity-link">FOLGraph</a>
+                                <a href="interfaces/FOLGraph.html" data-type="entity-link" >FOLGraph</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/FOLNode.html" data-type="entity-link">FOLNode</a>
+                                <a href="interfaces/FOLNode.html" data-type="entity-link" >FOLNode</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/GraphCollection.html" data-type="entity-link">GraphCollection</a>
+                                <a href="interfaces/GraphCollection.html" data-type="entity-link" >GraphCollection</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/GraphConfiguration.html" data-type="entity-link">GraphConfiguration</a>
+                                <a href="interfaces/GraphConfiguration.html" data-type="entity-link" >GraphConfiguration</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/GraphSettings.html" data-type="entity-link">GraphSettings</a>
+                                <a href="interfaces/GraphSettings.html" data-type="entity-link" >GraphSettings</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ModelCheckerRequest.html" data-type="entity-link">ModelCheckerRequest</a>
+                                <a href="interfaces/ModelCheckerRequest.html" data-type="entity-link" >ModelCheckerRequest</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ModelCheckerResponse.html" data-type="entity-link">ModelCheckerResponse</a>
+                                <a href="interfaces/ModelCheckerResponse.html" data-type="entity-link" >ModelCheckerResponse</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ModelCheckerTrace.html" data-type="entity-link">ModelCheckerTrace</a>
+                                <a href="interfaces/ModelCheckerTrace.html" data-type="entity-link" >ModelCheckerTrace</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/Settings.html" data-type="entity-link">Settings</a>
+                                <a href="interfaces/Settings.html" data-type="entity-link" >Settings</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/State.html" data-type="entity-link">State</a>
+                                <a href="interfaces/State.html" data-type="entity-link" >State</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/SymbolEditorConfiguration.html" data-type="entity-link">SymbolEditorConfiguration</a>
+                                <a href="interfaces/SymbolEditorConfiguration.html" data-type="entity-link" >SymbolEditorConfiguration</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/TranslationDTO.html" data-type="entity-link">TranslationDTO</a>
+                                <a href="interfaces/TranslationDTO.html" data-type="entity-link" >TranslationDTO</a>
                             </li>
                         </ul>
                     </li>

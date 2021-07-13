@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>LinkFormComponent</li>
+  <li
+  >
+  LinkFormComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/components/graph-editor/link-form/link-form.component.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -133,12 +137,26 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#functionEditorConfig">functionEditorConfig</a>
+                                <a href="#functionEditorConfig" >functionEditorConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#link" >link</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#relationEditorConfig">relationEditorConfig</a>
+                                <a href="#linkDeletionRequested" >linkDeletionRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#linkUpdated" >linkUpdated</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#relationEditorConfig" >relationEditorConfig</a>
                             </li>
                         </ul>
                     </td>
@@ -154,15 +172,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onLinkDeleted">onLinkDeleted</a>
+                                <a href="#onLinkDeleted" >onLinkDeleted</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onLinkUpdated">onLinkUpdated</a>
+                                <a href="#onLinkUpdated" >onLinkUpdated</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#requestLinkDeletion">requestLinkDeletion</a>
+                                <a href="#requestLinkDeletion" >requestLinkDeletion</a>
                             </li>
                         </ul>
                     </td>
@@ -177,7 +195,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#link">link</a>
+                                <a href="#link" >link</a>
                             </li>
                         </ul>
                     </td>
@@ -192,10 +210,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#linkDeletionRequested">linkDeletionRequested</a>
+                                <a href="#linkDeletionRequested" >linkDeletionRequested</a>
                             </li>
                             <li>
-                                <a href="#linkUpdated">linkUpdated</a>
+                                <a href="#linkUpdated" >linkUpdated</a>
                             </li>
                         </ul>
                     </td>
@@ -339,10 +357,8 @@
                 <td class="col-md-4">
                     <a name="onLinkDeleted"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onLinkDeleted
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onLinkDeleted</b></span>
                         <a href="#onLinkDeleted"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -350,7 +366,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onLinkDeleted(deletedLink: <a href="../interfaces/D3Link.html">D3Link</a>)</code>
+                    <code>onLinkDeleted(deletedLink: <a href="../interfaces/D3Link.html" target="_self">D3Link</a>)</code>
                 </td>
             </tr>
 
@@ -411,10 +427,8 @@
                 <td class="col-md-4">
                     <a name="onLinkUpdated"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onLinkUpdated
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onLinkUpdated</b></span>
                         <a href="#onLinkUpdated"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -452,10 +466,8 @@
                 <td class="col-md-4">
                     <a name="requestLinkDeletion"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            requestLinkDeletion
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>requestLinkDeletion</b></span>
                         <a href="#requestLinkDeletion"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -490,65 +502,171 @@
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="functionEditorConfig"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>functionEditorConfig</b></span>
+                        <a href="#functionEditorConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="functionEditorConfig"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            functionEditorConfig</b>
-                            <a href="#functionEditorConfig"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>FUNCTION_SYMBOL_EDITOR_CONFIGURATION</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>FUNCTION_SYMBOL_EDITOR_CONFIGURATION</code>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:22</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:22</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="link"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>link</b></span>
+                        <a href="#link"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="relationEditorConfig"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            relationEditorConfig</b>
-                            <a href="#relationEditorConfig"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../interfaces/D3Link.html" target="_self" >D3Link | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Input()<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>RELATION_SYMBOL_EDITOR_CONFIGURATION</code>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:16</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:21</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkDeletionRequested"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>linkDeletionRequested</b></span>
+                        <a href="#linkDeletionRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter&lt;D3Link&gt;()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkUpdated"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>linkUpdated</b></span>
+                        <a href="#linkUpdated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Output()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="relationEditorConfig"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>relationEditorConfig</b></span>
+                        <a href="#relationEditorConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>RELATION_SYMBOL_EDITOR_CONFIGURATION</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/graph-editor/link-form/link-form.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -720,9 +838,9 @@ export class LinkFormComponent {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

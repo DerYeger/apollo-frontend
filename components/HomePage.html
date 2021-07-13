@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>HomePage</li>
+  <li
+  >
+  HomePage</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/pages/home/home.page.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -134,7 +138,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#storedGraphs">storedGraphs</a>
+                                <a href="#storedGraphs" >storedGraphs</a>
                             </li>
                         </ul>
                     </td>
@@ -150,19 +154,19 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#navigateToExampleGraph">navigateToExampleGraph</a>
+                                <a href="#navigateToExampleGraph" >navigateToExampleGraph</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onGraphDeletionRequested">onGraphDeletionRequested</a>
+                                <a href="#onGraphDeletionRequested" >onGraphDeletionRequested</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onGraphImport">onGraphImport</a>
+                                <a href="#onGraphImport" >onGraphImport</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onGraphSelected">onGraphSelected</a>
+                                <a href="#onGraphSelected" >onGraphSelected</a>
                             </li>
                         </ul>
                     </td>
@@ -183,7 +187,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>)</code>
+                        <code>constructor(store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBarService: <a href="../injectables/SnackBarService.html" target="_self">SnackBarService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -265,10 +269,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 <td class="col-md-4">
                     <a name="navigateToExampleGraph"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            navigateToExampleGraph
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>navigateToExampleGraph</b></span>
                         <a href="#navigateToExampleGraph"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -306,10 +308,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 <td class="col-md-4">
                     <a name="onGraphDeletionRequested"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onGraphDeletionRequested
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onGraphDeletionRequested</b></span>
                         <a href="#onGraphDeletionRequested"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -317,7 +317,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onGraphDeletionRequested(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>onGraphDeletionRequested(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -378,10 +378,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 <td class="col-md-4">
                     <a name="onGraphImport"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onGraphImport
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onGraphImport</b></span>
                         <a href="#onGraphImport"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -389,7 +387,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onGraphImport(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>onGraphImport(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -450,10 +448,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
                 <td class="col-md-4">
                     <a name="onGraphSelected"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onGraphSelected
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onGraphSelected</b></span>
                         <a href="#onGraphSelected"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -461,7 +457,7 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onGraphSelected(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>onGraphSelected(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -519,37 +515,36 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storedGraphs"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>storedGraphs</b></span>
+                        <a href="#storedGraphs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="storedGraphs"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            storedGraphs</b>
-                            <a href="#storedGraphs"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>this.store.select(&#x27;graphStore&#x27;).pipe(map((graphs) &#x3D;&gt; Object.values(graphs)))</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.store.select(&#x27;graphStore&#x27;).pipe(map((graphs) &#x3D;&gt; Object.values(graphs)))</code>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/home/home.page.ts:23</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -724,9 +719,9 @@ export class HomePage {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

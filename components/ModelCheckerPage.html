@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>ModelCheckerPage</li>
+  <li
+  >
+  ModelCheckerPage</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/pages/model-checker/model-checker.page.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -140,22 +144,22 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#activeResultDialog">activeResultDialog</a>
+                                <a href="#activeResultDialog" >activeResultDialog</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#formula">formula</a>
+                                <a href="#formula" >formula</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#graph">graph</a>
+                                <a href="#graph" >graph</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#graphExportRequests">graphExportRequests</a>
+                                <a href="#graphExportRequests" >graphExportRequests</a>
                             </li>
                         </ul>
                     </td>
@@ -171,23 +175,23 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#checkModel">checkModel</a>
+                                <a href="#checkModel" >checkModel</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onSaveRequested">onSaveRequested</a>
+                                <a href="#onSaveRequested" >onSaveRequested</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#requestGraphExport">requestGraphExport</a>
+                                <a href="#requestGraphExport" >requestGraphExport</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#showFormulaSyntaxDialog">showFormulaSyntaxDialog</a>
+                                <a href="#showFormulaSyntaxDialog" >showFormulaSyntaxDialog</a>
                             </li>
                         </ul>
                     </td>
@@ -208,7 +212,7 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html">SnackBarService</a>, backendService: <a href="../injectables/BackendService.html">BackendService</a>, dialog: MatDialog)</code>
+                        <code>constructor(store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html" target="_self">SnackBarService</a>, backendService: <a href="../injectables/BackendService.html" target="_self">BackendService</a>, dialog: MatDialog)</code>
                     </td>
                 </tr>
                         <tr>
@@ -326,10 +330,8 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <td class="col-md-4">
                     <a name="checkModel"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            checkModel
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>checkModel</b></span>
                         <a href="#checkModel"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -337,7 +339,7 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkModel(graph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>, feedback: <a href="../undefineds/Feedback.html">Feedback</a>)</code>
+                    <code>checkModel(graph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>, feedback: <a href="../undefineds/Feedback.html" target="_self">Feedback</a>)</code>
                 </td>
             </tr>
 
@@ -410,10 +412,8 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <td class="col-md-4">
                     <a name="ngOnDestroy"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            ngOnDestroy
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
                         <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -451,10 +451,8 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <td class="col-md-4">
                     <a name="onSaveRequested"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            onSaveRequested
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>onSaveRequested</b></span>
                         <a href="#onSaveRequested"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -462,7 +460,7 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onSaveRequested(domainGraph: <a href="../interfaces/FOLGraph.html">FOLGraph</a>)</code>
+                    <code>onSaveRequested(domainGraph: <a href="../interfaces/FOLGraph.html" target="_self">FOLGraph</a>)</code>
                 </td>
             </tr>
 
@@ -523,10 +521,8 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <td class="col-md-4">
                     <a name="requestGraphExport"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            requestGraphExport
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>requestGraphExport</b></span>
                         <a href="#requestGraphExport"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -564,10 +560,8 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
                 <td class="col-md-4">
                     <a name="showFormulaSyntaxDialog"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            showFormulaSyntaxDialog
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>showFormulaSyntaxDialog</b></span>
                         <a href="#showFormulaSyntaxDialog"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -602,89 +596,86 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeResultDialog"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>activeResultDialog</b></span>
+                        <a href="#activeResultDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="activeResultDialog"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Optional</span>
-                            activeResultDialog</b>
-                            <a href="#activeResultDialog"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../components/ResultTreeDialog.html" target="_self" >MatDialogRef&lt;ResultTreeDialog&gt;</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../components/ResultTreeDialog.html" target="_self" >MatDialogRef&lt;ResultTreeDialog&gt;</a></code>
-
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:63</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:63</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formula"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>formula</b></span>
+                        <a href="#formula"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="formula"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            formula</b>
-                            <a href="#formula"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;, Validators.required)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new FormControl(&#x27;&#x27;, Validators.required)</code>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:32</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:32</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graph"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graph</b></span>
+                        <a href="#graph"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="graph"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            graph</b>
-                            <a href="#graph"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Type : </i>        <code><a href="../classes/D3Graph.html" target="_self" >Observable&lt;D3Graph&gt;</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/D3Graph.html" target="_self" >Observable&lt;D3Graph&gt;</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>this.route.queryParams.pipe(
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.route.queryParams.pipe(
     map((params) &#x3D;&gt; [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
     filter(([source, key]) &#x3D;&gt; source !&#x3D;&#x3D; undefined &amp;&amp; key !&#x3D;&#x3D; undefined),
     mergeMap(([source, key]) &#x3D;&gt;
@@ -706,52 +697,51 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
       )
     )
   )</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:40</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>The graph that is passed to the GraphComponent.
-Tries to retieved the cached or stored graph by the query parameters.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="graphExportRequests"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            graphExportRequests</b>
-                            <a href="#graphExportRequests"><span class="icon ion-ios-link"></span></a>
-                        </span>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:40</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:34</a></div>
-                            </td>
-                        </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>The graph that is passed to the GraphComponent.
+Tries to retieved the cached or stored graph by the query parameters.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="graphExportRequests"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>graphExportRequests</b></span>
+                        <a href="#graphExportRequests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/model-checker/model-checker.page.ts:34</a></div>
+                        </td>
+                    </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -1012,9 +1002,9 @@ export class ModelCheckerPage implements OnDestroy {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

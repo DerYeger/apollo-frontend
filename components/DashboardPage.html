@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -35,7 +36,9 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>DashboardPage</li>
+  <li
+  >
+  DashboardPage</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,6 +66,7 @@
 <p class="comment">
     <code>src/app/pages/dashboard/dashboard.page.ts</code>
 </p>
+
 
     <p class="comment">
         <h3>Description</h3>
@@ -134,22 +138,22 @@ Contains navigation, language selection, theme selection and a link to this app&
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#language$">language$</a>
+                                <a href="#language$" >language$</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#routes">routes</a>
+                                <a href="#routes" >routes</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#sidebar$">sidebar$</a>
+                                <a href="#sidebar$" >sidebar$</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#themeButtonIcon$">themeButtonIcon$</a>
+                                <a href="#themeButtonIcon$" >themeButtonIcon$</a>
                             </li>
                         </ul>
                     </td>
@@ -165,19 +169,19 @@ Contains navigation, language selection, theme selection and a link to this app&
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setLanguage">setLanguage</a>
+                                <a href="#setLanguage" >setLanguage</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#setSidebar">setSidebar</a>
+                                <a href="#setSidebar" >setSidebar</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#toggleSidebar">toggleSidebar</a>
+                                <a href="#toggleSidebar" >toggleSidebar</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#toggleTheme">toggleTheme</a>
+                                <a href="#toggleTheme" >toggleTheme</a>
                             </li>
                         </ul>
                     </td>
@@ -198,7 +202,7 @@ Contains navigation, language selection, theme selection and a link to this app&
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(store: <a href="../interfaces/State.html">Store<State></a>)</code>
+                        <code>constructor(store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -256,10 +260,8 @@ Contains navigation, language selection, theme selection and a link to this app&
                 <td class="col-md-4">
                     <a name="setLanguage"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            setLanguage
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>setLanguage</b></span>
                         <a href="#setLanguage"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -328,10 +330,8 @@ Contains navigation, language selection, theme selection and a link to this app&
                 <td class="col-md-4">
                     <a name="setSidebar"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            setSidebar
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>setSidebar</b></span>
                         <a href="#setSidebar"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -400,10 +400,8 @@ Contains navigation, language selection, theme selection and a link to this app&
                 <td class="col-md-4">
                     <a name="toggleSidebar"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toggleSidebar
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>toggleSidebar</b></span>
                         <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -441,10 +439,8 @@ Contains navigation, language selection, theme selection and a link to this app&
                 <td class="col-md-4">
                     <a name="toggleTheme"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            toggleTheme
-                        </b>
+                        <span class="modifier">Public</span>
+                        <span ><b>toggleTheme</b></span>
                         <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -479,121 +475,117 @@ Contains navigation, language selection, theme selection and a link to this app&
 </section>
     <section>
     
-        <h3 id="inputs">
-            Properties
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="language$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>language$</b></span>
+                        <a href="#language$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="language$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            language$</b>
-                            <a href="#language$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.language))</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.language))</code>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:22</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:22</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routes"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>routes</b></span>
+                        <a href="#routes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="routes"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            routes</b>
-                            <a href="#routes"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>routes.filter((route) &#x3D;&gt; route.name !&#x3D;&#x3D; undefined)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>routes.filter((route) &#x3D;&gt; route.name !&#x3D;&#x3D; undefined)</code>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:20</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sidebar$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>sidebar$</b></span>
+                        <a href="#sidebar$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="sidebar$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            sidebar$</b>
-                            <a href="#sidebar$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.sidebar))</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.sidebar))</code>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:23</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:23</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themeButtonIcon$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>themeButtonIcon$</b></span>
+                        <a href="#themeButtonIcon$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <a name="themeButtonIcon$"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                                <span class="modifier">Readonly</span>
-                            themeButtonIcon$</b>
-                            <a href="#themeButtonIcon$"><span class="icon ion-ios-link"></span></a>
-                        </span>
+                        <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; (settings.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light_mode&#x27; : &#x27;dark_mode&#x27;)))</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; (settings.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light_mode&#x27; : &#x27;dark_mode&#x27;)))</code>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:25</a></div>
                         </td>
                     </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/dashboard/dashboard.page.ts:25</a></div>
-                            </td>
-                        </tr>
 
 
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -864,9 +856,9 @@ mat-nav-list {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
