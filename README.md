@@ -22,9 +22,12 @@
   </a>
 </p>
 
-> A web application for first-order model checking in graph structures
+> A web application for first-order model checking in graph structures.
 
-> NOTE: This project was previously known as **gramoFO**
+This project and the accompanying bachelor's thesis were inspired by the research group *Theoretical Computer Science / Formal Methods* by the University of Kassel.
+The parsing and validation logic of the backend is built upon a Java desktop application by Arno Ehle and Benedikt Hruschka.
+
+> Note: This project is also known as **gramoFO**.
 
 ## Features
 
@@ -42,6 +45,7 @@
 - [Apollo](https://github.com/DerYeger/apollo)
 - [Apollo-Backend](https://github.com/DerYeger/apollo-backend)
 - [Documentation](https://apollo-frontend.yeger.eu/)
+- [Bachelor's thesis (German)](https://jan-mueller.at/documents/bachelor-thesis)
 
 ## Development
 
