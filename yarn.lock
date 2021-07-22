@@ -1612,10 +1612,10 @@
     merge-source-map "^1.1.0"
     schema-utils "^2.7.0"
 
-"@ngrx/store@12.2.0":
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.2.0.tgz#3b413d95e1b311ea8598f6eaee3cc7ae890f8619"
-  integrity sha512-DV1Yu4VhuSV6OfeHFdKEhuQTcHTMkn0igT6V3/x/FpzJ8vaq7tAN78iALMydce+YX+FcdFgj3cr3URQfYfisMA==
+"@ngrx/store@12.3.0":
+  version "12.3.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-12.3.0.tgz#e6361dafe2b06c4a5f968807e4c1b41a4dd5809e"
+  integrity sha512-iwfARCo2csTvhbY/6ed2gcAsvJcEY+tHoSsrKz6HTvpN81lSIhXMXORvisKsuQe8lDU2aUl/lGDoldZ8DYo4eg==
   dependencies:
     tslib "^2.0.0"
 
