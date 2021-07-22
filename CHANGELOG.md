@@ -1,3 +1,10 @@
+## [2.1.18](https://github.com/DerYeger/apollo-frontend/compare/v2.1.17...v2.1.18) (2021-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @ngrx/store to v12.3.0 ([a233f96](https://github.com/DerYeger/apollo-frontend/commit/a233f96b8f7672451f6aa0b4360e8cf819ef35c0))
+
 ## [2.1.17](https://github.com/DerYeger/apollo-frontend/compare/v2.1.16...v2.1.17) (2021-07-22)
 
 
