@@ -1,22 +1,22 @@
-.section {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 3rem;
+:host {
+  display: block;
+}
 
-  &:first-child {
-    margin-top: 1rem !important;
+.section {
+  &:not(:last-child) {
+    margin-bottom: 3rem;
   }
 
   &.quick-access {
     display: flex;
     flex-direction: column;
 
-    > *:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-
     > button {
       max-width: fit-content;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }

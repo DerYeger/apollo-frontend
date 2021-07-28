@@ -1,18 +1,23 @@
 import { ActionReducerMap, createReducer, MetaReducer, on } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
+import { exampleAssignment } from 'src/app/model/api/assignment';
+import { AssignmentCollection, setAssignment, unsetAssignment } from 'src/app/model/domain/assignment-collection';
 import { exampleGraph } from 'src/app/model/domain/example-graph';
 import { GraphCollection, setGraph, unsetGraph } from 'src/app/model/domain/graph.collection';
 import {
   cacheGraph,
+  clearAssignmentStore,
   clearGraphCache,
   clearGraphStore,
   enableSimulation,
+  removeAssignmentFromStore,
   removeGraphFromCache,
   removeGraphFromStore,
   setLanguage,
   setSelectedFeedback,
   setSidebar,
+  storeAssignment,
   storeGraph,
   toggleLabels,
   toggleSidebar,
@@ -33,6 +38,12 @@ export const reducers: ActionReducerMap<State> = {
     on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' })),
     on(setSelectedFeedback, (state, { feedback }) => ({ ...state, selectedFeedback: feedback }))
   ),
+  assignments: createReducer<AssignmentCollection>(
+    { [exampleAssignment.id]: exampleAssignment },
+    on(storeAssignment, (state, assignment) => setAssignment(state, assignment)),
+    on(removeAssignmentFromStore, (state, { key }) => unsetAssignment(state, key)),
+    on(clearAssignmentStore, (_) => ({}))
+  ),
   graphSettings: createReducer<GraphSettings>(
     {
       enableSimulation: true,
@@ -50,12 +61,14 @@ export const reducers: ActionReducerMap<State> = {
   ),
   graphCache: createReducer<GraphCollection>(
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    { 'Example Graph': exampleGraph },
+    { [exampleGraph.name]: exampleGraph },
     on(cacheGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) => unsetGraph(state, key)),
     on(clearGraphCache, (_) => ({}))
   ),
 };
+
+const sessionOnly: (keyof typeof reducers)[] = ['graphCache'];
 
 /**
  * Meta-reducers.
@@ -63,7 +76,7 @@ export const reducers: ActionReducerMap<State> = {
  */
 export const metaReducers: MetaReducer<State>[] = [
   localStorageSync({
-    keys: Object.keys(reducers).filter((key) => !key.toLowerCase().includes('cache')),
+    keys: Object.keys(reducers).filter((key) => !sessionOnly.includes(key as keyof typeof reducers)),
     rehydrate: true,
     removeOnUndefined: true,
   }),

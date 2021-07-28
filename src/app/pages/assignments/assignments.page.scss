@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.assignment-grid {
+  display: flex;
+  flex-direction: column;
+
+  > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .assignment-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      margin-right: 1rem;
+      flex-grow: 1;
+      max-width: 16rem;
+    }
+  }
+}

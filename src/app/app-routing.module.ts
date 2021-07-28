@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { AssignmentPage } from 'src/app/pages/assignment/assignment.page';
+import { AssignmentsPage } from 'src/app/pages/assignments/assignments.page';
 import { HomePage } from 'src/app/pages/home/home.page';
 import { ModelCheckerPage } from 'src/app/pages/model-checker/model-checker.page';
 
@@ -23,6 +25,8 @@ export type ApolloRoutes = ApolloRoute[];
 export const routes: ApolloRoutes = [
   { path: '', name: 'home.title', component: HomePage },
   { path: 'model-checker', name: 'model-checker.title', component: ModelCheckerPage },
+  { path: 'assignments', name: 'assignments.title', component: AssignmentsPage },
+  { path: 'assignments/:slug', component: AssignmentPage },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 

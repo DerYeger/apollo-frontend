@@ -21,7 +21,6 @@
     (nodeUpdated)="graphComponent.restart()"
     (nodeDeletionRequested)="graphComponent.removeNode($event)"
   ></apollo-node-form>
-  <mat-divider class="horizontal-divider"></mat-divider>
   <apollo-link-form
     #linkForm
     [link]="graphComponent.linkSelected | async"
