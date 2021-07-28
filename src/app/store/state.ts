@@ -1,4 +1,5 @@
 import { Feedback } from 'src/app/model/api/model-checker-request';
+import { AssignmentCollection } from 'src/app/model/domain/assignment-collection';
 import { GraphCollection } from 'src/app/model/domain/graph.collection';
 
 /**
@@ -6,6 +7,7 @@ import { GraphCollection } from 'src/app/model/domain/graph.collection';
  */
 export interface State {
   settings: Settings;
+  assignments: AssignmentCollection;
   graphSettings: GraphSettings;
   graphStore: GraphCollection;
   graphCache: GraphCollection;

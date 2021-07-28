@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
+import { Assignment } from 'src/app/model/api/assignment';
 import { Feedback } from 'src/app/model/api/model-checker-request';
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
 import { Language } from 'src/app/store/state';
@@ -30,6 +31,23 @@ export const toggleTheme = createAction('[settings.theme] toggle');
  * Sets the selected feedback to the given value.
  */
 export const setSelectedFeedback = createAction('[settings.selectedFeedback] set', props<{ feedback: Feedback }>());
+
+// Assignments
+
+/**
+ * Saves the given assignment to the store.
+ */
+export const storeAssignment = createAction('[assignments] store', props<Assignment>());
+
+/**
+ * Removes the assignment with the given key from the store.
+ */
+export const removeAssignmentFromStore = createAction('[assignments] remove', props<{ key: string }>());
+
+/**
+ * Removed all assignments from the store.
+ */
+export const clearAssignmentStore = createAction('[assignments] clear');
 
 // GraphSettings
 

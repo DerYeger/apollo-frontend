@@ -4,12 +4,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as d3 from 'd3';
-import { D3DragEvent, D3ZoomEvent } from 'd3';
+import { D3ZoomEvent } from 'd3';
 import { concat, firstValueFrom, forkJoin, Observable, of, Subscription } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
 import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
-import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from 'src/app/configurations/graph.configuration';
+import { DEFAULT_GRAPH_CONFIGURATION, GraphConfiguration } from 'src/app/configurations/graph.configuration';
 import { SaveGraphDialog } from 'src/app/dialogs/save-graph/save-graph.dialog';
 import D3Graph from 'src/app/model/d3/d3.graph';
 import { D3Link } from 'src/app/model/d3/d3.link';
@@ -24,13 +24,13 @@ import { createLinkSelection, LinkSelection } from 'src/app/utils/d3/link-select
 import { initMarkers } from 'src/app/utils/d3/markers';
 import { createNodeSelection, NodeSelection } from 'src/app/utils/d3/node-selection';
 import {
-  paddedArcPath,
-  directLinkTextTransform,
-  paddedLinePath,
-  linePath,
-  reflexiveLinkTextTransform,
-  paddedReflexivePath,
   bidirectionalLinkTextTransform,
+  directLinkTextTransform,
+  linePath,
+  paddedArcPath,
+  paddedLinePath,
+  paddedReflexivePath,
+  reflexiveLinkTextTransform,
 } from 'src/app/utils/d3/paths';
 import { createSimulation, Simulation } from 'src/app/utils/d3/simulation';
 import { createZoom, Zoom } from 'src/app/utils/d3/zoom';
@@ -149,7 +149,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (changes.graph.currentValue) {
+    if (changes.graph.currentValue && this.graphHost !== undefined) {
       // Perform clean init of the Graph. Enable the simulation for proper layouting.
       this.cleanInitGraph();
       if (!this.enableSimulation) {
@@ -158,7 +158,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       } else {
         this.restart(1);
       }
-    } else {
+    } else if (changes.graph.currentValue === null) {
       // Graph input not provided or not yet present (async). Use fallback.
       this.graph = new D3Graph();
     }
@@ -463,7 +463,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private resetView(): void {
-    this.simulation!.stop();
+    this.simulation?.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
     this.zoom = undefined;
     this.xOffset = 0;

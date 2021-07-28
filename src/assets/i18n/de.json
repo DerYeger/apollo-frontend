@@ -101,6 +101,11 @@
   "app": {
     "title": "Apollo"
   },
+  "assignments": {
+    "completed-on": "Abgeschlossen am {{date}}",
+    "not-completed": "Nicht abgeschlossen",
+    "title": "Aufgaben"
+  },
   "dashboard": {
     "github-repository": "GitHub Repository"
   },

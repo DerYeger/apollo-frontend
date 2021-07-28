@@ -1,7 +1,11 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
 .model-checker-container {
-  margin: 1rem;
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -22,7 +26,5 @@
 }
 
 .graph-section {
-  // Workaround for flex-grow not respecting the parent margins
   flex-grow: 1;
-  //height: calc(100% - 56.56px);
 }

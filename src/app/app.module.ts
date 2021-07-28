@@ -12,6 +12,7 @@ import { DEFAULT_COLOR_SCHEME, LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AppComponent } from 'src/app/app.component';
 import { ExportGraphBottomSheet } from 'src/app/bottom-sheets/export-graph/export-graph.bottom-sheet';
+import { AssignmentCardComponent } from 'src/app/components/assignment-card/assignment-card.component';
 import { FeedbackSelectionComponent } from 'src/app/components/feedback-selection/feedback-selection.component';
 import { GraphEditorComponent } from 'src/app/components/graph-editor/graph-editor.component';
 import { LinkFormComponent } from 'src/app/components/graph-editor/link-form/link-form.component';
@@ -27,6 +28,8 @@ import { TraceComponent } from 'src/app/dialogs/result-tree/trace/trace.componen
 import { SaveGraphDialog } from 'src/app/dialogs/save-graph/save-graph.dialog';
 import { UpdateAvailableDialog } from 'src/app/dialogs/update-available/update-available.dialog';
 import { MaterialModule } from 'src/app/material.module';
+import { AssignmentPage } from 'src/app/pages/assignment/assignment.page';
+import { AssignmentsPage } from 'src/app/pages/assignments/assignments.page';
 import { DashboardPage } from 'src/app/pages/dashboard/dashboard.page';
 import { HomePage } from 'src/app/pages/home/home.page';
 import { ModelCheckerPage } from 'src/app/pages/model-checker/model-checker.page';
@@ -39,6 +42,9 @@ import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
+    AssignmentCardComponent,
+    AssignmentPage,
+    AssignmentsPage,
     DashboardPage,
     ExportGraphBottomSheet,
     FeedbackSelectionComponent,
