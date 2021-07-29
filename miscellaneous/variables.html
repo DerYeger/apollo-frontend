@@ -62,6 +62,9 @@
                             <a href="#cacheGraph" title="src/app/store/actions.ts" ><b>cacheGraph</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
+                            <a href="#clearAssignmentStore" title="src/app/store/actions.ts" ><b>clearAssignmentStore</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
+                        </li>
+                        <li>
                             <a href="#clearGraphCache" title="src/app/store/actions.ts" ><b>clearGraphCache</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
@@ -107,10 +110,16 @@
                             <a href="#host" title="src/app/services/backend.service.ts" ><b>host</b>&nbsp;&nbsp;&nbsp;(src/.../backend.service.ts)</a>
                         </li>
                         <li>
+                            <a href="#markAssignmentAsCompleted" title="src/app/store/actions.ts" ><b>markAssignmentAsCompleted</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
+                        </li>
+                        <li>
                             <a href="#markerBoxSize" title="src/app/configurations/graph.configuration.ts" ><b>markerBoxSize</b>&nbsp;&nbsp;&nbsp;(src/.../graph.configuration.ts)</a>
                         </li>
                         <li>
                             <a href="#matModules" title="src/app/material.module.ts" ><b>matModules</b>&nbsp;&nbsp;&nbsp;(src/.../material.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#maxShortenedDescriptionLength" title="src/app/components/assignment-card/assignment-card.component.ts" ><b>maxShortenedDescriptionLength</b>&nbsp;&nbsp;&nbsp;(src/.../assignment-card.component.ts)</a>
                         </li>
                         <li>
                             <a href="#metaReducers" title="src/app/store/reducers.ts" ><b>metaReducers</b>&nbsp;&nbsp;&nbsp;(src/.../reducers.ts)</a>
@@ -125,6 +134,9 @@
                             <a href="#RELATION_SYMBOL_EDITOR_CONFIGURATION" title="src/app/configurations/symbol-editor.configuration.ts" ><b>RELATION_SYMBOL_EDITOR_CONFIGURATION</b>&nbsp;&nbsp;&nbsp;(src/.../symbol-editor.configuration.ts)</a>
                         </li>
                         <li>
+                            <a href="#removeAssignmentFromStore" title="src/app/store/actions.ts" ><b>removeAssignmentFromStore</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
+                        </li>
+                        <li>
                             <a href="#removeGraphFromCache" title="src/app/store/actions.ts" ><b>removeGraphFromCache</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
@@ -137,6 +149,9 @@
                             <a href="#routes" title="src/app/app-routing.module.ts" ><b>routes</b>&nbsp;&nbsp;&nbsp;(src/.../app-routing.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#sessionOnly" title="src/app/store/reducers.ts" ><b>sessionOnly</b>&nbsp;&nbsp;&nbsp;(src/.../reducers.ts)</a>
+                        </li>
+                        <li>
                             <a href="#setLanguage" title="src/app/store/actions.ts" ><b>setLanguage</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
@@ -144,6 +159,9 @@
                         </li>
                         <li>
                             <a href="#setSidebar" title="src/app/store/actions.ts" ><b>setSidebar</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#storeAssignment" title="src/app/store/actions.ts" ><b>storeAssignment</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
                         </li>
                         <li>
                             <a href="#storeGraph" title="src/app/store/actions.ts" ><b>storeGraph</b>&nbsp;&nbsp;&nbsp;(src/.../actions.ts)</a>
@@ -198,6 +216,32 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Caches the given graph.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearAssignmentStore"></a>
+                    <span class="name">
+                        <span ><b>clearAssignmentStore</b></span>
+                        <a href="#clearAssignmentStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[assignments] clear&#x27;)</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Removed all assignments from the store.</p>
 </div>
                 </td>
             </tr>
@@ -276,6 +320,58 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Enables the simulation of the GraphComponent.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markAssignmentAsCompleted"></a>
+                    <span class="name">
+                        <span ><b>markAssignmentAsCompleted</b></span>
+                        <a href="#markAssignmentAsCompleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[assignments] complete&#x27;, props&lt;{ key: string }&gt;())</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Marks the assignment with the specified key as completed</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAssignmentFromStore"></a>
+                    <span class="name">
+                        <span ><b>removeAssignmentFromStore</b></span>
+                        <a href="#removeAssignmentFromStore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[assignments] remove&#x27;, props&lt;{ key: string }&gt;())</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Removes the assignment with the given key from the store.</p>
 </div>
                 </td>
             </tr>
@@ -406,6 +502,32 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Sets the state of the sidebar to expanded or collapsed.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storeAssignment"></a>
+                    <span class="name">
+                        <span ><b>storeAssignment</b></span>
+                        <a href="#storeAssignment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[assignments] store&#x27;, props&lt;Assignment&gt;())</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Saves the given assignment to the store.</p>
 </div>
                 </td>
             </tr>
@@ -1183,6 +1305,35 @@
         </tbody>
     </table>
 </section>
+    <h3>src/app/components/assignment-card/assignment-card.component.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxShortenedDescriptionLength"></a>
+                    <span class="name">
+                        <span ><b>maxShortenedDescriptionLength</b></span>
+                        <a href="#maxShortenedDescriptionLength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>100</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/store/reducers.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1206,7 +1357,7 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
   localStorageSync({
-    keys: Object.keys(reducers).filter((key) &#x3D;&gt; !key.toLowerCase().includes(&#x27;cache&#x27;)),
+    keys: Object.keys(reducers).filter((key) &#x3D;&gt; !sessionOnly.includes(key as keyof typeof reducers)),
     rehydrate: true,
     removeOnUndefined: true,
   }),
@@ -1252,6 +1403,13 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
     on(toggleTheme, (state) &#x3D;&gt; ({ ...state, theme: state.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light-theme&#x27; : &#x27;dark-theme&#x27; })),
     on(setSelectedFeedback, (state, { feedback }) &#x3D;&gt; ({ ...state, selectedFeedback: feedback }))
   ),
+  assignments: createReducer&lt;AssignmentCollection&gt;(
+    {},
+    on(storeAssignment, (state, assignment) &#x3D;&gt; setAssignment(state, assignment)),
+    on(removeAssignmentFromStore, (state, { key }) &#x3D;&gt; unsetAssignment(state, key)),
+    on(markAssignmentAsCompleted, (state, { key }) &#x3D;&gt; completeAssignment(state, key)),
+    on(clearAssignmentStore, (_) &#x3D;&gt; ({}))
+  ),
   graphSettings: createReducer&lt;GraphSettings&gt;(
     {
       enableSimulation: true,
@@ -1269,7 +1427,7 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
   ),
   graphCache: createReducer&lt;GraphCollection&gt;(
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    { &#x27;Example Graph&#x27;: exampleGraph },
+    { [exampleGraph.name]: exampleGraph },
     on(cacheGraph, (state, graph) &#x3D;&gt; setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) &#x3D;&gt; unsetGraph(state, key)),
     on(clearGraphCache, (_) &#x3D;&gt; ({}))
@@ -1284,6 +1442,32 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
 </div>
                 </td>
             </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sessionOnly"></a>
+                    <span class="name">
+                        <span ><b>sessionOnly</b></span>
+                        <a href="#sessionOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;graphCache&#x27;]</code>
+                    </td>
+                </tr>
+
 
         </tbody>
     </table>
@@ -1312,6 +1496,8 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
                         <i>Default value : </i><code>[
   { path: &#x27;&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
   { path: &#x27;model-checker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
+  { path: &#x27;assignments&#x27;, name: &#x27;assignments.title&#x27;, component: AssignmentsPage },
+  { path: &#x27;assignments/:slug&#x27;, component: AssignmentPage },
   { path: &#x27;**&#x27;, redirectTo: &#x27;/&#x27;, pathMatch: &#x27;full&#x27; },
 ]</code>
                     </td>

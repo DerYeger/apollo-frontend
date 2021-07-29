@@ -28,108 +28,130 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content module">
+               <div class="content interface">
                    <div class="content-data">
 
 
 
+
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-    <li>Modules</li>
-    <li >AppRoutingModule</li>
+  <li>Interfaces</li>
+  <li
+  >
+  AssignmentCollection</li>
 </ol>
 
-
 <ul class="nav nav-tabs" role="tablist">
-    <li  class="active" >
-        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-    </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
 </ul>
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
-
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/app-routing.module.ts</code>
+            <code>src/app/model/domain/assignment-collection.ts</code>
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Collection of assignments, associated by their ids.</p>
 
-        <p class="comment">
-            <h3>Description</h3>
-        </p>
-        <p class="comment">
-            <p>Defines all routes of the app and configures the RoutingModule.</p>
-
-        </p>
+            </p>
 
 
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
 
+
+            <section>
+    <h3 id="inputs">Indexable</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <code>[key: string]:        <code><a href="../interfaces/Assignment.html" target="_self" >Assignment</a></code>
+</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/model/domain/assignment-collection.ts:8</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { Route, RouterModule } from &#x27;@angular/router&#x27;;
-import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import copy from &#x27;fast-copy&#x27;;
 
-import { AssignmentPage } from &#x27;src/app/pages/assignment/assignment.page&#x27;;
-import { AssignmentsPage } from &#x27;src/app/pages/assignments/assignments.page&#x27;;
-import { HomePage } from &#x27;src/app/pages/home/home.page&#x27;;
-import { ModelCheckerPage } from &#x27;src/app/pages/model-checker/model-checker.page&#x27;;
+import { Assignment } from &#x27;src/app/model/api/assignment&#x27;;
 
 /**
- * Extends Route to provide additional data.
+ * Collection of assignments, associated by their ids.
  */
-export interface ApolloRoute extends Route {
-  /**
-   * Used for providing translations keys to the navigation menu.
-   */
-  name?: string;
+export interface AssignmentCollection {
+  [key: string]: Assignment;
 }
 
-export type ApolloRoutes &#x3D; ApolloRoute[];
+/**
+ * Adds an assignment to the specified collection.
+ *
+ * @param state The target collection.
+ * @param assignment The assignment to be added.
+ */
+export function setAssignment(state: AssignmentCollection, assignment: Assignment): AssignmentCollection {
+  const oldAssignment &#x3D; state[assignment.id];
+  const newState &#x3D; copy(state);
+  newState[assignment.id] &#x3D; { ...assignment, ...oldAssignment };
+  return newState;
+}
 
 /**
- * The routes of this app.
+ * Removes an assignment from the specified collection.
+ *
+ * @param state The source collection.
+ * @param key The name of the assignment to be removed.
  */
-export const routes: ApolloRoutes &#x3D; [
-  { path: &#x27;&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
-  { path: &#x27;model-checker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
-  { path: &#x27;assignments&#x27;, name: &#x27;assignments.title&#x27;, component: AssignmentsPage },
-  { path: &#x27;assignments/:slug&#x27;, component: AssignmentPage },
-  { path: &#x27;**&#x27;, redirectTo: &#x27;/&#x27;, pathMatch: &#x27;full&#x27; },
-];
+export function unsetAssignment(state: AssignmentCollection, key: string): AssignmentCollection {
+  const newState &#x3D; copy(state);
+  delete newState[key];
+  return newState;
+}
 
-/**
- * Defines all routes of the app and configures the RoutingModule.
- */
-@NgModule({
-  imports: [RouterModule.forRoot(routes), TranslateModule],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+export function completeAssignment(state: AssignmentCollection, key: string): AssignmentCollection {
+  const assignment &#x3D; state[key];
+  if (assignment &#x3D;&#x3D;&#x3D; undefined) {
+    return state;
+  }
+  const newState &#x3D; copy(state);
+  const newAssignment &#x3D; copy(assignment);
+  newAssignment.completedOn &#x3D; Date.now();
+  newState[key] &#x3D; newAssignment;
+  return newState;
+}
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
                    
@@ -153,8 +175,8 @@ export class AppRoutingModule {}
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'AssignmentCollection.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

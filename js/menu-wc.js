@@ -65,15 +65,27 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link" >AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' : 'data-target="#xs-components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' }>
+                                            'data-target="#components-links-module-AppModule-b6e9317cf0462313803460624c05acbf"' : 'data-target="#xs-components-links-module-AppModule-b6e9317cf0462313803460624c05acbf"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' :
-                                            'id="xs-components-links-module-AppModule-7a2f9ee7f2d76edf29f065edc88e6ea2"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-b6e9317cf0462313803460624c05acbf"' :
+                                            'id="xs-components-links-module-AppModule-b6e9317cf0462313803460624c05acbf"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AppComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/AssignmentCardComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AssignmentCardComponent</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/AssignmentPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AssignmentPage</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/AssignmentSolutionDialog.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AssignmentSolutionDialog</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="components/AssignmentsPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AssignmentsPage</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/DashboardPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DashboardPage</a>
@@ -190,7 +202,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
+                                <a href="interfaces/ApiAssignmentSolution.html" data-type="entity-link" >ApiAssignmentSolution</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ApolloRoute.html" data-type="entity-link" >ApolloRoute</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Assignment.html" data-type="entity-link" >Assignment</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/AssignmentCheckResponse.html" data-type="entity-link" >AssignmentCheckResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/AssignmentCollection.html" data-type="entity-link" >AssignmentCollection</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/D3Link.html" data-type="entity-link" >D3Link</a>

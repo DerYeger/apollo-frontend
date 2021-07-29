@@ -617,6 +617,10 @@ export class HomePage {
     {{ &quot;model-checker.title&quot; | translate }}
     &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
   &lt;/button&gt;
+  &lt;button mat-raised-button color&#x3D;&quot;accent&quot; [routerLink]&#x3D;&quot;&#x27;/assignments&#x27;&quot;&gt;
+    {{ &quot;assignments.title&quot; | translate }}
+    &lt;mat-icon&gt;open_in_new&lt;/mat-icon&gt;
+  &lt;/button&gt;
 &lt;/section&gt;
 </code></pre>
     </div>
@@ -625,25 +629,25 @@ export class HomePage {
                 <p class="comment">
                     <code>./home.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.section {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 3rem;
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+}
 
-  &amp;:first-child {
-    margin-top: 1rem !important;
+.section {
+  &amp;:not(:last-child) {
+    margin-bottom: 3rem;
   }
 
   &amp;.quick-access {
     display: flex;
     flex-direction: column;
 
-    &gt; *:not(:last-child) {
-      margin-bottom: 1rem;
-    }
-
     &gt; button {
       max-width: fit-content;
+
+      &amp;:not(:last-child) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
@@ -675,8 +679,8 @@ export class HomePage {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="section graphs">  <h1>{{ \'home.saved-graphs\' | translate }}</h1>  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list></section><section class="section import">  <h1 style="margin-bottom: 0">{{ "import.title" | translate }}</h1>  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import></section><section class="section quick-access">  <h1>{{ \'home.quick-access\' | translate }}</h1>  <button mat-raised-button color="primary" (click)="navigateToExampleGraph()">    {{ "home.example-graph" | translate }}    <mat-icon>open_in_new</mat-icon>  </button>  <button mat-raised-button color="accent" [routerLink]="\'/model-checker\'">    {{ "model-checker.title" | translate }}    <mat-icon>open_in_new</mat-icon>  </button></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
+        var COMPONENT_TEMPLATE = '<div><section class="section graphs">  <h1>{{ \'home.saved-graphs\' | translate }}</h1>  <apollo-graph-list [graphs]="storedGraphs | async" (graphSelected)="onGraphSelected($event)" (graphDeletionRequested)="onGraphDeletionRequested($event)"></apollo-graph-list></section><section class="section import">  <h1 style="margin-bottom: 0">{{ "import.title" | translate }}</h1>  <apollo-graph-import (graphImport)="onGraphImport($event)"></apollo-graph-import></section><section class="section quick-access">  <h1>{{ \'home.quick-access\' | translate }}</h1>  <button mat-raised-button color="primary" (click)="navigateToExampleGraph()">    {{ "home.example-graph" | translate }}    <mat-icon>open_in_new</mat-icon>  </button>  <button mat-raised-button color="accent" [routerLink]="\'/model-checker\'">    {{ "model-checker.title" | translate }}    <mat-icon>open_in_new</mat-icon>  </button>  <button mat-raised-button color="accent" [routerLink]="\'/assignments\'">    {{ "assignments.title" | translate }}    <mat-icon>open_in_new</mat-icon>  </button></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'AssignmentCardComponent', 'selector': 'apollo-assignment-card[assignment]'},{'name': 'AssignmentPage', 'selector': 'apollo-assignment'},{'name': 'AssignmentSolutionDialog', 'selector': 'apollo-assignment-solution'},{'name': 'AssignmentsPage', 'selector': 'apollo-assignments'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>

@@ -38,7 +38,7 @@
   <li>Components</li>
   <li
   >
-  FeedbackSelectionComponent</li>
+  AssignmentSolutionDialog</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,18 +64,10 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/components/feedback-selection/feedback-selection.component.ts</code>
+    <code>src/app/dialogs/assignment-solution/assignment-solution.dialog.ts</code>
 </p>
 
 
-    <p class="comment">
-        <h3>Description</h3>
-    </p>
-    <p class="comment">
-        <p>Drop-down input for selecting the feedback-level of a ModelChecking request.
-Persists the selection throughout refreshed.</p>
-
-    </p>
 
 
 
@@ -97,19 +89,19 @@ Persists the selection throughout refreshed.</p>
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>apollo-feedback-selection</code></td>
+                <td class="col-md-9"><code>apollo-assignment-solution</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./feedback-selection.component.scss</code></td>
+                <td class="col-md-9"><code>./assignment-solution.dialog.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./feedback-selection.component.html</code></td>
+                <td class="col-md-9"><code>./assignment-solution.dialog.html</code></td>
             </tr>
 
 
@@ -138,17 +130,7 @@ Persists the selection throughout refreshed.</p>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Readonly</span>
-                                <a href="#feedbackOptions" >feedbackOptions</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#selectedFeedback$" >selectedFeedback$</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#selectionInput" >selectionInput</a>
+                                <a href="#result" >result</a>
                             </li>
                         </ul>
                     </td>
@@ -164,7 +146,11 @@ Persists the selection throughout refreshed.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#onSelectionChange" >onSelectionChange</a>
+                                <a href="#navigateToOverview" >navigateToOverview</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showResultTreeDialog" >showResultTreeDialog</a>
                             </li>
                         </ul>
                     </td>
@@ -174,20 +160,6 @@ Persists the selection throughout refreshed.</p>
 
 
 
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Accessors</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#selectedFeedback" >selectedFeedback</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
         </tbody>
     </table>
 </section>
@@ -199,12 +171,12 @@ Persists the selection throughout refreshed.</p>
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>)</code>
+                        <code>constructor(dialog: MatDialog, dialogRef: <a href="../interfaces/Assignment.html" target="_self">MatDialogRef&lt;AssignmentSolutionDialog&gt;</a>, result: <a href="../interfaces/AssignmentCheckResponse.html" target="_self">AssignmentCheckResponse</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/dialogs/assignment-solution/assignment-solution.dialog.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -222,10 +194,46 @@ Persists the selection throughout refreshed.</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>store</td>
+                                                        <td>dialog</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/State.html" target="_self" >Store&lt;State&gt;</a></code>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Assignment.html" target="_self" >MatDialogRef&lt;AssignmentSolutionDialog&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>result</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/AssignmentCheckResponse.html" target="_self" >AssignmentCheckResponse</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,26 +263,65 @@ Persists the selection throughout refreshed.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onSelectionChange"></a>
+                    <a name="navigateToOverview"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>onSelectionChange</b></span>
-                        <a href="#onSelectionChange"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>navigateToOverview</b></span>
+                        <a href="#navigateToOverview"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onSelectionChange(change: MatSelectChange)</code>
+                    <code>navigateToOverview()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/dialogs/assignment-solution/assignment-solution.dialog.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showResultTreeDialog"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>showResultTreeDialog</b></span>
+                        <a href="#showResultTreeDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showResultTreeDialog(trace: <a href="../interfaces/ModelCheckerTrace.html" target="_self">ModelCheckerTrace</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/dialogs/assignment-solution/assignment-solution.dialog.ts:23</a></div>
                 </td>
             </tr>
 
@@ -294,9 +341,9 @@ Persists the selection throughout refreshed.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>change</td>
+                                    <td>trace</td>
                                     <td>
-                                            <code>MatSelectChange</code>
+                                                <code><a href="../interfaces/ModelCheckerTrace.html" target="_self" >ModelCheckerTrace</a></code>
                                     </td>
 
                                     <td>
@@ -331,72 +378,18 @@ Persists the selection throughout refreshed.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="feedbackOptions"></a>
+                    <a name="result"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
                             <span class="modifier">Readonly</span>
-                        <span ><b>feedbackOptions</b></span>
-                        <a href="#feedbackOptions"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>result</b></span>
+                        <a href="#result"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>feedbackOptions</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:46</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectedFeedback$"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                            <span class="modifier">Readonly</span>
-                        <span ><b>selectedFeedback$</b></span>
-                        <a href="#selectedFeedback$"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.selectedFeedback))</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:48</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectionInput"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                            <span class="modifier">Readonly</span>
-                        <span ><b>selectionInput</b></span>
-                        <a href="#selectionInput"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>MatSelect</code>
+                        <i>Type : </i>        <code><a href="../interfaces/AssignmentCheckResponse.html" target="_self" >AssignmentCheckResponse</a></code>
 
                     </td>
                 </tr>
@@ -405,13 +398,13 @@ Persists the selection throughout refreshed.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ViewChild(&#x27;selectionInput&#x27;)<br />
+                            @Inject(MAT_DIALOG_DATA)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/dialogs/assignment-solution/assignment-solution.dialog.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -420,124 +413,95 @@ Persists the selection throughout refreshed.</p>
     </table>
 </section>
 
-    <section>
-    <h3 id="accessors">
-        Accessors
-    </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="selectedFeedback"></a>
-                        <span class="name"><b>selectedFeedback</b><a href="#selectedFeedback"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>selectedFeedback()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:50</a></div>
-                                </td>
-                            </tr>
-
-            </tbody>
-        </table>
-</section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
-import { MatSelect, MatSelectChange } from &#x27;@angular/material/select&#x27;;
-import { Store } from &#x27;@ngrx/store&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
-import { Feedback } from &#x27;src/app/model/api/model-checker-request&#x27;;
-import { setSelectedFeedback } from &#x27;src/app/store/actions&#x27;;
-import { State } from &#x27;src/app/store/state&#x27;;
+import { ResultTreeDialog } from &#x27;src/app/dialogs/result-tree/result-tree.dialog&#x27;;
+import { AssignmentCheckResponse } from &#x27;src/app/model/api/assignment-check-response&#x27;;
+import { ModelCheckerResponse } from &#x27;src/app/model/api/model-checker-response&#x27;;
+import { ModelCheckerTrace } from &#x27;src/app/model/api/model-checker-trace&#x27;;
 
-interface FeedbackOption {
-  feedback: Feedback;
-  name: string; // Translation key for button text.
-  description: string; // Translation key for info-tooltip.
-}
-
-const feedbackOptions: FeedbackOption[] &#x3D; [
-  {
-    feedback: &#x27;full&#x27;,
-    name: &#x27;feedback.full.name&#x27;,
-    description: &#x27;feedback.full.description&#x27;,
-  },
-  {
-    feedback: &#x27;relevant&#x27;,
-    name: &#x27;feedback.relevant.name&#x27;,
-    description: &#x27;feedback.relevant.description&#x27;,
-  },
-  {
-    feedback: &#x27;minimal&#x27;,
-    name: &#x27;feedback.minimal.name&#x27;,
-    description: &#x27;feedback.minimal.description&#x27;,
-  },
-];
-
-/**
- * Drop-down input for selecting the feedback-level of a ModelChecking request.
- * Persists the selection throughout refreshed.
- */
 @Component({
-  selector: &#x27;apollo-feedback-selection&#x27;,
-  templateUrl: &#x27;./feedback-selection.component.html&#x27;,
-  styleUrls: [&#x27;./feedback-selection.component.scss&#x27;],
+  selector: &#x27;apollo-assignment-solution&#x27;,
+  templateUrl: &#x27;./assignment-solution.dialog.html&#x27;,
+  styleUrls: [&#x27;./assignment-solution.dialog.scss&#x27;],
 })
-export class FeedbackSelectionComponent {
-  @ViewChild(&#x27;selectionInput&#x27;) private readonly selectionInput!: MatSelect;
+export class AssignmentSolutionDialog {
+  public constructor(
+    private readonly dialog: MatDialog,
+    private readonly dialogRef: MatDialogRef&lt;AssignmentSolutionDialog&gt;,
+    @Inject(MAT_DIALOG_DATA) public readonly result: AssignmentCheckResponse,
+    private readonly router: Router
+  ) {}
 
-  public readonly feedbackOptions &#x3D; feedbackOptions;
-
-  public readonly selectedFeedback$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.selectedFeedback));
-
-  public get selectedFeedback(): Feedback {
-    return this.selectionInput.value;
+  public showResultTreeDialog(trace: ModelCheckerTrace) {
+    const result: ModelCheckerResponse &#x3D; {
+      rootTrace: trace,
+      feedback: &#x27;relevant&#x27;,
+    };
+    this.dialog.open(ResultTreeDialog, {
+      data: result,
+    });
   }
 
-  public constructor(private readonly store: Store&lt;State&gt;) {}
-
-  public onSelectionChange(change: MatSelectChange): void {
-    this.store.dispatch(setSelectedFeedback({ feedback: change.value }));
+  public navigateToOverview() {
+    this.dialogRef.close();
+    this.router.navigateByUrl(&#x27;/assignments&#x27;);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-form-field&gt;
-  &lt;mat-label&gt;{{ &quot;feedback.title&quot; | translate }}&lt;/mat-label&gt;
-  &lt;mat-select #selectionInput (selectionChange)&#x3D;&quot;onSelectionChange($event)&quot; [value]&#x3D;&quot;selectedFeedback$ | async&quot;&gt;
-    &lt;mat-option
-      *ngFor&#x3D;&quot;let feedbackOption of feedbackOptions&quot;
-      [value]&#x3D;&quot;feedbackOption.feedback&quot;
-      [matTooltip]&#x3D;&quot;feedbackOption.description | translate&quot;
-      matTooltipPosition&#x3D;&quot;left&quot;
-      matTooltipShowDelay&#x3D;&quot;250&quot;
-      matTooltipHideDelay&#x3D;&quot;250&quot;
-    &gt;
-      {{ feedbackOption.name | translate }}
-    &lt;/mat-option&gt;
-  &lt;/mat-select&gt;
-&lt;/mat-form-field&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card-title style&#x3D;&quot;display: flex; align-items: center&quot;&gt;
+  &lt;mat-icon style&#x3D;&quot;margin-right: 0.5rem&quot; [color]&#x3D;&quot;result.correct ? &#x27;primary&#x27; : &#x27;warn&#x27;&quot;&gt; {{result.correct ? &#x27;done&#x27; : &#x27;close&#x27;}} &lt;/mat-icon&gt;
+  {{ (result.correct ? &#x27;assignments.solution.correct&#x27; : &#x27;assignments.solution.not-correct&#x27;) | translate }}
+&lt;/mat-card-title&gt;
+&lt;mat-card-content *ngIf&#x3D;&quot;result.firstTrace&quot; class&#x3D;&quot;trace-section&quot;&gt;
+  {{ &#x27;assignments.solution.condition-not-met&#x27; | translate:{ condition: &#x27;A ⊧ φ&#x27;} }}
+  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;showResultTreeDialog(result.firstTrace)&quot;&gt;{{ &#x27;actions.show-reason&#x27; | translate }}&lt;/button&gt;
+&lt;/mat-card-content&gt;
+&lt;mat-card-content *ngIf&#x3D;&quot;result.secondTrace&quot; class&#x3D;&quot;trace-section&quot;&gt;
+  {{ &#x27;assignments.solution.condition-not-met&#x27; | translate:{ condition: &#x27;B ⊭ φ&#x27;} }}
+  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;showResultTreeDialog(result.secondTrace)&quot;&gt;{{ &#x27;actions.show-reason&#x27; | translate }}&lt;/button&gt;
+&lt;/mat-card-content&gt;
+&lt;div *ngIf&#x3D;&quot;result.correct&quot; style&#x3D;&quot;display: flex; justify-content: flex-end&quot;&gt;
+  &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;navigateToOverview()&quot;&gt;{{ &#x27;actions.back-to-overview&#x27; | translate }}&lt;/button&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./feedback-selection.component.scss</code>
+                    <code>./assignment-solution.dialog.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">:host {
-  display: block;
+                <pre class="line-numbers"><code class="language-scss">.trace-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 0;
+
+  &gt; button {
+    margin-top: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .trace-section {
+    flex-direction: row;
+    justify-content: space-between;
+
+    &gt; button {
+      margin-left: 1rem;
+      margin-top: 0;
+    }
+  }
 }
 </code></pre>
     </div>
@@ -567,10 +531,10 @@ export class FeedbackSelectionComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-form-field>  <mat-label>{{ "feedback.title" | translate }}</mat-label>  <mat-select #selectionInput (selectionChange)="onSelectionChange($event)" [value]="selectedFeedback$ | async">    <mat-option      *ngFor="let feedbackOption of feedbackOptions"      [value]="feedbackOption.feedback"      [matTooltip]="feedbackOption.description | translate"      matTooltipPosition="left"      matTooltipShowDelay="250"      matTooltipHideDelay="250"    >      {{ feedbackOption.name | translate }}    </mat-option>  </mat-select></mat-form-field></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-card-title style="display: flex; align-items: center">  <mat-icon style="margin-right: 0.5rem" [color]="result.correct ? \'primary\' : \'warn\'"> {{result.correct ? \'done\' : \'close\'}} </mat-icon>  {{ (result.correct ? \'assignments.solution.correct\' : \'assignments.solution.not-correct\') | translate }}</mat-card-title><mat-card-content *ngIf="result.firstTrace" class="trace-section">  {{ \'assignments.solution.condition-not-met\' | translate:{ condition: \'A ⊧ φ\'} }}  <button mat-raised-button color="primary" (click)="showResultTreeDialog(result.firstTrace)">{{ \'actions.show-reason\' | translate }}</button></mat-card-content><mat-card-content *ngIf="result.secondTrace" class="trace-section">  {{ \'assignments.solution.condition-not-met\' | translate:{ condition: \'B ⊭ φ\'} }}  <button mat-raised-button color="primary" (click)="showResultTreeDialog(result.secondTrace)">{{ \'actions.show-reason\' | translate }}</button></mat-card-content><div *ngIf="result.correct" style="display: flex; justify-content: flex-end">  <button mat-raised-button color="primary" (click)="navigateToOverview()">{{ \'actions.back-to-overview\' | translate }}</button></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'AssignmentCardComponent', 'selector': 'apollo-assignment-card[assignment]'},{'name': 'AssignmentPage', 'selector': 'apollo-assignment'},{'name': 'AssignmentSolutionDialog', 'selector': 'apollo-assignment-solution'},{'name': 'AssignmentsPage', 'selector': 'apollo-assignments'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'FeedbackSelectionComponent'};
+    var ACTUAL_COMPONENT = {'name': 'AssignmentSolutionDialog'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -605,7 +569,7 @@ export class FeedbackSelectionComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'FeedbackSelectionComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AssignmentSolutionDialog.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -708,7 +708,7 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>The graph that is passed to the GraphComponent.
-Tries to retieved the cached or stored graph by the query parameters.</p>
+Tries to retrieve the cached or stored graph by the query parameters.</p>
 </div>
                 </td>
             </tr>
@@ -785,7 +785,7 @@ export class ModelCheckerPage implements OnDestroy {
 
   /**
    * The graph that is passed to the GraphComponent.
-   * Tries to retieved the cached or stored graph by the query parameters.
+   * Tries to retrieve the cached or stored graph by the query parameters.
    */
   public readonly graph: Observable&lt;D3Graph&gt; &#x3D; this.route.queryParams.pipe(
     map((params) &#x3D;&gt; [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
@@ -852,7 +852,7 @@ export class ModelCheckerPage implements OnDestroy {
     requestDialog
       .afterClosed()
       .pipe(filter((response) &#x3D;&gt; response !&#x3D;&#x3D; undefined))
-      .subscribe((response) &#x3D;&gt; {
+      .subscribe((response: ModelCheckerResponse) &#x3D;&gt; {
         this.activeResultDialog &#x3D; this.dialog.open(ResultTreeDialog, {
           width: response.rootTrace.children ? &#x27;70%&#x27; : undefined,
           height: response.rootTrace.children ? &#x27;90%&#x27; : undefined,
@@ -902,10 +902,14 @@ export class ModelCheckerPage implements OnDestroy {
                 <p class="comment">
                     <code>./model-checker.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.model-checker-container {
-  margin: 1rem;
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  height: 100%;
+}
+
+.model-checker-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -926,9 +930,7 @@ export class ModelCheckerPage implements OnDestroy {
 }
 
 .graph-section {
-  // Workaround for flex-grow not respecting the parent margins
   flex-grow: 1;
-  //height: calc(100% - 56.56px);
 }
 </code></pre>
     </div>
@@ -959,7 +961,7 @@ export class ModelCheckerPage implements OnDestroy {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="model-checker-container">  <div class="formula-section">    <mat-form-field>      <mat-label>{{ \'fol.formula\' | translate }}</mat-label>      <input matInput [formControl]="formula" placeholder="{{ \'fol.formula\' | translate}}" autocomplete="off" (keyup.enter)="requestGraphExport()" />      <button mat-icon-button matSuffix color="primary" (click)="showFormulaSyntaxDialog()">        <mat-icon>help_outlined</mat-icon>      </button>    </mat-form-field>    <button mat-raised-button class="check-button" (click)="requestGraphExport()" [disabled]="formula.invalid" color="primary">{{ \'actions.check\' | translate}}</button>    <apollo-feedback-selection #feedbackSelection></apollo-feedback-selection>  </div>  <div class="graph-section">    <apollo-graph-editor      [graph]="graph"      [graphExportRequests]="graphExportRequests"      (saveRequested)="onSaveRequested($event)"      (graphExported)="checkModel($event, feedbackSelection.selectedFeedback)"    ></apollo-graph-editor>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'AssignmentCardComponent', 'selector': 'apollo-assignment-card[assignment]'},{'name': 'AssignmentPage', 'selector': 'apollo-assignment'},{'name': 'AssignmentSolutionDialog', 'selector': 'apollo-assignment-solution'},{'name': 'AssignmentsPage', 'selector': 'apollo-assignments'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ModelCheckerPage'};
 </script>

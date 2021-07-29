@@ -166,6 +166,8 @@
 import { Route, RouterModule } from &#x27;@angular/router&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 
+import { AssignmentPage } from &#x27;src/app/pages/assignment/assignment.page&#x27;;
+import { AssignmentsPage } from &#x27;src/app/pages/assignments/assignments.page&#x27;;
 import { HomePage } from &#x27;src/app/pages/home/home.page&#x27;;
 import { ModelCheckerPage } from &#x27;src/app/pages/model-checker/model-checker.page&#x27;;
 
@@ -187,6 +189,8 @@ export type ApolloRoutes &#x3D; ApolloRoute[];
 export const routes: ApolloRoutes &#x3D; [
   { path: &#x27;&#x27;, name: &#x27;home.title&#x27;, component: HomePage },
   { path: &#x27;model-checker&#x27;, name: &#x27;model-checker.title&#x27;, component: ModelCheckerPage },
+  { path: &#x27;assignments&#x27;, name: &#x27;assignments.title&#x27;, component: AssignmentsPage },
+  { path: &#x27;assignments/:slug&#x27;, component: AssignmentPage },
   { path: &#x27;**&#x27;, redirectTo: &#x27;/&#x27;, pathMatch: &#x27;full&#x27; },
 ];
 

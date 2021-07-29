@@ -86,7 +86,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#checkAssignmentSolution" >checkAssignmentSolution</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#checkModel" >checkModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fetchAssignments" >fetchAssignments</a>
                             </li>
                         </ul>
                     </td>
@@ -107,12 +115,12 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, translate: TranslateService)</code>
+                        <code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>, translate: TranslateService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/services/backend.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/services/backend.service.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -134,6 +142,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/State.html" target="_self" >Store&lt;State&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -171,6 +191,76 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkAssignmentSolution"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>checkAssignmentSolution</b></span>
+                        <a href="#checkAssignmentSolution"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkAssignmentSolution(solution: <a href="../interfaces/ApiAssignmentSolution.html" target="_self">ApiAssignmentSolution</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/services/backend.service.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>solution</td>
+                                    <td>
+                                                <code><a href="../interfaces/ApiAssignmentSolution.html" target="_self" >ApiAssignmentSolution</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;HttpEvent&lt;AssignmentCheckResponse&gt;&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="checkModel"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
@@ -189,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/services/backend.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/services/backend.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -276,6 +366,45 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchAssignments"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>fetchAssignments</b></span>
+                        <a href="#fetchAssignments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchAssignments()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/services/backend.service.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -284,12 +413,18 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpEvent } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
+import { ApiAssignmentSolution } from &#x27;src/app/model/api/api-assignment-solution&#x27;;
+import { Assignment } from &#x27;src/app/model/api/assignment&#x27;;
+import { AssignmentCheckResponse } from &#x27;src/app/model/api/assignment-check-response&#x27;;
 import { Feedback, ModelCheckerRequest } from &#x27;src/app/model/api/model-checker-request&#x27;;
 import { ModelCheckerResponse } from &#x27;src/app/model/api/model-checker-response&#x27;;
 import { FOLGraph } from &#x27;src/app/model/domain/fol.graph&#x27;;
+import { storeAssignment } from &#x27;src/app/store/actions&#x27;;
+import { State } from &#x27;src/app/store/state&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
 
 const host &#x3D; environment.backendUrl;
@@ -301,7 +436,7 @@ const host &#x3D; environment.backendUrl;
   providedIn: &#x27;root&#x27;,
 })
 export class BackendService {
-  public constructor(private readonly http: HttpClient, private translate: TranslateService) {}
+  public constructor(private readonly http: HttpClient, private readonly store: Store&lt;State&gt;, private translate: TranslateService) {}
 
   /**
    * Request the execution of the ModelChecking algorithm for the given graph, formula and feedback.
@@ -317,7 +452,17 @@ export class BackendService {
       language: this.translate.currentLang &#x3D;&#x3D;&#x3D; &#x27;de&#x27; ? &#x27;de&#x27; : &#x27;en&#x27;,
       feedback,
     };
-    return this.http.post(host + &#x27;/model-checker&#x27;, request, { reportProgress: true, observe: &#x27;events&#x27; }) as Observable&lt;HttpEvent&lt;ModelCheckerResponse&gt;&gt;;
+    return this.http.post(&#x60;${host}/model-checker&#x60;, request, { reportProgress: true, observe: &#x27;events&#x27; }) as Observable&lt;HttpEvent&lt;ModelCheckerResponse&gt;&gt;;
+  }
+
+  public checkAssignmentSolution(solution: ApiAssignmentSolution): Observable&lt;HttpEvent&lt;AssignmentCheckResponse&gt;&gt; {
+    return this.http.post(&#x60;${host}/assignments/${solution.assignmentId}/solution&#x60;, solution, { reportProgress: true, observe: &#x27;events&#x27; }) as Observable&lt;
+      HttpEvent&lt;AssignmentCheckResponse&gt;
+    &gt;;
+  }
+
+  public fetchAssignments() {
+    this.http.get&lt;Assignment[]&gt;(&#x60;${host}/assignments&#x60;).subscribe((assignments) &#x3D;&gt; assignments.forEach((assignment) &#x3D;&gt; this.store.dispatch(storeAssignment(assignment))));
   }
 }
 </code></pre>

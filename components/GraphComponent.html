@@ -3394,12 +3394,12 @@ import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import * as d3 from &#x27;d3&#x27;;
-import { D3DragEvent, D3ZoomEvent } from &#x27;d3&#x27;;
+import { D3ZoomEvent } from &#x27;d3&#x27;;
 import { concat, firstValueFrom, forkJoin, Observable, of, Subscription } from &#x27;rxjs&#x27;;
 import { map, mergeMap } from &#x27;rxjs/operators&#x27;;
 
 import { ExportGraphBottomSheet } from &#x27;src/app/bottom-sheets/export-graph/export-graph.bottom-sheet&#x27;;
-import { GraphConfiguration, DEFAULT_GRAPH_CONFIGURATION } from &#x27;src/app/configurations/graph.configuration&#x27;;
+import { DEFAULT_GRAPH_CONFIGURATION, GraphConfiguration } from &#x27;src/app/configurations/graph.configuration&#x27;;
 import { SaveGraphDialog } from &#x27;src/app/dialogs/save-graph/save-graph.dialog&#x27;;
 import D3Graph from &#x27;src/app/model/d3/d3.graph&#x27;;
 import { D3Link } from &#x27;src/app/model/d3/d3.link&#x27;;
@@ -3414,13 +3414,13 @@ import { createLinkSelection, LinkSelection } from &#x27;src/app/utils/d3/link-s
 import { initMarkers } from &#x27;src/app/utils/d3/markers&#x27;;
 import { createNodeSelection, NodeSelection } from &#x27;src/app/utils/d3/node-selection&#x27;;
 import {
-  paddedArcPath,
-  directLinkTextTransform,
-  paddedLinePath,
-  linePath,
-  reflexiveLinkTextTransform,
-  paddedReflexivePath,
   bidirectionalLinkTextTransform,
+  directLinkTextTransform,
+  linePath,
+  paddedArcPath,
+  paddedLinePath,
+  paddedReflexivePath,
+  reflexiveLinkTextTransform,
 } from &#x27;src/app/utils/d3/paths&#x27;;
 import { createSimulation, Simulation } from &#x27;src/app/utils/d3/simulation&#x27;;
 import { createZoom, Zoom } from &#x27;src/app/utils/d3/zoom&#x27;;
@@ -3539,7 +3539,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    if (changes.graph.currentValue) {
+    if (changes.graph.currentValue &amp;&amp; this.graphHost !&#x3D;&#x3D; undefined) {
       // Perform clean init of the Graph. Enable the simulation for proper layouting.
       this.cleanInitGraph();
       if (!this.enableSimulation) {
@@ -3548,7 +3548,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       } else {
         this.restart(1);
       }
-    } else {
+    } else if (changes.graph.currentValue &#x3D;&#x3D;&#x3D; null) {
       // Graph input not provided or not yet present (async). Use fallback.
       this.graph &#x3D; new D3Graph();
     }
@@ -3853,7 +3853,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   }
 
   private resetView(): void {
-    this.simulation!.stop();
+    this.simulation?.stop();
     d3.select(this.graphHost.nativeElement).selectChildren().remove();
     this.zoom &#x3D; undefined;
     this.xOffset &#x3D; 0;
@@ -3938,6 +3938,11 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
                     <code>./graph.component.scss</code>
                 </p>
                 <pre class="line-numbers"><code class="language-scss">@use &#x27;~@angular/material&#x27; as mat;
+
+:host {
+  display: block;
+  height: 100%;
+}
 
 @mixin graph-theme($theme) {
   $primary: map-get($theme, primary);
@@ -4073,7 +4078,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="graph-tool-container">  <button mat-icon-button color="primary" (click)="saveGraph()" matTooltip="{{ \'actions.save\' | translate }}">    <mat-icon>save</mat-icon>  </button>  <button mat-icon-button (click)="exportGraph()" color="primary" matTooltip="{{ \'actions.export\' | translate }}">    <mat-icon>get_app</mat-icon>  </button>  <button mat-icon-button color="primary" (click)="resetGraph()" matTooltip="{{ \'graph.reset-graph\' | translate }}">    <mat-icon>location_searching</mat-icon>  </button>  <mat-icon class="help-icon" color="primary" [matTooltip]="(controlsTooltipText | async) || \'\'" matTooltipClass="multiline-tooltip">help_outlined</mat-icon>  <mat-slide-toggle color="accent" class="automatic-layout-toggle" [checked]="(graphSettings | async)!.enableSimulation" (change)="toggleSimulation()">    {{ "graph.simulation" | translate }}  </mat-slide-toggle>  <mat-slide-toggle color="accent" [checked]="(graphSettings | async)!.showLabels" (change)="toggleLabels()">    {{ "graph.labels" | translate }}  </mat-slide-toggle></div><button  *ngIf="allowEditing"  mat-mini-fab  color="primary"  (click)="createNode()"  class="create-node-button"  matTooltip="{{ \'graph.create-node\' | translate }}"  matTooltipPosition="left">  <mat-icon>add</mat-icon></button><div #graphHost class="graph"></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'AssignmentCardComponent', 'selector': 'apollo-assignment-card[assignment]'},{'name': 'AssignmentPage', 'selector': 'apollo-assignment'},{'name': 'AssignmentSolutionDialog', 'selector': 'apollo-assignment-solution'},{'name': 'AssignmentsPage', 'selector': 'apollo-assignments'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GraphComponent'};
 </script>

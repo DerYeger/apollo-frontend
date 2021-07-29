@@ -46,7 +46,7 @@
   <li>Interfaces</li>
   <li
   >
-  Settings</li>
+  Assignment</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,17 +64,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/store/state.ts</code>
+            <code>src/app/model/api/assignment.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>The settings of this app.</p>
-
-            </p>
 
 
         <section>
@@ -91,27 +84,34 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#language" 
+                                        <a href="#completedOn" 
 >
-                                            language
+                                            completedOn
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#selectedFeedback" 
+                                            <span class="modifier">Optional</span>
+                                        <a href="#description" 
 >
-                                            selectedFeedback
+                                            description
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#sidebar" 
+                                        <a href="#formula" 
 >
-                                            sidebar
+                                            formula
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#theme" 
+                                        <a href="#id" 
 >
-                                            theme
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#title" 
+>
+                                            title
                                         </a>
                                 </li>
                             </ul>
@@ -129,9 +129,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="language"></a>
-                                        <span class="name "><b>language</b>
-                                            <a href="#language">
+                                        <a name="completedOn"></a>
+                                        <span class="name "><b>completedOn</b>
+                                            <a href="#completedOn">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -139,7 +139,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>language:         <code><a href="../miscellaneous/typealiases.html#Language" target="_self" >Language</a></code>
+                                        <code>completedOn:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -147,7 +147,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Language" target="_self" >Language</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
@@ -167,9 +167,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="selectedFeedback"></a>
-                                        <span class="name "><b>selectedFeedback</b>
-                                            <a href="#selectedFeedback">
+                                        <a name="description"></a>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -177,7 +177,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>selectedFeedback:         <code><a href="../miscellaneous/typealiases.html#Feedback" target="_self" >Feedback</a></code>
+                                        <code>description:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -185,7 +185,45 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Feedback" target="_self" >Feedback</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="formula"></a>
+                                        <span class="name "><b>formula</b>
+                                            <a href="#formula">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>formula:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -200,9 +238,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="sidebar"></a>
-                                        <span class="name "><b>sidebar</b>
-                                            <a href="#sidebar">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -210,7 +248,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>sidebar:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -218,7 +256,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -233,9 +271,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="theme"></a>
-                                        <span class="name "><b>theme</b>
-                                            <a href="#theme">
+                                        <a name="title"></a>
+                                        <span class="name "><b>title</b>
+                                            <a href="#title">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -243,7 +281,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>theme:         <code><a href="../miscellaneous/typealiases.html#Theme" target="_self" >Theme</a></code>
+                                        <code>title:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -251,7 +289,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Theme" target="_self" >Theme</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -267,47 +305,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Feedback } from &#x27;src/app/model/api/model-checker-request&#x27;;
-import { AssignmentCollection } from &#x27;src/app/model/domain/assignment-collection&#x27;;
-import { GraphCollection } from &#x27;src/app/model/domain/graph.collection&#x27;;
-
-/**
- * The state of this app.
- */
-export interface State {
-  settings: Settings;
-  assignments: AssignmentCollection;
-  graphSettings: GraphSettings;
-  graphStore: GraphCollection;
-  graphCache: GraphCollection;
-}
-
-/**
- * Type of available languages.
- */
-export type Language &#x3D; &#x27;en&#x27; | &#x27;de&#x27;;
-
-/**
- * Type of available themes.
- */
-export type Theme &#x3D; &#x27;dark-theme&#x27; | &#x27;light-theme&#x27;;
-
-/**
- * The settings of this app.
- */
-export interface Settings {
-  language?: Language;
-  sidebar: boolean;
-  theme: Theme;
-  selectedFeedback: Feedback;
-}
-
-/**
- * The settings of the GraphComponent.
- */
-export interface GraphSettings {
-  enableSimulation: boolean;
-  showLabels: boolean;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface Assignment {
+  id: string;
+  title: string;
+  formula: string;
+  description?: string;
+  completedOn?: number;
 }
 </code></pre>
     </div>
@@ -336,7 +339,7 @@ export interface GraphSettings {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'Settings.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Assignment.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
