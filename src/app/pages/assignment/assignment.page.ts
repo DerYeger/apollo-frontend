@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { firstValueFrom, Observable, of } from 'rxjs';
+import { firstValueFrom, Observable, of, tap } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 import { AssignmentSolutionDialog } from 'src/app/dialogs/assignment-solution/assignment-solution.dialog';
@@ -23,7 +23,14 @@ import { State } from 'src/app/store/state';
   styleUrls: ['./assignment.page.scss'],
 })
 export class AssignmentPage {
-  public readonly assignment: Observable<Assignment> = this.store.select('assignments').pipe(map((assignments) => assignments[this.slug]));
+  public readonly assignment: Observable<Assignment> = this.store.select('assignments').pipe(
+    map((assignments) => assignments[this.slug]),
+    tap((assignment) => {
+      if (assignment === undefined) {
+        this.router.navigateByUrl('/assignments');
+      }
+    })
+  );
 
   public readonly firstGraph = new D3Graph();
   public readonly firstGraph$ = of(this.firstGraph);
@@ -37,6 +44,7 @@ export class AssignmentPage {
     private readonly backendService: BackendService,
     private readonly dialog: MatDialog,
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly snackBarService: SnackBarService,
     private readonly store: Store<State>
   ) {}
