@@ -196,12 +196,12 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor(backendService: <a href="../injectables/BackendService.html" target="_self">BackendService</a>, dialog: MatDialog, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, snackBarService: <a href="../injectables/SnackBarService.html" target="_self">SnackBarService</a>, store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>)</code>
+                        <code>constructor(backendService: <a href="../injectables/BackendService.html" target="_self">BackendService</a>, dialog: MatDialog, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, snackBarService: <a href="../injectables/SnackBarService.html" target="_self">SnackBarService</a>, store: <a href="../interfaces/State.html" target="_self">Store&lt;State&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -247,6 +247,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -318,8 +330,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/pages/assignment/assignment.page.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/pages/assignment/assignment.page.ts:63</a></div>
                 </td>
             </tr>
 
@@ -388,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/app/pages/assignment/assignment.page.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/pages/assignment/assignment.page.ts:52</a></div>
                 </td>
             </tr>
 
@@ -432,7 +444,14 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>this.store.select(&#x27;assignments&#x27;).pipe(map((assignments) &#x3D;&gt; assignments[this.slug]))</code>
+                        <i>Default value : </i><code>this.store.select(&#x27;assignments&#x27;).pipe(
+    map((assignments) &#x3D;&gt; assignments[this.slug]),
+    tap((assignment) &#x3D;&gt; {
+      if (assignment &#x3D;&#x3D;&#x3D; undefined) {
+        this.router.navigateByUrl(&#x27;/assignments&#x27;);
+      }
+    })
+  )</code>
                     </td>
                 </tr>
                     <tr>
@@ -464,7 +483,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -491,7 +510,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -518,7 +537,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -545,7 +564,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -572,7 +591,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/assignment/assignment.page.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -587,9 +606,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
-import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
-import { firstValueFrom, Observable, of } from &#x27;rxjs&#x27;;
+import { firstValueFrom, Observable, of, tap } from &#x27;rxjs&#x27;;
 import { filter, map } from &#x27;rxjs/operators&#x27;;
 
 import { AssignmentSolutionDialog } from &#x27;src/app/dialogs/assignment-solution/assignment-solution.dialog&#x27;;
@@ -610,7 +629,14 @@ import { State } from &#x27;src/app/store/state&#x27;;
   styleUrls: [&#x27;./assignment.page.scss&#x27;],
 })
 export class AssignmentPage {
-  public readonly assignment: Observable&lt;Assignment&gt; &#x3D; this.store.select(&#x27;assignments&#x27;).pipe(map((assignments) &#x3D;&gt; assignments[this.slug]));
+  public readonly assignment: Observable&lt;Assignment&gt; &#x3D; this.store.select(&#x27;assignments&#x27;).pipe(
+    map((assignments) &#x3D;&gt; assignments[this.slug]),
+    tap((assignment) &#x3D;&gt; {
+      if (assignment &#x3D;&#x3D;&#x3D; undefined) {
+        this.router.navigateByUrl(&#x27;/assignments&#x27;);
+      }
+    })
+  );
 
   public readonly firstGraph &#x3D; new D3Graph();
   public readonly firstGraph$ &#x3D; of(this.firstGraph);
@@ -624,6 +650,7 @@ export class AssignmentPage {
     private readonly backendService: BackendService,
     private readonly dialog: MatDialog,
     private readonly route: ActivatedRoute,
+    private readonly router: Router,
     private readonly snackBarService: SnackBarService,
     private readonly store: Store&lt;State&gt;
   ) {}
