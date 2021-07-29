@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/DerYeger/apollo-frontend/compare/v2.2.1...v2.2.2) (2021-07-29)
+
+
+### Bug Fixes
+
+* navigate to assignments overview if slug is not found ([7ac2eaf](https://github.com/DerYeger/apollo-frontend/commit/7ac2eaf8866ed124d8d4ac12756f00942ac7d864))
+
 ## [2.2.1](https://github.com/DerYeger/apollo-frontend/compare/v2.2.0...v2.2.1) (2021-07-29)
 
 
