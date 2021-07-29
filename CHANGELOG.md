@@ -1,3 +1,17 @@
+# [2.2.0](https://github.com/DerYeger/apollo-frontend/compare/v2.1.21...v2.2.0) (2021-07-29)
+
+
+### Bug Fixes
+
+* remove autoFocus from AssignmentSolutionDialog ([44b6402](https://github.com/DerYeger/apollo-frontend/commit/44b64022b49696a83aa349edfe430b7d32557833))
+* use correct repository link ([e101ace](https://github.com/DerYeger/apollo-frontend/commit/e101ace1e55ff149fa7a755398ed865533a6f3fc))
+
+
+### Features
+
+* add assignments overview page ([dfebbec](https://github.com/DerYeger/apollo-frontend/commit/dfebbeca7a0b87bbe2902350315042553a82b3fc))
+* implement assignment solutions ([7599810](https://github.com/DerYeger/apollo-frontend/commit/7599810e5bfbdb916cd409932a2a3ae9c9ec10dc))
+
 ## [2.1.21](https://github.com/DerYeger/apollo-frontend/compare/v2.1.20...v2.1.21) (2021-07-28)
 
 
