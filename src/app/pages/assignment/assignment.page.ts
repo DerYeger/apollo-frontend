@@ -67,6 +67,7 @@ export class AssignmentPage {
           this.store.dispatch(markAssignmentAsCompleted({ key: solution.assignmentId }));
         }
         this.dialog.open(AssignmentSolutionDialog, {
+          autoFocus: false,
           data: response,
           width: '50vw',
           minWidth: '250px',
