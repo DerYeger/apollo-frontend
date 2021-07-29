@@ -49,6 +49,11 @@ export const removeAssignmentFromStore = createAction('[assignments] remove', pr
  */
 export const clearAssignmentStore = createAction('[assignments] clear');
 
+/**
+ * Marks the assignment with the specified key as completed
+ */
+export const markAssignmentAsCompleted = createAction('[assignments] complete', props<{ key: string }>());
+
 // GraphSettings
 
 /**

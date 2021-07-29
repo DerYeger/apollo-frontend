@@ -1,8 +1,7 @@
 import { ActionReducerMap, createReducer, MetaReducer, on } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
-import { exampleAssignment } from 'src/app/model/api/assignment';
-import { AssignmentCollection, setAssignment, unsetAssignment } from 'src/app/model/domain/assignment-collection';
+import { AssignmentCollection, completeAssignment, setAssignment, unsetAssignment } from 'src/app/model/domain/assignment-collection';
 import { exampleGraph } from 'src/app/model/domain/example-graph';
 import { GraphCollection, setGraph, unsetGraph } from 'src/app/model/domain/graph.collection';
 import {
@@ -11,6 +10,7 @@ import {
   clearGraphCache,
   clearGraphStore,
   enableSimulation,
+  markAssignmentAsCompleted,
   removeAssignmentFromStore,
   removeGraphFromCache,
   removeGraphFromStore,
@@ -39,9 +39,10 @@ export const reducers: ActionReducerMap<State> = {
     on(setSelectedFeedback, (state, { feedback }) => ({ ...state, selectedFeedback: feedback }))
   ),
   assignments: createReducer<AssignmentCollection>(
-    { [exampleAssignment.id]: exampleAssignment },
+    {},
     on(storeAssignment, (state, assignment) => setAssignment(state, assignment)),
     on(removeAssignmentFromStore, (state, { key }) => unsetAssignment(state, key)),
+    on(markAssignmentAsCompleted, (state, { key }) => completeAssignment(state, key)),
     on(clearAssignmentStore, (_) => ({}))
   ),
   graphSettings: createReducer<GraphSettings>(

@@ -1,6 +1,7 @@
 {
   "actions": {
     "apply": "Apply",
+    "back-to-overview": "To Overview",
     "cancel": "Cancel",
     "check": "Check",
     "collapse": "Collapse",
@@ -10,6 +11,8 @@
     "filter-causes": "Filter Relevant",
     "open": "Open",
     "save": "Save",
+    "show-reason": "Show Reason",
+    "submit": "Submit",
     "title": "Actions",
     "undo": "Undo",
     "update": "Update"
@@ -103,7 +106,13 @@
   },
   "assignments": {
     "completed-on": "Completed on {{date}}",
+    "hint": "Create two models A and B, so that A ⊧ φ and B ⊭ φ hold.",
     "not-completed": "Not completed",
+    "solution": {
+      "condition-not-met": "Condition \"{{condition}}\" not met",
+      "correct": "The solution is correct",
+      "not-correct": "The solution is not correct"
+    },
     "title": "Assignments"
   },
   "dashboard": {
@@ -168,7 +177,8 @@
     "labels": "Labels",
     "reset-graph": "Reset Layout",
     "save-graph": "Save Graph",
-    "simulation": "Automatic Layout"
+    "simulation": "Automatic Layout",
+    "title": "Graph"
   },
   "home": {
     "example-graph": "Example Graph",

@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
@@ -19,7 +20,7 @@ describe('AssignmentPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AssignmentPage, GraphComponent, GraphEditorComponent, LinkFormComponent, NodeFormComponent],
-      imports: [LoggerTestingModule, MaterialModule, RouterTestingModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
+      imports: [HttpClientTestingModule, LoggerTestingModule, MaterialModule, RouterTestingModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
     }).compileComponents();
   });
 

@@ -21,6 +21,7 @@ import { SymbolEditorComponent } from 'src/app/components/graph-editor/symbol-ed
 import { GraphImportComponent } from 'src/app/components/graph-import/graph-import.component';
 import { GraphListComponent } from 'src/app/components/graph-list/graph-list.component';
 import { GraphComponent } from 'src/app/components/graph/graph.component';
+import { AssignmentSolutionDialog } from 'src/app/dialogs/assignment-solution/assignment-solution.dialog';
 import { FormulaSyntaxDialog } from 'src/app/dialogs/formula-syntax/formula-syntax.dialog';
 import { HttpProgressDialog } from 'src/app/dialogs/http-progress/http-progress.dialog';
 import { ResultTreeDialog } from 'src/app/dialogs/result-tree/result-tree.dialog';
@@ -44,6 +45,7 @@ import { environment } from 'src/environments/environment';
     AppComponent,
     AssignmentCardComponent,
     AssignmentPage,
+    AssignmentSolutionDialog,
     AssignmentsPage,
     DashboardPage,
     ExportGraphBottomSheet,
