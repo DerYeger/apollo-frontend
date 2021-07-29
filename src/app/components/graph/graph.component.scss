@@ -1,8 +1,14 @@
 @use '~@angular/material' as mat;
 
 :host {
-  display: block;
   height: 100%;
+}
+
+:host,
+.graph,
+.graph > svg {
+  display: block;
+  min-height: 400px;
 }
 
 @mixin graph-theme($theme) {
