@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/DerYeger/apollo-frontend/compare/v2.2.0...v2.2.1) (2021-07-29)
+
+
+### Bug Fixes
+
+* implement workaround for firefox sizing ([906c1db](https://github.com/DerYeger/apollo-frontend/commit/906c1db824c5c57fa7c39865c7b3939d79fdb969))
+
 # [2.2.0](https://github.com/DerYeger/apollo-frontend/compare/v2.1.21...v2.2.0) (2021-07-29)
 
 
