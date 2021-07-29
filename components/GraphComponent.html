@@ -3940,8 +3940,14 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
                 <pre class="line-numbers"><code class="language-scss">@use &#x27;~@angular/material&#x27; as mat;
 
 :host {
-  display: block;
   height: 100%;
+}
+
+:host,
+.graph,
+.graph &gt; svg {
+  display: block;
+  min-height: 400px;
 }
 
 @mixin graph-theme($theme) {

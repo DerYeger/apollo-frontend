@@ -337,10 +337,16 @@ export class GraphEditorComponent {
 }
 
 .graph-container {
-  min-height: 400px;
   display: block;
   margin-right: 1rem;
-  flex: 4 0 auto;
+  flex-grow: 4;
+}
+
+.graph-card-content,
+.graph-card,
+.graph-container {
+  display: block;
+  min-height: 400px;
 }
 
 .graph-card {
@@ -358,7 +364,8 @@ export class GraphEditorComponent {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex: 1 0 auto;
+  flex-grow: 1;
+  flex-shrink: 0;
 
   &gt; *:not(:last-child) {
     margin-bottom: 1rem;
