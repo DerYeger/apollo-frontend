@@ -1,7 +1,9 @@
 <div class="header-container" [class.no-bottom-margin]="result.feedback === 'minimal'" cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary=".cdk-overlay-container">
   <div class="title-container">
     <h2 mat-dialog-title>
-      <mat-icon [class]="result.rootTrace.isModel ? 'valid-trace' : 'invalid'">{{ result.rootTrace.isModel ? 'done' : 'close'}}</mat-icon>
+      <mat-icon [class]="result.rootTrace.isModel === result.rootTrace.shouldBeModel ? 'valid-trace' : 'invalid'"
+        >{{ result.rootTrace.isModel === result.rootTrace.shouldBeModel ? 'done' : 'close'}}</mat-icon
+      >
       {{ (result.rootTrace.isModel ? 'api.valid' : 'api.invalid') | translate }}
     </h2>
     <h2 mat-dialog-title>{{ result.rootTrace.formula }}</h2>

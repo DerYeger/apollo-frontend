@@ -1,0 +1,15 @@
+<mat-card-title style="display: flex; align-items: center">
+  <mat-icon style="margin-right: 0.5rem" [color]="result.correct ? 'primary' : 'warn'"> {{result.correct ? 'done' : 'close'}} </mat-icon>
+  {{ (result.correct ? 'assignments.solution.correct' : 'assignments.solution.not-correct') | translate }}
+</mat-card-title>
+<mat-card-content *ngIf="result.firstTrace" class="trace-section">
+  {{ 'assignments.solution.condition-not-met' | translate:{ condition: 'A ⊧ φ'} }}
+  <button mat-raised-button color="primary" (click)="showResultTreeDialog(result.firstTrace)">{{ 'actions.show-reason' | translate }}</button>
+</mat-card-content>
+<mat-card-content *ngIf="result.secondTrace" class="trace-section">
+  {{ 'assignments.solution.condition-not-met' | translate:{ condition: 'B ⊭ φ'} }}
+  <button mat-raised-button color="primary" (click)="showResultTreeDialog(result.secondTrace)">{{ 'actions.show-reason' | translate }}</button>
+</mat-card-content>
+<div *ngIf="result.correct" style="display: flex; justify-content: flex-end">
+  <button mat-raised-button color="primary" (click)="navigateToOverview()">{{ 'actions.back-to-overview' | translate }}</button>
+</div>

@@ -35,7 +35,7 @@ export class ModelCheckerPage implements OnDestroy {
 
   /**
    * The graph that is passed to the GraphComponent.
-   * Tries to retieved the cached or stored graph by the query parameters.
+   * Tries to retrieve the cached or stored graph by the query parameters.
    */
   public readonly graph: Observable<D3Graph> = this.route.queryParams.pipe(
     map((params) => [params[GRAPH_SOURCE], params[GRAPH_KEY]]),
@@ -102,7 +102,7 @@ export class ModelCheckerPage implements OnDestroy {
     requestDialog
       .afterClosed()
       .pipe(filter((response) => response !== undefined))
-      .subscribe((response) => {
+      .subscribe((response: ModelCheckerResponse) => {
         this.activeResultDialog = this.dialog.open(ResultTreeDialog, {
           width: response.rootTrace.children ? '70%' : undefined,
           height: response.rootTrace.children ? '90%' : undefined,

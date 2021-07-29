@@ -4,10 +4,22 @@
   flex-direction: column;
 }
 
-.editor {
+.editor-a,
+.editor-b {
   flex-grow: 1;
+}
 
-  &:not(:last-child) {
-    margin-bottom: 1rem;
+.title-a,
+.title-b {
+  margin-bottom: 0.5rem;
+}
+
+.title-a {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 801px) {
+  .title-b {
+    margin-top: 1rem;
   }
 }

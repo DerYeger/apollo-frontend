@@ -1,3 +1,14 @@
-<p>{{ 'fol.formula' | translate }}: {{(assignment | async)?.formula}}</p>
-<apollo-graph-editor [graph]="firstGraph" class="editor"></apollo-graph-editor>
-<apollo-graph-editor [graph]="secondGraph" class="editor"></apollo-graph-editor>
+<mat-card>
+  <mat-card-title> {{(assignment | async)?.title}} </mat-card-title>
+  <mat-card-content>
+    <p>φ = {{(assignment | async)?.formula}}</p>
+    <p>{{ 'assignments.hint' | translate }}</p>
+  </mat-card-content>
+  <mat-card-actions style="display: flex; justify-content: flex-end">
+    <button mat-raised-button color="accent" (click)="submit()">{{ 'actions.submit' | translate }}</button>
+  </mat-card-actions>
+</mat-card>
+<h1 class="title-a">{{ 'graph.title' | translate }} A</h1>
+<apollo-graph-editor [graph]="firstGraph$" class="editor-a"></apollo-graph-editor>
+<h1 class="title-b">{{ 'graph.title' | translate }} B</h1>
+<apollo-graph-editor [graph]="secondGraph$" class="editor-b"></apollo-graph-editor>

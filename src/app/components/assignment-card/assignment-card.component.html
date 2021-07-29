@@ -9,7 +9,7 @@
     <mat-card-content *ngIf="shortenedDescription">
       {{ shortenedDescription }}
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions style="display: flex; justify-content: flex-end">
       <button mat-button color="accent" [routerLink]="assignment.id">{{ "actions.open" | translate }}</button>
     </mat-card-actions>
   </mat-card>

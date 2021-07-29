@@ -16,8 +16,9 @@ export interface AssignmentCollection {
  * @param assignment The assignment to be added.
  */
 export function setAssignment(state: AssignmentCollection, assignment: Assignment): AssignmentCollection {
+  const oldAssignment = state[assignment.id];
   const newState = copy(state);
-  newState[assignment.id] = assignment;
+  newState[assignment.id] = { ...assignment, ...oldAssignment };
   return newState;
 }
 
@@ -30,5 +31,17 @@ export function setAssignment(state: AssignmentCollection, assignment: Assignmen
 export function unsetAssignment(state: AssignmentCollection, key: string): AssignmentCollection {
   const newState = copy(state);
   delete newState[key];
+  return newState;
+}
+
+export function completeAssignment(state: AssignmentCollection, key: string): AssignmentCollection {
+  const assignment = state[key];
+  if (assignment === undefined) {
+    return state;
+  }
+  const newState = copy(state);
+  const newAssignment = copy(assignment);
+  newAssignment.completedOn = Date.now();
+  newState[key] = newAssignment;
   return newState;
 }

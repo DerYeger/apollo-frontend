@@ -1,6 +1,7 @@
 {
   "actions": {
     "apply": "Anwenden",
+    "back-to-overview": "Zur Übersicht",
     "cancel": "Abbrechen",
     "check": "Prüfen",
     "collapse": "Einklappen",
@@ -10,6 +11,8 @@
     "filter-causes": "Relevantes filtern",
     "open": "Öffnen",
     "save": "Speichern",
+    "show-reason": "Grund anzeigen",
+    "submit": "Absenden",
     "title": "Aktionen",
     "undo": "Rückgängig machen",
     "update": "Aktualisieren"
@@ -103,7 +106,13 @@
   },
   "assignments": {
     "completed-on": "Abgeschlossen am {{date}}",
+    "hint": "Erstelle zwei Graphen A und B, so dass A ⊧ φ und B ⊭ φ gelten.",
     "not-completed": "Nicht abgeschlossen",
+    "solution": {
+      "condition-not-met": "Bedingung \"{{condition}}\" nicht erfüllt",
+      "correct": "Die Lösung ist korrekt",
+      "not-correct": "Die Lösung ist nicht korrekt"
+    },
     "title": "Aufgaben"
   },
   "dashboard": {
@@ -168,7 +177,8 @@
     "labels": "Beschriftungen",
     "reset-graph": "Anordnung zurücksetzen",
     "save-graph": "Graph speichern",
-    "simulation": "Automatische Anordnung"
+    "simulation": "Automatische Anordnung",
+    "title": "Graph"
   },
   "home": {
     "example-graph": "Beispielgraph",
