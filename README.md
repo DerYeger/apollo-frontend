@@ -17,6 +17,12 @@
 </p>
 
 <p align="center">
+  <a href="https://lgtm.com/projects/g/DerYeger/apollo-frontend">
+    <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/apollo-frontend?logo=lgtm">
+  </a>
+</p>
+
+<p align="center">
    <a href="https://apollo.yeger.eu/">
     apollo.yeger.eu
   </a>
