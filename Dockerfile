@@ -10,7 +10,7 @@ RUN sed -i "s|{{BACKEND_URL}}|$BACKEND_URL|g" src/environments/environment.prod.
     yarn install &&\
     yarn build
 
-FROM nginx:1.21.1-alpine@sha256:eb34bdd142973bd48760bd0bafdf3f01bd5414f32bdf517dad9d595f54fbaca6
+FROM nginx:1.21.1-alpine@sha256:23f08ba26a92a00d7368310ab3b4c46907feeebd485f716740e391aa90ad5904
 
 COPY --from=BUILDER /usr/app/dist/apollo-frontend/ /usr/share/nginx/html
 
