@@ -40,6 +40,7 @@ The parsing and validation logic of the backend is built upon a Java desktop app
 - 🛠 **Graph Editor**: Interactive graph editor with support for touch controls
 - ✨ **Model Checking**: First-order-logic model checking in graph structures
 - 💹 **Feedback**: Three different feedback levels provide insight on model-checking results
+- ☑️ **Assignments**: Various assignments, which build an understanding for first-order logic and model checking
 - 🔒 **Import/Export**: Graphs can be saved locally as wells as exported and imported as JSON and YAML
 - 📱/💻 **Responsive**: Optimized for screens of all sizes
 - 📶 **PWA**: Apollo is installable and supports offline editing of graphs
@@ -50,6 +51,7 @@ The parsing and validation logic of the backend is built upon a Java desktop app
 
 - [Apollo](https://github.com/DerYeger/apollo)
 - [Apollo-Backend](https://github.com/DerYeger/apollo-backend)
+- [Apollo-Admin](https://github.com/DerYeger/apollo-admin)
 - [Documentation](https://apollo-frontend.yeger.eu/)
 - [Bachelor's thesis (German)](https://jan-mueller.at/documents/bachelor-thesis)
 
