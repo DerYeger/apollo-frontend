@@ -11,6 +11,7 @@ import { NodeFormComponent } from 'src/app/components/graph-editor/node-form/nod
 import { GraphComponent } from 'src/app/components/graph/graph.component';
 import { MaterialModule } from 'src/app/material.module';
 import { AssignmentPage } from 'src/app/pages/assignment/assignment.page';
+import { AssignmentsPage } from 'src/app/pages/assignments/assignments.page';
 import { reducers } from 'src/app/store/reducers';
 
 describe('AssignmentPage', () => {
@@ -20,7 +21,14 @@ describe('AssignmentPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AssignmentPage, GraphComponent, GraphEditorComponent, LinkFormComponent, NodeFormComponent],
-      imports: [HttpClientTestingModule, LoggerTestingModule, MaterialModule, RouterTestingModule, StoreModule.forRoot(reducers, undefined), TranslateModule.forRoot()],
+      imports: [
+        HttpClientTestingModule,
+        LoggerTestingModule,
+        MaterialModule,
+        RouterTestingModule.withRoutes([{ path: 'assignments', component: AssignmentsPage }]),
+        StoreModule.forRoot(reducers, undefined),
+        TranslateModule.forRoot(),
+      ],
     }).compileComponents();
   });
 
