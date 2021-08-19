@@ -1,3 +1,10 @@
+## [2.2.11](https://github.com/DerYeger/apollo-frontend/compare/v2.2.10...v2.2.11) (2021-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update angularmaterial monorepo to v12.2.2 ([5810d1e](https://github.com/DerYeger/apollo-frontend/commit/5810d1ec4fa8473e5efbdf68bc110d64154660b8))
+
 ## [2.2.10](https://github.com/DerYeger/apollo-frontend/compare/v2.2.9...v2.2.10) (2021-08-18)
 
 
