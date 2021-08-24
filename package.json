@@ -43,7 +43,7 @@
     "d3": "7.0.1",
     "fast-copy": "2.1.1",
     "ml-matrix": "6.8.0",
-    "ngrx-store-localstorage": "12.0.0",
+    "ngrx-store-localstorage": "12.0.1",
     "ngx-logger": "4.3.3",
     "rxjs": "7.3.0",
     "tslib": "2.3.1",
