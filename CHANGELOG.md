@@ -1,3 +1,10 @@
+## [2.2.12](https://github.com/DerYeger/apollo-frontend/compare/v2.2.11...v2.2.12) (2021-08-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ngrx-store-localstorage to v12.0.1 ([b7cddfa](https://github.com/DerYeger/apollo-frontend/commit/b7cddfa9c4041320fb3e377baf5d3d4302b845f2))
+
 ## [2.2.11](https://github.com/DerYeger/apollo-frontend/compare/v2.2.10...v2.2.11) (2021-08-19)
 
 
