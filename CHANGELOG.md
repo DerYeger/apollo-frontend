@@ -1,3 +1,10 @@
+## [2.2.21](https://github.com/DerYeger/apollo-frontend/compare/v2.2.20...v2.2.21) (2021-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency d3 to v7.0.2 ([7a89aad](https://github.com/DerYeger/apollo-frontend/commit/7a89aadd730572cfb6656744cb712bb37d017205))
+
 ## [2.2.20](https://github.com/DerYeger/apollo-frontend/compare/v2.2.19...v2.2.20) (2021-09-17)
 
 
