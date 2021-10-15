@@ -204,7 +204,7 @@ Persists the selection throughout refreshed.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -441,7 +441,7 @@ Persists the selection throughout refreshed.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/feedback-selection/feedback-selection.component.ts:52</a></div>
                                 </td>
                             </tr>
 
@@ -501,11 +501,11 @@ export class FeedbackSelectionComponent {
 
   public readonly selectedFeedback$ &#x3D; this.store.select(&#x27;settings&#x27;).pipe(map((settings) &#x3D;&gt; settings.selectedFeedback));
 
+  public constructor(private readonly store: Store&lt;State&gt;) {}
+
   public get selectedFeedback(): Feedback {
     return this.selectionInput.value;
   }
-
-  public constructor(private readonly store: Store&lt;State&gt;) {}
 
   public onSelectionChange(change: MatSelectChange): void {
     this.store.dispatch(setSelectedFeedback({ feedback: change.value }));
