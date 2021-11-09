@@ -1,3 +1,10 @@
+## [2.2.45](https://github.com/DerYeger/apollo-frontend/compare/v2.2.44...v2.2.45) (2021-11-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @ngx-translate/core to v14 ([0bfaeb2](https://github.com/DerYeger/apollo-frontend/commit/0bfaeb2dacf9f2516434c7f9cca9955e04d51f80))
+
 ## [2.2.44](https://github.com/DerYeger/apollo-frontend/compare/v2.2.43...v2.2.44) (2021-11-08)
 
 
