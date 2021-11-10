@@ -1,3 +1,10 @@
+## [2.2.46](https://github.com/DerYeger/apollo-frontend/compare/v2.2.45...v2.2.46) (2021-11-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ngx-logger to v5.0.3 ([30b81ce](https://github.com/DerYeger/apollo-frontend/commit/30b81ce201298a17b657a38f9e9bead262ca0359))
+
 ## [2.2.45](https://github.com/DerYeger/apollo-frontend/compare/v2.2.44...v2.2.45) (2021-11-09)
 
 
