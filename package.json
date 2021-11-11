@@ -17,8 +17,11 @@
     "build": "ng build --configuration production",
     "test": "ng test",
     "test:local": "ng test -- --karma-config=karma.local.conf.js",
-    "lint": "ng lint",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "lint:eslint": "ng lint",
+    "lint:prettier": "prettier --check \"./**/*.{js,json,html,scss,ts,yml}\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,yml}\"",
+    "ci": "yarn pretty && ng lint --fix && yarn lint && yarn test && yarn build",
     "compodoc": "npx compodoc -p tsconfig.json -n \"Apollo-Frontend\" --disableCoverage"
   },
   "private": true,
