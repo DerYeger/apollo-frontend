@@ -166,9 +166,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ApolloNode.html" data-type="entity-link" >ApolloNode</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AppPage.html" data-type="entity-link" >AppPage</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/D3Graph.html" data-type="entity-link" >D3Graph</a>
                             </li>
                         </ul>
