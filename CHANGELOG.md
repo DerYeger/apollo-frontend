@@ -1,3 +1,10 @@
+## [2.2.49](https://github.com/DerYeger/apollo-frontend/compare/v2.2.48...v2.2.49) (2021-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ml-matrix to v6.8.2 ([d5fac1b](https://github.com/DerYeger/apollo-frontend/commit/d5fac1bea529d4b4c903b875e1ff6fa0beb531dd))
+
 ## [2.2.48](https://github.com/DerYeger/apollo-frontend/compare/v2.2.47...v2.2.48) (2021-11-12)
 
 
