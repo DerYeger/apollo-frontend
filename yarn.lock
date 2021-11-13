@@ -1603,10 +1603,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-1.0.0.tgz#3fdf5798f0b49e90155896f6291df186eac06c83"
   integrity sha512-9oLAnygRMi8Q5QkYEU4XWK04B+nuoXoxjRvRxgjuChkLZFBja0YPSgdZ7dZtwhncLBcQe/I/E+fLuk5qxcYVJA==
 
-"@ngrx/store@13.0.0-beta.0":
-  version "13.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.0.0-beta.0.tgz#334bcdaa2a906c6adb6b2e500ffc98945c60bdb5"
-  integrity sha512-GvmxkgCiz+9cF772TpFxqbFRD9NHJShdtXQsm16O5FZTGhrE2trXBFXxB0/tK81Zx6yLjvUW5MeWnV9HGm4Nlg==
+"@ngrx/store@13.0.0-rc.0":
+  version "13.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.0.0-rc.0.tgz#c23871868f5dcf74bd89976f0a78d4eb1fa4da7e"
+  integrity sha512-2F7mW+KpaMVtMDzEJ0q/lpYxfXbY/N0BOURdppY/vncilWvTtcseIqjm0G9LH9dKNTNq95O/Oc9ZxgVzOgi/cg==
   dependencies:
     tslib "^2.0.0"
 
