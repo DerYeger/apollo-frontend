@@ -1557,10 +1557,10 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-1.0.0.tgz#3fdf5798f0b49e90155896f6291df186eac06c83"
   integrity sha512-9oLAnygRMi8Q5QkYEU4XWK04B+nuoXoxjRvRxgjuChkLZFBja0YPSgdZ7dZtwhncLBcQe/I/E+fLuk5qxcYVJA==
 
-"@ngrx/store@13.0.0-rc.0":
-  version "13.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.0.0-rc.0.tgz#c23871868f5dcf74bd89976f0a78d4eb1fa4da7e"
-  integrity sha512-2F7mW+KpaMVtMDzEJ0q/lpYxfXbY/N0BOURdppY/vncilWvTtcseIqjm0G9LH9dKNTNq95O/Oc9ZxgVzOgi/cg==
+"@ngrx/store@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.0.0.tgz#3eb6c4be7e09045e80ed19ae5075e588a0fafcb7"
+  integrity sha512-M2XuZD91ywox7IkMjMKnv00xasbLSYFYc+P8G5YBguQ7ZhWMvKIAOJsz24KDTQGlQxCnJb2nlvjh/zFRW/HHlQ==
   dependencies:
     tslib "^2.0.0"
 
