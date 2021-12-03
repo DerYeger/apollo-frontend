@@ -1,4 +1,4 @@
-FROM node:17.1.0-alpine@sha256:993bdfb0da7ae8fa4dad7282f797e3e26e88f810d410e0b0409d132d1fb17af3 AS BUILDER
+FROM node:17.2.0-alpine@sha256:e64dc950217610c86f29aef803b123e1b6a4a372d6fa4bcf71f9ddcbd39eba5c AS BUILDER
 
 WORKDIR /usr/app
 
