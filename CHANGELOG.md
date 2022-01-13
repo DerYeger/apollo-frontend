@@ -1,3 +1,10 @@
+## [2.2.67](https://github.com/DerYeger/apollo-frontend/compare/v2.2.66...v2.2.67) (2022-01-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency rxjs to v7.5.2 ([edd00b0](https://github.com/DerYeger/apollo-frontend/commit/edd00b0ad337059c91d030cf2dc6fdf1314b7bf9))
+
 ## [2.2.66](https://github.com/DerYeger/apollo-frontend/compare/v2.2.65...v2.2.66) (2022-01-08)
 
 
