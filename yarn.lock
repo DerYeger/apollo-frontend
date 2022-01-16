@@ -6434,10 +6434,10 @@ ngrx-store-localstorage@12.0.1:
     deepmerge "^4.2.2"
     tslib "^2.1.0"
 
-ngx-logger@5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/ngx-logger/-/ngx-logger-5.0.4.tgz#d00a5de02283402a4ed2f8a38d9062dac19eaca4"
-  integrity sha512-7KSguN+wHZxi0eud9oVPQrVQIJ5dMb9l9ZCrPdxymadr6CL5WKSc/t+kj7OjFVSVyUSly8iKvujy/znYLHbO9A==
+ngx-logger@5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/ngx-logger/-/ngx-logger-5.0.6.tgz#269ed231acaed8c6ce2f1a3e54f7d84d8d0d6321"
+  integrity sha512-Go3gm8LLLHjYOilJMsMzjZ2P5C7LTO1wgoODsyHoRQKVn/ALUEFEW9Xqbp+RSR56UesC5+mF3tZvEEPoasL8Qg==
   dependencies:
     tslib "^2.3.0"
     vlq "^1.0.0"
