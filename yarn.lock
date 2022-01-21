@@ -6438,13 +6438,13 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ngrx-store-localstorage@12.0.1:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-12.0.1.tgz#282683b135011cc643e19ad883f2fb424fc81559"
-  integrity sha512-KvdzokQC5CAne2JgVnVSb6I9U0aG1QLnbgD+bVPgKJVNICROiQsLf0MOf1gDV+vI0FBaWtWhsyoaIh5QCyqdUg==
+ngrx-store-localstorage@13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-13.0.0.tgz#94944a39ffd081c341fdcece22f3fdf5455b2075"
+  integrity sha512-KRYAd9uVr9Cc8ex0wh9PxnRbwxdBo+sLjwtPsL7qPQOsNtJc84offPBGJC0iGhtYWXjXtvmJnOQbaPFx1H/afw==
   dependencies:
     deepmerge "^4.2.2"
-    tslib "^2.1.0"
+    tslib "^2.3.0"
 
 ngx-logger@5.0.6:
   version "5.0.6"
