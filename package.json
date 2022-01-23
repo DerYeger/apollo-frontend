@@ -44,7 +44,7 @@
     "fast-copy": "2.1.1",
     "ml-matrix": "6.8.2",
     "ngrx-store-localstorage": "13.0.0",
-    "ngx-logger": "5.0.6",
+    "ngx-logger": "5.0.7",
     "rxjs": "7.5.2",
     "tslib": "2.3.1",
     "yaml": "1.10.2",
