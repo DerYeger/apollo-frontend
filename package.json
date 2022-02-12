@@ -67,7 +67,7 @@
     "eslint": "8.8.0",
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-import": "2.25.4",
-    "eslint-plugin-jsdoc": "37.8.2",
+    "eslint-plugin-jsdoc": "37.9.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "jasmine-core": "4.0.0",
     "jasmine-spec-reporter": "7.0.0",
