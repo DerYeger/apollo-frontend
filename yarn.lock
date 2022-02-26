@@ -6386,7 +6386,7 @@ ml-array-min@^1.2.3:
   dependencies:
     is-any-array "^2.0.0"
 
-ml-array-rescale@^1.3.6:
+ml-array-rescale@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/ml-array-rescale/-/ml-array-rescale-1.3.7.tgz#c4d129320d113a732e62dd963dc1695bba9a5340"
   integrity sha512-48NGChTouvEo9KBctDfHC3udWnQKNKEWN0ziELvY3KG25GR5cA8K8wNVzracsqSW1QEkAXjTNx+ycgAv06/1mQ==
@@ -6395,12 +6395,13 @@ ml-array-rescale@^1.3.6:
     ml-array-max "^1.2.4"
     ml-array-min "^1.2.3"
 
-ml-matrix@6.8.2:
-  version "6.8.2"
-  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-6.8.2.tgz#79849c909afa114f8227c5b52a2040e2e5381daf"
-  integrity sha512-5o2gVLFyieDSgsStEU5mqty4MZqfeytYA/gJqBSw5/Xuob0X2UrFX/k7FDh+YAwjzG/1l8nYa0oDaJ0sGs/RlA==
+ml-matrix@6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-6.9.0.tgz#848fb74ad3615a689666221fb9a46474958dc9da"
+  integrity sha512-bkSIzJdw9cYRU9Oyj/40KAXXo5TGV5YB8A5HyurMeZCatL8ssGAejB8fDwPPMZqYCES94OgR9IOh8Aah+l/sVQ==
   dependencies:
-    ml-array-rescale "^1.3.6"
+    is-any-array "^2.0.0"
+    ml-array-rescale "^1.3.7"
 
 morgan@^1.10.0:
   version "1.10.0"
