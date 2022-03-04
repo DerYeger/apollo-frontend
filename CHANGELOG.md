@@ -1,3 +1,10 @@
+## [2.2.92](https://github.com/DerYeger/apollo-frontend/compare/v2.2.91...v2.2.92) (2022-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency zone.js to v0.11.5 ([8689806](https://github.com/DerYeger/apollo-frontend/commit/86898069de2d27eecbaf09ff6b08a8d41a82062f))
+
 ## [2.2.91](https://github.com/DerYeger/apollo-frontend/compare/v2.2.90...v2.2.91) (2022-03-04)
 
 
