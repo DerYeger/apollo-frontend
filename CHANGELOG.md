@@ -1,3 +1,10 @@
+## [2.2.107](https://github.com/DerYeger/apollo-frontend/compare/v2.2.106...v2.2.107) (2022-04-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fast-copy to v2.1.2 ([2ddc069](https://github.com/DerYeger/apollo-frontend/commit/2ddc06916d812f5b4f66040c8f1c1459a4a50530))
+
 ## [2.2.106](https://github.com/DerYeger/apollo-frontend/compare/v2.2.105...v2.2.106) (2022-04-07)
 
 
