@@ -1,3 +1,10 @@
+## [2.2.113](https://github.com/DerYeger/apollo-frontend/compare/v2.2.112...v2.2.113) (2022-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency yaml to v2.0.1 ([a0999d7](https://github.com/DerYeger/apollo-frontend/commit/a0999d70f4f8a0dd27692539a91d31e9b81a399c))
+
 ## [2.2.112](https://github.com/DerYeger/apollo-frontend/compare/v2.2.111...v2.2.112) (2022-04-14)
 
 
