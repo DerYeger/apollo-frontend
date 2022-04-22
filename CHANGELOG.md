@@ -1,3 +1,10 @@
+## [2.2.117](https://github.com/DerYeger/apollo-frontend/compare/v2.2.116...v2.2.117) (2022-04-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tslib to v2.4.0 ([fa64da2](https://github.com/DerYeger/apollo-frontend/commit/fa64da2c64004cbcc15f3433993e592b11a4e2a0))
+
 ## [2.2.116](https://github.com/DerYeger/apollo-frontend/compare/v2.2.115...v2.2.116) (2022-04-22)
 
 
