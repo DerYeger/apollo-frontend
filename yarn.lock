@@ -1499,10 +1499,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@ngrx/store@13.1.0":
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.1.0.tgz#40665a09f673d64e9b6df3aed224ce51219151d3"
-  integrity sha512-2Phsd/CC5FcoS2VgC+Fo5VgfAUK3m7bjWTc8d6+h3UcoQpS3xyPnybGYifa/JYN1CFYmqypVDRWSMAgML2NU/A==
+"@ngrx/store@13.2.0":
+  version "13.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-13.2.0.tgz#43d4e9bf064808dd546ef1edbbcd08c2a8e0871a"
+  integrity sha512-3wlGMkfe0EXsiS6E6W0wCksuGapa5Z6JVFvKQMHFpXZ3XeixXKlULnemlcdMT7Yrnry+CGOtRHqkmKxLoQzhTw==
   dependencies:
     tslib "^2.0.0"
 
