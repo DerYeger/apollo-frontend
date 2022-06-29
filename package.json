@@ -37,7 +37,7 @@
     "@angular/platform-browser-dynamic": "13.3.11",
     "@angular/router": "13.3.11",
     "@angular/service-worker": "13.3.11",
-    "@ngrx/store": "13.2.0",
+    "@ngrx/store": "14.0.1",
     "@ngx-translate/core": "14.0.0",
     "@types/d3": "7.4.0",
     "d3": "7.5.0",
