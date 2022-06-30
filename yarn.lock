@@ -2170,10 +2170,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.0.0.tgz#67c7b724e1bcdd7a8821ce0d5ee184d3b4dd525a"
   integrity sha512-cHlGmko4gWLVI27cGJntjs/Sj8th9aYwplmZFwmmgYQQvL5NUsgVJG7OddLvNfLqYS31KFN0s3qlaD9qCaxACA==
 
-"@types/node@16.11.41":
-  version "16.11.41"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.41.tgz#88eb485b1bfdb4c224d878b7832239536aa2f813"
-  integrity sha512-mqoYK2TnVjdkGk8qXAVGc/x9nSaTpSrFaGFm43BUH3IdoBV0nta6hYaGmdOvIMlbHJbUEVen3gvwpwovAZKNdQ==
+"@types/node@16.11.42":
+  version "16.11.42"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.42.tgz#d2a75c58e9b0902b82dc54bd4c13f8ef12bd1020"
+  integrity sha512-iwLrPOopPy6V3E+1yHTpJea3bdsNso0b0utLOJJwaa/PLzqBt3GZl3stMcakc/gr89SfcNk2ki3z7Gvue9hYGQ==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -6679,10 +6679,10 @@ ml-array-rescale@^1.3.7:
     ml-array-max "^1.2.4"
     ml-array-min "^1.2.3"
 
-ml-matrix@6.10.1:
-  version "6.10.1"
-  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-6.10.1.tgz#18d1677be6325c2242bdc0387c9ed6d49b2e5559"
-  integrity sha512-oZyGQUruXgvkie+Vx9IYr36sNWqocXY2yyGOuh0Pq2zMHevh2/xMuWX+EXvCFbvx8baNXvtxW5az9OxbSW7ILw==
+ml-matrix@6.10.2:
+  version "6.10.2"
+  resolved "https://registry.yarnpkg.com/ml-matrix/-/ml-matrix-6.10.2.tgz#520f42322c34c0ed7a9916c11f9d693167d197b6"
+  integrity sha512-+yxwzMazC76DAsgEvDrdCfRMH7+lO7UdnuWllavnPeWkPD2oIBA6rLzvst7BFYUxzgRz/h6V6lLzYIYtTvINbw==
   dependencies:
     is-any-array "^2.0.0"
     ml-array-rescale "^1.3.7"
