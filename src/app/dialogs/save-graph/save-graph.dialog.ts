@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { FOLGraph } from 'src/app/model/domain/fol.graph';
@@ -12,12 +12,12 @@ import { FOLGraph } from 'src/app/model/domain/fol.graph';
   styleUrls: ['./save-graph.dialog.scss'],
 })
 export class SaveGraphDialog {
-  public readonly graphName: FormControl;
-  public readonly graphDescription: FormControl;
+  public readonly graphName: UntypedFormControl;
+  public readonly graphDescription: UntypedFormControl;
 
   public constructor(private readonly dialogRef: MatDialogRef<SaveGraphDialog>, @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph) {
-    this.graphName = new FormControl(graph.name, Validators.required);
-    this.graphDescription = new FormControl(graph.description);
+    this.graphName = new UntypedFormControl(graph.name, Validators.required);
+    this.graphDescription = new UntypedFormControl(graph.description);
   }
 
   public updatedGraph(): FOLGraph | undefined {

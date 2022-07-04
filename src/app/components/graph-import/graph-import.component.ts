@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import * as YAML from 'yaml';
 
 import D3Graph from 'src/app/model/d3/d3.graph';
@@ -23,7 +23,7 @@ export class GraphImportComponent implements AfterViewInit {
 
   @ViewChild('fileInput') private readonly fileInput!: ElementRef<HTMLInputElement>;
 
-  public readonly textInputFormControl = new FormControl('');
+  public readonly textInputFormControl = new UntypedFormControl('');
 
   public constructor(private readonly snackBarService: SnackBarService) {}
 

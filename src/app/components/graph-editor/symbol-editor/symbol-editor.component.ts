@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { NGXLogger } from 'ngx-logger';
 
@@ -20,13 +20,13 @@ export class SymbolEditorComponent implements OnChanges {
 
   @Output() public readonly symbolsUpdated = new EventEmitter();
 
-  public formControl: FormControl = new FormControl('');
+  public formControl: UntypedFormControl = new UntypedFormControl('');
 
   public constructor(private readonly log: NGXLogger) {}
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.config !== undefined) {
-      this.formControl = new FormControl('', Validators.pattern(this.config.symbolPattern));
+      this.formControl = new UntypedFormControl('', Validators.pattern(this.config.symbolPattern));
     }
   }
 

@@ -3,7 +3,8 @@
   "version": 1,
   "newProjectRoot": "projects",
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "analytics": false
   },
   "projects": {
     "apollo-frontend": {
@@ -108,6 +109,5 @@
         }
       }
     }
-  },
-  "defaultProject": "apollo-frontend"
+  }
 }

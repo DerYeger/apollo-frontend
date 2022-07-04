@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -29,7 +29,7 @@ import { State } from 'src/app/store/state';
   styleUrls: ['./model-checker.page.scss'],
 })
 export class ModelCheckerPage implements OnDestroy {
-  public readonly formula = new FormControl('', Validators.required);
+  public readonly formula = new UntypedFormControl('', Validators.required);
 
   public readonly graphExportRequests = new EventEmitter<void>();
 
