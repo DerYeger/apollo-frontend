@@ -644,7 +644,7 @@ Contains an input for a formula, feedback-selection and the GraphEditorComponent
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;, Validators.required)</code>
+                        <i>Default value : </i><code>new UntypedFormControl(&#x27;&#x27;, Validators.required)</code>
                     </td>
                 </tr>
                     <tr>
@@ -751,7 +751,7 @@ Tries to retrieve the cached or stored graph by the query parameters.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, OnDestroy } from &#x27;@angular/core&#x27;;
-import { FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { UntypedFormControl, Validators } from &#x27;@angular/forms&#x27;;
 import { MatDialog, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
 import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
@@ -781,7 +781,7 @@ import { State } from &#x27;src/app/store/state&#x27;;
   styleUrls: [&#x27;./model-checker.page.scss&#x27;],
 })
 export class ModelCheckerPage implements OnDestroy {
-  public readonly formula &#x3D; new FormControl(&#x27;&#x27;, Validators.required);
+  public readonly formula &#x3D; new UntypedFormControl(&#x27;&#x27;, Validators.required);
 
   public readonly graphExportRequests &#x3D; new EventEmitter&lt;void&gt;();
 

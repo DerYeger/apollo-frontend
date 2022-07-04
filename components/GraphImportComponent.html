@@ -654,7 +654,7 @@ Supports both JSON and YAML.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new FormControl(&#x27;&#x27;)</code>
+                        <i>Default value : </i><code>new UntypedFormControl(&#x27;&#x27;)</code>
                     </td>
                 </tr>
                     <tr>
@@ -673,7 +673,7 @@ Supports both JSON and YAML.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from &#x27;@angular/core&#x27;;
-import { FormControl } from &#x27;@angular/forms&#x27;;
+import { UntypedFormControl } from &#x27;@angular/forms&#x27;;
 import * as YAML from &#x27;yaml&#x27;;
 
 import D3Graph from &#x27;src/app/model/d3/d3.graph&#x27;;
@@ -697,7 +697,7 @@ export class GraphImportComponent implements AfterViewInit {
 
   @ViewChild(&#x27;fileInput&#x27;) private readonly fileInput!: ElementRef&lt;HTMLInputElement&gt;;
 
-  public readonly textInputFormControl &#x3D; new FormControl(&#x27;&#x27;);
+  public readonly textInputFormControl &#x3D; new UntypedFormControl(&#x27;&#x27;);
 
   public constructor(private readonly snackBarService: SnackBarService) {}
 
