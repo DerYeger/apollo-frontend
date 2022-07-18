@@ -42,7 +42,7 @@ jobs:
         with:
           node-version: 16
       - name: Set backend URL
-        run: sed -i "s|{{BACKEND_URL}}|https://yeger.eu/apollo|g" src/environments/environment.prod.ts
+        run: sed -i "s|{{BACKEND_URL}}|https://apollo-backend-production.up.railway.app|g" src/environments/environment.prod.ts
       - name: Build
         run: yarn build
       - name: Upload artifact
