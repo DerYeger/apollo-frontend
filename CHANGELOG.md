@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/DerYeger/apollo-frontend/compare/v2.3.5...v2.4.0) (2022-07-18)
+
+
+### Features
+
+* use railway hosted backend ([a34ae57](https://github.com/DerYeger/apollo-frontend/commit/a34ae57ce79274568184a40147d80d6c14fa33ce))
+
 ## [2.3.5](https://github.com/DerYeger/apollo-frontend/compare/v2.3.4...v2.3.5) (2022-07-15)
 
 
