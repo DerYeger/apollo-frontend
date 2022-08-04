@@ -1,3 +1,10 @@
+## [2.4.4](https://github.com/DerYeger/apollo-frontend/compare/v2.4.3...v2.4.4) (2022-08-04)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to v14.1.1 ([91d0f16](https://github.com/DerYeger/apollo-frontend/commit/91d0f1613cf4b0f2300ce847b1cd16d0db16966d))
+
 ## [2.4.3](https://github.com/DerYeger/apollo-frontend/compare/v2.4.2...v2.4.3) (2022-07-22)
 
 
