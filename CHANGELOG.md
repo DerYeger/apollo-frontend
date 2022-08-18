@@ -1,3 +1,10 @@
+## [2.4.14](https://github.com/DerYeger/apollo-frontend/compare/v2.4.13...v2.4.14) (2022-08-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-import-resolver-typescript to v3.4.2 ([43b5e15](https://github.com/DerYeger/apollo-frontend/commit/43b5e155dc35b714c1ee779ae5c2d28e94867ace))
+
 ## [2.4.13](https://github.com/DerYeger/apollo-frontend/compare/v2.4.12...v2.4.13) (2022-08-18)
 
 
