@@ -1,3 +1,10 @@
+## [2.4.18](https://github.com/DerYeger/apollo-frontend/compare/v2.4.17...v2.4.18) (2022-08-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to v16.11.52 ([ea7bca7](https://github.com/DerYeger/apollo-frontend/commit/ea7bca7c30ac0b58165b984fe353dce5ff7c81fc))
+
 ## [2.4.17](https://github.com/DerYeger/apollo-frontend/compare/v2.4.16...v2.4.17) (2022-08-20)
 
 
