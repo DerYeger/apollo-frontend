@@ -2152,10 +2152,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.7.3.tgz#432c89796eab539b7a30b7b8801a727b585238a4"
   integrity sha512-LJgzOEwWuMTBxHzgBR/fhhBOWrvBjvO+zPteUgbbuQi80rYIZHrk1mNbRUqPZqSLP2H7Rwt1EFLL/tNLD1Xx/w==
 
-"@types/node@16.11.56":
-  version "16.11.56"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.56.tgz#dcbb617669481e158e0f1c6204d1c768cd675901"
-  integrity sha512-aFcUkv7EddxxOa/9f74DINReQ/celqH8DiB3fRYgVDM2Xm5QJL8sl80QKuAnGvwAsMn+H3IFA6WCrQh1CY7m1A==
+"@types/node@16.11.58":
+  version "16.11.58"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.58.tgz#0a3698dee3492617a8d5fe7998d18d7520b63026"
+  integrity sha512-uMVxJ111wpHzkx/vshZFb6Qni3BOMnlWLq7q9jrwej7Yw/KvjsEbpxCCxw+hLKxexFMc8YmpG8J9tnEe/rKsIg==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -4490,10 +4490,10 @@ eslint-import-resolver-node@^0.3.6:
     debug "^3.2.7"
     resolve "^1.20.0"
 
-eslint-import-resolver-typescript@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.5.0.tgz#490ba48cafc5a2fb209bbc7e360defb4c292ed59"
-  integrity sha512-DEfpfuk+O/T5e9HBZOxocmwMuUGkvQQd5WRiMJF9kKNT9amByqOyGlWoAZAQiv0SZSy4GMtG1clmnvQA/RzA0A==
+eslint-import-resolver-typescript@3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-3.5.1.tgz#c72634da072eebd04fe73007fa58a62c333c8147"
+  integrity sha512-U7LUjNJPYjNsHvAUAkt/RU3fcTSpbllA0//35B4eLYTX74frmOepbt7F7J3D1IGtj9k21buOpaqtDd4ZlS/BYQ==
   dependencies:
     debug "^4.3.4"
     enhanced-resolve "^5.10.0"
