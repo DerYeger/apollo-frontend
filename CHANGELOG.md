@@ -1,3 +1,10 @@
+## [2.4.30](https://github.com/DerYeger/apollo-frontend/compare/v2.4.29...v2.4.30) (2022-09-16)
+
+
+### Bug Fixes
+
+* **deps:** update angular-eslint monorepo to v14.0.4 ([d680d2f](https://github.com/DerYeger/apollo-frontend/commit/d680d2f252bc931f832831866761de20be7da793))
+
 ## [2.4.29](https://github.com/DerYeger/apollo-frontend/compare/v2.4.28...v2.4.29) (2022-09-10)
 
 
