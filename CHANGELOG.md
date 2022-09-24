@@ -1,3 +1,10 @@
+## [2.4.35](https://github.com/DerYeger/apollo-frontend/compare/v2.4.34...v2.4.35) (2022-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update actions/stale action to v6 ([8387a44](https://github.com/DerYeger/apollo-frontend/commit/8387a448d4f9792807d4660cb96896d51bbcd4ef))
+
 ## [2.4.34](https://github.com/DerYeger/apollo-frontend/compare/v2.4.33...v2.4.34) (2022-09-24)
 
 
