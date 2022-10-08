@@ -41,7 +41,7 @@
     "@ngx-translate/core": "14.0.0",
     "@types/d3": "7.4.0",
     "d3": "7.6.1",
-    "fast-copy": "2.1.7",
+    "fast-copy": "3.0.0",
     "ml-matrix": "6.10.2",
     "ngrx-store-localstorage": "14.0.0",
     "ngx-logger": "5.0.11",
