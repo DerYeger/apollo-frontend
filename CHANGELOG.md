@@ -1,3 +1,10 @@
+## [2.4.55](https://github.com/DerYeger/apollo-frontend/compare/v2.4.54...v2.4.55) (2022-11-05)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([7d63f23](https://github.com/DerYeger/apollo-frontend/commit/7d63f23ae4f68e776a2df5617f7b9ff87a48d444))
+
 ## [2.4.54](https://github.com/DerYeger/apollo-frontend/compare/v2.4.53...v2.4.54) (2022-10-29)
 
 
