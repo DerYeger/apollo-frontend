@@ -1,3 +1,10 @@
+## [2.4.58](https://github.com/DerYeger/apollo-frontend/compare/v2.4.57...v2.4.58) (2022-11-12)
+
+
+### Bug Fixes
+
+* **deps:** update nginx:1.23.2-alpine docker digest to 7f01646 ([e4c7b08](https://github.com/DerYeger/apollo-frontend/commit/e4c7b08d76a1a3fa150053aefed1223ef5a7d97e))
+
 ## [2.4.57](https://github.com/DerYeger/apollo-frontend/compare/v2.4.56...v2.4.57) (2022-11-05)
 
 
