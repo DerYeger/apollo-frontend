@@ -4,7 +4,7 @@
       {{ assignment.title }}
     </mat-card-title>
     <mat-card-subtitle>
-      {{ assignment.completedOn ? ("assignments.completed-on" | translate: { date: (assignment.completedOn | date) }) : ("assignments.not-completed" | translate) }}
+      {{ assignment.completedOn ? ("assignments.completed-on" | translate : { date: (assignment.completedOn | date) }) : ("assignments.not-completed" | translate) }}
     </mat-card-subtitle>
     <mat-card-content *ngIf="shortenedDescription">
       {{ shortenedDescription }}
