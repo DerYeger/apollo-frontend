@@ -800,8 +800,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpEvent, HttpEventType, HttpProgressEvent, HttpResponse } from &#x27;@angular/common/http&#x27;;
 import { Component, EventEmitter, Inject, OnDestroy } from &#x27;@angular/core&#x27;;
-import { MAT_DIALOG_DATA, MatDialogRef } from &#x27;@angular/material/dialog&#x27;;
-import { ProgressBarMode } from &#x27;@angular/material/progress-bar&#x27;;
+import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from &#x27;@angular/material/legacy-dialog&#x27;;
+import { LegacyProgressBarMode as ProgressBarMode } from &#x27;@angular/material/legacy-progress-bar&#x27;;
 import { Observable, of, Subscription } from &#x27;rxjs&#x27;;
 import { catchError, map } from &#x27;rxjs/operators&#x27;;
 
