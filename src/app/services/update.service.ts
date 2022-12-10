@@ -1,5 +1,5 @@
 import { ApplicationRef, Injectable } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { SwUpdate } from '@angular/service-worker';
 import { NGXLogger } from 'ngx-logger';
 import { concat, interval, Subscription } from 'rxjs';
