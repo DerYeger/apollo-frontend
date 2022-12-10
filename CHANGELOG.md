@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/DerYeger/apollo-frontend/compare/v2.4.69...v2.5.0) (2022-12-10)
+
+
+### Bug Fixes
+
+* resolve migration warnings ([f9350e8](https://github.com/DerYeger/apollo-frontend/commit/f9350e808f7e293dd949d9a6148665a6ee7c0bdf))
+
+
+### Features
+
+* update angular-monorepo to v15 ([3e92972](https://github.com/DerYeger/apollo-frontend/commit/3e929725fa27c278d77f43f38441f2cf62881dac))
+
 ## [2.4.69](https://github.com/DerYeger/apollo-frontend/compare/v2.4.68...v2.4.69) (2022-12-10)
 
 
