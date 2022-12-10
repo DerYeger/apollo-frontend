@@ -8,5 +8,23 @@ $accent-dark-palette: mat.define-palette(mat.$pink-palette, 700, 400, 800);
 
 $warn-palette: mat.define-palette(mat.$red-palette);
 
-$light-theme: mat.define-light-theme($primary-light-palette, $accent-light-palette, $warn-palette);
-$dark-theme: mat.define-dark-theme($primary-dark-palette, $accent-dark-palette, $warn-palette);
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary-light-palette,
+      accent: $accent-light-palette,
+      warn: $warn-palette,
+    ),
+    density: 0,
+  )
+);
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary-dark-palette,
+      accent: $accent-dark-palette,
+      warn: $warn-palette,
+    ),
+    density: 0,
+  )
+);
