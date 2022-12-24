@@ -1,3 +1,10 @@
+## [2.5.7](https://github.com/DerYeger/apollo-frontend/compare/v2.5.6...v2.5.7) (2022-12-24)
+
+
+### Bug Fixes
+
+* **deps:** update actions/stale action to v7 ([6802258](https://github.com/DerYeger/apollo-frontend/commit/6802258fa2c64df437d5ba9512c8a5faac6a3e59))
+
 ## [2.5.6](https://github.com/DerYeger/apollo-frontend/compare/v2.5.5...v2.5.6) (2022-12-24)
 
 
