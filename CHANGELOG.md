@@ -1,3 +1,10 @@
+## [2.5.13](https://github.com/DerYeger/apollo-frontend/compare/v2.5.12...v2.5.13) (2023-01-21)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to v15.1.1 ([e65255a](https://github.com/DerYeger/apollo-frontend/commit/e65255a0121a669e51a62d41c4d4b5ba87851078))
+
 ## [2.5.12](https://github.com/DerYeger/apollo-frontend/compare/v2.5.11...v2.5.12) (2023-01-21)
 
 
