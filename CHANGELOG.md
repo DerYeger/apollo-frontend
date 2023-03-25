@@ -1,3 +1,14 @@
+## [2.5.25](https://github.com/DerYeger/apollo-frontend/compare/v2.5.24...v2.5.25) (2023-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update actions/stale action to v8 ([#159](https://github.com/DerYeger/apollo-frontend/issues/159)) ([8f9b7f8](https://github.com/DerYeger/apollo-frontend/commit/8f9b7f8a14e275229aa4a93c446255c12ebe68b0))
+* **deps:** update angular-cli monorepo to v15.2.4 ([#162](https://github.com/DerYeger/apollo-frontend/issues/162)) ([5ff458c](https://github.com/DerYeger/apollo-frontend/commit/5ff458cb684c1c257cc2fdc9ee55bae6a0f76906))
+* **deps:** update dependency @ngrx/store to v15.4.0 ([#164](https://github.com/DerYeger/apollo-frontend/issues/164)) ([263c330](https://github.com/DerYeger/apollo-frontend/commit/263c3307574b3c103b754ce6ab863c58216e86d6))
+* **deps:** update dependency jasmine-core to v4.6.0 ([#165](https://github.com/DerYeger/apollo-frontend/issues/165)) ([bc3ff76](https://github.com/DerYeger/apollo-frontend/commit/bc3ff767ef5245a9963b0078ca65f271d247102e))
+* **deps:** update typescript-eslint monorepo to v5.56.0 ([#166](https://github.com/DerYeger/apollo-frontend/issues/166)) ([297daa1](https://github.com/DerYeger/apollo-frontend/commit/297daa172a4cf71ab773fc6e8fcf393486316388))
+
 ## [2.5.24](https://github.com/DerYeger/apollo-frontend/compare/v2.5.23...v2.5.24) (2023-03-25)
 
 
