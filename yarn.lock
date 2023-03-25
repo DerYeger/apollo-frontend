@@ -2429,10 +2429,10 @@
     "@material/theme" "15.0.0-canary.7971d6ad5.0"
     tslib "^2.1.0"
 
-"@ngrx/store@15.1.0":
-  version "15.1.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-15.1.0.tgz#fc813ef4e8ea3a4ec642633888e30fbd9adcde6d"
-  integrity sha512-Wxjme7yJnxD6il6fGZdFTdSs9gL+6OFW8/II9vApFokUb0E7UQBm8RYb9dYJ2IQJvWXwO+2ItSaecRUZgt39kA==
+"@ngrx/store@15.4.0":
+  version "15.4.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-15.4.0.tgz#185ee18e5c4147c7db60fd3b223cc429f826d514"
+  integrity sha512-OvCuNBHL8mAUnRTS6QSFm+IunspsYNu2cCwDovBNn7EGhxRuGihBeNoX47jCqWPHBFtokj4BlatDfpJ/yCh4xQ==
   dependencies:
     tslib "^2.0.0"
 
