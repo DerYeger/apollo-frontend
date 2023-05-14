@@ -307,8 +307,8 @@ Sets the default values upon initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">src/app/app.component.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/app.component.ts:90</a></div>
                 </td>
             </tr>
 
@@ -348,8 +348,8 @@ Sets the default values upon initialization.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/app/app.component.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/app.component.ts:53</a></div>
                 </td>
             </tr>
 
@@ -512,6 +512,7 @@ export class AppComponent implements OnDestroy, OnInit {
     private readonly updateService: UpdateService
   ) {
     Object.entries(this.languages).forEach(([language, locale]) &#x3D;&gt; {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       translate.setTranslation(language, require(&#x60;../assets/i18n/${language}.json&#x60;));
       registerLocaleData(locale);
       log.debug(&#x60;Language ${language} registered.&#x60;);

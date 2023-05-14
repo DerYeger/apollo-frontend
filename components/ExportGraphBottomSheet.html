@@ -512,7 +512,7 @@ Supports JSON and YAML.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>{ name: any; description: any; nodes: any; edges: any; }</code>
 
                     </div>
                     <div class="io-description">
@@ -614,7 +614,7 @@ export class ExportGraphBottomSheet {
    *
    * @param graph The graph that will be sanitized.
    */
-  private sanitizeGraph(graph: FOLGraph): any {
+  private sanitizeGraph(graph: FOLGraph) {
     return {
       name: graph.name,
       description: graph.description,

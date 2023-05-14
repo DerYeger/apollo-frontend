@@ -2192,7 +2192,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onZoom(event: <a href="../undefineds/Zoom.html" target="_self">D3ZoomEvent&lt;any | any&gt;</a>)</code>
+                    <code>onZoom(event: <a href="../undefineds/Zoom.html" target="_self">D3ZoomEvent&lt;E | D&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -2204,6 +2204,15 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>E</li>
+                        <li>D</li>
+                    </ul>
+                </td>
+            </tr>
 
             <tr>
                 <td class="col-md-4">
@@ -2223,7 +2232,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                                 <tr>
                                     <td>event</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >D3ZoomEvent&lt;any | any&gt;</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#Zoom" target="_self" >D3ZoomEvent&lt;E | D&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -3623,7 +3632,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
    *
    * @param alpha Alpha value (heat, activity) of the simulation
    */
-  public restart(alpha: number &#x3D; 0.5): void {
+  public restart(alpha &#x3D; 0.5): void {
     this.linkSelection &#x3D; this.linkSelection!.data(this.graph!.links, (d: D3Link) &#x3D;&gt; &#x60;${d.source.id}-${d.target.id}&#x60;).join((enter) &#x3D;&gt; {
       const linkGroup &#x3D; enter.append(&#x27;g&#x27;);
       linkGroup.append(&#x27;path&#x27;).classed(&#x27;link&#x27;, true).style(&#x27;marker-end&#x27;, &#x27;url(#link-arrow&#x27;);
@@ -3884,7 +3893,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.resetDraggableLink();
   }
 
-  private onZoom(event: D3ZoomEvent&lt;any, any&gt;): void {
+  private onZoom&lt;E extends Element, D&gt;(event: D3ZoomEvent&lt;E, D&gt;): void {
     this.xOffset &#x3D; event.transform.x;
     this.yOffset &#x3D; event.transform.y;
     this.scale &#x3D; event.transform.k;
