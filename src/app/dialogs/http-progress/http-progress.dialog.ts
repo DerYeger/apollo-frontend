@@ -5,6 +5,7 @@ import { LegacyProgressBarMode as ProgressBarMode } from '@angular/material/lega
 import { Observable, of, Subscription } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+import { TranslationDTO } from 'src/app/model/dto/translation.dto';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 
 type State = 'sending' | 'querying' | 'fetching';
@@ -91,7 +92,7 @@ export class HttpProgressDialog<T> implements OnDestroy {
     }
   }
 
-  private onError(error: any): Observable<HttpEvent<T>> {
+  private onError(error: { error?: { message: string | TranslationDTO | undefined } } | undefined): Observable<HttpEvent<T>> {
     // Delay closing of dialog to prevent flickering.
     setTimeout(() => this.dialogRef.close(), 250);
     const message = error?.error?.message ?? 'api.error.unknown';
@@ -99,7 +100,7 @@ export class HttpProgressDialog<T> implements OnDestroy {
       this.snackBarService.openSnackBar({ key: message }, undefined, 10000);
     } else {
       // Message is TranslationDTO.
-      this.snackBarService.openSnackBar(error?.error?.message, undefined, 10000);
+      this.snackBarService.openSnackBar(message, undefined, 10000);
     }
     return of();
   }

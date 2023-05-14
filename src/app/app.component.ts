@@ -39,6 +39,7 @@ export class AppComponent implements OnDestroy, OnInit {
     private readonly updateService: UpdateService
   ) {
     Object.entries(this.languages).forEach(([language, locale]) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       translate.setTranslation(language, require(`../assets/i18n/${language}.json`));
       registerLocaleData(locale);
       log.debug(`Language ${language} registered.`);

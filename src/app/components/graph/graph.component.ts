@@ -216,7 +216,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
    *
    * @param alpha Alpha value (heat, activity) of the simulation
    */
-  public restart(alpha: number = 0.5): void {
+  public restart(alpha = 0.5): void {
     this.linkSelection = this.linkSelection!.data(this.graph!.links, (d: D3Link) => `${d.source.id}-${d.target.id}`).join((enter) => {
       const linkGroup = enter.append('g');
       linkGroup.append('path').classed('link', true).style('marker-end', 'url(#link-arrow');
@@ -477,7 +477,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     this.resetDraggableLink();
   }
 
-  private onZoom(event: D3ZoomEvent<any, any>): void {
+  private onZoom<E extends Element, D>(event: D3ZoomEvent<E, D>): void {
     this.xOffset = event.transform.x;
     this.yOffset = event.transform.y;
     this.scale = event.transform.k;

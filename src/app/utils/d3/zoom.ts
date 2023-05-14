@@ -3,7 +3,7 @@ import { D3ZoomEvent } from 'd3';
 
 export type Zoom = d3.ZoomBehavior<SVGSVGElement, undefined>;
 
-export function createZoom(onZoom: (event: D3ZoomEvent<any, any>) => void): Zoom {
+export function createZoom<E extends Element, D>(onZoom: (event: D3ZoomEvent<E, D>) => void): Zoom {
   return d3
     .zoom<SVGSVGElement, undefined>()
     .scaleExtent([0.33, 3])

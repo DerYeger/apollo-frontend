@@ -84,7 +84,7 @@ export class ExportGraphBottomSheet {
    *
    * @param graph The graph that will be sanitized.
    */
-  private sanitizeGraph(graph: FOLGraph): any {
+  private sanitizeGraph(graph: FOLGraph) {
     return {
       name: graph.name,
       description: graph.description,
