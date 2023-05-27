@@ -1,3 +1,10 @@
+## [2.5.37](https://github.com/DerYeger/apollo-frontend/compare/v2.5.36...v2.5.37) (2023-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ngrx-store-localstorage to v16 ([#178](https://github.com/DerYeger/apollo-frontend/issues/178)) ([bf6a66a](https://github.com/DerYeger/apollo-frontend/commit/bf6a66a85cd8c2fd9a3afc1d0f8674d62b7b83e9))
+
 ## [2.5.36](https://github.com/DerYeger/apollo-frontend/compare/v2.5.35...v2.5.36) (2023-05-27)
 
 
