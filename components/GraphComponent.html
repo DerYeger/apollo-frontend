@@ -13,7 +13,7 @@
     </head>
     <body>
 
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
             <a href="../" class="navbar-brand">Apollo-Frontend</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
@@ -35,32 +35,37 @@
 
 
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
   >
   GraphComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
         </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
     <h3>File</h3>
 </p>
 <p class="comment">
@@ -81,17 +86,18 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
-                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
-                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
-                    <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
+                <code>AfterViewInit</code>
+                <code>OnChanges</code>
+                <code>OnDestroy</code>
+                <code>AfterViewChecked</code>
     </p>
 
 
-<section>
+<section data-compodoc="block-metadata">
     <h3>Metadata</h3>
     <table class="table table-sm table-hover metadata">
         <tbody>
+
 
 
 
@@ -107,6 +113,8 @@
                 <td class="col-md-3">selector</td>
                 <td class="col-md-9"><code>apollo-graph[graph][allowEditing]</code></td>
             </tr>
+
+
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
@@ -131,7 +139,7 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -188,6 +196,7 @@
                                 <a href="#graphExportRequestsSubscription" >graphExportRequestsSubscription</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Readonly</span>
                                 <a href="#graphHost" >graphHost</a>
@@ -292,6 +301,7 @@
                                 <a href="#isBidirectional" >isBidirectional</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
                                 <a href="#ngAfterViewChecked" >ngAfterViewChecked</a>
                             </li>
@@ -461,7 +471,7 @@
     </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -547,7 +557,7 @@
         </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-inputs">
     <h3 id="inputs">Inputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -672,7 +682,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             </tbody>
         </table>
 </section>
-    <section>
+    <section data-compodoc="block-outputs">
     <h3 id="outputs">Outputs</h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -684,7 +694,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -705,7 +715,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -726,7 +736,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -747,7 +757,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -768,7 +778,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -789,7 +799,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+                        <i>Type : </i>    <code>EventEmitter</code>
 
                     </td>
                 </tr>
@@ -802,7 +812,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         </table>
 </section>
 
-    <section>
+    <section data-compodoc="block-methods">
     <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -844,7 +854,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         </tbody>
     </table>
 </section>
-    <section>
+    <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -1402,6 +1412,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="ngAfterViewChecked"></a>
                     <span class="name">
+                        <span class="modifier"></span>
                         <span class="modifier">Public</span>
                         <span ><b>ngAfterViewChecked</b></span>
                         <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
@@ -1498,7 +1509,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngOnChanges(changes: <a href="https://angular.io/api/core/SimpleChanges" target="_blank">SimpleChanges</a>)</code>
+                    <code>ngOnChanges(changes: SimpleChanges)</code>
                 </td>
             </tr>
 
@@ -1529,7 +1540,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                                 <tr>
                                     <td>changes</td>
                                     <td>
-                                                <code><a href="https://angular.io/api/core/SimpleChanges" target="_blank" >SimpleChanges</a></code>
+                                            <code>SimpleChanges</code>
                                     </td>
 
                                     <td>
@@ -2755,7 +2766,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
         </tbody>
     </table>
 </section>
-    <section>
+    <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
@@ -3024,6 +3035,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                 <td class="col-md-4">
                     <a name="graphHost"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier">Private</span>
                             <span class="modifier">Readonly</span>
                         <span ><b>graphHost</b></span>
@@ -3413,7 +3425,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
 </div>
 
 
-    <div class="tab-pane fade  tab-source-code" id="c-source">
+    <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, Output, SimpleChanges, ViewChild } from &#x27;@angular/core&#x27;;
 import { MatBottomSheet } from &#x27;@angular/material/bottom-sheet&#x27;;
 import { MatLegacyDialog as MatDialog } from &#x27;@angular/material/legacy-dialog&#x27;;
@@ -3925,7 +3937,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
+    <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;graph-tool-container&quot;&gt;
   &lt;button mat-icon-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;saveGraph()&quot; matTooltip&#x3D;&quot;{{ &#x27;actions.save&#x27; | translate }}&quot;&gt;
     &lt;mat-icon&gt;save&lt;/mat-icon&gt;
@@ -3959,7 +3971,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-styleData">
+    <div class="tab-pane fade " id="styleData">
                 <p class="comment">
                     <code>./graph.component.scss</code>
                 </p>
@@ -4084,7 +4096,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-tree">
+    <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
             <div class="title">
