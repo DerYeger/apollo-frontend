@@ -8375,10 +8375,10 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-ngrx-store-localstorage@15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-15.0.0.tgz#76050be74115f82b8f2701560fdfdb2fd8929bf1"
-  integrity sha512-DyALGeQV2N1fuNsETii5iLyFUGZZS6FYxltnF1D8pNK188KEp5ntwQ4kJ2Jc4lV1EcYqxalY3WuJWMH+QX+3qg==
+ngrx-store-localstorage@16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/ngrx-store-localstorage/-/ngrx-store-localstorage-16.0.0.tgz#84c95507c2eabf3701a170c78955033651d7b459"
+  integrity sha512-2aySPLexpmcXVe2ms83z0AoAWWR4yj8gg3hE6GNC6g6HIxJ0GVlA8KdDA5je0BFO1a6ew5LEiq6/b+tFlIDKEQ==
   dependencies:
     deepmerge "^4.2.2"
     tslib "^2.3.0"
