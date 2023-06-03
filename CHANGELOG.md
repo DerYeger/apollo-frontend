@@ -1,3 +1,10 @@
+## [2.5.39](https://github.com/DerYeger/apollo-frontend/compare/v2.5.38...v2.5.39) (2023-06-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v46 ([#179](https://github.com/DerYeger/apollo-frontend/issues/179)) ([b2cf65a](https://github.com/DerYeger/apollo-frontend/commit/b2cf65a65abe1b3bccd9d744888023833fd2cd96))
+
 ## [2.5.38](https://github.com/DerYeger/apollo-frontend/compare/v2.5.37...v2.5.38) (2023-06-03)
 
 
