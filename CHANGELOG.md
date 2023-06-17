@@ -1,3 +1,11 @@
+## [2.5.42](https://github.com/DerYeger/apollo-frontend/compare/v2.5.41...v2.5.42) (2023-06-17)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([#180](https://github.com/DerYeger/apollo-frontend/issues/180)) ([d789b4d](https://github.com/DerYeger/apollo-frontend/commit/d789b4d73b2e54c1ab071aa36da33589877ca802))
+* **deps:** update angular monorepo ([#181](https://github.com/DerYeger/apollo-frontend/issues/181)) ([9eb5780](https://github.com/DerYeger/apollo-frontend/commit/9eb57809f9044c4f74765601882c49b5acaed4a0))
+
 ## [2.5.41](https://github.com/DerYeger/apollo-frontend/compare/v2.5.40...v2.5.41) (2023-06-17)
 
 
