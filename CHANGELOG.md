@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/DerYeger/apollo-frontend/compare/v2.5.46...v2.6.0) (2023-07-04)
+
+
+### Features
+
+* update production backend url ([56bd085](https://github.com/DerYeger/apollo-frontend/commit/56bd085359d8e3d0b7487e2c4813b8ce40d2f498))
+
 ## [2.5.46](https://github.com/DerYeger/apollo-frontend/compare/v2.5.45...v2.5.46) (2023-07-01)
 
 
