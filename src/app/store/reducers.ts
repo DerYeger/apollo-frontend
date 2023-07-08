@@ -36,14 +36,14 @@ export const reducers: ActionReducerMap<State> = {
     on(setSidebar, (state, { expanded }) => ({ ...state, sidebar: expanded })),
     on(toggleSidebar, (state) => ({ ...state, sidebar: !state.sidebar })),
     on(toggleTheme, (state) => ({ ...state, theme: state.theme === 'dark-theme' ? 'light-theme' : 'dark-theme' })),
-    on(setSelectedFeedback, (state, { feedback }) => ({ ...state, selectedFeedback: feedback }))
+    on(setSelectedFeedback, (state, { feedback }) => ({ ...state, selectedFeedback: feedback })),
   ),
   assignments: createReducer<AssignmentCollection>(
     {},
     on(storeAssignment, (state, assignment) => setAssignment(state, assignment)),
     on(removeAssignmentFromStore, (state, { key }) => unsetAssignment(state, key)),
     on(markAssignmentAsCompleted, (state, { key }) => completeAssignment(state, key)),
-    on(clearAssignmentStore, (_) => ({}))
+    on(clearAssignmentStore, (_) => ({})),
   ),
   graphSettings: createReducer<GraphSettings>(
     {
@@ -52,20 +52,20 @@ export const reducers: ActionReducerMap<State> = {
     },
     on(enableSimulation, (state) => ({ ...state, enableSimulation: true })),
     on(toggleSimulation, (state) => ({ ...state, enableSimulation: !state.enableSimulation })),
-    on(toggleLabels, (state) => ({ ...state, showLabels: !state.showLabels }))
+    on(toggleLabels, (state) => ({ ...state, showLabels: !state.showLabels })),
   ),
   graphStore: createReducer<GraphCollection>(
     {},
     on(storeGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromStore, (state, { key }) => unsetGraph(state, key)),
-    on(clearGraphStore, (_) => ({}))
+    on(clearGraphStore, (_) => ({})),
   ),
   graphCache: createReducer<GraphCollection>(
     // eslint-disable-next-line @typescript-eslint/naming-convention
     { [exampleGraph.name]: exampleGraph },
     on(cacheGraph, (state, graph) => setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) => unsetGraph(state, key)),
-    on(clearGraphCache, (_) => ({}))
+    on(clearGraphCache, (_) => ({})),
   ),
 };
 

@@ -25,7 +25,7 @@ interface FlatTraceNode {
 export class ResultTreeDialog implements OnInit {
   public readonly treeControl = new FlatTreeControl<FlatTraceNode>(
     (node) => node.level,
-    (node) => node.expandable
+    (node) => node.expandable,
   );
 
   public readonly dataSource = new MatTreeFlatDataSource(
@@ -34,14 +34,14 @@ export class ResultTreeDialog implements OnInit {
       traceToFlatNode,
       (node) => node.level,
       (node) => node.expandable,
-      (node) => node.children
-    )
+      (node) => node.children,
+    ),
   );
 
   public constructor(
     private readonly dialogRef: MatDialogRef<ResultTreeDialog>,
     @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
-    private readonly snackBarService: SnackBarService
+    private readonly snackBarService: SnackBarService,
   ) {}
 
   public ngOnInit(): void {

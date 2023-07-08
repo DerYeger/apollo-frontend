@@ -36,7 +36,7 @@ export class AppComponent implements OnDestroy, OnInit {
     private readonly log: NGXLogger,
     private readonly store: Store<State>,
     private readonly translate: TranslateService,
-    private readonly updateService: UpdateService
+    private readonly updateService: UpdateService,
   ) {
     Object.entries(this.languages).forEach(([language, locale]) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -55,7 +55,7 @@ export class AppComponent implements OnDestroy, OnInit {
       .select('settings')
       .pipe(
         map((settings) => settings.language),
-        distinctUntilChanged()
+        distinctUntilChanged(),
       )
       .subscribe((language) => {
         if (language === undefined) {
@@ -72,13 +72,13 @@ export class AppComponent implements OnDestroy, OnInit {
       .select('settings')
       .pipe(
         map((settings) => settings.theme),
-        distinctUntilChanged()
+        distinctUntilChanged(),
       )
       .subscribe((theme) =>
         d3
           .select(document.body)
           .classed('dark-theme', 'dark-theme' === theme)
-          .classed('light-theme', 'light-theme' === theme)
+          .classed('light-theme', 'light-theme' === theme),
       );
 
     this.store.dispatch(setSidebar({ expanded: false }));

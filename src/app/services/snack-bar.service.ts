@@ -17,7 +17,12 @@ import { State } from 'src/app/store/state';
   providedIn: 'root',
 })
 export class SnackBarService {
-  public constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store<State>, private readonly log: NGXLogger) {}
+  public constructor(
+    private readonly snackBar: MatSnackBar,
+    private readonly translate: TranslateService,
+    private readonly store: Store<State>,
+    private readonly log: NGXLogger,
+  ) {}
 
   /**
    * Opens a SnackBar with the given message.

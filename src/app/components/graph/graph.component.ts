@@ -84,7 +84,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   // As a workaround, we emit a dummy value froma second observable to trigger the forkJoin and call TranslateService::get instead.
   public readonly controlsTooltipText: Observable<string> = concat(of(true), this.translate.onLangChange).pipe(
     mergeMap(() => forkJoin([this.translate.get('graph.controls.view'), this.translate.get('graph.controls.graph')])),
-    map(([view, controls]) => (this.allowEditing ? view + '\n' + controls : view))
+    map(([view, controls]) => (this.allowEditing ? view + '\n' + controls : view)),
   );
 
   public readonly graphSettings = this.store.select('graphSettings');
@@ -121,7 +121,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     private readonly store: Store<State>,
     private readonly translate: TranslateService,
     private readonly dialog: MatDialog,
-    private readonly bottomSheet: MatBottomSheet
+    private readonly bottomSheet: MatBottomSheet,
   ) {}
 
   /**
@@ -179,7 +179,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .open(SaveGraphDialog, {
           data: this.graph!.toDomainGraph(),
         })
-        .afterClosed()
+        .afterClosed(),
     ).then((domainGraph) => {
       if (domainGraph !== undefined) {
         this.saveRequested.emit(domainGraph);
@@ -322,7 +322,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       this.zoom,
       (event: PointerEvent) => this.onPointerMoved(event),
       (event: PointerEvent) => this.onPointerUp(event),
-      (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1])
+      (event) => this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]),
     );
     initMarkers(this.canvas, this.config);
     if (this.allowEditing) {
@@ -390,7 +390,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     return createDrag(
       (event, node) => this.onDragStart(event, node),
       (event, node) => this.onDrag(event, node),
-      (event, node) => this.onDragEnd(event, node)
+      (event, node) => this.onDragEnd(event, node),
     );
   }
 

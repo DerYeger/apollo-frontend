@@ -19,7 +19,7 @@ export function createSimulation(graph: D3Graph, config: GraphConfiguration, wid
           .forceLink<D3Node, D3Link>()
           .links(graph!.links)
           .id((d: D3Node) => d.id)
-          .distance(config.nodeRadius * 10)
+          .distance(config.nodeRadius * 10),
       )
       .force('x', d3.forceX<D3Node>(width / 2).strength(0.05))
       .force('y', d3.forceY<D3Node>(height / 2).strength(0.05));

@@ -23,7 +23,11 @@ const host = environment.backendUrl;
   providedIn: 'root',
 })
 export class BackendService {
-  public constructor(private readonly http: HttpClient, private readonly store: Store<State>, private translate: TranslateService) {}
+  public constructor(
+    private readonly http: HttpClient,
+    private readonly store: Store<State>,
+    private translate: TranslateService,
+  ) {}
 
   /**
    * Request the execution of the ModelChecking algorithm for the given graph, formula and feedback.

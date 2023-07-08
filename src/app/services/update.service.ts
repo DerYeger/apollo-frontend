@@ -15,7 +15,12 @@ export class UpdateService {
   private updateAvailableSubscription?: Subscription;
   private updateActivatedSubscription?: Subscription;
 
-  public constructor(private readonly appRef: ApplicationRef, private readonly dialog: MatDialog, private readonly log: NGXLogger, private readonly swUpdate: SwUpdate) {}
+  public constructor(
+    private readonly appRef: ApplicationRef,
+    private readonly dialog: MatDialog,
+    private readonly log: NGXLogger,
+    private readonly swUpdate: SwUpdate,
+  ) {}
 
   public start(): void {
     if (!this.swUpdate.isEnabled) {

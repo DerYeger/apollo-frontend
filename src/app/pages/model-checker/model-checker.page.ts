@@ -54,10 +54,10 @@ export class ModelCheckerPage implements OnDestroy {
           D3Graph.fromDomainGraph(graph).catch((error) => {
             this.snackBarService.openSnackBar(error);
             return new D3Graph();
-          })
-        )
-      )
-    )
+          }),
+        ),
+      ),
+    ),
   );
 
   private activeResultDialog?: MatDialogRef<ResultTreeDialog>;
@@ -68,7 +68,7 @@ export class ModelCheckerPage implements OnDestroy {
     private readonly route: ActivatedRoute,
     private readonly snackBarService: SnackBarService,
     private readonly backendService: BackendService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
   ) {}
 
   public ngOnDestroy(): void {

@@ -12,7 +12,7 @@ export function createCanvas(
   zoom: Zoom,
   onPointerMoved: (event: PointerEvent) => void,
   onPointerUp: (event: PointerEvent) => void,
-  onDoubleClick: (event: PointerEvent) => void
+  onDoubleClick: (event: PointerEvent) => void,
 ): Canvas {
   return host
     .append('svg')

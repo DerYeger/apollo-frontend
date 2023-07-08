@@ -29,7 +29,7 @@ export class AssignmentPage {
       if (assignment === undefined) {
         this.router.navigateByUrl('/assignments');
       }
-    })
+    }),
   );
 
   public readonly firstGraph = new D3Graph();
@@ -46,7 +46,7 @@ export class AssignmentPage {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly snackBarService: SnackBarService,
-    private readonly store: Store<State>
+    private readonly store: Store<State>,
   ) {}
 
   public submit() {

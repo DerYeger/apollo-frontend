@@ -22,7 +22,11 @@ import { State } from 'src/app/store/state';
 export class HomePage {
   public readonly storedGraphs = this.store.select('graphStore').pipe(map((graphs) => Object.values(graphs)));
 
-  public constructor(private readonly store: Store<State>, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
+  public constructor(
+    private readonly store: Store<State>,
+    private readonly router: Router,
+    private readonly snackBarService: SnackBarService,
+  ) {}
 
   public onGraphSelected(graph: FOLGraph): void {
     this.router.navigate(['model-checker'], { queryParams: graphCollectionQueryParams('graphStore', graph.name) });

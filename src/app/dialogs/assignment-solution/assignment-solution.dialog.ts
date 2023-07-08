@@ -17,7 +17,7 @@ export class AssignmentSolutionDialog {
     private readonly dialog: MatDialog,
     private readonly dialogRef: MatDialogRef<AssignmentSolutionDialog>,
     @Inject(MAT_DIALOG_DATA) public readonly result: AssignmentCheckResponse,
-    private readonly router: Router
+    private readonly router: Router,
   ) {}
 
   public showResultTreeDialog(trace: ModelCheckerTrace) {

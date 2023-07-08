@@ -10,7 +10,7 @@ export type NodeDragEvent = D3DragEvent<SVGCircleElement, D3Node, D3Node>;
 export function createDrag(
   onDragStart: (event: NodeDragEvent, d: D3Node) => void,
   onDrag: (event: NodeDragEvent, d: D3Node) => void,
-  onDragEnd: (event: NodeDragEvent, d: D3Node) => void
+  onDragEnd: (event: NodeDragEvent, d: D3Node) => void,
 ): Drag {
   return d3
     .drag<SVGGElement, D3Node, D3Node>()

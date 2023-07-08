@@ -24,7 +24,7 @@ export class ExportGraphBottomSheet {
     private readonly bottomSheetRef: MatBottomSheetRef<ExportGraphBottomSheet>,
     @Inject(MAT_BOTTOM_SHEET_DATA) private readonly graph: FOLGraph,
     private readonly clipboard: Clipboard,
-    private readonly snackBarService: SnackBarService
+    private readonly snackBarService: SnackBarService,
   ) {}
 
   /**

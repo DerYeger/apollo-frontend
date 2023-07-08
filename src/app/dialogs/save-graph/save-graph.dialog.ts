@@ -15,7 +15,10 @@ export class SaveGraphDialog {
   public readonly graphName: UntypedFormControl;
   public readonly graphDescription: UntypedFormControl;
 
-  public constructor(private readonly dialogRef: MatDialogRef<SaveGraphDialog>, @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph) {
+  public constructor(
+    private readonly dialogRef: MatDialogRef<SaveGraphDialog>,
+    @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph,
+  ) {
     this.graphName = new UntypedFormControl(graph.name, Validators.required);
     this.graphDescription = new UntypedFormControl(graph.description);
   }

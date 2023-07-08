@@ -14,7 +14,7 @@
   <!-- LastEdit Column -->
   <ng-container matColumnDef="lastEdit">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ "misc.last-edit" | translate }}</th>
-    <td mat-cell *matCellDef="let graph">{{ graph.lastEdit | date : "dd.MM.yyyy hh:mm" }}</td>
+    <td mat-cell *matCellDef="let graph">{{ graph.lastEdit | date: "dd.MM.yyyy hh:mm" }}</td>
   </ng-container>
 
   <!-- Actions Column -->
