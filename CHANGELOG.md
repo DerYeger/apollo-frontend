@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/DerYeger/apollo-frontend/compare/v2.6.1...v2.6.2) (2023-07-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jasmine-core to v5.0.1 ([b8c0e0d](https://github.com/DerYeger/apollo-frontend/commit/b8c0e0d9d457f0266f9b3fd9cdae189c89b30354))
+
 ## [2.6.1](https://github.com/DerYeger/apollo-frontend/compare/v2.6.0...v2.6.1) (2023-07-08)
 
 
