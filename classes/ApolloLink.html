@@ -300,7 +300,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/model/d3/d3.link.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/model/d3/d3.link.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -328,7 +328,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/model/d3/d3.link.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/model/d3/d3.link.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -369,7 +369,12 @@ export class ApolloLink implements D3Link {
   public readonly relations &#x3D; new Set&lt;string&gt;();
   public readonly functions &#x3D; new Set&lt;string&gt;();
 
-  public constructor(public readonly source: D3Node, public readonly target: D3Node, initialRelations?: string[], initialFunctions?: string[]) {
+  public constructor(
+    public readonly source: D3Node,
+    public readonly target: D3Node,
+    initialRelations?: string[],
+    initialFunctions?: string[],
+  ) {
     initialRelations?.forEach((relation) &#x3D;&gt; this.relations.add(relation));
     initialFunctions?.forEach((functions) &#x3D;&gt; this.functions.add(functions));
   }

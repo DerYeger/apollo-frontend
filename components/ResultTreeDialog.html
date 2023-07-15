@@ -685,8 +685,8 @@ Provides options to control the tree, depending on the feedback level.</p>
       traceToFlatNode,
       (node) &#x3D;&gt; node.level,
       (node) &#x3D;&gt; node.expandable,
-      (node) &#x3D;&gt; node.children
-    )
+      (node) &#x3D;&gt; node.children,
+    ),
   )</code>
                     </td>
                 </tr>
@@ -754,7 +754,7 @@ Provides options to control the tree, depending on the feedback level.</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>new FlatTreeControl&lt;FlatTraceNode&gt;(
     (node) &#x3D;&gt; node.level,
-    (node) &#x3D;&gt; node.expandable
+    (node) &#x3D;&gt; node.expandable,
   )</code>
                     </td>
                 </tr>
@@ -800,7 +800,7 @@ interface FlatTraceNode {
 export class ResultTreeDialog implements OnInit {
   public readonly treeControl &#x3D; new FlatTreeControl&lt;FlatTraceNode&gt;(
     (node) &#x3D;&gt; node.level,
-    (node) &#x3D;&gt; node.expandable
+    (node) &#x3D;&gt; node.expandable,
   );
 
   public readonly dataSource &#x3D; new MatTreeFlatDataSource(
@@ -809,14 +809,14 @@ export class ResultTreeDialog implements OnInit {
       traceToFlatNode,
       (node) &#x3D;&gt; node.level,
       (node) &#x3D;&gt; node.expandable,
-      (node) &#x3D;&gt; node.children
-    )
+      (node) &#x3D;&gt; node.children,
+    ),
   );
 
   public constructor(
     private readonly dialogRef: MatDialogRef&lt;ResultTreeDialog&gt;,
     @Inject(MAT_DIALOG_DATA) public readonly result: ModelCheckerResponse,
-    private readonly snackBarService: SnackBarService
+    private readonly snackBarService: SnackBarService,
   ) {}
 
   public ngOnInit(): void {

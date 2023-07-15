@@ -213,7 +213,7 @@ export class TraceComponent {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;trace&quot; [class.invalid]&#x3D;&quot;trace.isModel !&#x3D;&#x3D; trace.shouldBeModel&quot;&gt;
   &lt;span class&#x3D;&quot;formula&quot;&gt;{{ trace.formula }}&lt;/span&gt;
-  &lt;span class&#x3D;&quot;descriprion&quot;&gt;{{ trace.description.key | translate : trace.description.params }}&lt;/span&gt;
+  &lt;span class&#x3D;&quot;descriprion&quot;&gt;{{ trace.description.key | translate: trace.description.params }}&lt;/span&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -271,7 +271,7 @@ export class TraceComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="trace" [class.invalid]="trace.isModel !== trace.shouldBeModel">  <span class="formula">{{ trace.formula }}</span>  <span class="descriprion">{{ trace.description.key | translate : trace.description.params }}</span></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="trace" [class.invalid]="trace.isModel !== trace.shouldBeModel">  <span class="formula">{{ trace.formula }}</span>  <span class="descriprion">{{ trace.description.key | translate: trace.description.params }}</span></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'apollo-root'},{'name': 'AssignmentCardComponent', 'selector': 'apollo-assignment-card[assignment]'},{'name': 'AssignmentPage', 'selector': 'apollo-assignment'},{'name': 'AssignmentSolutionDialog', 'selector': 'apollo-assignment-solution'},{'name': 'AssignmentsPage', 'selector': 'apollo-assignments'},{'name': 'DashboardPage', 'selector': 'apollo-dashboard'},{'name': 'ExportGraphBottomSheet', 'selector': 'apollo-export-graph'},{'name': 'FeedbackSelectionComponent', 'selector': 'apollo-feedback-selection'},{'name': 'FormulaSyntaxDialog', 'selector': ''},{'name': 'GraphComponent', 'selector': 'apollo-graph[graph][allowEditing]'},{'name': 'GraphEditorComponent', 'selector': 'apollo-graph-editor[graph]'},{'name': 'GraphImportComponent', 'selector': 'apollo-graph-import'},{'name': 'GraphListComponent', 'selector': 'apollo-graph-list[graphs]'},{'name': 'HomePage', 'selector': 'apollo-home'},{'name': 'HttpProgressDialog', 'selector': ''},{'name': 'LinkFormComponent', 'selector': 'apollo-link-form[link]'},{'name': 'ModelCheckerPage', 'selector': 'apollo-model-checker'},{'name': 'NodeFormComponent', 'selector': 'apollo-node-form[node]'},{'name': 'ResultTreeDialog', 'selector': ''},{'name': 'SaveGraphDialog', 'selector': ''},{'name': 'SymbolEditorComponent', 'selector': 'apollo-symbol-editor[symbols][config]'},{'name': 'TraceComponent', 'selector': 'apollo-trace[trace]'},{'name': 'UpdateAvailableDialog', 'selector': 'apollo-update-available'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TraceComponent'};

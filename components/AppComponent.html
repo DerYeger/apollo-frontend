@@ -517,7 +517,7 @@ export class AppComponent implements OnDestroy, OnInit {
     private readonly log: NGXLogger,
     private readonly store: Store&lt;State&gt;,
     private readonly translate: TranslateService,
-    private readonly updateService: UpdateService
+    private readonly updateService: UpdateService,
   ) {
     Object.entries(this.languages).forEach(([language, locale]) &#x3D;&gt; {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -536,7 +536,7 @@ export class AppComponent implements OnDestroy, OnInit {
       .select(&#x27;settings&#x27;)
       .pipe(
         map((settings) &#x3D;&gt; settings.language),
-        distinctUntilChanged()
+        distinctUntilChanged(),
       )
       .subscribe((language) &#x3D;&gt; {
         if (language &#x3D;&#x3D;&#x3D; undefined) {
@@ -553,13 +553,13 @@ export class AppComponent implements OnDestroy, OnInit {
       .select(&#x27;settings&#x27;)
       .pipe(
         map((settings) &#x3D;&gt; settings.theme),
-        distinctUntilChanged()
+        distinctUntilChanged(),
       )
       .subscribe((theme) &#x3D;&gt;
         d3
           .select(document.body)
           .classed(&#x27;dark-theme&#x27;, &#x27;dark-theme&#x27; &#x3D;&#x3D;&#x3D; theme)
-          .classed(&#x27;light-theme&#x27;, &#x27;light-theme&#x27; &#x3D;&#x3D;&#x3D; theme)
+          .classed(&#x27;light-theme&#x27;, &#x27;light-theme&#x27; &#x3D;&#x3D;&#x3D; theme),
       );
 
     this.store.dispatch(setSidebar({ expanded: false }));

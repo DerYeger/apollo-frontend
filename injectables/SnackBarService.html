@@ -225,8 +225,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">src/app/services/snack-bar.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/services/snack-bar.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -304,8 +304,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">src/app/services/snack-bar.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/services/snack-bar.service.ts:34</a></div>
                 </td>
             </tr>
 
@@ -425,7 +425,12 @@ import { State } from &#x27;src/app/store/state&#x27;;
   providedIn: &#x27;root&#x27;,
 })
 export class SnackBarService {
-  public constructor(private readonly snackBar: MatSnackBar, private readonly translate: TranslateService, private readonly store: Store&lt;State&gt;, private readonly log: NGXLogger) {}
+  public constructor(
+    private readonly snackBar: MatSnackBar,
+    private readonly translate: TranslateService,
+    private readonly store: Store&lt;State&gt;,
+    private readonly log: NGXLogger,
+  ) {}
 
   /**
    * Opens a SnackBar with the given message.

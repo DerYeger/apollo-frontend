@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:33</a></div>
                 </td>
             </tr>
 
@@ -318,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:26</a></div>
                 </td>
             </tr>
 
@@ -372,7 +372,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/dialogs/save-graph/save-graph.dialog.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -458,7 +458,10 @@ export class SaveGraphDialog {
   public readonly graphName: UntypedFormControl;
   public readonly graphDescription: UntypedFormControl;
 
-  public constructor(private readonly dialogRef: MatDialogRef&lt;SaveGraphDialog&gt;, @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph) {
+  public constructor(
+    private readonly dialogRef: MatDialogRef&lt;SaveGraphDialog&gt;,
+    @Inject(MAT_DIALOG_DATA) public readonly graph: FOLGraph,
+  ) {
     this.graphName &#x3D; new UntypedFormControl(graph.name, Validators.required);
     this.graphDescription &#x3D; new UntypedFormControl(graph.description);
   }

@@ -293,8 +293,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:45</a></div>
                 </td>
             </tr>
 
@@ -332,8 +332,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:35</a></div>
                 </td>
             </tr>
 
@@ -403,8 +403,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:40</a></div>
                 </td>
             </tr>
 
@@ -474,8 +474,8 @@ Contains a list of (locally) saved graphs and the GraphImportComponent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/pages/home/home.page.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/pages/home/home.page.ts:31</a></div>
                 </td>
             </tr>
 
@@ -586,7 +586,11 @@ import { State } from &#x27;src/app/store/state&#x27;;
 export class HomePage {
   public readonly storedGraphs &#x3D; this.store.select(&#x27;graphStore&#x27;).pipe(map((graphs) &#x3D;&gt; Object.values(graphs)));
 
-  public constructor(private readonly store: Store&lt;State&gt;, private readonly router: Router, private readonly snackBarService: SnackBarService) {}
+  public constructor(
+    private readonly store: Store&lt;State&gt;,
+    private readonly router: Router,
+    private readonly snackBarService: SnackBarService,
+  ) {}
 
   public onGraphSelected(graph: FOLGraph): void {
     this.router.navigate([&#x27;model-checker&#x27;], { queryParams: graphCollectionQueryParams(&#x27;graphStore&#x27;, graph.name) });

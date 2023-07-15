@@ -243,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/services/update.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/services/update.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -282,8 +282,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">src/app/services/update.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/services/update.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -412,7 +412,12 @@ export class UpdateService {
   private updateAvailableSubscription?: Subscription;
   private updateActivatedSubscription?: Subscription;
 
-  public constructor(private readonly appRef: ApplicationRef, private readonly dialog: MatDialog, private readonly log: NGXLogger, private readonly swUpdate: SwUpdate) {}
+  public constructor(
+    private readonly appRef: ApplicationRef,
+    private readonly dialog: MatDialog,
+    private readonly log: NGXLogger,
+    private readonly swUpdate: SwUpdate,
+  ) {}
 
   public start(): void {
     if (!this.swUpdate.isEnabled) {

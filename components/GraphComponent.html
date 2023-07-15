@@ -2822,7 +2822,7 @@ For proper usage see GraphEditorComponent and ModelCheckerPage.</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>concat(of(true), this.translate.onLangChange).pipe(
     mergeMap(() &#x3D;&gt; forkJoin([this.translate.get(&#x27;graph.controls.view&#x27;), this.translate.get(&#x27;graph.controls.graph&#x27;)])),
-    map(([view, controls]) &#x3D;&gt; (this.allowEditing ? view + &#x27;\n&#x27; + controls : view))
+    map(([view, controls]) &#x3D;&gt; (this.allowEditing ? view + &#x27;\n&#x27; + controls : view)),
   )</code>
                     </td>
                 </tr>
@@ -3512,7 +3512,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
   // As a workaround, we emit a dummy value froma second observable to trigger the forkJoin and call TranslateService::get instead.
   public readonly controlsTooltipText: Observable&lt;string&gt; &#x3D; concat(of(true), this.translate.onLangChange).pipe(
     mergeMap(() &#x3D;&gt; forkJoin([this.translate.get(&#x27;graph.controls.view&#x27;), this.translate.get(&#x27;graph.controls.graph&#x27;)])),
-    map(([view, controls]) &#x3D;&gt; (this.allowEditing ? view + &#x27;\n&#x27; + controls : view))
+    map(([view, controls]) &#x3D;&gt; (this.allowEditing ? view + &#x27;\n&#x27; + controls : view)),
   );
 
   public readonly graphSettings &#x3D; this.store.select(&#x27;graphSettings&#x27;);
@@ -3549,7 +3549,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     private readonly store: Store&lt;State&gt;,
     private readonly translate: TranslateService,
     private readonly dialog: MatDialog,
-    private readonly bottomSheet: MatBottomSheet
+    private readonly bottomSheet: MatBottomSheet,
   ) {}
 
   /**
@@ -3607,7 +3607,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
         .open(SaveGraphDialog, {
           data: this.graph!.toDomainGraph(),
         })
-        .afterClosed()
+        .afterClosed(),
     ).then((domainGraph) &#x3D;&gt; {
       if (domainGraph !&#x3D;&#x3D; undefined) {
         this.saveRequested.emit(domainGraph);
@@ -3750,7 +3750,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
       this.zoom,
       (event: PointerEvent) &#x3D;&gt; this.onPointerMoved(event),
       (event: PointerEvent) &#x3D;&gt; this.onPointerUp(event),
-      (event) &#x3D;&gt; this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1])
+      (event) &#x3D;&gt; this.createNode(d3.pointer(event, this.canvas!.node())[0], d3.pointer(event, this.canvas!.node())[1]),
     );
     initMarkers(this.canvas, this.config);
     if (this.allowEditing) {
@@ -3818,7 +3818,7 @@ export class GraphComponent implements AfterViewInit, OnChanges, OnDestroy, Afte
     return createDrag(
       (event, node) &#x3D;&gt; this.onDragStart(event, node),
       (event, node) &#x3D;&gt; this.onDrag(event, node),
-      (event, node) &#x3D;&gt; this.onDragEnd(event, node)
+      (event, node) &#x3D;&gt; this.onDragEnd(event, node),
     );
   }
 

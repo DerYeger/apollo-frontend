@@ -216,8 +216,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">src/app/services/backend.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/services/backend.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -287,8 +287,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/services/backend.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/services/backend.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -397,8 +397,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/services/backend.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/services/backend.service.ts:55</a></div>
                 </td>
             </tr>
 
@@ -445,7 +445,11 @@ const host &#x3D; environment.backendUrl;
   providedIn: &#x27;root&#x27;,
 })
 export class BackendService {
-  public constructor(private readonly http: HttpClient, private readonly store: Store&lt;State&gt;, private translate: TranslateService) {}
+  public constructor(
+    private readonly http: HttpClient,
+    private readonly store: Store&lt;State&gt;,
+    private translate: TranslateService,
+  ) {}
 
   /**
    * Request the execution of the ModelChecking algorithm for the given graph, formula and feedback.

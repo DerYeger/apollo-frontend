@@ -290,7 +290,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/model/d3/d3.node.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/model/d3/d3.node.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -345,7 +345,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/model/d3/d3.node.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/model/d3/d3.node.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -373,7 +373,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/model/d3/d3.node.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/model/d3/d3.node.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -415,7 +415,13 @@ export class ApolloNode implements D3Node {
   public readonly relations &#x3D; new Set&lt;string&gt;();
   public readonly constants &#x3D; new Set&lt;string&gt;();
 
-  public constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
+  public constructor(
+    public readonly id: string,
+    initialRelations?: string[],
+    initialConstants?: string[],
+    public x?: number,
+    public y?: number,
+  ) {
     initialRelations?.forEach((relation) &#x3D;&gt; this.relations.add(relation));
     initialConstants?.forEach((constant) &#x3D;&gt; this.constants.add(constant));
   }

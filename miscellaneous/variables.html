@@ -1353,14 +1353,14 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
     on(setSidebar, (state, { expanded }) &#x3D;&gt; ({ ...state, sidebar: expanded })),
     on(toggleSidebar, (state) &#x3D;&gt; ({ ...state, sidebar: !state.sidebar })),
     on(toggleTheme, (state) &#x3D;&gt; ({ ...state, theme: state.theme &#x3D;&#x3D;&#x3D; &#x27;dark-theme&#x27; ? &#x27;light-theme&#x27; : &#x27;dark-theme&#x27; })),
-    on(setSelectedFeedback, (state, { feedback }) &#x3D;&gt; ({ ...state, selectedFeedback: feedback }))
+    on(setSelectedFeedback, (state, { feedback }) &#x3D;&gt; ({ ...state, selectedFeedback: feedback })),
   ),
   assignments: createReducer&lt;AssignmentCollection&gt;(
     {},
     on(storeAssignment, (state, assignment) &#x3D;&gt; setAssignment(state, assignment)),
     on(removeAssignmentFromStore, (state, { key }) &#x3D;&gt; unsetAssignment(state, key)),
     on(markAssignmentAsCompleted, (state, { key }) &#x3D;&gt; completeAssignment(state, key)),
-    on(clearAssignmentStore, (_) &#x3D;&gt; ({}))
+    on(clearAssignmentStore, (_) &#x3D;&gt; ({})),
   ),
   graphSettings: createReducer&lt;GraphSettings&gt;(
     {
@@ -1369,20 +1369,20 @@ Configured to store the state in the localStorage, excluding fields names &#39;c
     },
     on(enableSimulation, (state) &#x3D;&gt; ({ ...state, enableSimulation: true })),
     on(toggleSimulation, (state) &#x3D;&gt; ({ ...state, enableSimulation: !state.enableSimulation })),
-    on(toggleLabels, (state) &#x3D;&gt; ({ ...state, showLabels: !state.showLabels }))
+    on(toggleLabels, (state) &#x3D;&gt; ({ ...state, showLabels: !state.showLabels })),
   ),
   graphStore: createReducer&lt;GraphCollection&gt;(
     {},
     on(storeGraph, (state, graph) &#x3D;&gt; setGraph(state, graph)),
     on(removeGraphFromStore, (state, { key }) &#x3D;&gt; unsetGraph(state, key)),
-    on(clearGraphStore, (_) &#x3D;&gt; ({}))
+    on(clearGraphStore, (_) &#x3D;&gt; ({})),
   ),
   graphCache: createReducer&lt;GraphCollection&gt;(
     // eslint-disable-next-line @typescript-eslint/naming-convention
     { [exampleGraph.name]: exampleGraph },
     on(cacheGraph, (state, graph) &#x3D;&gt; setGraph(state, graph)),
     on(removeGraphFromCache, (state, { key }) &#x3D;&gt; unsetGraph(state, key)),
-    on(clearGraphCache, (_) &#x3D;&gt; ({}))
+    on(clearGraphCache, (_) &#x3D;&gt; ({})),
   ),
 }</code>
                     </td>

@@ -270,7 +270,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/model/d3/d3.graph.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -330,7 +330,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/model/d3/d3.graph.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/model/d3/d3.graph.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -399,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:66</a></div>
                 </td>
             </tr>
 
@@ -506,8 +506,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:52</a></div>
                 </td>
             </tr>
 
@@ -625,8 +625,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:44</a></div>
                 </td>
             </tr>
 
@@ -709,8 +709,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:19</a></div>
                 </td>
             </tr>
 
@@ -781,8 +781,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:30</a></div>
                 </td>
             </tr>
 
@@ -853,8 +853,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:26</a></div>
                 </td>
             </tr>
 
@@ -924,8 +924,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:109</a></div>
                 </td>
             </tr>
 
@@ -995,8 +995,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:93</a></div>
                 </td>
             </tr>
 
@@ -1066,8 +1066,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/model/d3/d3.graph.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/model/d3/d3.graph.ts:34</a></div>
                 </td>
             </tr>
 
@@ -1106,7 +1106,10 @@ export default class D3Graph {
   public readonly nodes: D3Node[] &#x3D; [];
   public readonly links: D3Link[] &#x3D; [];
 
-  public constructor(public readonly name &#x3D; &#x60;graph_${Date.now().toString()}&#x60;, public readonly description &#x3D; &#x27;&#x27;) {}
+  public constructor(
+    public readonly name &#x3D; &#x60;graph_${Date.now().toString()}&#x60;,
+    public readonly description &#x3D; &#x27;&#x27;,
+  ) {}
 
   public static async fromDomainGraph(domainGraph: FOLGraph): Promise&lt;D3Graph&gt; {
     const graph &#x3D; new D3Graph(domainGraph.name, domainGraph.description);

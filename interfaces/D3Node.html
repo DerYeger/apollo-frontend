@@ -439,7 +439,13 @@ export class ApolloNode implements D3Node {
   public readonly relations &#x3D; new Set&lt;string&gt;();
   public readonly constants &#x3D; new Set&lt;string&gt;();
 
-  public constructor(public readonly id: string, initialRelations?: string[], initialConstants?: string[], public x?: number, public y?: number) {
+  public constructor(
+    public readonly id: string,
+    initialRelations?: string[],
+    initialConstants?: string[],
+    public x?: number,
+    public y?: number,
+  ) {
     initialRelations?.forEach((relation) &#x3D;&gt; this.relations.add(relation));
     initialConstants?.forEach((constant) &#x3D;&gt; this.constants.add(constant));
   }

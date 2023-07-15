@@ -459,7 +459,7 @@
       if (assignment &#x3D;&#x3D;&#x3D; undefined) {
         this.router.navigateByUrl(&#x27;/assignments&#x27;);
       }
-    })
+    }),
   )</code>
                     </td>
                 </tr>
@@ -644,7 +644,7 @@ export class AssignmentPage {
       if (assignment &#x3D;&#x3D;&#x3D; undefined) {
         this.router.navigateByUrl(&#x27;/assignments&#x27;);
       }
-    })
+    }),
   );
 
   public readonly firstGraph &#x3D; new D3Graph();
@@ -661,7 +661,7 @@ export class AssignmentPage {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private readonly snackBarService: SnackBarService,
-    private readonly store: Store&lt;State&gt;
+    private readonly store: Store&lt;State&gt;,
   ) {}
 
   public submit() {

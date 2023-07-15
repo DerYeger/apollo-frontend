@@ -732,7 +732,7 @@
         default:
           return &#x27;determinate&#x27;;
       }
-    })
+    }),
   )</code>
                     </td>
                 </tr>
@@ -840,7 +840,7 @@ export class HttpProgressDialog&lt;T&gt; implements OnDestroy {
         default:
           return &#x27;determinate&#x27;;
       }
-    })
+    }),
   );
 
   private requestSubscription?: Subscription;
@@ -848,7 +848,7 @@ export class HttpProgressDialog&lt;T&gt; implements OnDestroy {
   public constructor(
     private readonly dialogRef: MatDialogRef&lt;HttpProgressDialog&lt;T&gt;&gt;,
     @Inject(MAT_DIALOG_DATA) private readonly request: Observable&lt;HttpEvent&lt;T&gt;&gt;,
-    private readonly snackBarService: SnackBarService
+    private readonly snackBarService: SnackBarService,
   ) {
     dialogRef.disableClose &#x3D; true;
     this.requestSubscription &#x3D; this.request.pipe(catchError((error) &#x3D;&gt; this.onError(error))).subscribe((event) &#x3D;&gt; {
