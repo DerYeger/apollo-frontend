@@ -1,3 +1,10 @@
+## [2.6.5](https://github.com/DerYeger/apollo-frontend/compare/v2.6.4...v2.6.5) (2023-07-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency prettier to v3 ([e2fae51](https://github.com/DerYeger/apollo-frontend/commit/e2fae51d6177b0febd13ca27f07c57fb5402120a))
+
 ## [2.6.4](https://github.com/DerYeger/apollo-frontend/compare/v2.6.3...v2.6.4) (2023-07-15)
 
 
