@@ -1,3 +1,10 @@
+## [2.6.27](https://github.com/DerYeger/apollo-frontend/compare/v2.6.26...v2.6.27) (2023-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update angular-eslint monorepo to v16.1.1 ([86acb0e](https://github.com/DerYeger/apollo-frontend/commit/86acb0e0930fa60fb45cab04676e8b17441d5ff5))
+
 ## [2.6.26](https://github.com/DerYeger/apollo-frontend/compare/v2.6.25...v2.6.26) (2023-08-26)
 
 
