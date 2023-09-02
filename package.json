@@ -47,7 +47,7 @@
     "ngx-logger": "5.0.12",
     "rxjs": "7.8.1",
     "tslib": "2.6.2",
-    "yaml": "2.3.1",
+    "yaml": "2.3.2",
     "zone.js": "0.13.1"
   },
   "devDependencies": {
@@ -61,13 +61,13 @@
     "@angular/compiler-cli": "16.2.2",
     "@compodoc/compodoc": "1.1.21",
     "@types/jasmine": "4.3.5",
-    "@types/node": "18.17.6",
+    "@types/node": "18.17.13",
     "@typescript-eslint/eslint-plugin": "6.4.1",
     "@typescript-eslint/parser": "6.4.1",
     "eslint": "^8.39.0",
     "eslint-import-resolver-typescript": "3.6.0",
     "eslint-plugin-import": "2.28.1",
-    "eslint-plugin-jsdoc": "46.4.6",
+    "eslint-plugin-jsdoc": "46.5.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "jasmine-core": "5.1.1",
     "jasmine-spec-reporter": "7.0.0",
@@ -76,7 +76,7 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
-    "prettier": "3.0.2",
+    "prettier": "3.0.3",
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
   }
