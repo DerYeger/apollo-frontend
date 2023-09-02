@@ -1,3 +1,10 @@
+## [2.6.31](https://github.com/DerYeger/apollo-frontend/compare/v2.6.30...v2.6.31) (2023-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update cycjimmy/semantic-release-action action to v4 ([#185](https://github.com/DerYeger/apollo-frontend/issues/185)) ([b3ebb7a](https://github.com/DerYeger/apollo-frontend/commit/b3ebb7a11f48fa0b7e854b67f39228a07c5be6f5))
+
 ## [2.6.30](https://github.com/DerYeger/apollo-frontend/compare/v2.6.29...v2.6.30) (2023-09-02)
 
 
