@@ -1,3 +1,10 @@
+## [2.6.41](https://github.com/DerYeger/apollo-frontend/compare/v2.6.40...v2.6.41) (2023-09-09)
+
+
+### Bug Fixes
+
+* **deps:** update actions/checkout action to v4 ([#186](https://github.com/DerYeger/apollo-frontend/issues/186)) ([cbf387f](https://github.com/DerYeger/apollo-frontend/commit/cbf387fe5749a6a45cbadc9e7cac95b19a1842e3))
+
 ## [2.6.40](https://github.com/DerYeger/apollo-frontend/compare/v2.6.39...v2.6.40) (2023-09-09)
 
 
