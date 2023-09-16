@@ -1,3 +1,10 @@
+## [2.6.46](https://github.com/DerYeger/apollo-frontend/compare/v2.6.45...v2.6.46) (2023-09-16)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([fec89b6](https://github.com/DerYeger/apollo-frontend/commit/fec89b60944a9e4fc4606a184ffce9035e7d3c62))
+
 ## [2.6.45](https://github.com/DerYeger/apollo-frontend/compare/v2.6.44...v2.6.45) (2023-09-11)
 
 
