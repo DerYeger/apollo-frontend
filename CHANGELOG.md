@@ -1,3 +1,10 @@
+## [2.6.69](https://github.com/DerYeger/apollo-frontend/compare/v2.6.68...v2.6.69) (2023-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @ngrx/store to v16.3.0 ([f044c3d](https://github.com/DerYeger/apollo-frontend/commit/f044c3d5caa92d33dde05566ce5fd05da9584158))
+
 ## [2.6.68](https://github.com/DerYeger/apollo-frontend/compare/v2.6.67...v2.6.68) (2023-10-07)
 
 
