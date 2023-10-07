@@ -1,3 +1,10 @@
+## [2.6.65](https://github.com/DerYeger/apollo-frontend/compare/v2.6.64...v2.6.65) (2023-10-07)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to v16.2.8 ([87d9876](https://github.com/DerYeger/apollo-frontend/commit/87d987613c413e1f04438a609ae69f1fa65269b1))
+
 ## [2.6.64](https://github.com/DerYeger/apollo-frontend/compare/v2.6.63...v2.6.64) (2023-09-30)
 
 
