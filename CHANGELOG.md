@@ -1,3 +1,10 @@
+## [2.6.74](https://github.com/DerYeger/apollo-frontend/compare/v2.6.73...v2.6.74) (2023-10-14)
+
+
+### Bug Fixes
+
+* **deps:** update typescript-eslint monorepo to v6.7.5 ([2f2777b](https://github.com/DerYeger/apollo-frontend/commit/2f2777b049002a4ecdc7f73ab414098f0194b3fe))
+
 ## [2.6.73](https://github.com/DerYeger/apollo-frontend/compare/v2.6.72...v2.6.73) (2023-10-14)
 
 
