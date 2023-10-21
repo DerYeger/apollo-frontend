@@ -1,3 +1,10 @@
+## [2.6.78](https://github.com/DerYeger/apollo-frontend/compare/v2.6.77...v2.6.78) (2023-10-21)
+
+
+### Bug Fixes
+
+* **deps:** update node.js to v21 ([#188](https://github.com/DerYeger/apollo-frontend/issues/188)) ([fa39a0a](https://github.com/DerYeger/apollo-frontend/commit/fa39a0a0be0f39f20fdd79e3d6aa76e23b5dc306))
+
 ## [2.6.77](https://github.com/DerYeger/apollo-frontend/compare/v2.6.76...v2.6.77) (2023-10-21)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "apollo-frontend",
-  "version": "2.6.77",
+  "version": "2.6.78",
   "description": "A web application for first-order model checking in graph structures.",
   "license": "BSD-3-Clause",
   "homepage": "https://github.com/DerYeger/apollo-frontend",
