@@ -1,3 +1,10 @@
+## [2.6.83](https://github.com/DerYeger/apollo-frontend/compare/v2.6.82...v2.6.83) (2023-10-23)
+
+
+### Bug Fixes
+
+* **deps:** lock file maintenance ([0e6c2fc](https://github.com/DerYeger/apollo-frontend/commit/0e6c2fcf9bcb2e22607927792107203f38144e98))
+
 ## [2.6.82](https://github.com/DerYeger/apollo-frontend/compare/v2.6.81...v2.6.82) (2023-10-21)
 
 
