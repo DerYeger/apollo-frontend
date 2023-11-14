@@ -4,8 +4,8 @@
 @import "src/app/dialogs/result-tree/result-tree.dialog";
 @import "src/app/pages/dashboard/dashboard.page";
 
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
+@include mat.all-component-typographies();
+@include mat.core();
 
 @mixin component-themes($theme) {
   @include graph-theme($theme);
@@ -14,11 +14,11 @@
 }
 
 .light-theme {
-  @include mat.all-legacy-component-themes($light-theme);
+  @include mat.all-component-themes($light-theme);
   @include component-themes($light-theme);
 }
 
 .dark-theme {
-  @include mat.all-legacy-component-colors($dark-theme);
+  @include mat.all-component-colors($dark-theme);
   @include component-themes($dark-theme);
 }

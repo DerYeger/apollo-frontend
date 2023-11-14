@@ -1,5 +1,5 @@
 import { ApplicationRef, Injectable } from '@angular/core';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SwUpdate } from '@angular/service-worker';
 import { NGXLogger } from 'ngx-logger';
 import { concat, interval, Subscription } from 'rxjs';
@@ -39,18 +39,17 @@ export class UpdateService {
       return this.swUpdate.checkForUpdate();
     });
 
-    this.updateAvailableSubscription = this.swUpdate.available.subscribe(() => {
+    this.swUpdate.checkForUpdate().then(() => {
       this.log.debug('Update available');
       this.dialog
         .open(UpdateAvailableDialog)
         .afterClosed()
-        .subscribe(() => {
+        .subscribe(async () => {
           this.log.debug('Updating');
-          return this.swUpdate.activateUpdate().then(() => document.location.reload());
+          await this.swUpdate.activateUpdate();
+          return document.location.reload();
         });
     });
-
-    this.updateActivatedSubscription = this.swUpdate.activated.subscribe(() => this.log.info('Updated'));
 
     this.log.debug('UpdateService started');
   }
