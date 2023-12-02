@@ -1,3 +1,10 @@
+## [2.6.113](https://github.com/DerYeger/apollo-frontend/compare/v2.6.112...v2.6.113) (2023-12-02)
+
+
+### Bug Fixes
+
+* **deps:** update node.js to 5fc1d09 ([1d2587c](https://github.com/DerYeger/apollo-frontend/commit/1d2587c9a923d6c6c91fc4c788a301e68015b4c9))
+
 ## [2.6.112](https://github.com/DerYeger/apollo-frontend/compare/v2.6.111...v2.6.112) (2023-12-02)
 
 
