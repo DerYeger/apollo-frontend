@@ -68,7 +68,7 @@ jobs:
         with:
           args: zip -qq -r ./apollo-frontend.zip ./dist/
       - name: Release assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: apollo-frontend.zip
         env:
