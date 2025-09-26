@@ -23,8 +23,8 @@
 </p>
 
 <p align="center">
-   <a href="https://apollo.yeger.eu/">
-    apollo.yeger.eu
+   <a href="https://apollo.janmueller.dev/">
+    apollo.janmueller.dev
   </a>
 </p>
 
@@ -98,3 +98,4 @@ Run `docker-compose up -d --build` to build and start a container. Alternatively
 ## License
 
 [BSD 3-Clause License](./LICENSE) - Copyright &copy; Jan Müller
+
